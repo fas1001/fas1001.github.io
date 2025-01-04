@@ -2379,8 +2379,11 @@ button:active,
 }
 
 #main > section.one {
-  background-color: #81918e;
+  background-color: #111827; /* Dark fallback color */
   background-image: url("../../images/banner.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #main > section.two {
