@@ -2381,9 +2381,10 @@ button:active,
 #main > section.one {
   background-color: #111827; /* Dark fallback color */
   background-image: url("../../images/banner.svg");
-  background-size: cover;
+  background-size: contain; /* or 'cover' depending on your preference */
   background-position: center;
   background-repeat: no-repeat;
+  height: 120px; /* You can adjust this value to control the banner height */
 }
 
 #main > section.two {
