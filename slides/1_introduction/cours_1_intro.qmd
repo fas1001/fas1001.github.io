@@ -1,0 +1,169 @@
+---
+title: "Introduction aux mégadonnées en sciences sociales (FAS 1001)"
+subtitle: "Cours 1: Introduction"
+author: "Laurence-Olivier M. Foisy"
+date: today
+date-format: long
+lang: fr
+from: markdown+emoji
+format:  
+  revealjs: 
+    theme: default
+    width: 1920
+    height: 1080
+    preview-links: auto
+    transition: slide
+    background-transition: fade
+    code-fold: false
+    code-overflow: wrap
+---
+
+# Votre prof cette session :wave:
+
+:::{style="text-align:center;"}
+
+![](_photos/photo1.jpeg){.fragment width="750" height="900"}
+
+:::
+
+
+## Votre prof cette session :wave:
+
+::: {.fragment .fade-in}
+::: callout-note
+-   Étude: Science politique (au doctorat)
+:::
+:::
+
+::: {.fragment .fade-in}
+::: callout-note
+-   Champs: Opinion publique, comportements électoraux, identité politique
+:::
+:::
+
+::: {.fragment .fade-in}
+::: callout-note
+-   [Chaire de recherche du Canada en démocratie électorale](https://www.chairedemocratie.com/members/frechet-nadjim/){preview-link="true"}
+:::
+:::
+
+## Mon parcours en science des données rapidement
+
+:::: {layout="[ 40, 60 ]"}
+
+::: {#first-column}
+![](_photos/yannick.jpg){.fragment width="560" height="700" fig-align="left"}
+:::
+
+::: {#second-column}
+
+::: {.fragment .fade-in}
+::: callout-note
+-   Professeur Yannick Dufresne (Université Laval)
+:::
+:::
+
+::: {.fragment .fade-in}
+::: callout-note
+-   [Un des fondateurs de la Boussole électorale](https://boussoleelectorale.com/){preview-link="true"}
+:::
+:::
+
+::: {.none}
+![](_photos/boussole_electorale.png){.fragment width="450" height="450" fig-align="center"}
+:::
+
+:::
+
+::::
+
+## Mon parcours en science des données rapidement
+
+::: {.fragment .fade-in}
+::: callout-note
+-   [Un des fondateurs étudiants de la CLESSN](https://www.clessn.com/){preview-link="true"}
+:::
+:::
+
+
+::: {.fragment .fade-in}
+::: callout-note
+-   [Radar+](https://www.clessn.com/radar/index.html){preview-link="true"}
+:::
+:::
+
+
+::: {.fragment .fade-in}
+::: callout-note
+-   [Projet Quorum](https://projetquorum.com/){preview-link="true"}
+:::
+:::
+
+::: {.fragment .fade-in}
+::: callout-note
+-   [Finalement Datagotchi](https://datagotchi.com/){preview-link="true"}
+:::
+:::
+
+## Et vous maintenant? 
+
+::: {style="font-size:1000%;text-align:center;"}
+:grin:
+:::
+
+# Les "mégadonnées" ou le "Big data" :thinking:
+
+
+![](_photos/google_trends_big_data.png){.fragment width="1000" height="750" fig-align="center"}
+
+## 3 conditions pour que les données soit des mégadonnées (ou les 3Vs)
+
+::: {.fragment .fade-in}
+::: panel-tabset
+
+### Condition 1
+::: {.callout-warning collapse="true"}
+**Volume:** Les données doivent être massives!!! Un grand nombre d'observations. 10 téraoctets? 100 Pétaoctets?
+:::
+
+### Condition 2
+
+::: {.callout-warning collapse="true"}
+**Vélocité:** Rentrée de données en temps réel. Un flot continu de données.
+:::
+
+### Condition 3
+
+::: {.callout-warning collapse="true"}
+**Variété:** Types de données. Textes, sondages, vidéo, audio, etc.
+:::
+
+:::
+:::
+
+## PLus un cours d'introduction sur la science des données en sciences sociales
+
+::: {style="font-size:1000%;text-align:center;"}
+:bulb:
+:::
+
+# Le plan de cours 
+
+:::{style="font-size:1000%;text-align:center;"}
+![](_photos/bored-male-high-school-student.jpeg){.fragment width="1500" height="1000"}
+:::
+
+# Devoirs:
+
+:::{style="font-size:250%;text-align:center;"}
+Lire les chapitres 3 et 4.
+:::
+
+```{r, echo=TRUE, eval=TRUE}
+code <- "anakin"
+if (code == "obi_wan") {
+  print("The Galaxy is saved")
+  } else {
+    print("Order 66")
+  }
+```
