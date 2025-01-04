@@ -1,28 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 200">
   <!-- Background gradient -->
   <defs>
-    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y1="0%">
-      <stop offset="0%" style="stop-color:#111827"/>
-      <stop offset="50%" style="stop-color:#1e3a8a"/>
-      <stop offset="100%" style="stop-color:#111827"/>
+    <linearGradient id="backgroundGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#111827"/>
     </linearGradient>
     
-    <!-- Bottom line gradient -->
-    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y1="0%">
-      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:0"/>
-      <stop offset="50%" style="stop-color:#60A5FA;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:0"/>
+    <linearGradient id="lineGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
   <!-- Main background -->
-  <rect width="1200" height="200" fill="url(#backgroundGradient)"/>
+  <rect width="100%" height="100%" fill="url(#backgroundGradient)"/>
 
-  <!-- Logo container with blue background -->
+  <!-- Logo container -->
   <g transform="translate(40, 30)">
     <rect width="140" height="140" fill="#1e40af" rx="8"/>
     
-    <!-- Logo content (scaled down version of the original logo) -->
+    <!-- Logo content -->
     <g transform="scale(0.35)">
       <!-- Data Visualization Bars -->
       <g transform="translate(100, 100)">
@@ -52,19 +51,13 @@
         <rect x="90" y="25" width="10" height="25" fill="white"/>
         <rect x="75" y="40" width="25" height="10" fill="white"/>
         
-        <!-- 1 -->
+        <!-- Numbers -->
         <rect x="115" y="0" width="15" height="50" fill="white"/>
         <rect x="110" y="0" width="10" height="10" fill="white"/>
-        
-        <!-- 0 -->
         <rect x="140" y="0" width="25" height="50" fill="white"/>
         <rect x="150" y="10" width="5" height="30" fill="#1E40AF"/>
-        
-        <!-- 0 -->
         <rect x="175" y="0" width="25" height="50" fill="white"/>
         <rect x="185" y="10" width="5" height="30" fill="#1E40AF"/>
-        
-        <!-- 1 -->
         <rect x="210" y="0" width="15" height="50" fill="white"/>
         <rect x="205" y="0" width="10" height="10" fill="white"/>
       </g>
@@ -72,21 +65,15 @@
   </g>
 
   <!-- Course Text -->
-  <text x="200" y="80" fill="white" font-size="48" font-family="Arial, sans-serif" font-weight="bold">FAS1001</text>
-  <text x="200" y="120" fill="#bfdbfe" font-size="24" font-family="Arial, sans-serif">Introduction aux mégadonnées en sciences sociales</text>
+  <text x="200" y="80" fill="white" style="font-size: 48px; font-family: Arial, sans-serif; font-weight: bold;">FAS1001</text>
+  <text x="200" y="120" fill="#bfdbfe" style="font-size: 24px; font-family: Arial, sans-serif;">Introduction aux mégadonnées en sciences sociales</text>
 
-  <!-- Decorative bars on the right -->
+  <!-- Decorative elements -->
   <g transform="translate(900, 60)">
     <rect x="0" y="0" width="12" height="24" fill="#3b82f6" opacity="0.3"/>
     <rect x="20" y="0" width="12" height="36" fill="#3b82f6" opacity="0.5"/>
     <rect x="40" y="0" width="12" height="48" fill="#3b82f6" opacity="0.7"/>
     <rect x="60" y="0" width="12" height="60" fill="#3b82f6" opacity="0.9"/>
-  </g>
-
-  <!-- Database icon -->
-  <g transform="translate(1000, 60)">
-    <path d="M12 5C7.58 5 4 6.79 4 9V11C4 13.21 7.58 15 12 15C16.42 15 20 13.21 20 11V9C20 6.79 16.42 5 12 5Z" 
-          fill="#60a5fa" opacity="0.6" transform="scale(2)"/>
   </g>
 
   <!-- Bottom line -->
