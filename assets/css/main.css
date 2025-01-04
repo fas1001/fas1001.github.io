@@ -2379,12 +2379,11 @@ button:active,
 }
 
 #main > section.one {
-  background-color: #111827; /* Dark fallback color */
   background-image: url("../../images/banner.svg");
-  background-size: contain; /* or 'cover' depending on your preference */
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  height: 65px; /* You can adjust this value to control the banner height */
+  position: relative;
+  width: 100%;
 }
 
 #main > section.two {
