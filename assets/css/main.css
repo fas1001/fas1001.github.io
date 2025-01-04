@@ -2380,7 +2380,7 @@ button:active,
 
 #main > section.one {
   background-color: #81918e;
-  background-image: url("../../images/udem.jpg");
+  background-image: url("../../images/banner.svg");
 }
 
 #main > section.two {
@@ -2766,4 +2766,3 @@ button:active,
     margin-top: 0;
   }
 }
-
