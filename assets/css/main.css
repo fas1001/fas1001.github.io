@@ -2384,7 +2384,7 @@ button:active,
   background-size: contain; /* or 'cover' depending on your preference */
   background-position: center;
   background-repeat: no-repeat;
-  height: 120px; /* You can adjust this value to control the banner height */
+  height: 65px; /* You can adjust this value to control the banner height */
 }
 
 #main > section.two {
