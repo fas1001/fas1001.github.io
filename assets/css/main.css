@@ -2839,3 +2839,66 @@ button:active,
   opacity: 1;
   transform: translateX(0);
 }
+
+.calendar-section {
+  padding: 3rem 0;
+}
+
+.table-container {
+  margin: 2rem auto;
+  max-width: 900px;
+  overflow-x: auto;
+  background: linear-gradient(to right, #1e3a8a, #1e40af);
+  border-radius: 12px;
+  padding: 1px;
+}
+
+.evaluation-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1px;
+  background: #f8fafc;
+}
+
+.evaluation-table thead {
+  background: linear-gradient(to right, #1e3a8a, #1e40af);
+}
+
+.evaluation-table th {
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.evaluation-table td {
+  padding: 1rem;
+  background: white;
+  transition: background-color 0.2s ease;
+}
+
+.evaluation-table tr:hover td {
+  background: #f1f5f9;
+}
+
+.evaluation-table .total-row {
+  font-weight: 600;
+}
+
+.evaluation-table .total-row td {
+  background: #f8fafc;
+  border-top: 2px solid #1e3a8a;
+}
+
+/* Make the table responsive */
+@media (max-width: 768px) {
+  .table-container {
+    margin: 2rem -1rem;
+    border-radius: 0;
+  }
+
+  .evaluation-table th,
+  .evaluation-table td {
+    padding: 0.75rem;
+  }
+}
