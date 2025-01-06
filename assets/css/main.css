@@ -2769,3 +2769,73 @@ button:active,
     margin-top: 0;
   }
 }
+
+.syllabus-link {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: transform 0.2s ease;
+}
+
+.syllabus-link:hover {
+  transform: translateY(-5px);
+}
+
+.syllabus-card {
+  background: linear-gradient(to right, #1e3a8a, #1e40af);
+  border-radius: 12px;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.syllabus-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.syllabus-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+}
+
+.syllabus-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: white;
+}
+
+.syllabus-card h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.syllabus-card p {
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  color: #bfdbfe;
+}
+
+.hover-arrow {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.2s ease;
+}
+
+.syllabus-card:hover .hover-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
