@@ -34,7 +34,7 @@ format:
 :::: {layout="[ 40, 60 ]"}
 
 ::: {#first-column}
-![](slides/1_introduction/_photos/yannick.jpg){.fragment width="560" height="700" fig-align="left"}
+![](https://github.com/fas1001/fas1001.github.io/blob/main/slides/1_introduction/_photos/yannick.jpg?raw=true){.fragment width="560" height="700" fig-align="left"}
 :::
 
 ::: {#second-column}
