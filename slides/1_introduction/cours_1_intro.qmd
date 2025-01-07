@@ -27,32 +27,14 @@ format:
 :::
 
 
-## Votre prof cette session :wave:
-
-::: {.fragment .fade-in}
-::: callout-note
--   Étude: Science politique (au doctorat)
-:::
-:::
-
-::: {.fragment .fade-in}
-::: callout-note
--   Champs: Opinion publique, comportements électoraux, identité politique
-:::
-:::
-
-::: {.fragment .fade-in}
-::: callout-note
--   [Chaire de recherche du Canada en démocratie électorale](https://www.chairedemocratie.com/members/frechet-nadjim/){preview-link="true"}
-:::
-:::
+## 
 
 ## Mon parcours en science des données rapidement
 
 :::: {layout="[ 40, 60 ]"}
 
 ::: {#first-column}
-![](_photos/yannick.jpg){.fragment width="560" height="700" fig-align="left"}
+![](slides/1_introduction/_photos/yannick.jpg){.fragment width="560" height="700" fig-align="left"}
 :::
 
 ::: {#second-column}
