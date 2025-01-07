@@ -48,7 +48,7 @@ format:
 
 ::::
 
-## Et vous maintenant? 
+## Et vous? 
 
 - Vos programmes d'études?
 - Votre connaissance en R?
@@ -56,41 +56,85 @@ format:
 - Savez-vous c'est quoi un API?
 - Pourquoi avez-vous pris ce cours?
 
-# Les "mégadonnées" ou le "Big data" :thinking:
+## Qu'est-ce que des mégadonnées? {auto-animate=true}
 
+### Les trois V ?
 
-![](_photos/google_trends_big_data.png){.fragment width="1000" height="750" fig-align="center"}
+- Volume
+- Vélocité
+- Variété
 
-## 3 conditions pour que les données soit des mégadonnées (ou les 3Vs)
+## Qu'est-ce que des mégadonnées? {auto-animate=true}
 
-::: {.fragment .fade-in}
-::: panel-tabset
+### Les cinq V ?
 
-### Condition 1
-::: {.callout-warning collapse="true"}
-**Volume:** Les données doivent être massives!!! Un grand nombre d'observations. 10 téraoctets? 100 Pétaoctets?
+- Volume
+- Vélocité
+- Variété
+- Véracité
+- Valeur
+
+## Qu'est-ce que des mégadonnées? {auto-animate=true}
+
+### Les sept V ?
+
+- Volume
+- Vélocité
+- Variété
+- Véracité
+- Valeur
+- Vague
+- Vide de sens
+
+## Qu'est-ce que des mégadonnées? {.smaller auto-animate=true}
+
+### LES NEUF V ? :open_mouth:
+
+- Volume
+- Vélocité
+- Variété
+- Véracité
+- Valeur
+- Vague
+- Vide de sens
+- Variabilité
+- Vorace
+
+## Qu'est-ce que des mégadonnées? {.smaller auto-animate=true}
+
+### Combien de "V" peut-on intégrer dans un concept ?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Volume
+- Vélocité
+- Variété
+- Véracité
+- Valeur
+- Vague
+- Vide de sens
+
 :::
 
-### Condition 2
+::: {.column width="50%"}
 
-::: {.callout-warning collapse="true"}
-**Vélocité:** Rentrée de données en temps réel. Un flot continu de données.
-:::
-
-### Condition 3
-
-::: {.callout-warning collapse="true"}
-**Variété:** Types de données. Textes, sondages, vidéo, audio, etc.
-:::
+- Variabilité
+- Vorace
+- Visualisabilité
+- Volatilité
+- Vulnérabilité
+- Vérifiabilité
 
 :::
-:::
+
+::::
+
 
 ## PLus un cours d'introduction sur la science des données en sciences sociales
 
-::: {style="font-size:1000%;text-align:center;"}
-:bulb:
-:::
+
 
 # Le plan de cours 
 
