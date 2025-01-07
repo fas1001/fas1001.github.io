@@ -1,97 +1,60 @@
 ---
-title: "Introduction aux mégadonnées en sciences sociales (FAS 1001)"
+title: "Introduction aux mégadonnées en sciences sociales"
 subtitle: "Cours 1: Introduction"
-author: "Laurence-Olivier M. Foisy"
-date: today
-date-format: long
+author: Laurence-Olivier M. Foisy
+institute: Université de Montréal
 lang: fr
 from: markdown+emoji
-format:  
-  revealjs: 
-    theme: default
-    width: 1920
-    height: 1080
-    preview-links: auto
+format:
+  revealjs:
+    mermaid: 
+      theme: dark
+    theme: simple
+    logo: https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Universite_de_Montreal_logo.svg/1920px-Universite_de_Montreal_logo.svg.png
+    footer: "FAS 1001 : Introduction"
     transition: slide
-    background-transition: fade
+    transition-speed: fast
     code-fold: false
     code-overflow: wrap
 ---
 
-# Votre prof cette session :wave:
+## Votre chargé de cours {.biggest}
 
-:::{style="text-align:center;"}
+- Laurence-Olivier M. Foisy
+- Courriel: [lomf0@ulaval.ca](mailto:lomf0@ulaval.ca)
+- Meilleure façon de me rejoindre: Slack
+- Bureau: Aucun
+- Université: Laval 
 
-![](_photos/photo1.jpeg){.fragment width="750" height="900"}
+## Mon parcours en science des données {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](https://www.clessn.com/assets/img/logo-black.svg)
 
 :::
 
+::: {.column width="50%"}
 
-## 
-
-## Mon parcours en science des données rapidement
-
-:::: {layout="[ 40, 60 ]"}
-
-::: {#first-column}
-![](https://github.com/fas1001/fas1001.github.io/blob/main/slides/1_introduction/_photos/yannick.jpg?raw=true){.fragment width="560" height="700" fig-align="left"}
-:::
-
-::: {#second-column}
-
-::: {.fragment .fade-in}
-::: callout-note
--   Professeur Yannick Dufresne (Université Laval)
-:::
-:::
-
-::: {.fragment .fade-in}
-::: callout-note
--   [Un des fondateurs de la Boussole électorale](https://boussoleelectorale.com/){preview-link="true"}
-:::
-:::
-
-::: {.none}
-![](_photos/boussole_electorale.png){.fragment width="450" height="450" fig-align="center"}
-:::
+- Maitrise au Japon en études de la paix, 100% quali
+- Arrivée au doctorat en 2023
+- Rencontre avec le directeur de la CLESSN
+- Ouverture au monde de la science des données
+- Participation à plusieurs projets de recherche
 
 :::
 
 ::::
 
-## Mon parcours en science des données rapidement
-
-::: {.fragment .fade-in}
-::: callout-note
--   [Un des fondateurs étudiants de la CLESSN](https://www.clessn.com/){preview-link="true"}
-:::
-:::
-
-
-::: {.fragment .fade-in}
-::: callout-note
--   [Radar+](https://www.clessn.com/radar/index.html){preview-link="true"}
-:::
-:::
-
-
-::: {.fragment .fade-in}
-::: callout-note
--   [Projet Quorum](https://projetquorum.com/){preview-link="true"}
-:::
-:::
-
-::: {.fragment .fade-in}
-::: callout-note
--   [Finalement Datagotchi](https://datagotchi.com/){preview-link="true"}
-:::
-:::
-
 ## Et vous maintenant? 
 
-::: {style="font-size:1000%;text-align:center;"}
-:grin:
-:::
+- Vos programmes d'études?
+- Votre connaissance en R?
+- Votre connaissance en bases de données?
+- Savez-vous c'est quoi un API?
+- Pourquoi avez-vous pris ce cours?
 
 # Les "mégadonnées" ou le "Big data" :thinking:
 
