@@ -121,7 +121,7 @@ format:
 ![](https://clipart-library.com/images/gie5B478T.png){.absolute width="60%" .fragment .fade-in}
 
 
-## C'est comme un jeu : Combien de "V" peut-on intégrer dans un concept ?{.biggest}
+## Combien de "V" peut-on intégrer dans un concept ?{.biggest}
 
 ::: {.r-fit-text}
 Réponse: 14!
