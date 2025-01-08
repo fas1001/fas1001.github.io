@@ -142,8 +142,9 @@ Réponse: 14!
 ## Une autre définition : Les 5W ? {auto-animate=true}
 
 - Pourquoi ?
-  - Comprendre le monde qui nous entoure
-  - Prendre des décisions éclairées
+  - Faire de la science ?
+  - Comprendre le monde qui nous entoure ?
+  - Prendre des décisions éclairées ?
   - Parce que c'est le fun?
 
 ## Quel jeu de donnée donne les meilleurs résultats ? {auto-animate=true}
