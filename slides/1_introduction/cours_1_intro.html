@@ -29,71 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="cours_1_intro_files/libs/revealjs/dist/theme/quarto.css">
   <link href="cours_1_intro_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -431,8 +366,79 @@ Laurence-Olivier M. Foisy
 </ul>
 </div></div>
 </section>
-<section id="et-vous" class="slide level2">
-<h2>Et vous?</h2>
+<section>
+<section id="plan-de-cours" class="title-slide slide level1 center">
+<h1>Plan de cours</h1>
+
+</section>
+<section id="objectifs" class="slide level2">
+<h2>Objectifs</h2>
+<ul>
+<li><p>Avoir une connaissance globale des différentes sources de données disponibles pour étudier les phénomènes sociaux.</p></li>
+<li><p>Développer l’autonomie nécessaire pour collecter, gérer et analyser quantitativement des bases de données, et les intégrer dans un projet de recherche.</p></li>
+<li><p>Démontrer une compréhension des enjeux liés à la mobilisation et à l’utilisation de grandes bases de données en sciences sociales.</p></li>
+</ul>
+</section>
+<section id="site-du-cours" class="slide level2">
+<h2>Site du cours</h2>
+<p>Le site web du cours est disponible au <a href="https://fas1001.com">https://fas1001.com</a>. Toutes les informations concernant le cours y seront publiées, y compris les diapositives, les travaux pratiques, le plan de cours et les dates importantes.</p>
+</section>
+<section id="évaluations" class="slide level2 smaller">
+<h2>Évaluations</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 12%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Évaluations</th>
+<th>Points</th>
+<th>Dates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introduction à GitHub</td>
+<td>10%</td>
+<td>22 janvier 2025 avant minuit</td>
+</tr>
+<tr class="even">
+<td>Quiz 1</td>
+<td>15%</td>
+<td>13 février 2025 en classe</td>
+</tr>
+<tr class="odd">
+<td>Travail de mi-session</td>
+<td>20%</td>
+<td>12 mars 2024 avant minuit</td>
+</tr>
+<tr class="even">
+<td>Quiz 2</td>
+<td>15%</td>
+<td>10 avril 2025 en classe</td>
+</tr>
+<tr class="odd">
+<td>Travail de session</td>
+<td>30%</td>
+<td>30 avril 2024 avant minuit</td>
+</tr>
+<tr class="even">
+<td>Participation en classe</td>
+<td>10%</td>
+<td>9 janvier au 30 avril</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>100%</td>
+<td>9 janvier au 30 avril</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="question-pour-vous" class="slide level2">
+<h2>Question pour vous</h2>
 <ul>
 <li>Vos programmes d’études?</li>
 <li>Votre connaissance en R?</li>
@@ -440,6 +446,11 @@ Laurence-Olivier M. Foisy
 <li>Savez-vous c’est quoi un API?</li>
 <li>Pourquoi avez-vous pris ce cours?</li>
 </ul>
+</section></section>
+<section>
+<section id="structure-du-cours" class="title-slide slide level1 center">
+<h1>Structure du cours</h1>
+
 </section>
 <section id="quest-ce-que-des-mégadonnées" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Qu’est-ce que des mégadonnées?</h2>
@@ -486,7 +497,7 @@ Laurence-Olivier M. Foisy
 <li>Vague</li>
 <li>Vide de sens</li>
 <li>Variabilité</li>
-<li>Vorace</li>
+<li>Voracité</li>
 </ul>
 </section>
 <section id="quest-ce-que-des-mégadonnées-4" class="slide level2 smaller" data-auto-animate="true">
@@ -506,7 +517,7 @@ Laurence-Olivier M. Foisy
 </div><div class="column" style="width:50%;">
 <ul>
 <li>Variabilité</li>
-<li>Vorace</li>
+<li>Voracité</li>
 <li>Visualisabilité</li>
 <li>Volatilité</li>
 <li>Vulnérabilité</li>
@@ -514,39 +525,65 @@ Laurence-Olivier M. Foisy
 </ul>
 </div></div>
 </section>
-<section id="plus-un-cours-dintroduction-sur-la-science-des-données-en-sciences-sociales" class="slide level2">
-<h2>PLus un cours d’introduction sur la science des données en sciences sociales</h2>
+<section id="une-autre-définition-les-5w" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Une autre définition : Les 5W ?</h2>
+<ul>
+<li>Who?</li>
+<li>What?</li>
+<li>When?</li>
+<li>Where?</li>
+<li>Why?</li>
+</ul>
 </section>
-<section id="le-plan-de-cours" class="title-slide slide level1 center">
-<h1>Le plan de cours</h1>
-<div style="font-size:1000%;text-align:center;">
-<p><img data-src="_photos/bored-male-high-school-student.jpeg" class="fragment" width="1500" height="1000"></p>
-</div>
+<section id="une-autre-définition-les-5w-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Une autre définition : Les 5W ?</h2>
+<ul>
+<li>Why?</li>
+</ul>
 </section>
-
-<section id="devoirs" class="title-slide slide level1 center">
-<h1>Devoirs:</h1>
-<div style="font-size:250%;text-align:center;">
-<p>Lire les chapitres 3 et 4.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>code <span class="ot">&lt;-</span> <span class="st">"anakin"</span></span>
-<span id="cb1-2"><a href=""></a><span class="cf">if</span> (code <span class="sc">==</span> <span class="st">"obi_wan"</span>) {</span>
-<span id="cb1-3"><a href=""></a>  <span class="fu">print</span>(<span class="st">"The Galaxy is saved"</span>)</span>
-<span id="cb1-4"><a href=""></a>  } <span class="cf">else</span> {</span>
-<span id="cb1-5"><a href=""></a>    <span class="fu">print</span>(<span class="st">"Order 66"</span>)</span>
-<span id="cb1-6"><a href=""></a>  }</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Order 66"</code></pre>
-</div>
-</div>
+<section id="une-autre-définition-les-5w-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Une autre définition : Les 5W ?</h2>
+<ul>
+<li>Pourquoi ?
+<ul>
+<li>Comprendre le monde qui nous entoure</li>
+<li>Prendre des décisions éclairées</li>
+<li>Parce que c’est le fun?</li>
+</ul></li>
+</ul>
+</section>
+<section id="quel-jeu-de-donnée-donne-les-meilleurs-résultats" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Quel jeu de donnée donne les meilleurs résultats ?</h2>
+<ul>
+<li>Sondage de 2000 participants représentatif?</li>
+<li>2M de tweets?</li>
+</ul>
+</section>
+<section id="quel-jeu-de-donnée-donne-les-meilleurs-résultats-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Quel jeu de donnée donne les meilleurs résultats ?</h2>
+<p>Ça dépend de la question de recherche!</p>
+<ul>
+<li><p>Quel est l’effet de la démission de Justin Trudeau sur l’humeur de la population?</p></li>
+<li><p>Quel est l’effet de conduire un camion ou une voiture électrique sur les intentions de vote?</p></li>
+</ul>
+</section>
+<section id="avant-et-maintenant" class="slide level2">
+<h2>Avant et maintenant</h2>
+<p>Avant: On créait des données spécifiquement pour répondre à une question de recherche.</p>
+<p>Maintenant: On utilise des données déjà existantes pour répondre à une question de recherche.</p>
+<p>L’un n’est pas mieux que l’autre. Ils répondent à des besoins différents.</p>
+</section>
+<section id="le-principe-fondamental-des-big-data" class="slide level2">
+<h2>Le principe fondamental des big data</h2>
+<h3 id="reconversion">Reconversion</h3>
+<p><img data-src="https://mycloudwiki.com/wp-content/uploads/2016/06/1-1-1024x392.jpg"></p>
 <div class="quarto-auto-generated-content">
 <p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Universite_de_Montreal_logo.svg/1920px-Universite_de_Montreal_logo.svg.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>FAS 1001 : Introduction</p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -757,44 +794,6 @@ Laurence-Olivier M. Foisy
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

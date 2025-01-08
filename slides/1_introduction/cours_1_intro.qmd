@@ -48,7 +48,34 @@ format:
 
 ::::
 
-## Et vous? 
+# Plan de cours
+
+## Objectifs
+
+- Avoir une connaissance globale des différentes sources de données disponibles pour étudier les phénomènes sociaux.
+
+- Développer l’autonomie nécessaire pour collecter, gérer et analyser quantitativement des bases de données, et les intégrer dans un projet de recherche.
+
+- Démontrer une compréhension des enjeux liés à la mobilisation et à l’utilisation de grandes bases de données en sciences sociales.
+
+## Site du cours
+
+Le site web du cours est disponible au [https://fas1001.com](https://fas1001.com).
+Toutes les informations concernant le cours y seront publiées, y compris les diapositives, les travaux pratiques, le plan de cours et les dates importantes.
+
+## Évaluations {.smaller}
+
+| Évaluations                     |Points   | Dates                        |
+|---------------------------------|---------|------------------------------|
+| Introduction à GitHub           | 10%     | 22 janvier 2025 avant minuit |
+| Quiz 1                          | 15%     | 13 février 2025 en classe    |
+| Travail de mi-session           | 20%     | 12 mars 2024 avant minuit    |
+| Quiz 2                          | 15%     | 10 avril 2025 en classe      |
+| Travail de session              | 30%     | 30 avril 2024 avant minuit   |
+| Participation en classe         | 10%     | 9 janvier au 30 avril        |
+| Total                           | 100%    | 9 janvier au 30 avril        |
+
+## Question pour vous 
 
 - Vos programmes d'études?
 - Votre connaissance en R?
@@ -56,9 +83,11 @@ format:
 - Savez-vous c'est quoi un API?
 - Pourquoi avez-vous pris ce cours?
 
+# Structure du cours
+
 ## Qu'est-ce que des mégadonnées? {auto-animate=true}
 
-### Les trois V ?
+### Les trois V ? 
 
 - Volume
 - Vélocité
@@ -98,7 +127,7 @@ format:
 - Vague
 - Vide de sens
 - Variabilité
-- Vorace
+- Voracité
 
 ## Qu'est-ce que des mégadonnées? {.smaller auto-animate=true}
 
@@ -121,7 +150,7 @@ format:
 ::: {.column width="50%"}
 
 - Variabilité
-- Vorace
+- Voracité
 - Visualisabilité
 - Volatilité
 - Vulnérabilité
@@ -131,28 +160,50 @@ format:
 
 ::::
 
+## Une autre définition : Les 5W ? {auto-animate=true}
 
-## PLus un cours d'introduction sur la science des données en sciences sociales
+- Who?
+- What?
+- When?
+- Where?
+- Why?
+
+## Une autre définition : Les 5W ? {auto-animate=true}
+
+- Why?
+
+## Une autre définition : Les 5W ? {auto-animate=true}
+
+- Pourquoi ?
+  - Comprendre le monde qui nous entoure
+  - Prendre des décisions éclairées
+  - Parce que c'est le fun?
+
+## Quel jeu de donnée donne les meilleurs résultats ? {auto-animate=true}
+
+- Sondage de 2000 participants représentatif?
+- 2M de tweets?
+
+## Quel jeu de donnée donne les meilleurs résultats ? {auto-animate=true}
+
+Ça dépend de la question de recherche!
+
+- Quel est l'effet de la démission de Justin Trudeau sur l'humeur de la population?
+
+- Quel est l'effet de conduire un camion ou une voiture électrique sur les intentions de vote? 
+
+## Avant et maintenant 
+
+Avant: On créait des données spécifiquement pour répondre à une question de recherche.
+
+Maintenant: On utilise des données déjà existantes pour répondre à une question de recherche.
+
+L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
+
+## Le principe fondamental des big data
+
+### Reconversion
+
+![](https://mycloudwiki.com/wp-content/uploads/2016/06/1-1-1024x392.jpg)
 
 
-
-# Le plan de cours 
-
-:::{style="font-size:1000%;text-align:center;"}
-![](_photos/bored-male-high-school-student.jpeg){.fragment width="1500" height="1000"}
-:::
-
-# Devoirs:
-
-:::{style="font-size:250%;text-align:center;"}
-Lire les chapitres 3 et 4.
-:::
-
-```{r, echo=TRUE, eval=TRUE}
-code <- "anakin"
-if (code == "obi_wan") {
-  print("The Galaxy is saved")
-  } else {
-    print("Order 66")
-  }
-```
