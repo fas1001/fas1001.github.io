@@ -204,6 +204,10 @@ L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
 
 ### Reconversion
 
-![](https://mycloudwiki.com/wp-content/uploads/2016/06/1-1-1024x392.jpg)
+![](img/abstraction.png)
+
+## Structure du cours
+
+![](img/pyramid.png)
 
 
