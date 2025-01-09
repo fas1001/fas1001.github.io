@@ -8,7 +8,7 @@
 <link href="cours_1_intro_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="cours_1_intro_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="cours_1_intro_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.56">
+  <meta name="generator" content="quarto-1.4.554">
 
   <meta name="author" content="Laurence-Olivier M. Foisy">
   <title>Introduction aux mégadonnées en sciences sociales</title>
@@ -364,7 +364,8 @@ Laurence-Olivier M. Foisy
 <li>Ouverture au monde de la science des données</li>
 <li>Participation à plusieurs projets de recherche</li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="question-pour-vous" class="slide level2">
 <h2>Question pour vous</h2>
@@ -442,8 +443,8 @@ Laurence-Olivier M. Foisy
 <h2>Les quinze V?</h2>
 <p><img data-src="https://clipart-library.com/images/gie5B478T.png" class="absolute fragment fade-in" style="width: 60%; "></p>
 </section>
-<section id="cest-comme-un-jeu-combien-de-v-peut-on-intégrer-dans-un-concept" class="slide level2 biggest">
-<h2>C’est comme un jeu : Combien de “V” peut-on intégrer dans un concept ?</h2>
+<section id="combien-de-v-peut-on-intégrer-dans-un-concept" class="slide level2 biggest">
+<h2>Combien de “V” peut-on intégrer dans un concept ?</h2>
 <div class="r-fit-text">
 <p>Réponse: 14!</p>
 </div>
@@ -469,8 +470,9 @@ Laurence-Olivier M. Foisy
 <ul>
 <li>Pourquoi ?
 <ul>
-<li>Comprendre le monde qui nous entoure</li>
-<li>Prendre des décisions éclairées</li>
+<li>Faire de la science ?</li>
+<li>Comprendre le monde qui nous entoure ?</li>
+<li>Prendre des décisions éclairées ?</li>
 <li>Parce que c’est le fun?</li>
 </ul></li>
 </ul>
@@ -505,7 +507,8 @@ Laurence-Olivier M. Foisy
 </div><div class="column" style="width:50%;">
 <p>Notre travail</p>
 <p><img data-src="https://cdn-icons-png.flaticon.com/512/3808/3808508.png" class="absolute" style="top: 200px; right: 0px; width: 40%; "></p>
-</div></div>
+</div>
+</div>
 </section>
 <section id="structure-du-cours" class="slide level2">
 <h2>Structure du cours</h2>
@@ -521,7 +524,7 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="évaluations" class="slide level2 smaller">
 <h2>Évaluations</h2>
-<table class="caption-top">
+<table>
 <colgroup>
 <col style="width: 45%">
 <col style="width: 12%">
@@ -836,7 +839,18 @@ Laurence-Olivier M. Foisy
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -868,29 +882,7 @@ Laurence-Olivier M. Foisy
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -898,7 +890,7 @@ Laurence-Olivier M. Foisy
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
