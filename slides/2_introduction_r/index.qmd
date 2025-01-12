@@ -24,15 +24,6 @@ format:
 
 > Le but est que vous puissiez sortir d'ici avec une compréhension de base de R et que vous soyez capable d'aller chercher des ressources pour continuer à apprendre.
 
-:::
-
-:::{.column}
-
-![](img/science.png){.absolute top=150 left=800 width="30%"}
-:::
-
-::::
-
 ## Qu'est-ce que l'analyse de données?{.smaller}
 
 > L'analyse de données vise à explorer, décrire et interpréter des informations recueillies sur les comportements humains, les relations sociales et les phénomènes sociétaux. **Ce processus peut inclure des données quantitatives (comme des données issus de sondages) et des données qualitatives (comme des entretiens ou des observations)**.
@@ -71,8 +62,9 @@ Principales étapes de l'analyse de données :
 - Gratuit
 - Collaboratif
 - Communauté active
-  - Stackoverflow
-  - r-bloggers
+  - StackExchange
+  - stackoverflow
+  - reddit.com/r/Rlanguage 
 - Adapté aux besoins des utilisateurs
 
 :::{.notes}
@@ -97,6 +89,16 @@ Open source c'est un modèle de développement de logiciels où le code est acce
 :::{.notes}
 Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé et facilité par R. Collègue récemment à la CLESSN catégorisé les code postaux à la main. 
 :::
+
+## Pourquoi R?{.smaller}
+
+### Packages CLESSN
+
+<!-- NOTE: Ajouter descriptions packages -->
+
+- [sondr](https://github.com/clessnverse/sondr)
+- [clellm](https://github.com/clessn/clellm)
+- [clessnize](https://github.com/clessnverse/clessnize)
 
 ## Pourquoi R?{.smaller}
 
