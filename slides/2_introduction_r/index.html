@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="fr"><head>
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
 <script src="index_files/libs/quarto-html/tabby.min.js"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
@@ -10,8 +10,8 @@
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.56">
 
-  <meta name="author" content="Camille Pelletier Laurence-Olivier M. Foisy">
-  <title>Initiation à l’analyse de données avec R</title>
+  <meta name="author" content="Laurence-Olivier M. Foisy">
+  <title>Cours 2 : Introduction à R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -391,15 +391,16 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Initiation à l’analyse de données avec R</h1>
+  <h1 class="title">Cours 2 : Introduction à R</h1>
+  <p class="subtitle">Introduction aux mégadonnées en sciences sociales</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Camille Pelletier<br>Laurence-Olivier M. Foisy 
+Laurence-Olivier M. Foisy 
 </div>
         <p class="quarto-title-affiliation">
-            Université Laval
+            Université de Montréal
           </p>
     </div>
 </div>
@@ -718,7 +719,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 </ul></li>
 </ul>
 <p><br></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"chemin/vers/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"chemin/vers/data.csv"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <ul>
 <li>Dans cette ligne de code il y a plusieurs éléments importants:
@@ -780,7 +781,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb2-11"><a href=""></a><span class="fu">names</span>(df)</span>
 <span id="cb2-12"><a href=""></a><span class="fu">head</span>(df)</span>
 <span id="cb2-13"><a href=""></a><span class="fu">ncol</span>(df)</span>
-<span id="cb2-14"><a href=""></a><span class="fu">nrow</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-14"><a href=""></a><span class="fu">nrow</span>(df)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="analyse-rapide-dune-variable" class="slide level2">
 <h2>Analyse rapide d’une variable</h2>
@@ -791,7 +792,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb3-5"><a href=""></a><span class="fu">hist</span>(df<span class="sc">$</span>Fertility)</span>
 <span id="cb3-6"><a href=""></a></span>
 <span id="cb3-7"><a href=""></a><span class="co"># Obtenir la moyenne de la variable 'Fertility'</span></span>
-<span id="cb3-8"><a href=""></a><span class="fu">mean</span>(df<span class="sc">$</span>Fertility)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-8"><a href=""></a><span class="fu">mean</span>(df<span class="sc">$</span>Fertility)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>$</code> permet d’accéder à une variable dans un dataframe.</li>
 <li>On accède à la variable <code>Fertility</code> dans le dataframe <code>df</code> avec <code>df$Fertility</code></li>
@@ -811,7 +812,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb4-10"><a href=""></a>mean_fertility <span class="ot">&lt;-</span> <span class="fu">mean</span>(df_selected<span class="sc">$</span>Fertility, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb4-11"><a href=""></a></span>
 <span id="cb4-12"><a href=""></a>df_filtered <span class="ot">&lt;-</span> df_selected <span class="sc">%&gt;%</span></span>
-<span id="cb4-13"><a href=""></a>  <span class="fu">filter</span>(Fertility <span class="sc">&gt;</span> mean_fertility)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-13"><a href=""></a>  <span class="fu">filter</span>(Fertility <span class="sc">&gt;</span> mean_fertility)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="modifier-des-variables" class="slide level2">
 <h2>Modifier des variables</h2>
@@ -828,7 +829,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb5-11"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">moyenne_education =</span> <span class="fu">mean</span>(Education, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb5-12"><a href=""></a></span>
 <span id="cb5-13"><a href=""></a><span class="co"># Afficher le résultat final</span></span>
-<span id="cb5-14"><a href=""></a><span class="fu">print</span>(df_summarized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-14"><a href=""></a><span class="fu">print</span>(df_summarized)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="représentation-graphique-des-données" class="slide level2 smaller">
 <h2>Représentation graphique des données</h2>
@@ -855,7 +856,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <section id="visualisation-avec-ggplot2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="initialiser-un-graphique">Initialiser un graphique</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>df</code> est le dataframe</li>
 <li><code>aes()</code> est la fonction qui permet de spécifier les variables à utiliser</li>
@@ -867,7 +868,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="ajouter-un-geom_">Ajouter un geom_()</h3>
 <div class="sourceCode" id="cb7" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
-<span id="cb7-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="co"># Le alpha est la transparence</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="co"># Le alpha est la transparence</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Il existe plusieurs <code>geom_()</code> pour différents types de graphiques
 <ul>
@@ -883,7 +884,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <h3 id="ajouter-une-échelle-de-couleur">Ajouter une échelle de couleur</h3>
 <div class="sourceCode" id="cb8" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
 <span id="cb8-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
-<span id="cb8-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>scale_color_gradient()</code> permet de spécifier les couleurs pour la variable <code>Education</code></li>
 <li><code>low</code> et <code>high</code> sont les couleurs pour les valeurs les plus basses et les plus hautes</li>
@@ -901,7 +902,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb9-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
 <span id="cb9-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
 <span id="cb9-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
-<span id="cb9-8" class="hljs-ln-code"><a href=""></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-8" class="hljs-ln-code"><a href=""></a>  ) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="visualisation-avec-ggplot2-4" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
@@ -914,7 +915,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb10-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
 <span id="cb10-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
 <span id="cb10-8" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb10-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>theme_minimal()</code> est un thème minimaliste</li>
 <li>Il existe plusieurs thèmes prédéfinis dans ggplot2</li>
@@ -934,7 +935,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb11-8" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
 <span id="cb11-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
 <span id="cb11-10" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb11-11" class="hljs-ln-code"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"nom_du_graphique.png"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-11" class="hljs-ln-code"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"nom_du_graphique.png"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">6</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Vous pouvez spécifier le format du graphique (png, pdf, etc.) ainsi que le chemin pour sauvegarder le graphique</li>
 </ul>
@@ -949,7 +950,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb12-5" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Fertilité"</span>,</span>
 <span id="cb12-6" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Nombre de cantons"</span></span>
 <span id="cb12-7" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb12-8" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-8" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="analyse-statistique" class="slide level2">
 <h2>Analyse statistique</h2>
@@ -964,7 +965,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb13-9"><a href=""></a></span>
 <span id="cb13-10"><a href=""></a><span class="co"># Afficher le résumé du modèle de régression</span></span>
 <span id="cb13-11"><a href=""></a></span>
-<span id="cb13-12"><a href=""></a><span class="fu">summary</span>(modele)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-12"><a href=""></a><span class="fu">summary</span>(modele)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="bonnes-pratiques" class="slide level2">
 <h2>Bonnes pratiques</h2>
@@ -992,7 +993,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <span id="cb14-13"><a href=""></a><span class="ex">│</span>   ├── methodology.md    </span>
 <span id="cb14-14"><a href=""></a><span class="ex">│</span>   ├── references.bib    </span>
 <span id="cb14-15"><a href=""></a><span class="ex">│</span>   └── project_presentation.qmd  </span>
-<span id="cb14-16"><a href=""></a><span class="ex">└──</span> README.md            </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-16"><a href=""></a><span class="ex">└──</span> README.md            </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="git" class="slide level2 smaller">
 <h2>Git</h2>
@@ -1021,7 +1022,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 </ul>
 <div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"username"</span></span>
 <span id="cb15-2"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.email votre@email.com</span>
-<span id="cb15-3"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--`-->
 </section>
 <section id="git-2" class="slide level2 smaller" data-transition="none">
@@ -1050,7 +1051,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <ul>
 <li>Ce projet est maintenant un dossier sur votre ordinateur. Vous pouvez le modifier, le supprimer, le déplacer, etc.</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href=""></a><span class="fu">git</span> clone https://lien/vers/repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href=""></a><span class="fu">git</span> clone https://lien/vers/repo.git</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--`-->
 <ol start="2" type="1">
 <li>Modifier le projet, ajouter des fichiers, etc.</li>
@@ -1058,7 +1059,7 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href=""></a><span class="fu">git</span> pull </span>
 <span id="cb17-2"><a href=""></a><span class="fu">git</span> add votre_fichier_1 votre_fichier_2</span>
 <span id="cb17-3"><a href=""></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Message de commit"</span></span>
-<span id="cb17-4"><a href=""></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-4"><a href=""></a><span class="fu">git</span> push</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--`-->
 <!--`-->
 </section>
@@ -1097,9 +1098,9 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
 <div class="quarto-auto-generated-content">
-<p><img src="img/logo_CLESSN.png" class="slide-logo"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Universite_de_Montreal_logo.svg/1920px-Universite_de_Montreal_logo.svg.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Analyse de données avec R</p>
+<p><a href="https://fas1001.com">FAS1001</a></p>
 </div>
 </div>
 </section></section>
@@ -1353,12 +1354,12 @@ Camille Pelletier<br>Laurence-Olivier M. Foisy
         // flash "checked"
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
+        button.setAttribute("title", "Copié");
         let tooltip;
         if (window.bootstrap) {
           button.setAttribute("data-bs-toggle", "tooltip");
           button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
+          button.setAttribute("data-bs-title", "Copié");
           tooltip = new bootstrap.Tooltip(button, 
             { trigger: "manual", 
               customClass: "code-copy-button-tooltip",

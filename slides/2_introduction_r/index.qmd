@@ -1,16 +1,21 @@
 ---
-title: Initiation à l'analyse de données avec R 
-author: Camille Pelletier<br>Laurence-Olivier M. Foisy
-institute: Université Laval
+title: "Cours 2 : Introduction à R"
+subtitle: "Introduction aux mégadonnées en sciences sociales"
+author: Laurence-Olivier M. Foisy
+institute: Université de Montréal
+lang: fr
+from: markdown+emoji
 format:
   revealjs:
     mermaid: 
       theme: dark
     theme: simple
-    logo: img/logo_CLESSN.png
-    footer: "Analyse de données avec R"
+    logo: https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Universite_de_Montreal_logo.svg/1920px-Universite_de_Montreal_logo.svg.png
+    footer: "[FAS1001](https://fas1001.com)"
     transition: slide
     transition-speed: fast
+    code-fold: false
+    code-overflow: wrap
 ---
 
 ## Objectifs du cours{.smaller}
