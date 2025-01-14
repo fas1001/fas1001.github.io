@@ -784,6 +784,157 @@ Laurence-Olivier M. Foisy
 </ul>
 <p><img data-src="img/df_in_env.png" class="absolute" style="top: 300px; left: 150px; width: 70%; "></p>
 </section>
+<section id="anatomie-dune-ligne-de-code" class="slide level2 smaller">
+<h2>Anatomie d’une ligne de code</h2>
+<p>Prenons un exemple simple :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>resultat <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Décomposons cette ligne :</p>
+<ul>
+<li><code>resultat</code> : nom de l’objet où on stocke le résultat</li>
+<li><code>&lt;-</code> : opérateur d’assignation</li>
+<li><code>mean()</code> : fonction qui calcule la moyenne</li>
+<li><code>df$age</code> : variable ‘age’ du dataframe ‘df’</li>
+<li><code>na.rm = TRUE</code> : argument de la fonction (ignorer les NA)</li>
+</ul>
+<aside class="notes">
+<p>Cette ligne de code calcule la moyenne de la variable ‘age’ en ignorant les valeurs manquantes (NA) et stocke le résultat dans un objet nommé ‘resultat’</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="les-types-de-données-dans-r" class="slide level2 smaller">
+<h2>Les types de données dans R</h2>
+<h3 id="types-de-base">Types de base :</h3>
+<ul>
+<li><code>numeric</code> : nombres (avec ou sans décimales)</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>age <span class="ot">&lt;-</span> <span class="dv">25</span>        <span class="co"># integer</span></span>
+<span id="cb3-2"><a href=""></a>taille <span class="ot">&lt;-</span> <span class="fl">1.75</span>   <span class="co"># double</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>character</code> : texte (chaînes de caractères)</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>nom <span class="ot">&lt;-</span> <span class="st">"Pierre"</span></span>
+<span id="cb4-2"><a href=""></a>ville <span class="ot">&lt;-</span> <span class="st">'Montréal'</span>  <span class="co"># simple ou double quotes</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>logical</code> : TRUE ou FALSE</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>est_etudiant <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb5-2"><a href=""></a>a_un_emploi <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="les-types-de-données-dans-r-1" class="slide level2 smaller">
+<h2>Les types de données dans R</h2>
+<h3 id="types-spéciaux">Types spéciaux :</h3>
+<ul>
+<li><code>factor</code> : catégories</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>niveau <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Débutant"</span>, <span class="st">"Intermédiaire"</span>, <span class="st">"Avancé"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>Date</code> : dates</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2025-01-14"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>NA</code> : valeurs manquantes</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>donnees <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="parenthèses-guillemets-et-virgules" class="slide level2 smaller">
+<h2>Parenthèses, guillemets et virgules</h2>
+<h3 id="les-parenthèses">Les parenthèses () :</h3>
+<ul>
+<li>Délimitent les arguments d’une fonction</li>
+<li>Doivent toujours être fermées</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="co"># Correct</span></span>
+<span id="cb9-2"><a href=""></a>moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(donnees)</span>
+<span id="cb9-3"><a href=""></a></span>
+<span id="cb9-4"><a href=""></a><span class="co"># Incorrect - parenthèse manquante</span></span>
+<span id="cb9-5"><a href=""></a>moyenne <span class="ot">&lt;-</span> <span class="fu">mean</span>(donnees</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="les-virgules">Les virgules :</h3>
+<ul>
+<li>Séparent les arguments d’une fonction</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Correct</span></span>
+<span id="cb10-2"><a href=""></a>resultat <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-3"><a href=""></a></span>
+<span id="cb10-4"><a href=""></a><span class="co"># Incorrect - virgule manquante</span></span>
+<span id="cb10-5"><a href=""></a>resultat <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="assignation-vs--" class="slide level2 smaller">
+<h2>Assignation : = vs &lt;-</h2>
+<h3 id="lopérateur--">L’opérateur &lt;- :</h3>
+<ul>
+<li>Recommandé pour l’assignation de variables</li>
+<li>Plus clair et explicite</li>
+<li>Standard dans la communauté R</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>age <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb11-2"><a href=""></a>nom <span class="ot">&lt;-</span> <span class="st">"Alice"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="lopérateur">L’opérateur = :</h3>
+<ul>
+<li>Utilisé principalement pour les arguments de fonctions</li>
+<li>Peut créer de la confusion</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># Pour les arguments de fonction</span></span>
+<span id="cb12-2"><a href=""></a><span class="fu">mean</span>(<span class="at">x =</span> donnees, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a href=""></a></span>
+<span id="cb12-4"><a href=""></a><span class="co"># Éviter pour l'assignation</span></span>
+<span id="cb12-5"><a href=""></a>age <span class="ot">=</span> <span class="dv">25</span>  <span class="co"># Fonctionne mais non recommandé</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="messages-derreur-courants" class="slide level2 smaller">
+<h2>Messages d’erreur courants</h2>
+<h3 id="erreur-de-syntaxe">Erreur de syntaxe</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Message d'erreur</span></span>
+<span id="cb13-2"><a href=""></a>Error<span class="sc">:</span> unexpected symbol <span class="cf">in</span> <span class="st">"mon code"</span></span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="co"># Cause probable</span></span>
+<span id="cb13-5"><a href=""></a><span class="co"># Parenthèse ou guillemet manquant</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="objet-non-trouvé">Objet non trouvé</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># Message d'erreur</span></span>
+<span id="cb14-2"><a href=""></a>Error<span class="sc">:</span> object <span class="st">'data'</span> not found</span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a><span class="co"># Causes probables</span></span>
+<span id="cb14-5"><a href=""></a><span class="co"># - Faute de frappe dans le nom</span></span>
+<span id="cb14-6"><a href=""></a><span class="co"># - Objet non créé</span></span>
+<span id="cb14-7"><a href=""></a><span class="co"># - Mauvais working directory</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="messages-derreur-suite" class="slide level2 smaller">
+<h2>Messages d’erreur (suite)</h2>
+<h3 id="comment-réagir-aux-erreurs">Comment réagir aux erreurs :</h3>
+<ol type="1">
+<li>Ne pas paniquer ! Les erreurs sont normales</li>
+<li>Lire attentivement le message d’erreur</li>
+<li>Vérifier la ligne indiquée dans le message</li>
+<li>Points à vérifier :
+<ul>
+<li>Parenthèses fermées ?</li>
+<li>Guillemets fermés ?</li>
+<li>Virgules aux bons endroits ?</li>
+<li>Noms d’objets corrects ?</li>
+<li>Package chargé (<code>library()</code>) ?</li>
+</ul></li>
+</ol>
+<aside class="notes">
+<p>Encourager les étudiants à voir les erreurs comme des opportunités d’apprentissage</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section>
 <section id="codons" class="title-slide slide level1 center">
 <h1>Codons!</h1>
@@ -791,31 +942,31 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="nous-allons-utiliser-le-dataframe-swiss" class="slide level2">
 <h2>Nous allons utiliser le dataframe <code class="smaller">swiss</code></h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Charger les packages nécessaires</span></span>
-<span id="cb2-2"><a href=""></a><span class="fu">library</span>(dplyr) <span class="co"># Manipulation de données</span></span>
-<span id="cb2-3"><a href=""></a><span class="fu">library</span>(ggplot2) <span class="co"># Graphiques</span></span>
-<span id="cb2-4"><a href=""></a></span>
-<span id="cb2-5"><a href=""></a><span class="co"># Importer les données swiss (jeu de données intégré)</span></span>
-<span id="cb2-6"><a href=""></a>df <span class="ot">&lt;-</span> swiss</span>
-<span id="cb2-7"><a href=""></a></span>
-<span id="cb2-8"><a href=""></a><span class="co"># Explorer les données</span></span>
-<span id="cb2-9"><a href=""></a><span class="fu">View</span>(df)</span>
-<span id="cb2-10"><a href=""></a><span class="fu">summary</span>(df)</span>
-<span id="cb2-11"><a href=""></a><span class="fu">names</span>(df)</span>
-<span id="cb2-12"><a href=""></a><span class="fu">head</span>(df)</span>
-<span id="cb2-13"><a href=""></a><span class="fu">ncol</span>(df)</span>
-<span id="cb2-14"><a href=""></a><span class="fu">nrow</span>(df)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># Charger les packages nécessaires</span></span>
+<span id="cb15-2"><a href=""></a><span class="fu">library</span>(dplyr) <span class="co"># Manipulation de données</span></span>
+<span id="cb15-3"><a href=""></a><span class="fu">library</span>(ggplot2) <span class="co"># Graphiques</span></span>
+<span id="cb15-4"><a href=""></a></span>
+<span id="cb15-5"><a href=""></a><span class="co"># Importer les données swiss (jeu de données intégré)</span></span>
+<span id="cb15-6"><a href=""></a>df <span class="ot">&lt;-</span> swiss</span>
+<span id="cb15-7"><a href=""></a></span>
+<span id="cb15-8"><a href=""></a><span class="co"># Explorer les données</span></span>
+<span id="cb15-9"><a href=""></a><span class="fu">View</span>(df)</span>
+<span id="cb15-10"><a href=""></a><span class="fu">summary</span>(df)</span>
+<span id="cb15-11"><a href=""></a><span class="fu">names</span>(df)</span>
+<span id="cb15-12"><a href=""></a><span class="fu">head</span>(df)</span>
+<span id="cb15-13"><a href=""></a><span class="fu">ncol</span>(df)</span>
+<span id="cb15-14"><a href=""></a><span class="fu">nrow</span>(df)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="analyse-rapide-dune-variable" class="slide level2">
 <h2>Analyse rapide d’une variable</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Voir le nombre de valeurs pour chaque élément d'une variable</span></span>
-<span id="cb3-2"><a href=""></a><span class="fu">table</span>(df<span class="sc">$</span>Fertility)</span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a><span class="co"># Histogramme de la variable 'Fertility'</span></span>
-<span id="cb3-5"><a href=""></a><span class="fu">hist</span>(df<span class="sc">$</span>Fertility)</span>
-<span id="cb3-6"><a href=""></a></span>
-<span id="cb3-7"><a href=""></a><span class="co"># Obtenir la moyenne de la variable 'Fertility'</span></span>
-<span id="cb3-8"><a href=""></a><span class="fu">mean</span>(df<span class="sc">$</span>Fertility)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Voir le nombre de valeurs pour chaque élément d'une variable</span></span>
+<span id="cb16-2"><a href=""></a><span class="fu">table</span>(df<span class="sc">$</span>Fertility)</span>
+<span id="cb16-3"><a href=""></a></span>
+<span id="cb16-4"><a href=""></a><span class="co"># Histogramme de la variable 'Fertility'</span></span>
+<span id="cb16-5"><a href=""></a><span class="fu">hist</span>(df<span class="sc">$</span>Fertility)</span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a><span class="co"># Obtenir la moyenne de la variable 'Fertility'</span></span>
+<span id="cb16-8"><a href=""></a><span class="fu">mean</span>(df<span class="sc">$</span>Fertility)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>$</code> permet d’accéder à une variable dans un dataframe.</li>
 <li>On accède à la variable <code>Fertility</code> dans le dataframe <code>df</code> avec <code>df$Fertility</code></li>
@@ -823,36 +974,36 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="filter-et-sélectionner-des-variables" class="slide level2">
 <h2>Filter et sélectionner des variables</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Sélectionner des colonnes </span></span>
-<span id="cb4-2"><a href=""></a><span class="co"># (par exemple, Fertility, Education et Agriculture)</span></span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a>df_selected <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb4-5"><a href=""></a>  <span class="fu">select</span>(Fertility, Education, Agriculture)</span>
-<span id="cb4-6"><a href=""></a></span>
-<span id="cb4-7"><a href=""></a><span class="co"># Filtrer les lignes pour inclure uniquement les cantons </span></span>
-<span id="cb4-8"><a href=""></a><span class="co"># avec une fertilité supérieure à la moyenne</span></span>
-<span id="cb4-9"><a href=""></a></span>
-<span id="cb4-10"><a href=""></a>mean_fertility <span class="ot">&lt;-</span> <span class="fu">mean</span>(df_selected<span class="sc">$</span>Fertility, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-11"><a href=""></a></span>
-<span id="cb4-12"><a href=""></a>df_filtered <span class="ot">&lt;-</span> df_selected <span class="sc">%&gt;%</span></span>
-<span id="cb4-13"><a href=""></a>  <span class="fu">filter</span>(Fertility <span class="sc">&gt;</span> mean_fertility)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="co"># Sélectionner des colonnes </span></span>
+<span id="cb17-2"><a href=""></a><span class="co"># (par exemple, Fertility, Education et Agriculture)</span></span>
+<span id="cb17-3"><a href=""></a></span>
+<span id="cb17-4"><a href=""></a>df_selected <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb17-5"><a href=""></a>  <span class="fu">select</span>(Fertility, Education, Agriculture)</span>
+<span id="cb17-6"><a href=""></a></span>
+<span id="cb17-7"><a href=""></a><span class="co"># Filtrer les lignes pour inclure uniquement les cantons </span></span>
+<span id="cb17-8"><a href=""></a><span class="co"># avec une fertilité supérieure à la moyenne</span></span>
+<span id="cb17-9"><a href=""></a></span>
+<span id="cb17-10"><a href=""></a>mean_fertility <span class="ot">&lt;-</span> <span class="fu">mean</span>(df_selected<span class="sc">$</span>Fertility, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-11"><a href=""></a></span>
+<span id="cb17-12"><a href=""></a>df_filtered <span class="ot">&lt;-</span> df_selected <span class="sc">%&gt;%</span></span>
+<span id="cb17-13"><a href=""></a>  <span class="fu">filter</span>(Fertility <span class="sc">&gt;</span> mean_fertility)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="modifier-des-variables" class="slide level2">
 <h2>Modifier des variables</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Créer une nouvelle variable binaire "high_agriculture" </span></span>
-<span id="cb5-2"><a href=""></a><span class="co"># indiquant si le pourcentage d'agriculture est supérieur à 50</span></span>
-<span id="cb5-3"><a href=""></a></span>
-<span id="cb5-4"><a href=""></a>df_mutated <span class="ot">&lt;-</span> df_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">high_agriculture =</span> <span class="fu">ifelse</span>(Agriculture <span class="sc">&gt;</span> <span class="dv">50</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb5-6"><a href=""></a></span>
-<span id="cb5-7"><a href=""></a><span class="co"># Regrouper par "high_agriculture" et calculer la moyenne de l'éducation</span></span>
-<span id="cb5-8"><a href=""></a></span>
-<span id="cb5-9"><a href=""></a>df_summarized <span class="ot">&lt;-</span> df_mutated <span class="sc">%&gt;%</span></span>
-<span id="cb5-10"><a href=""></a>  <span class="fu">group_by</span>(high_agriculture) <span class="sc">%&gt;%</span></span>
-<span id="cb5-11"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">moyenne_education =</span> <span class="fu">mean</span>(Education, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb5-12"><a href=""></a></span>
-<span id="cb5-13"><a href=""></a><span class="co"># Afficher le résultat final</span></span>
-<span id="cb5-14"><a href=""></a><span class="fu">print</span>(df_summarized)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co"># Créer une nouvelle variable binaire "high_agriculture" </span></span>
+<span id="cb18-2"><a href=""></a><span class="co"># indiquant si le pourcentage d'agriculture est supérieur à 50</span></span>
+<span id="cb18-3"><a href=""></a></span>
+<span id="cb18-4"><a href=""></a>df_mutated <span class="ot">&lt;-</span> df_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">high_agriculture =</span> <span class="fu">ifelse</span>(Agriculture <span class="sc">&gt;</span> <span class="dv">50</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb18-6"><a href=""></a></span>
+<span id="cb18-7"><a href=""></a><span class="co"># Regrouper par "high_agriculture" et calculer la moyenne de l'éducation</span></span>
+<span id="cb18-8"><a href=""></a></span>
+<span id="cb18-9"><a href=""></a>df_summarized <span class="ot">&lt;-</span> df_mutated <span class="sc">%&gt;%</span></span>
+<span id="cb18-10"><a href=""></a>  <span class="fu">group_by</span>(high_agriculture) <span class="sc">%&gt;%</span></span>
+<span id="cb18-11"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">moyenne_education =</span> <span class="fu">mean</span>(Education, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb18-12"><a href=""></a></span>
+<span id="cb18-13"><a href=""></a><span class="co"># Afficher le résultat final</span></span>
+<span id="cb18-14"><a href=""></a><span class="fu">print</span>(df_summarized)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="représentation-graphique-des-données" class="slide level2 smaller">
 <h2>Représentation graphique des données</h2>
@@ -879,7 +1030,7 @@ Laurence-Olivier M. Foisy
 <section id="visualisation-avec-ggplot2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="initialiser-un-graphique">Initialiser un graphique</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb19-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>df</code> est le dataframe</li>
 <li><code>aes()</code> est la fonction qui permet de spécifier les variables à utiliser</li>
@@ -890,8 +1041,8 @@ Laurence-Olivier M. Foisy
 <section id="visualisation-avec-ggplot2-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="ajouter-un-geom_">Ajouter un geom_()</h3>
-<div class="sourceCode" id="cb7" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
-<span id="cb7-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="co"># Le alpha est la transparence</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb20-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb20-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="co"># Le alpha est la transparence</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Il existe plusieurs <code>geom_()</code> pour différents types de graphiques
 <ul>
@@ -905,9 +1056,9 @@ Laurence-Olivier M. Foisy
 <section id="visualisation-avec-ggplot2-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="ajouter-une-échelle-de-couleur">Ajouter une échelle de couleur</h3>
-<div class="sourceCode" id="cb8" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
-<span id="cb8-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
-<span id="cb8-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb21-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb21-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
+<span id="cb21-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>scale_color_gradient()</code> permet de spécifier les couleurs pour la variable <code>Education</code></li>
 <li><code>low</code> et <code>high</code> sont les couleurs pour les valeurs les plus basses et les plus hautes</li>
@@ -918,27 +1069,27 @@ Laurence-Olivier M. Foisy
 <section id="visualisation-avec-ggplot2-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="ajouter-des-titres-et-des-labels">Ajouter des titres et des labels</h3>
-<div class="sourceCode" id="cb9" data-code-line-numbers="4,5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
-<span id="cb9-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
-<span id="cb9-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
-<span id="cb9-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
-<span id="cb9-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
-<span id="cb9-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
-<span id="cb9-8" class="hljs-ln-code"><a href=""></a>  ) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22" data-code-line-numbers="4,5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb22-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb22-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
+<span id="cb22-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
+<span id="cb22-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
+<span id="cb22-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
+<span id="cb22-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
+<span id="cb22-8" class="hljs-ln-code"><a href=""></a>  ) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="visualisation-avec-ggplot2-4" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="ajouter-un-thème">Ajouter un thème</h3>
-<div class="sourceCode" id="cb10" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb10-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
-<span id="cb10-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
-<span id="cb10-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
-<span id="cb10-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb10-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
-<span id="cb10-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
-<span id="cb10-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
-<span id="cb10-8" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb10-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb23-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb23-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
+<span id="cb23-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
+<span id="cb23-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb23-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
+<span id="cb23-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
+<span id="cb23-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
+<span id="cb23-8" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb23-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>theme_minimal()</code> est un thème minimaliste</li>
 <li>Il existe plusieurs thèmes prédéfinis dans ggplot2</li>
@@ -948,17 +1099,17 @@ Laurence-Olivier M. Foisy
 <section id="visualisation-avec-ggplot2-5" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="sauvegarder-le-graphique">Sauvegarder le graphique</h3>
-<div class="sourceCode" id="cb11" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
-<span id="cb11-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
-<span id="cb11-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
-<span id="cb11-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
-<span id="cb11-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
-<span id="cb11-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
-<span id="cb11-8" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb11-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb11-10" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb11-11" class="hljs-ln-code"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"nom_du_graphique.png"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">6</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb24-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb24-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
+<span id="cb24-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
+<span id="cb24-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
+<span id="cb24-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
+<span id="cb24-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
+<span id="cb24-8" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb24-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb24-10" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb24-11" class="hljs-ln-code"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"nom_du_graphique.png"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">6</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Vous pouvez spécifier le format du graphique (png, pdf, etc.) ainsi que le chemin pour sauvegarder le graphique</li>
 </ul>
@@ -966,29 +1117,29 @@ Laurence-Olivier M. Foisy
 <section id="visualisation-avec-ggplot2-6" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
 <h3 id="un-histogramme-de-la-variable-fertility">Un histogramme de la variable Fertility</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Fertility)) <span class="sc">+</span></span>
-<span id="cb12-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb12-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb12-4" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Distribution de la fertilité en Suisse"</span>,</span>
-<span id="cb12-5" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Fertilité"</span>,</span>
-<span id="cb12-6" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Nombre de cantons"</span></span>
-<span id="cb12-7" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb12-8" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb25-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Fertility)) <span class="sc">+</span></span>
+<span id="cb25-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb25-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb25-4" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Distribution de la fertilité en Suisse"</span>,</span>
+<span id="cb25-5" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Fertilité"</span>,</span>
+<span id="cb25-6" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Nombre de cantons"</span></span>
+<span id="cb25-7" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb25-8" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="analyse-statistique" class="slide level2">
 <h2>Analyse statistique</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Calculer la corrélation entre Fertility et Agriculture</span></span>
-<span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a>correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(df<span class="sc">$</span>Fertility, df<span class="sc">$</span>Agriculture)</span>
-<span id="cb13-4"><a href=""></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Corrélation entre Fertility et Agriculture:"</span>, <span class="fu">round</span>(correlation, <span class="dv">2</span>)))</span>
-<span id="cb13-5"><a href=""></a></span>
-<span id="cb13-6"><a href=""></a><span class="co"># Effectuer une régression linéaire avec Fertility comme variable dépendante</span></span>
-<span id="cb13-7"><a href=""></a></span>
-<span id="cb13-8"><a href=""></a>modele <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Agriculture, <span class="at">data =</span> df)</span>
-<span id="cb13-9"><a href=""></a></span>
-<span id="cb13-10"><a href=""></a><span class="co"># Afficher le résumé du modèle de régression</span></span>
-<span id="cb13-11"><a href=""></a></span>
-<span id="cb13-12"><a href=""></a><span class="fu">summary</span>(modele)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="co"># Calculer la corrélation entre Fertility et Agriculture</span></span>
+<span id="cb26-2"><a href=""></a></span>
+<span id="cb26-3"><a href=""></a>correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(df<span class="sc">$</span>Fertility, df<span class="sc">$</span>Agriculture)</span>
+<span id="cb26-4"><a href=""></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Corrélation entre Fertility et Agriculture:"</span>, <span class="fu">round</span>(correlation, <span class="dv">2</span>)))</span>
+<span id="cb26-5"><a href=""></a></span>
+<span id="cb26-6"><a href=""></a><span class="co"># Effectuer une régression linéaire avec Fertility comme variable dépendante</span></span>
+<span id="cb26-7"><a href=""></a></span>
+<span id="cb26-8"><a href=""></a>modele <span class="ot">&lt;-</span> <span class="fu">lm</span>(Fertility <span class="sc">~</span> Agriculture, <span class="at">data =</span> df)</span>
+<span id="cb26-9"><a href=""></a></span>
+<span id="cb26-10"><a href=""></a><span class="co"># Afficher le résumé du modèle de régression</span></span>
+<span id="cb26-11"><a href=""></a></span>
+<span id="cb26-12"><a href=""></a><span class="fu">summary</span>(modele)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="bonnes-pratiques" class="slide level2">
 <h2>Bonnes pratiques</h2>
@@ -1015,24 +1166,24 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="organiser-votre-environnement-de-travail" class="slide level2">
 <h2>Organiser votre environnement de travail</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href=""></a><span class="ex">votre_projet</span></span>
-<span id="cb14-2"><a href=""></a><span class="ex">├──</span> data</span>
-<span id="cb14-3"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── processed</span>
-<span id="cb14-4"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> │&nbsp;&nbsp; └── data_clean.csv</span>
-<span id="cb14-5"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── raw</span>
-<span id="cb14-6"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── data_raw.csv</span>
-<span id="cb14-7"><a href=""></a><span class="ex">├──</span> docs</span>
-<span id="cb14-8"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── article</span>
-<span id="cb14-9"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     ├── articles.qmd</span>
-<span id="cb14-10"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── references.bib</span>
-<span id="cb14-11"><a href=""></a><span class="ex">├──</span> R</span>
-<span id="cb14-12"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── 2_analysis.R</span>
-<span id="cb14-13"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── 3_graph.R</span>
-<span id="cb14-14"><a href=""></a><span class="ex">├──</span> README.md</span>
-<span id="cb14-15"><a href=""></a><span class="ex">└──</span> results</span>
-<span id="cb14-16"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span> └── graphs</span>
-<span id="cb14-17"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span>  &nbsp;&nbsp; └── 1_bar_graph.png</span>
-<span id="cb14-18"><a href=""></a> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href=""></a><span class="ex">votre_projet</span></span>
+<span id="cb27-2"><a href=""></a><span class="ex">├──</span> data</span>
+<span id="cb27-3"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── processed</span>
+<span id="cb27-4"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> │&nbsp;&nbsp; └── data_clean.csv</span>
+<span id="cb27-5"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── raw</span>
+<span id="cb27-6"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── data_raw.csv</span>
+<span id="cb27-7"><a href=""></a><span class="ex">├──</span> docs</span>
+<span id="cb27-8"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── article</span>
+<span id="cb27-9"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     ├── articles.qmd</span>
+<span id="cb27-10"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── references.bib</span>
+<span id="cb27-11"><a href=""></a><span class="ex">├──</span> R</span>
+<span id="cb27-12"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── 2_analysis.R</span>
+<span id="cb27-13"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── 3_graph.R</span>
+<span id="cb27-14"><a href=""></a><span class="ex">├──</span> README.md</span>
+<span id="cb27-15"><a href=""></a><span class="ex">└──</span> results</span>
+<span id="cb27-16"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span> └── graphs</span>
+<span id="cb27-17"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span>  &nbsp;&nbsp; └── 1_bar_graph.png</span>
+<span id="cb27-18"><a href=""></a> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="en-apprendre-plus" class="slide level2 smaller">
 <h2>En apprendre plus</h2>

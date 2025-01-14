@@ -359,6 +359,151 @@ Autres fonctions pour importer des données dépendamment du format:
 
 ![](img/df_in_env.png){.absolute top=300 left=150 width="70%"}
 
+## Anatomie d'une ligne de code {.smaller}
+
+Prenons un exemple simple :
+```r
+resultat <- mean(df$age, na.rm = TRUE)
+```
+
+Décomposons cette ligne :
+
+- `resultat` : nom de l'objet où on stocke le résultat
+- `<-` : opérateur d'assignation
+- `mean()` : fonction qui calcule la moyenne
+- `df$age` : variable 'age' du dataframe 'df'
+- `na.rm = TRUE` : argument de la fonction (ignorer les NA)
+
+::::{.notes}
+Cette ligne de code calcule la moyenne de la variable 'age' en ignorant les valeurs manquantes (NA) et stocke le résultat dans un objet nommé 'resultat'
+::::
+
+## Les types de données dans R {.smaller}
+
+### Types de base :
+
+- `numeric` : nombres (avec ou sans décimales)
+```r
+age <- 25        # integer
+taille <- 1.75   # double
+```
+
+- `character` : texte (chaînes de caractères)
+```r
+nom <- "Pierre"
+ville <- 'Montréal'  # simple ou double quotes
+```
+
+- `logical` : TRUE ou FALSE
+```r
+est_etudiant <- TRUE
+a_un_emploi <- FALSE
+```
+
+## Les types de données dans R {.smaller}
+
+### Types spéciaux :
+
+- `factor` : catégories
+```r
+niveau <- factor(c("Débutant", "Intermédiaire", "Avancé"))
+```
+
+- `Date` : dates
+```r
+date <- as.Date("2025-01-14")
+```
+
+- `NA` : valeurs manquantes
+```r
+donnees <- c(1, NA, 3, NA, 5)
+```
+
+## Parenthèses, guillemets et virgules {.smaller}
+
+### Les parenthèses () :
+- Délimitent les arguments d'une fonction
+- Doivent toujours être fermées
+```r
+# Correct
+moyenne <- mean(donnees)
+
+# Incorrect - parenthèse manquante
+moyenne <- mean(donnees
+```
+
+### Les virgules :
+- Séparent les arguments d'une fonction
+```r
+# Correct
+resultat <- sum(1, 2, 3, na.rm = TRUE)
+
+# Incorrect - virgule manquante
+resultat <- sum(1 2 3, na.rm = TRUE)
+```
+
+## Assignation : = vs <- {.smaller}
+
+### L'opérateur <- :
+- Recommandé pour l'assignation de variables
+- Plus clair et explicite
+- Standard dans la communauté R
+```r
+age <- 25
+nom <- "Alice"
+```
+
+### L'opérateur = :
+- Utilisé principalement pour les arguments de fonctions
+- Peut créer de la confusion
+```r
+# Pour les arguments de fonction
+mean(x = donnees, na.rm = TRUE)
+
+# Éviter pour l'assignation
+age = 25  # Fonctionne mais non recommandé
+```
+
+## Messages d'erreur courants {.smaller}
+
+### Erreur de syntaxe
+```r
+# Message d'erreur
+Error: unexpected symbol in "mon code"
+
+# Cause probable
+# Parenthèse ou guillemet manquant
+```
+
+### Objet non trouvé
+```r
+# Message d'erreur
+Error: object 'data' not found
+
+# Causes probables
+# - Faute de frappe dans le nom
+# - Objet non créé
+# - Mauvais working directory
+```
+
+## Messages d'erreur (suite) {.smaller}
+
+### Comment réagir aux erreurs :
+
+1. Ne pas paniquer ! Les erreurs sont normales
+2. Lire attentivement le message d'erreur
+3. Vérifier la ligne indiquée dans le message
+4. Points à vérifier :
+   - Parenthèses fermées ?
+   - Guillemets fermés ?
+   - Virgules aux bons endroits ?
+   - Noms d'objets corrects ?
+   - Package chargé (`library()`) ?
+
+::::{.notes}
+Encourager les étudiants à voir les erreurs comme des opportunités d'apprentissage
+::::
+
 # Codons!
 
 ## Nous allons utiliser le dataframe `swiss`{.smaller}
