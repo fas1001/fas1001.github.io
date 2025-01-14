@@ -43,7 +43,7 @@ Principales étapes de l'analyse de données :
 :::
 
 
-## Les logiciels d'analyse de données{.smaller}
+## Les outils d'analyse de données{.smaller}
 
 ![](https://upload.wikimedia.org/wikipedia/commons/e/ea/SPSS_logo.svg){.absolute top=400 left=100 width="20%"}
 
@@ -97,13 +97,20 @@ Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé 
 
 ## Pourquoi R?{.smaller}
 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png){.absolute top=0 left=800 width="20%"}
+
+<br><br>
+
 ### Packages CLESSN
 
 <!-- NOTE: Ajouter descriptions packages -->
 
 - [sondr](https://github.com/clessnverse/sondr)
+  - Permet l'automatisation de plusieurs aspects de l'analyse de données. Nous permet de faire des analyses factorielles en quelques secondes.
 - [clellm](https://github.com/clessn/clellm)
+  - Permet d'utiliser des LLM open-source directement en R et permet d'utiliser des fonctions disponibles seulement en Python, en R.
 - [clessnize](https://github.com/clessnverse/clessnize)
+  - Permet de standardiser le style de nos graphiques rapidement sans avoir à répéter les mêmes étapes à chaque fois.
 
 ## Pourquoi R?{.smaller}
 
@@ -113,7 +120,7 @@ Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé 
 
 ### Reproductibilité
 
-- Rendre les analyses reproductibles
+- Rendre les analyses [reproductibles](https://github.com/clessn/beyond_multiple_choices)
 - Permet de partager les analyses
   - Les scripts R permettent de partager facilement le travail
 - Permet de retracer les erreurs
@@ -131,15 +138,37 @@ Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé 
 - Beaucoup de ressources
 - Beaucoup de tutoriels orientés vers les sciences sociales
   - Datacamp
+  - swirl()
   - Coursera
-  - Datanovia
 
 #### Bref... important d'utiliser les mêmes outils que les chercheurs dans votre domaine
 
-## La CLESSN{.smaller}
+## Pourquoi R?{.smaller}
 
-![](https://www.clessn.com/assets/img/logo-black.svg){.absolute top=330 left=630 width="30%"}
-![](img/yaduf.png){.absolute top=200 left=0 width="35%"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png){.absolute top=0 left=800 width="20%"}
+
+<br><br>
+
+### Exemples d'utilisation par des organisations
+
+- [Utilisé par AirBnB pour l'analyse de données](https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d)
+
+- [Utilisé par la BBC pour leurs graphiques](https://bbc.github.io/rcookbook/)
+
+- [Utilisé par la MLB pour l'analyse de données](https://billpetti.github.io/baseballr/)
+
+- [Utilisé par Vox Pop Labs (Boussole électorale) pour l'analyse de données](https://github.com/voxpoplabs)
+
+- [Utilisé par Google, Facebook, Amazon, etc.](https://makemeanalyst.com/companies-using-r/)
+
+
+
+## Pourquoi R?{.smaller}
+
+### La CLESSN 
+
+![](https://www.clessn.com/assets/img/logo-black.svg){.absolute top=420 left=630 width="30%"}
+![](img/yaduf.png){.absolute top=300 left=0 width="35%"}
 Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 
 
@@ -155,9 +184,13 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 
 ::::
 
-## Datagotchi{.smaller}
+## [Datagotchi](https://usa.datagotchi.com){.smaller}
 
 ![](img/datagotchi_usa.png){.absolute top=0 left=850 width="30%"}
+
+::::{.columns}
+
+:::{.column width="80%"}
 
 - Application utilisant des variables lifestyles pour prédire le vote
 - Utiliser R et l'analyse de données à travers ce projet:
@@ -166,6 +199,13 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
   - Analyse factorielle
   - Régressions et modèles
   - Visualisation
+
+:::
+
+:::{.column width="20%"}
+:::
+
+::::
 
 ## 
 
@@ -179,18 +219,6 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 
 ::: 
 
-## R : Au-delà de l'analyse de données{.smaller}
-
-- R ne se limite pas à l'analyse statistique, il peut aussi être utilisé pour développer des applications web interactives
-
-![](img/catalogue.png){absolute top=0 left=0 width="20%"}
-
-
-## Mais derrière tout ça... R{.smaller}
-
-- Voici l'envers du décor : 
-
-![](img/catalogue_code.png){absolute top=0 left=0 width="20%"}
 
 ## Analyse textuelle{.smaller}
 
@@ -206,12 +234,31 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 - Analyse d'image
 - Transcription audio
 
+## R : Au-delà de l'analyse de données{.smaller}
+
+- R ne se limite pas à l'analyse statistique, il peut aussi être utilisé pour développer des [applications web interactives](https://mdubel.shinyapps.io/shark-attack/)
+
+![](img/shinygotchi_front.png)
+
+## Après R
+
+### Apprendre R vous permet de comprendre d'autres langages de programmation
+
+- Python
+- Julia
+- SQL
+- JavaScript
+- HTML/CSS
+- Bash 
+
 ## Installer R et RStudio{.smaller}
 
 - C'est quoi la différence entre R et RStudio?
-- R est le moteur, RStudio est l'interface
+- R est le moteur, RStudio est le véhicule
+- R est le langage, RStudio est la feuille de papier
 - RStudio facilite l'utilisation de R
 - RStudio est un IDE (Integrated Development Environment)
+- Personnalisation de l'environnement de travail
 
 <br><br>
 
@@ -220,43 +267,25 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 - [Installer R](https://cran.r-project.org/)
 - [Installer RStudio](https://www.rstudio.com/products/rstudio/download/)
 
-
 ## {background-image="img/rstudio.png"}
 ## {background-image="img/rstudio_script.png"}
 ## {background-image="img/rstudio_console.png"}
 ## {background-image="img/rstudio_files.png"}
 ## {background-image="img/rstudio_env.png"}
 
-<!--
+## Avant de commencer : Concept important {.smaller}
 
-## 
-
-![](img/rstudio.png){.absolute top=0 left=0 width="200%"}
-
-::: {.r-stack}
-
-![](img/rstudio_script.png){.fragment .absolute top=0 left=0 width="200%"}
-
-![](img/rstudio_console.png){.fragment .absolute top=0 left=0 width="200%"}
-
-![](img/rstudio_files.png){.fragment .absolute top=0 left=0 width="200%"}
-
-![](img/rstudio_env.png){.fragment .absolute top=0 left=0 width="200%"}
-
-::: 
-
--->
-
-## Concept important : Le chemin d'arborescence{.smaller}
+### Le chemin d'arborescence
 
 - À tout moment vous devez savoir où vous êtes dans votre ordinateur pour pouvoir importer des données, exporter des graphiques ou mettre des fichiers en relation
-- Votre R est toujours ouvert dans un dossier, et donc vous devez savoir où il est pour pouvoir importer des données
+- Votre R pointe toujours vers un endroit spécifique dans votre ordinateur. Vous devez savoir où pour pouvoir importer des données
 - La fonction `getwd()` dans R permet de savoir où vous êtes
 
-![](img/chemin_arbo.png){.absolute top=400 left=75 width="80%"}
+![](https://habefast.ch/wp-content/uploads/2022/03/habefast-infographies-web-arborescence.png){.absolute top=400 left=75 width="80%"}
 
+## Avant de commencer : Concept important{.smaller}
 
-## Concept important : Planifier avant de coder{.smaller} 
+### Planifier avant de coder
 
 #### La plus grosse erreur est de commencer à coder sans savoir ce que vous voulez faire
 
@@ -268,18 +297,20 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 
 Les possibilités sont infinies, donc il est important de savoir où vous voulez aller
 
+## Avant de commencer : Concept important{.smaller}
 
-## Concept important : Décomposer le problème{.smaller}
+### Décomposer le problème
 
 - Une fois que vous savez ce que vous voulez faire, il est important de décomposer le problème en petites étapes
 - Un script R pour une seule tâche
   - Bien nommer vos scripts pour savoir ce qu'ils font
-  - Exemples: 
-    - `nettoyage_donnees.R`
-    - `graphique.R`
+  - Exemples:
+    - `1_collecte.R`
+    - `2_nettoyage.R`
+    - `3_analyse.R`
+    - `4_graphique.R`
 - Chaque script doit être clair et facile à comprendre
 - Commenter votre code avec des `#`
-
 
 ## Importer des données{.smaller}
 
