@@ -2902,3 +2902,81 @@ button:active,
     padding: 0.75rem;
   }
 }
+
+.datacamp-section {
+  margin-top: 3rem;
+}
+
+.datacamp-section h3 {
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.datacamp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.datacamp-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(30, 58, 138, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.datacamp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  border-color: #1e3a8a;
+}
+
+.card-content {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.course-number {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: linear-gradient(to right, #1e3a8a, #1e40af);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.datacamp-card h4 {
+  color: #1e3a8a;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.datacamp-card p {
+  color: #64748b;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .datacamp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-content {
+    padding: 1.25rem;
+  }
+}
