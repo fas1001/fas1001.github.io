@@ -8,7 +8,7 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.554">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="Laurence-Olivier M. Foisy">
   <title>Cours 2 : Introduction à R</title>
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -70,7 +70,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -84,7 +84,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -587,8 +587,7 @@ Laurence-Olivier M. Foisy
 <ul>
 <li>Objectif: Développer des compétences en science des données pour les étudiants en sciences sociales à travers des projets de recherche et des formations</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="datagotchi" class="slide level2">
 <h2><a href="https://usa.datagotchi.com" class="smaller">Datagotchi</a></h2>
@@ -608,8 +607,7 @@ Laurence-Olivier M. Foisy
 </ul>
 </div><div class="column" style="width:20%;">
 
-</div>
-</div>
+</div></div>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
@@ -994,100 +992,47 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="bonnes-pratiques" class="slide level2">
 <h2>Bonnes pratiques</h2>
+<h3 id="style.tidyverse.org"><a href="https://style.tidyverse.org/">style.tidyverse.org</a></h3>
 <ul>
-<li>Nommer vos objets de façon explicite</li>
-<li>Commenter votre code</li>
-<li>Organiser votre code</li>
+<li>Utilisé par la communauté R pour standardiser le style du code</li>
+<li>Utilisé par <a href="https://google.github.io/styleguide/Rguide.html">Google</a></li>
+<li>Utilisé par des packages populaires comme <a href="https://styler.r-lib.org/">stylr</a> et <a href="https://lintr.r-lib.org/">lintr</a></li>
 </ul>
-<p><img data-src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="absolute" style="top: 0px; left: 800px; width: 30%; "></p>
+</section>
+<section id="bonnes-pratiques-1" class="slide level2 smaller">
+<h2>Bonnes pratiques</h2>
+<h3 id="règles-générales">Règles générales :</h3>
+<ul>
+<li>Nommer vos fichiers de manière descriptive</li>
+<li>Utiliser des minuscules seulement et aucun caractère spécial comme é ou à</li>
+<li>Si vos fichiers contiennent plusieurs mots, les séparer par des underscores <code>_</code></li>
+<li>Exemple: <code>nettoyage_donnees.R</code></li>
+<li>Utiliser des chiffres pour ordonner vos scripts</li>
+<li>Évitez d’écrire des lignes de code trop longues</li>
+<li>Utiliser la convention <code>snake_case</code> plutôt que <code>camelCase</code></li>
+<li>Nommez vous dataframe de façon standard. <code>df_</code> ou <code>data_</code></li>
+</ul>
 </section>
 <section id="organiser-votre-environnement-de-travail" class="slide level2">
 <h2>Organiser votre environnement de travail</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href=""></a><span class="ex">/MonProjet</span></span>
-<span id="cb14-2"><a href=""></a><span class="ex">├──</span> data/                </span>
-<span id="cb14-3"><a href=""></a><span class="ex">│</span>   ├── raw_data.csv      </span>
-<span id="cb14-4"><a href=""></a><span class="ex">│</span>   └── cleaned_data.csv  </span>
-<span id="cb14-5"><a href=""></a><span class="ex">├──</span> scripts/             </span>
-<span id="cb14-6"><a href=""></a><span class="ex">│</span>   ├── analyse.R         </span>
-<span id="cb14-7"><a href=""></a><span class="ex">│</span>   └── visualization.R   </span>
-<span id="cb14-8"><a href=""></a><span class="ex">├──</span> results/             </span>
-<span id="cb14-9"><a href=""></a><span class="ex">│</span>   ├── summary_statistics.csv  </span>
-<span id="cb14-10"><a href=""></a><span class="ex">│</span>   └── plots/                  </span>
-<span id="cb14-11"><a href=""></a><span class="ex">│</span>       └── data_distribution.png  </span>
-<span id="cb14-12"><a href=""></a><span class="ex">├──</span> docs/                </span>
-<span id="cb14-13"><a href=""></a><span class="ex">│</span>   ├── methodology.md    </span>
-<span id="cb14-14"><a href=""></a><span class="ex">│</span>   ├── references.bib    </span>
-<span id="cb14-15"><a href=""></a><span class="ex">│</span>   └── project_presentation.qmd  </span>
-<span id="cb14-16"><a href=""></a><span class="ex">└──</span> README.md            </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="git" class="slide level2 smaller">
-<h2>Git</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Créé par Linus Torvalds en 2005</li>
-<li>Gestion de version</li>
-<li>Permet de suivre l’évolution d’un projet</li>
-<li>Utile pour tout ce qui est texte, incluant les articles et les présentations</li>
-<li>Enregistre tous les changements faits depuis la création du projet (.git)</li>
-<li>Reproductibilité et transparence</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="img/meme_versions.jpg"></p>
-</div>
-</div>
-</section>
-<section id="git-1" class="slide level2">
-<h2>Git</h2>
-<ul>
-<li><p>Télécharger et installer Git depuis <a href="git-scm.com">git-scm.com</a></p></li>
-<li><p>Configurer git avant de commencer à l’utiliser</p>
-<ul>
-<li>Dans le terminal:</li>
-</ul></li>
-</ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"username"</span></span>
-<span id="cb15-2"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.email votre@email.com</span>
-<span id="cb15-3"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!--`-->
-</section>
-<section id="git-2" class="slide level2 smaller" data-transition="none">
-<h2>Git</h2>
-
-<img data-src="img/git.png" class="r-stretch"></section>
-<section id="github" class="slide level2 smaller" data-transition="none">
-<h2>GitHub</h2>
-
-<img data-src="img/git_github.png" class="r-stretch"></section>
-<section id="github-1" class="slide level2 smaller">
-<h2>GitHub</h2>
-<ul>
-<li><p>GitHub = Git + Internet</p></li>
-<li><p>Plateforme de développement collaboratif</p></li>
-<li><p>Héberge des projets Git</p></li>
-<li><p>Acheté par Microsoft pour 7.5 milliards de dollars</p></li>
-<li><p>Lieu d’entreposage de plusieurs projets open source</p></li>
-</ul>
-</section>
-<section id="comment-lutiliser" class="slide level2 smaller">
-<h2>Comment l’utiliser?</h2>
-<ol type="1">
-<li>Cloner un projet existant sur votre ordinateur.</li>
-</ol>
-<ul>
-<li>Ce projet est maintenant un dossier sur votre ordinateur. Vous pouvez le modifier, le supprimer, le déplacer, etc.</li>
-</ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href=""></a><span class="fu">git</span> clone https://lien/vers/repo.git</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!--`-->
-<ol start="2" type="1">
-<li>Modifier le projet, ajouter des fichiers, etc.</li>
-</ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href=""></a><span class="fu">git</span> pull </span>
-<span id="cb17-2"><a href=""></a><span class="fu">git</span> add votre_fichier_1 votre_fichier_2</span>
-<span id="cb17-3"><a href=""></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Message de commit"</span></span>
-<span id="cb17-4"><a href=""></a><span class="fu">git</span> push</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!--`-->
-<!--`-->
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href=""></a><span class="ex">votre_projet</span></span>
+<span id="cb14-2"><a href=""></a><span class="ex">├──</span> data</span>
+<span id="cb14-3"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── processed</span>
+<span id="cb14-4"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> │&nbsp;&nbsp; └── data_clean.csv</span>
+<span id="cb14-5"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── raw</span>
+<span id="cb14-6"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── data_raw.csv</span>
+<span id="cb14-7"><a href=""></a><span class="ex">├──</span> docs</span>
+<span id="cb14-8"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── article</span>
+<span id="cb14-9"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     ├── articles.qmd</span>
+<span id="cb14-10"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── references.bib</span>
+<span id="cb14-11"><a href=""></a><span class="ex">├──</span> R</span>
+<span id="cb14-12"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── 2_analysis.R</span>
+<span id="cb14-13"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── 3_graph.R</span>
+<span id="cb14-14"><a href=""></a><span class="ex">├──</span> README.md</span>
+<span id="cb14-15"><a href=""></a><span class="ex">└──</span> results</span>
+<span id="cb14-16"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span> └── graphs</span>
+<span id="cb14-17"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span>  &nbsp;&nbsp; └── 1_bar_graph.png</span>
+<span id="cb14-18"><a href=""></a> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="en-apprendre-plus" class="slide level2 smaller">
 <h2>En apprendre plus</h2>
@@ -1372,18 +1317,7 @@ Laurence-Olivier M. Foisy
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1415,7 +1349,29 @@ Laurence-Olivier M. Foisy
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1423,7 +1379,7 @@ Laurence-Olivier M. Foisy
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

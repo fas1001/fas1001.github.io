@@ -448,8 +448,6 @@ print(df_summarized)
 - Commencer en noir et blanc 
   - Utiliser les couleurs de manière efficace
 
-
-
 ## Visualisation avec ggplot2{auto-animate=true}
 
 ### Initialiser un graphique
@@ -476,7 +474,6 @@ ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
   - `geom_line()` est pour un graphique en ligne
   - `geom_bar()` est pour un graphique en barres
   - `geom_histogram()` est pour un histogramme
-
 
 ## Visualisation avec ggplot2{auto-animate=true}
 
@@ -582,113 +579,47 @@ summary(modele)
 
 ## Bonnes pratiques
 
-- Nommer vos objets de façon explicite
-- Commenter votre code
-- Organiser votre code
+### [style.tidyverse.org](https://style.tidyverse.org/)
 
-![](https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png){.absolute top=0 left=800 width="30%"}
+- Utilisé par la communauté R pour standardiser le style du code
+- Utilisé par [Google](https://google.github.io/styleguide/Rguide.html) 
+- Utilisé par des packages populaires comme [stylr](https://styler.r-lib.org/) et [lintr](https://lintr.r-lib.org/)
+
+## Bonnes pratiques {.smaller}
+
+### Règles générales :
+
+- Nommer vos fichiers de manière descriptive
+- Utiliser des minuscules seulement et aucun caractère spécial comme é ou à
+- Si vos fichiers contiennent plusieurs mots, les séparer par des underscores `_`
+- Exemple: `nettoyage_donnees.R`
+- Utiliser des chiffres pour ordonner vos scripts
+- Évitez d'écrire des lignes de code trop longues
+- Utiliser la convention `snake_case` plutôt que `camelCase`
+- Nommez vous dataframe de façon standard. `df_` ou `data_`
 
 ## Organiser votre environnement de travail
 
 ```bash
-/MonProjet
-├── data/                
-│   ├── raw_data.csv      
-│   └── cleaned_data.csv  
-├── scripts/             
-│   ├── analyse.R         
-│   └── visualization.R   
-├── results/             
-│   ├── summary_statistics.csv  
-│   └── plots/                  
-│       └── data_distribution.png  
-├── docs/                
-│   ├── methodology.md    
-│   ├── references.bib    
-│   └── project_presentation.qmd  
-└── README.md            
+votre_projet
+├── data
+│   ├── processed
+│   │   └── data_clean.csv
+│   └── raw
+│       └── data_raw.csv
+├── docs
+│   └── article
+│       ├── articles.qmd
+│       └── references.bib
+├── R
+│   ├── 2_analysis.R
+│   └── 3_graph.R
+├── README.md
+└── results
+    └── graphs
+        └── 1_bar_graph.png
+ 
 ```
-
-
-## Git{.smaller}
-
-::::{.columns}
-
-:::{.column width=50%}
-
-- Créé par Linus Torvalds en 2005
-- Gestion de version
-- Permet de suivre l'évolution d'un projet
-- Utile pour tout ce qui est texte, incluant les articles et les présentations
-- Enregistre tous les changements faits depuis la création du projet (.git)
-- Reproductibilité et transparence
-
-:::
-
-:::{.column width=50%}
-
-![](img/meme_versions.jpg)
-
-:::
-
-::::
-
-## Git
-
-- Télécharger et installer Git depuis [git-scm.com](git-scm.com)
-
-- Configurer git avant de commencer à l'utiliser
-
-  - Dans le terminal:
-
-```bash
-git config --global user.name "username"
-git config --global user.email votre@email.com
-git config --global credential.helper store
-```
-<!--`-->
-
-## Git{.smaller transition="none"}
-
-![](img/git.png)
-
-## GitHub{.smaller transition="none"}
-
-![](img/git_github.png)
-
-
-## GitHub{.smaller}
-
-- GitHub = Git + Internet
-
-- Plateforme de développement collaboratif
-- Héberge des projets Git
-- Acheté par Microsoft pour 7.5 milliards de dollars
-- Lieu d'entreposage de plusieurs projets open source
-
-## Comment l'utiliser?{.smaller}
-
-1. Cloner un projet existant sur votre ordinateur.
-  - Ce projet est maintenant un dossier sur votre ordinateur. Vous pouvez le modifier, le supprimer, le déplacer, etc.
-
-
-```bash
-git clone https://lien/vers/repo.git
-```
-<!--`-->
-
-2. Modifier le projet, ajouter des fichiers, etc.
-
-```bash
-git pull 
-git add votre_fichier_1 votre_fichier_2
-git commit -m "Message de commit"
-git push
-```
-<!--`-->
-
-
-<!--`-->
 
 ## En apprendre plus{.smaller} 
 
