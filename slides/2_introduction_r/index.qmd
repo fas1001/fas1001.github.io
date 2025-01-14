@@ -118,6 +118,22 @@ Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé 
 
 <br><br>
 
+### Tidyverse
+
+- Collection de packages pour la manipulation de données
+
+- `dplyr` : manipulation de données
+- `ggplot2` : graphiques
+- `tidyr` : nettoyage de données
+- `readr` : importation de données
+- `stringr` : manipulation de chaînes de caractères
+
+## Pourquoi R?{.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png){.absolute top=0 left=800 width="20%"}
+
+<br><br>
+
 ### Reproductibilité
 
 - Rendre les analyses [reproductibles](https://github.com/clessn/beyond_multiple_choices)
@@ -359,6 +375,151 @@ Autres fonctions pour importer des données dépendamment du format:
 
 ![](img/df_in_env.png){.absolute top=300 left=150 width="70%"}
 
+## Anatomie d'une ligne de code {.smaller}
+
+Prenons un exemple simple :
+```r
+resultat <- mean(df$age, na.rm = TRUE)
+```
+
+Décomposons cette ligne :
+
+- `resultat` : nom de l'objet où on stocke le résultat
+- `<-` : opérateur d'assignation
+- `mean()` : fonction qui calcule la moyenne
+- `df$age` : variable 'age' du dataframe 'df'
+- `na.rm = TRUE` : argument de la fonction (ignorer les NA)
+
+::::{.notes}
+Cette ligne de code calcule la moyenne de la variable 'age' en ignorant les valeurs manquantes (NA) et stocke le résultat dans un objet nommé 'resultat'
+::::
+
+## Les types de données dans R {.smaller}
+
+### Types de base :
+
+- `numeric` : nombres (avec ou sans décimales)
+```r
+age <- 25        # integer
+taille <- 1.75   # double
+```
+
+- `character` : texte (chaînes de caractères)
+```r
+nom <- "Pierre"
+ville <- 'Montréal'  # simple ou double quotes
+```
+
+- `logical` : TRUE ou FALSE
+```r
+est_etudiant <- TRUE
+a_un_emploi <- FALSE
+```
+
+## Les types de données dans R {.smaller}
+
+### Types spéciaux :
+
+- `factor` : catégories
+```r
+niveau <- factor(c("Débutant", "Intermédiaire", "Avancé"))
+```
+
+- `Date` : dates
+```r
+date <- as.Date("2025-01-14")
+```
+
+- `NA` : valeurs manquantes
+```r
+donnees <- c(1, NA, 3, NA, 5)
+```
+
+## Parenthèses, guillemets et virgules {.smaller}
+
+### Les parenthèses () :
+- Délimitent les arguments d'une fonction
+- Doivent toujours être fermées
+```r
+# Correct
+moyenne <- mean(donnees)
+
+# Incorrect - parenthèse manquante
+moyenne <- mean(donnees
+```
+
+### Les virgules :
+- Séparent les arguments d'une fonction
+```r
+# Correct
+resultat <- sum(1, 2, 3, na.rm = TRUE)
+
+# Incorrect - virgule manquante
+resultat <- sum(1 2 3, na.rm = TRUE)
+```
+
+## Assignation : = vs <- {.smaller}
+
+### L'opérateur <- :
+- Recommandé pour l'assignation de variables
+- Plus clair et explicite
+- Standard dans la communauté R
+```r
+age <- 25
+nom <- "Alice"
+```
+
+### L'opérateur = :
+- Utilisé principalement pour les arguments de fonctions
+- Peut créer de la confusion
+```r
+# Pour les arguments de fonction
+mean(x = donnees, na.rm = TRUE)
+
+# Éviter pour l'assignation
+age = 25  # Fonctionne mais non recommandé
+```
+
+## Messages d'erreur courants {.smaller}
+
+### Erreur de syntaxe
+```r
+# Message d'erreur
+Error: unexpected symbol in "mon code"
+
+# Cause probable
+# Parenthèse ou guillemet manquant
+```
+
+### Objet non trouvé
+```r
+# Message d'erreur
+Error: object 'data' not found
+
+# Causes probables
+# - Faute de frappe dans le nom
+# - Objet non créé
+# - Mauvais working directory
+```
+
+## Messages d'erreur (suite) {.smaller}
+
+### Comment réagir aux erreurs :
+
+1. Ne pas paniquer ! Les erreurs sont normales
+2. Lire attentivement le message d'erreur
+3. Vérifier la ligne indiquée dans le message
+4. Points à vérifier :
+   - Parenthèses fermées ?
+   - Guillemets fermés ?
+   - Virgules aux bons endroits ?
+   - Noms d'objets corrects ?
+   - Package chargé (`library()`) ?
+
+::::{.notes}
+Encourager les étudiants à voir les erreurs comme des opportunités d'apprentissage
+::::
+
 # Codons!
 
 ## Nous allons utiliser le dataframe `swiss`{.smaller}
@@ -448,8 +609,6 @@ print(df_summarized)
 - Commencer en noir et blanc 
   - Utiliser les couleurs de manière efficace
 
-
-
 ## Visualisation avec ggplot2{auto-animate=true}
 
 ### Initialiser un graphique
@@ -476,7 +635,6 @@ ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
   - `geom_line()` est pour un graphique en ligne
   - `geom_bar()` est pour un graphique en barres
   - `geom_histogram()` est pour un histogramme
-
 
 ## Visualisation avec ggplot2{auto-animate=true}
 
@@ -582,113 +740,47 @@ summary(modele)
 
 ## Bonnes pratiques
 
-- Nommer vos objets de façon explicite
-- Commenter votre code
-- Organiser votre code
+### [style.tidyverse.org](https://style.tidyverse.org/)
 
-![](https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png){.absolute top=0 left=800 width="30%"}
+- Utilisé par la communauté R pour standardiser le style du code
+- Utilisé par [Google](https://google.github.io/styleguide/Rguide.html) 
+- Utilisé par des packages populaires comme [stylr](https://styler.r-lib.org/) et [lintr](https://lintr.r-lib.org/)
+
+## Bonnes pratiques {.smaller}
+
+### Règles générales :
+
+- Nommer vos fichiers de manière descriptive
+- Utiliser des minuscules seulement et aucun caractère spécial comme é ou à
+- Si vos fichiers contiennent plusieurs mots, les séparer par des underscores `_`
+- Exemple: `nettoyage_donnees.R`
+- Utiliser des chiffres pour ordonner vos scripts
+- Évitez d'écrire des lignes de code trop longues
+- Utiliser la convention `snake_case` plutôt que `camelCase`
+- Nommez vous dataframe de façon standard. `df_` ou `data_`
 
 ## Organiser votre environnement de travail
 
 ```bash
-/MonProjet
-├── data/                
-│   ├── raw_data.csv      
-│   └── cleaned_data.csv  
-├── scripts/             
-│   ├── analyse.R         
-│   └── visualization.R   
-├── results/             
-│   ├── summary_statistics.csv  
-│   └── plots/                  
-│       └── data_distribution.png  
-├── docs/                
-│   ├── methodology.md    
-│   ├── references.bib    
-│   └── project_presentation.qmd  
-└── README.md            
+votre_projet
+├── data
+│   ├── processed
+│   │   └── data_clean.csv
+│   └── raw
+│       └── data_raw.csv
+├── docs
+│   └── article
+│       ├── articles.qmd
+│       └── references.bib
+├── R
+│   ├── 2_analysis.R
+│   └── 3_graph.R
+├── README.md
+└── results
+    └── graphs
+        └── 1_bar_graph.png
+ 
 ```
-
-
-## Git{.smaller}
-
-::::{.columns}
-
-:::{.column width=50%}
-
-- Créé par Linus Torvalds en 2005
-- Gestion de version
-- Permet de suivre l'évolution d'un projet
-- Utile pour tout ce qui est texte, incluant les articles et les présentations
-- Enregistre tous les changements faits depuis la création du projet (.git)
-- Reproductibilité et transparence
-
-:::
-
-:::{.column width=50%}
-
-![](img/meme_versions.jpg)
-
-:::
-
-::::
-
-## Git
-
-- Télécharger et installer Git depuis [git-scm.com](git-scm.com)
-
-- Configurer git avant de commencer à l'utiliser
-
-  - Dans le terminal:
-
-```bash
-git config --global user.name "username"
-git config --global user.email votre@email.com
-git config --global credential.helper store
-```
-<!--`-->
-
-## Git{.smaller transition="none"}
-
-![](img/git.png)
-
-## GitHub{.smaller transition="none"}
-
-![](img/git_github.png)
-
-
-## GitHub{.smaller}
-
-- GitHub = Git + Internet
-
-- Plateforme de développement collaboratif
-- Héberge des projets Git
-- Acheté par Microsoft pour 7.5 milliards de dollars
-- Lieu d'entreposage de plusieurs projets open source
-
-## Comment l'utiliser?{.smaller}
-
-1. Cloner un projet existant sur votre ordinateur.
-  - Ce projet est maintenant un dossier sur votre ordinateur. Vous pouvez le modifier, le supprimer, le déplacer, etc.
-
-
-```bash
-git clone https://lien/vers/repo.git
-```
-<!--`-->
-
-2. Modifier le projet, ajouter des fichiers, etc.
-
-```bash
-git pull 
-git add votre_fichier_1 votre_fichier_2
-git commit -m "Message de commit"
-git push
-```
-<!--`-->
-
-
-<!--`-->
 
 ## En apprendre plus{.smaller} 
 
