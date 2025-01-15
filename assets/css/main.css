@@ -2980,3 +2980,73 @@ button:active,
     padding: 1.25rem;
   }
 }
+
+.exercises-section {
+  padding: 4rem 0;
+  background: #ffffff;
+}
+
+.exercises-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.exercise-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 2rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.exercise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-content h3 {
+  margin: 0 0 1rem 0;
+  color: #1e40af;
+  font-size: 1.5rem;
+}
+
+.exercise-description {
+  margin: 1rem 0;
+}
+
+.exercise-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.exercise-features span {
+  display: block;
+  padding: 0.5rem;
+  background: #ffffff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.exercise-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .exercise-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
