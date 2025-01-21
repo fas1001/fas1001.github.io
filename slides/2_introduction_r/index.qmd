@@ -762,7 +762,7 @@ summary(modele)
 ## Organiser votre environnement de travail
 
 ```bash
-votre_projet
+/votre_projet
 ├── data
 │   ├── processed
 │   │   └── data_clean.csv
