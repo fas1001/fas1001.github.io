@@ -38,19 +38,14 @@
               >
             </li>
             <li>
-              <a href="#plan" id="plan-link"
-                ><span class="icon solid fa-book">Plan de cours</span></a
-              >
-            </li>
-            <li>
-              <a href="#calendar" id="calendar-link"
-                ><span class="icon solid fa-calendar">Calendrier</span></a
-              >
-            </li>
-            <li>
               <a href="#evaluations" id="evaluations-link">
                 <span class="icon solid fa-tasks">Évaluations</span>
               </a>
+            </li>
+            <li>
+              <a href="#exercices" id="exercices-link"
+                ><span class="icon solid fa-pen">Exercices</span></a
+              >
             </li>
             <li>
               <a href="#datacamp" id="datacamp-link"
@@ -58,8 +53,13 @@
               >
             </li>
             <li>
-              <a href="#exercices" id="exercices-link"
-                ><span class="icon solid fa-pen">Exercices</span></a
+              <a href="#plan" id="plan-link"
+                ><span class="icon solid fa-book">Plan de cours</span></a
+              >
+            </li>
+            <li>
+              <a href="#calendar" id="calendar-link"
+                ><span class="icon solid fa-calendar">Calendrier</span></a
               >
             </li>
           </ul>
@@ -127,95 +127,6 @@
                 </header>
               </article>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Plan de cours -->
-      <section id="plan" class="three">
-        <div class="container">
-          <a
-            href="https://fas1001.com/syllabus/index.html"
-            class="syllabus-link"
-          >
-            <div class="syllabus-card">
-              <div class="syllabus-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather"
-                >
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                </svg>
-              </div>
-              <h2>Plan de cours</h2>
-              <p>Consultez le syllabus du cours ici</p>
-              <div class="hover-arrow">→</div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- Calendrier -->
-
-      <section id="calendar" class="calendar-section">
-        <div class="container">
-          <header>
-            <h2>Calendrier des évaluations</h2>
-          </header>
-          <div class="table-container">
-            <table class="evaluation-table">
-              <thead>
-                <tr>
-                  <th>Évaluations</th>
-                  <th>Points</th>
-                  <th>Dates</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>TP1 - Introduction</td>
-                  <td>10%</td>
-                  <td>29 janvier 2025 avant minuit</td>
-                </tr>
-                <tr>
-                  <td>Quiz 1</td>
-                  <td>15%</td>
-                  <td>13 février 2025 en classe</td>
-                </tr>
-                <tr>
-                  <td>TP2 - Travail de mi-session</td>
-                  <td>20%</td>
-                  <td>12 mars 2024 avant minuit</td>
-                </tr>
-                <tr>
-                  <td>Quiz 2</td>
-                  <td>15%</td>
-                  <td>10 avril 2025 en classe</td>
-                </tr>
-                <tr>
-                  <td>TP3 - Travail de session</td>
-                  <td>30%</td>
-                  <td>30 avril 2024 avant minuit</td>
-                </tr>
-                <tr>
-                  <td>Participation en classe</td>
-                  <td>10%</td>
-                  <td>9 janvier au 10 avril</td>
-                </tr>
-                <tr class="total-row">
-                  <td>Total</td>
-                  <td>100%</td>
-                  <td>9 janvier au 30 avril</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </section>
@@ -298,6 +209,45 @@
                 </div>
               </div>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Exercices -->
+      <section id="exercices" class="exercises-section">
+        <div class="container">
+          <header>
+            <h2>Exercices</h2>
+            <p>
+              Mettez en pratique vos connaissances avec des exercices guidés
+            </p>
+          </header>
+          <div class="exercises-grid">
+            <a
+              href="https://github.com/fas1001/introduction_r"
+              class="exercise-card"
+            >
+              <div class="exercise-content">
+                <h3>Introduction à l'analyse de données</h3>
+                <div class="exercise-description">
+                  <p>
+                    Un projet guidé complet couvrant les bases de l'analyse de
+                    données avec R.
+                  </p>
+                  <div class="exercise-features">
+                    <span>✓ Importation de données</span>
+                    <span>✓ Nettoyage de données</span>
+                    <span>✓ Visualisation</span>
+                    <span>✓ Analyse statistique</span>
+                  </div>
+                </div>
+                <div class="exercise-footer">
+                  <span class="difficulty">Niveau: Débutant</span>
+                  <span class="duration">Durée estimée: 1-3h</span>
+                </div>
+              </div>
+            </a>
+            <!-- Les futurs exercices peuvent être ajoutés ici -->
           </div>
         </div>
       </section>
@@ -412,41 +362,90 @@
         </div>
       </section>
 
-      <!-- Section Exercices -->
-      <section id="exercices" class="exercises-section">
+      <!-- Plan de cours -->
+      <section id="plan" class="three">
+        <div class="container">
+          <a
+            href="https://fas1001.com/syllabus/index.html"
+            class="syllabus-link"
+          >
+            <div class="syllabus-card">
+              <div class="syllabus-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <h2>Plan de cours</h2>
+              <p>Consultez le syllabus du cours ici</p>
+              <div class="hover-arrow">→</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Calendrier -->
+      <section id="calendar" class="calendar-section">
         <div class="container">
           <header>
-            <h2>Exercices</h2>
-            <p>
-              Mettez en pratique vos connaissances avec des exercices guidés
-            </p>
+            <h2>Calendrier des évaluations</h2>
           </header>
-          <div class="exercises-grid">
-            <a
-              href="https://github.com/fas1001/introduction_r"
-              class="exercise-card"
-            >
-              <div class="exercise-content">
-                <h3>Introduction à l'analyse de données</h3>
-                <div class="exercise-description">
-                  <p>
-                    Un projet guidé complet couvrant les bases de l'analyse de
-                    données avec R.
-                  </p>
-                  <div class="exercise-features">
-                    <span>✓ Importation de données</span>
-                    <span>✓ Nettoyage de données</span>
-                    <span>✓ Visualisation</span>
-                    <span>✓ Analyse statistique</span>
-                  </div>
-                </div>
-                <div class="exercise-footer">
-                  <span class="difficulty">Niveau: Débutant</span>
-                  <span class="duration">Durée estimée: 1-3h</span>
-                </div>
-              </div>
-            </a>
-            <!-- Les futurs exercices peuvent être ajoutés ici -->
+          <div class="table-container">
+            <table class="evaluation-table">
+              <thead>
+                <tr>
+                  <th>Évaluations</th>
+                  <th>Points</th>
+                  <th>Dates</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>TP1 - Introduction</td>
+                  <td>10%</td>
+                  <td>29 janvier 2025 avant minuit</td>
+                </tr>
+                <tr>
+                  <td>Quiz 1</td>
+                  <td>15%</td>
+                  <td>13 février 2025 en classe</td>
+                </tr>
+                <tr>
+                  <td>TP2 - Travail de mi-session</td>
+                  <td>20%</td>
+                  <td>12 mars 2024 avant minuit</td>
+                </tr>
+                <tr>
+                  <td>Quiz 2</td>
+                  <td>15%</td>
+                  <td>10 avril 2025 en classe</td>
+                </tr>
+                <tr>
+                  <td>TP3 - Travail de session</td>
+                  <td>30%</td>
+                  <td>30 avril 2024 avant minuit</td>
+                </tr>
+                <tr>
+                  <td>Participation en classe</td>
+                  <td>10%</td>
+                  <td>9 janvier au 10 avril</td>
+                </tr>
+                <tr class="total-row">
+                  <td>Total</td>
+                  <td>100%</td>
+                  <td>9 janvier au 30 avril</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
