@@ -3126,3 +3126,79 @@ button:active,
     grid-template-columns: 1fr;
   }
 }
+
+/* Evaluations Section */
+.evaluations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.evaluation-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(30, 58, 138, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.evaluation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  border-color: #1e3a8a;
+}
+
+.evaluation-content {
+  padding: 1.5rem;
+}
+
+.evaluation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.evaluation-header h3 {
+  color: #1e3a8a;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.due-date {
+  background: #e5e7eb;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.evaluation-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evaluation-status p {
+  color: #64748b;
+  margin: 0;
+  font-style: italic;
+}
+
+.points {
+  background: linear-gradient(to right, #1e3a8a, #1e40af);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .evaluations-grid {
+    grid-template-columns: 1fr;
+  }
+}
