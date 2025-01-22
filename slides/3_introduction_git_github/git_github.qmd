@@ -20,7 +20,8 @@ format:
 
 ## Des questions sur le dernier cours?
 
-- Le path
+- Avez-vous essayé l'exercice?
+- Le path?
 - Le balais dans RStudio
 
 ## À voir aujourd'hui
@@ -40,9 +41,9 @@ format:
 
 ## À propos du terminal{.smaller}
 
-- Ce que vous entrez dans le terminal n'est pas du code, mais des commandes avec des instructions
-- Les commandes sont des applications qui sont déjà installées sur votre ordinateur
-- Le terminal est l'équivalent d'un explorateur de fichiers, mais en mode texte
+- Pas du code mais des commandes
+- Chaque commande est une application
+- Un explorateur de fichier
 - À tout moment vous êtes dans une location précise, dans un répertoire ou un dossier
 
 ## Terminal
@@ -55,7 +56,7 @@ format:
 
 - Terminal
 
-![](img/terminal.png){width=50%}
+![](https://upload.wikimedia.org/wikipedia/commons/b/b3/Terminalicon2.png){width=50%}
 
 :::
 
@@ -128,7 +129,7 @@ format:
 
 - Configurer git avant de commencer à l'utiliser
 
-  - Dans le terminal:
+- Dans le terminal:
 
 ```bash
 git config --global user.name "username"
@@ -136,7 +137,6 @@ git config --global user.email votre@email.com
 git config --global credential.helper store
 ```
 <!--`-->
-
 
 # GitHub
 
@@ -278,60 +278,98 @@ git push
   - Discussion autour des changements
   - Validation avant intégration
 
-[À vous de contribuer au livre d'outils](https://github.com/clessn/livre-outils)
+## [Datacamp](https://app.datacamp.com/learn/skill-tracks/github-foundations)
 
-## GitHub pages
-
-- GitHub pages vous permet d'héberger un site web gratuitement
-- GitHub permet aussi de lier un nom de domaine à votre site
-- Idéal pour votre portfolio de chercheur
-
-
-[Gabarit de site web](https://github.com/clessn/gabarit_site_web)
+![](img/datacamp_github.png)
 
 # Quarto
 
-## Les langages de balisage{.smaller}
+## Langages de balisage{.smaller}
 
-- C'est quoi un **"Markup language"**
+::::{.columns}
 
-- Tout simplement une façon de formater du texte
+:::{.column width=60%}
 
-- Approche philosophique différente des logiciels de traitement de texte comme `Word`
+- Permettent de structurer un document avec des balises
+- Séparent le contenu de la mise en forme
+- Exemples courants :
+  - HTML pour le web
+  - LaTeX pour documents scientifiques
+  - Markdown pour la simplicité
+
+:::
+
+:::{.column width=40%}
+
+![](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg){width=50%}
+
+:::
+
+::::
 
 ## Historique des langages de balisage
 
 ![](img/timeline_markup.png)
 
-## Code $\LaTeX$
 
-::: {style="text-align:center;"}
-![](img/latex-code-cv.png){.fragment width="1500" height="900"}
+## Lanages de balisage{.smaller}
+
+::::{.columns}
+
+:::{.column width=60%}
+
+- ![](https://priv.au/image_proxy?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F92%2FLaTeX_logo.svg%2F2560px-LaTeX_logo.svg.png&h=5bbd23b97bc133701ccafb5e61f367f211f422b02a699aae711b14e0ef0b2633){width=40%}
+- ![](https://priv.au/image_proxy?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F4%2F48%2FMarkdown-mark.svg&h=5c031353f5a7e170d152730497ecd7f3f3b2de5b2c1d14465f0b215efa217858), ![](https://priv.au/image_proxy?url=https%3A%2F%2Frstudio.github.io%2Fcheatsheets%2Fhtml%2Fimages%2Flogo-quarto.png&h=2b8bda8401b6ed48df7273da04f5cd5a122cea5d0b62d49ca17f260b5717253a){width=15%}
+- ![](https://priv.au/image_proxy?url=https%3A%2F%2Fstyles.redditmedia.com%2Ft5_83esp8%2Fstyles%2FcommunityIcon_eytolmfg1gra1.png&h=1b16a38469e43d038e49a52d4efdc768b69e079eed846bc7267acc9bc1f23e1e){width=20%}
+
 :::
 
-## Templates accessibles
+:::{.column width=40%}
+### Lequel choisir?
 
-```bash
+Ils sont tous bons!
+:::
+
+::::
+
+## Pourquoi Quarto? {.smaller}
+
+- Très facile à utiliser
+- Inclus avec RStudio
+- Possibilité d'inclure du LaTeX si nécessaire
+- Templates facile à créer et à utiliser
+
+```zsh
 quarto use template fas1001/gabarit_udem_science_po
 ```
 
-## Pourquoi se compliquer la vie...?
+![](https://r4ds.hadley.nz/images/quarto-flow.png)
 
-::: {style="text-align:center;"}
-![](img/word_logo.png){.fragment width="650" height="700"}
+## Pourquoi se compliquer la vie?{.smaller}
+
+::::{.columns}
+
+:::{.column width=80%}
+
+- Open source - Adapté à nos besoins
+- Automatisation - Répétabilité
+- Compatibilité - Windows, MacOS, Linux
+- Versatilité (HTML, PDF, Word, etc.)
+- Approche philosophique différente des logiciels de traitement de texte comme `Word`
+
 :::
 
-### Parce-que...
+:::{.column width=20%}
 
--   C'est gratuit et accessible à tous et à toutes...
--   Indépendance des plateformes d'utilisation: `Mac`, `Windows`, `Linux`. Offre une consistance d'une plateforme à une autre.
--   Automatisation, utile pour la collaboration en recherche.
--   Utilisation dans plusieurs `IDE` (ou `integrated development environment`) comme `RStudio` ou `VScode`.
--   Peut produire différents types de fichiers: `PDF`, `HTML`, et oui même le fameux `.docx` de `Word`...
+![](img/word_logo.png){width="300%" }
 
-------------------------------------------------------------------------
+:::
 
-## `Quarto` {background-image="img/quarto_rmarkdown.png"}
+::::
+
+## Courbe d'apprentissage
+
+![](https://inzaneresearch.com/wp-content/uploads/2018/06/sfhtj.jpg?w=840)
 
 ## `Quarto`
 
@@ -340,17 +378,133 @@ quarto use template fas1001/gabarit_udem_science_po
 - Possibilité d'utiliser plusieurs `IDE` comme `RStudio` ou `VScode`.
 - `Quarto` permet de faire des belles présentations, livres, rapports de recherche, thèses, site web.
 
-## `Quarto`
+## Comment utiliser Markdown{.smaller}
 
--   Permet de faire des visualisations avec `Shiny` dans des présentations et des rapports.
--   Exemple: [Shiny de la Chaire](https://pol3015leselections.shinyapps.io/_shiny_electoral/){preview-link="true"}
--   [Autre exemple](https://jjallaire.shinyapps.io/kmeans-shiny-ojs/){preview-link="true"}
+::::{.columns}
+
+:::{.column width=50%}
+
+```markdown
+
+### Titre de niveau 3
+
+#### Titre de niveau 4
+
+**Texte en gras**
+_Texte en italique_
+
+@citation dans le texte
+En fin de phrase [@citation].
+
+> Bloc de citation
+
+Texte normal, écriture, blablabla.
+```
+
+:::
+
+:::{.column width=50%}
+
+### Titre de niveau 3
+
+#### Titre de niveau 4
+
+**Texte en gras**
+
+_Texte en italique_
+
+Auteur (année) dans le texte
+
+En fin de phrase (Auteur, année).
+
+> Bloc de citation
+
+Texte normal, écriture, blablabla.
+
+:::
+
+::::
+
+## Comment utiliser Markdown{.smaller}
+
+::::{.columns}
+
+:::{.column width=50%}
+
+```markdown
+- Liste à puce
+- Liste à puce 
+  1. Sous-liste à numéro
+  2. Sous-liste à numéro
+      1. Sou-sous liste à numéro
+        - Sous-sous-sous liste à puce
+
+![](https://mdg.imgix.net/assets/images/tux.png?auto=format&fit=clip&q=40&w=100)
+![](img/terminal.png)
+
+```
+
+:::
+
+:::{.column width=50%}
+
+- Liste à puce
+- Liste à puce 
+  1. Sous-liste à numéro
+  2. Sous-liste à numéro
+      1. Sou-sous liste à numéro
+        - Sous-sous-sous liste à puce
+
+![](https://mdg.imgix.net/assets/images/tux.png?auto=format&fit=clip&q=40&w=100)
+![](img/powershell.png)
+
+:::
+
+::::
+
+## Fichiers .bib
+
+```bib
+@book{salganik2019bit,
+  title={Bit by bit: Social research in the digital age},
+  author={Salganik, Matthew J},
+  year={2019},
+  publisher={Princeton University Press}
+}
+```
+
+
+## YAML Header
+
+```yaml
+
+---
+author: "Laurence-Olivier"
+title: "Le YAML"
+subtitle: "C'est quoi?"
+date: today
+format:
+  pdf:
+    documentclass: article
+    geometry: 
+      - margin=2.5cm
+    fontsize: 12pt
+    mainfont: "TeX Gyre Termes"
+    header-includes: |
+      \usepackage[french]{babel}
+bibliography: references.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl
+---
+
+```
+
+
 
 ## Le TP1
 
 [Lien vers le TP1 sur GitHub Classrooms](https://classroom.github.com/a/zxD7k-73)
 
-## Conclusion
+# Conclusion
 
 <!-- 
 Tex 1978

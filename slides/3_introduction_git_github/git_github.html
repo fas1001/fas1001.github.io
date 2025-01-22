@@ -409,7 +409,8 @@ Laurence-Olivier M. Foisy
 <section id="des-questions-sur-le-dernier-cours" class="slide level2">
 <h2>Des questions sur le dernier cours?</h2>
 <ul>
-<li>Le path</li>
+<li>Avez-vous essayé l’exercice?</li>
+<li>Le path?</li>
 <li>Le balais dans RStudio</li>
 </ul>
 </section>
@@ -435,9 +436,9 @@ Laurence-Olivier M. Foisy
 <section id="à-propos-du-terminal" class="slide level2 smaller">
 <h2>À propos du terminal</h2>
 <ul>
-<li>Ce que vous entrez dans le terminal n’est pas du code, mais des commandes avec des instructions</li>
-<li>Les commandes sont des applications qui sont déjà installées sur votre ordinateur</li>
-<li>Le terminal est l’équivalent d’un explorateur de fichiers, mais en mode texte</li>
+<li>Pas du code mais des commandes</li>
+<li>Chaque commande est une application</li>
+<li>Un explorateur de fichier</li>
 <li>À tout moment vous êtes dans une location précise, dans un répertoire ou un dossier</li>
 </ul>
 </section>
@@ -449,7 +450,7 @@ Laurence-Olivier M. Foisy
 <ul>
 <li>Terminal</li>
 </ul>
-<p><img data-src="img/terminal.png" style="width:50.0%"></p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Terminalicon2.png" style="width:50.0%"></p>
 </div><div class="column" style="width:50%;">
 <h3 id="windows">Windows</h3>
 <ul>
@@ -513,10 +514,8 @@ Laurence-Olivier M. Foisy
 <h2>Important</h2>
 <ul>
 <li><p>Télécharger et installer Git depuis <a href="git-scm.com">git-scm.com</a></p></li>
-<li><p>Configurer git avant de commencer à l’utiliser</p>
-<ul>
-<li>Dans le terminal:</li>
-</ul></li>
+<li><p>Configurer git avant de commencer à l’utiliser</p></li>
+<li><p>Dans le terminal:</p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"username"</span></span>
 <span id="cb1-2"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.email votre@email.com</span>
@@ -679,62 +678,86 @@ Laurence-Olivier M. Foisy
 <li>Validation avant intégration</li>
 </ul></li>
 </ul>
-<p><a href="https://github.com/clessn/livre-outils">À vous de contribuer au livre d’outils</a></p>
 </section>
-<section id="github-pages" class="slide level2">
-<h2>GitHub pages</h2>
-<ul>
-<li>GitHub pages vous permet d’héberger un site web gratuitement</li>
-<li>GitHub permet aussi de lier un nom de domaine à votre site</li>
-<li>Idéal pour votre portfolio de chercheur</li>
-</ul>
-<p><a href="https://github.com/clessn/gabarit_site_web">Gabarit de site web</a></p>
-</section></section>
+<section id="datacamp-1" class="slide level2">
+<h2><a href="https://app.datacamp.com/learn/skill-tracks/github-foundations">Datacamp</a></h2>
+
+<img data-src="img/datacamp_github.png" class="r-stretch"></section></section>
 <section>
 <section id="quarto" class="title-slide slide level1 center">
 <h1>Quarto</h1>
 
 </section>
-<section id="les-langages-de-balisage" class="slide level2 smaller">
-<h2>Les langages de balisage</h2>
+<section id="langages-de-balisage" class="slide level2 smaller">
+<h2>Langages de balisage</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
-<li><p>C’est quoi un <strong>“Markup language”</strong></p></li>
-<li><p>Tout simplement une façon de formater du texte</p></li>
-<li><p>Approche philosophique différente des logiciels de traitement de texte comme <code>Word</code></p></li>
+<li>Permettent de structurer un document avec des balises</li>
+<li>Séparent le contenu de la mise en forme</li>
+<li>Exemples courants :
+<ul>
+<li>HTML pour le web</li>
+<li>LaTeX pour documents scientifiques</li>
+<li>Markdown pour la simplicité</li>
+</ul></li>
 </ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" style="width:50.0%"></p>
+</div>
+</div>
 </section>
 <section id="historique-des-langages-de-balisage" class="slide level2">
 <h2>Historique des langages de balisage</h2>
 
 <img data-src="img/timeline_markup.png" class="r-stretch"></section>
-<section id="code-latex" class="slide level2">
-<h2>Code <span class="math inline">\(\LaTeX\)</span></h2>
-<div style="text-align:center;">
-<p><img data-src="img/latex-code-cv.png" class="fragment" width="1500" height="900"></p>
-</div>
-</section>
-<section id="templates-accessibles" class="slide level2">
-<h2>Templates accessibles</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="ex">quarto</span> use template fas1001/gabarit_udem_science_po</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="pourquoi-se-compliquer-la-vie" class="slide level2">
-<h2>Pourquoi se compliquer la vie…?</h2>
-<div style="text-align:center;">
-<p><img data-src="img/word_logo.png" class="fragment" width="650" height="700"></p>
-</div>
-<h3 id="parce-que">Parce-que…</h3>
+<section id="lanages-de-balisage" class="slide level2 smaller">
+<h2>Lanages de balisage</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
-<li>C’est gratuit et accessible à tous et à toutes…</li>
-<li>Indépendance des plateformes d’utilisation: <code>Mac</code>, <code>Windows</code>, <code>Linux</code>. Offre une consistance d’une plateforme à une autre.</li>
-<li>Automatisation, utile pour la collaboration en recherche.</li>
-<li>Utilisation dans plusieurs <code>IDE</code> (ou <code>integrated development environment</code>) comme <code>RStudio</code> ou <code>VScode</code>.</li>
-<li>Peut produire différents types de fichiers: <code>PDF</code>, <code>HTML</code>, et oui même le fameux <code>.docx</code> de <code>Word</code>…</li>
+<li><img data-src="https://priv.au/image_proxy?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F92%2FLaTeX_logo.svg%2F2560px-LaTeX_logo.svg.png&amp;h=5bbd23b97bc133701ccafb5e61f367f211f422b02a699aae711b14e0ef0b2633" style="width:40.0%"></li>
+<li><img data-src="https://priv.au/image_proxy?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F4%2F48%2FMarkdown-mark.svg&amp;h=5c031353f5a7e170d152730497ecd7f3f3b2de5b2c1d14465f0b215efa217858">, <img data-src="https://priv.au/image_proxy?url=https%3A%2F%2Frstudio.github.io%2Fcheatsheets%2Fhtml%2Fimages%2Flogo-quarto.png&amp;h=2b8bda8401b6ed48df7273da04f5cd5a122cea5d0b62d49ca17f260b5717253a" style="width:15.0%"></li>
+<li><img data-src="https://priv.au/image_proxy?url=https%3A%2F%2Fstyles.redditmedia.com%2Ft5_83esp8%2Fstyles%2FcommunityIcon_eytolmfg1gra1.png&amp;h=1b16a38469e43d038e49a52d4efdc768b69e079eed846bc7267acc9bc1f23e1e" style="width:20.0%"></li>
 </ul>
+</div><div class="column" style="width:40%;">
+<h3 id="lequel-choisir">Lequel choisir?</h3>
+<p>Ils sont tous bons!</p>
+</div>
+</div>
 </section>
-<section id="quarto-1" class="slide level2" data-background-image="img/quarto_rmarkdown.png">
-<h2><code>Quarto</code></h2>
+<section id="pourquoi-quarto" class="slide level2 smaller">
+<h2>Pourquoi Quarto?</h2>
+<ul>
+<li>Très facile à utiliser</li>
+<li>Inclus avec RStudio</li>
+<li>Possibilité d’inclure du LaTeX si nécessaire</li>
+<li>Templates facile à créer et à utiliser</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><a href=""></a><span class="ex">quarto</span> use template fas1001/gabarit_udem_science_po</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="https://r4ds.hadley.nz/images/quarto-flow.png" class="r-stretch"></section>
+<section id="pourquoi-se-compliquer-la-vie" class="slide level2 smaller">
+<h2>Pourquoi se compliquer la vie?</h2>
+<div class="columns">
+<div class="column" style="width:80%;">
+<ul>
+<li>Open source - Adapté à nos besoins</li>
+<li>Automatisation - Répétabilité</li>
+<li>Compatibilité - Windows, MacOS, Linux</li>
+<li>Versatilité (HTML, PDF, Word, etc.)</li>
+<li>Approche philosophique différente des logiciels de traitement de texte comme <code>Word</code></li>
+</ul>
+</div><div class="column" style="width:20%;">
+<p><img data-src="img/word_logo.png" style="width:300.0%"></p>
+</div>
+</div>
 </section>
-<section id="quarto-2" class="slide level2">
+<section id="courbe-dapprentissage" class="slide level2">
+<h2>Courbe d’apprentissage</h2>
+
+<img data-src="https://inzaneresearch.com/wp-content/uploads/2018/06/sfhtj.jpg?w=840" class="r-stretch"></section>
+<section id="quarto-1" class="slide level2">
 <h2><code>Quarto</code></h2>
 <ul>
 <li>Markdown amélioré</li>
@@ -743,20 +766,106 @@ Laurence-Olivier M. Foisy
 <li><code>Quarto</code> permet de faire des belles présentations, livres, rapports de recherche, thèses, site web.</li>
 </ul>
 </section>
-<section id="quarto-3" class="slide level2">
-<h2><code>Quarto</code></h2>
+<section id="comment-utiliser-markdown" class="slide level2 smaller">
+<h2>Comment utiliser Markdown</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a></span>
+<span id="cb6-2"><a href=""></a><span class="fu">### Titre de niveau 3</span></span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a><span class="fu">#### Titre de niveau 4</span></span>
+<span id="cb6-5"><a href=""></a></span>
+<span id="cb6-6"><a href=""></a>**Texte en gras**</span>
+<span id="cb6-7"><a href=""></a>_Texte en italique_</span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a>@citation dans le texte</span>
+<span id="cb6-10"><a href=""></a>En fin de phrase <span class="co">[</span><span class="ot">@citation</span><span class="co">]</span>.</span>
+<span id="cb6-11"><a href=""></a></span>
+<span id="cb6-12"><a href=""></a><span class="at">&gt; Bloc de citation</span></span>
+<span id="cb6-13"><a href=""></a></span>
+<span id="cb6-14"><a href=""></a>Texte normal, écriture, blablabla.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h3 id="titre-de-niveau-3">Titre de niveau 3</h3>
+<h4 id="titre-de-niveau-4">Titre de niveau 4</h4>
+<p><strong>Texte en gras</strong></p>
+<p><em>Texte en italique</em></p>
+<p>Auteur (année) dans le texte</p>
+<p>En fin de phrase (Auteur, année).</p>
+<blockquote>
+<p>Bloc de citation</p>
+</blockquote>
+<p>Texte normal, écriture, blablabla.</p>
+</div>
+</div>
+</section>
+<section id="comment-utiliser-markdown-1" class="slide level2 smaller">
+<h2>Comment utiliser Markdown</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="ss">- </span>Liste à puce</span>
+<span id="cb7-2"><a href=""></a><span class="ss">- </span>Liste à puce </span>
+<span id="cb7-3"><a href=""></a><span class="ss">  1. </span>Sous-liste à numéro</span>
+<span id="cb7-4"><a href=""></a><span class="ss">  2. </span>Sous-liste à numéro</span>
+<span id="cb7-5"><a href=""></a><span class="ss">      1. </span>Sou-sous liste à numéro</span>
+<span id="cb7-6"><a href=""></a><span class="ss">        - </span>Sous-sous-sous liste à puce</span>
+<span id="cb7-7"><a href=""></a></span>
+<span id="cb7-8"><a href=""></a><span class="al">![](https://mdg.imgix.net/assets/images/tux.png?auto=format&amp;fit=clip&amp;q=40&amp;w=100)</span></span>
+<span id="cb7-9"><a href=""></a><span class="al">![](img/terminal.png)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
 <ul>
-<li>Permet de faire des visualisations avec <code>Shiny</code> dans des présentations et des rapports.</li>
-<li>Exemple: <a href="https://pol3015leselections.shinyapps.io/_shiny_electoral/" data-preview-link="true">Shiny de la Chaire</a></li>
-<li><a href="https://jjallaire.shinyapps.io/kmeans-shiny-ojs/" data-preview-link="true">Autre exemple</a></li>
+<li>Liste à puce</li>
+<li>Liste à puce
+<ol type="1">
+<li>Sous-liste à numéro</li>
+<li>Sous-liste à numéro
+<ol type="1">
+<li>Sou-sous liste à numéro</li>
+</ol>
+<ul>
+<li>Sous-sous-sous liste à puce</li>
+</ul></li>
+</ol></li>
 </ul>
+<p><img data-src="https://mdg.imgix.net/assets/images/tux.png?auto=format&amp;fit=clip&amp;q=40&amp;w=100"> <img data-src="img/powershell.png"></p>
+</div>
+</div>
+</section>
+<section id="fichiers-.bib" class="slide level2">
+<h2>Fichiers .bib</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bib number-lines code-with-copy"><code class="sourceCode bibtex"><span id="cb8-1"><a href=""></a><span class="va">@book</span>{<span class="ot">salganik2019bit</span>,</span>
+<span id="cb8-2"><a href=""></a>  <span class="dt">title</span>={Bit by bit: Social research in the digital age},</span>
+<span id="cb8-3"><a href=""></a>  <span class="dt">author</span>={Salganik, Matthew J},</span>
+<span id="cb8-4"><a href=""></a>  <span class="dt">year</span>={2019},</span>
+<span id="cb8-5"><a href=""></a>  <span class="dt">publisher</span>={Princeton University Press}</span>
+<span id="cb8-6"><a href=""></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="yaml-header" class="slide level2">
+<h2>YAML Header</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href=""></a></span>
+<span id="cb9-2"><a href=""></a><span class="pp">---</span></span>
+<span id="cb9-3"><a href=""></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Laurence-Olivier"</span></span>
+<span id="cb9-4"><a href=""></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Le YAML"</span></span>
+<span id="cb9-5"><a href=""></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"C'est quoi?"</span></span>
+<span id="cb9-6"><a href=""></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
+<span id="cb9-7"><a href=""></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb9-8"><a href=""></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb9-9"><a href=""></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> article</span></span>
+<span id="cb9-10"><a href=""></a><span class="at">    </span><span class="fu">geometry</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb9-11"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> margin=2.5cm</span></span>
+<span id="cb9-12"><a href=""></a><span class="at">    </span><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
+<span id="cb9-13"><a href=""></a><span class="at">    </span><span class="fu">mainfont</span><span class="kw">:</span><span class="at"> </span><span class="st">"TeX Gyre Termes"</span></span>
+<span id="cb9-14"><a href=""></a><span class="fu">    header-includes</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb9-15"><a href=""></a>      \usepackage[french]{babel}</span>
+<span id="cb9-16"><a href=""></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
+<span id="cb9-17"><a href=""></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl</span></span>
+<span id="cb9-18"><a href=""></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="le-tp1" class="slide level2">
 <h2>Le TP1</h2>
 <p><a href="https://classroom.github.com/a/zxD7k-73">Lien vers le TP1 sur GitHub Classrooms</a></p>
-</section>
-<section id="conclusion" class="slide level2">
-<h2>Conclusion</h2>
+</section></section>
+<section id="conclusion" class="title-slide slide level1 center">
+<h1>Conclusion</h1>
 <!-- 
 Tex 1978
 Word 1983
@@ -778,7 +887,7 @@ Typst 2023
 <p><a href="https://fas1001.com">FAS1001</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
