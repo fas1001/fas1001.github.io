@@ -18,6 +18,11 @@ format:
     code-overflow: wrap
 ---
 
+## Des questions sur le dernier cours?
+
+- Le path
+- Le balais dans RStudio
+
 ## À voir aujourd'hui
 
 ### Le reste des outils que nous utiliserons cette session:
@@ -31,11 +36,12 @@ format:
 
 ![](img/outils_recherche.png)
 
-## Avant de commencer, un peu de terminal{.smaller}
+# Terminal
+
+## À propos du terminal{.smaller}
 
 - Ce que vous entrez dans le terminal n'est pas du code, mais des commandes avec des instructions
 - Les commandes sont des applications qui sont déjà installées sur votre ordinateur
-- Chaque commande est un fichier exécutable. `ls` est un fichier dans dans `/bin/ls`
 - Le terminal est l'équivalent d'un explorateur de fichiers, mais en mode texte
 - À tout moment vous êtes dans une location précise, dans un répertoire ou un dossier
 
@@ -91,6 +97,8 @@ format:
 
 ![](img/datacamp_shell.png)
 
+# Git
+
 ## Git{.smaller}
 
 ::::{.columns}
@@ -128,6 +136,9 @@ git config --global user.email votre@email.com
 git config --global credential.helper store
 ```
 <!--`-->
+
+
+# GitHub
 
 ## Git{.smaller transition="none"}
 
@@ -278,33 +289,31 @@ git push
 
 [Gabarit de site web](https://github.com/clessn/gabarit_site_web)
 
+# Quarto
+
 ## Les langages de balisage{.smaller}
 
 - C'est quoi un **"Markup language"**
 
-- Tout simplement un système de traitement de texte par codage
+- Tout simplement une façon de formater du texte
 
-- Approche philosophique différente des **WYSIWYG languages** ou les **What You See Is What You Get languages**... ***Word***
+- Approche philosophique différente des logiciels de traitement de texte comme `Word`
 
-## Dans mon temps...
+## Historique des langages de balisage
 
-- J'ai commencé avec $\LaTeX$ ...
+![](img/timeline_markup.png)
 
-- Basée lui-même sur le langage de programmation $\TeX$ qui est principalement utilisé dans le monde académique dans les champs utilisant les statistiques/méthodes quantitatives et les mathématiques.
-
-## Code $\LaTeX$ {background="black"}
+## Code $\LaTeX$
 
 ::: {style="text-align:center;"}
 ![](img/latex-code-cv.png){.fragment width="1500" height="900"}
 :::
 
-## Templates d'accessibles
+## Templates accessibles
 
-::: {style="text-align:center;"}
-![](img/overleaf_wide_bw.png){.fragment width="1900" height="650"}
-:::
-
-[Site](https://www.overleaf.com/latex/templates)
+```bash
+quarto use template fas1001/gabarit_udem_science_po
+```
 
 ## Pourquoi se compliquer la vie...?
 
@@ -312,27 +321,13 @@ git push
 ![](img/word_logo.png){.fragment width="650" height="700"}
 :::
 
-## Parce-que...
+### Parce-que...
 
-::: fragment
 -   C'est gratuit et accessible à tous et à toutes...
-:::
-
-::: fragment
 -   Indépendance des plateformes d'utilisation: `Mac`, `Windows`, `Linux`. Offre une consistance d'une plateforme à une autre.
-:::
-
-::: fragment
 -   Automatisation, utile pour la collaboration en recherche.
-:::
-
-::: fragment
 -   Utilisation dans plusieurs `IDE` (ou `integrated development environment`) comme `RStudio` ou `VScode`.
-:::
-
-::: fragment
 -   Peut produire différents types de fichiers: `PDF`, `HTML`, et oui même le fameux `.docx` de `Word`...
-:::
 
 ------------------------------------------------------------------------
 
@@ -340,49 +335,36 @@ git push
 
 ## `Quarto`
 
-::: fragment
--   Successeur de `R Markdown`: Construit spécifiquement pour `R` pour utiliser le markup language `Markdown`. Était une révolution pour les codeurs du langage `R`. Facilité à intégrer du code dans nos rapports de recherche. Possibilité d'utilisé du code $\LaTeX$ pour embellir nos documents.
-:::
-
-::: fragment
--   Pourquoi utiliser `Quarto` alors?
-:::
-
-::: fragment
--   Plus facile à utiliser que `R Markdown`.
-:::
-
-::: fragment
--   Possibilité d'utiliser plusieurs langage de programmation comme `Julia` ou `Python`.
-:::
-
-::: fragment
--   Possibilité d'utiliser plusieurs `IDE` comme `RStudio` ou `VScode`.
-:::
-
-::: fragment
--   `Quarto` permet de faire des belles présentations, livres, rapports de recherche, thèses, site web.
-:::
+- Markdown amélioré
+- Possibilité d'utiliser plusieurs langage de programmation comme `Julia` ou `Python`.
+- Possibilité d'utiliser plusieurs `IDE` comme `RStudio` ou `VScode`.
+- `Quarto` permet de faire des belles présentations, livres, rapports de recherche, thèses, site web.
 
 ## `Quarto`
 
-::: fragment
 -   Permet de faire des visualisations avec `Shiny` dans des présentations et des rapports.
-:::
-
-::: fragment
 -   Exemple: [Shiny de la Chaire](https://pol3015leselections.shinyapps.io/_shiny_electoral/){preview-link="true"}
-:::
-
-::: fragment
 -   [Autre exemple](https://jjallaire.shinyapps.io/kmeans-shiny-ojs/){preview-link="true"}
-:::
 
-# Avant d'aller plus loin, avez-vous...
+## Le TP1
 
-::: {style="text-align:center;"}
-![](img/r_rstudio.png){.fragment width="2500" height="500"}
-:::
-
+[Lien vers le TP1 sur GitHub Classrooms](https://classroom.github.com/a/zxD7k-73)
 
 ## Conclusion
+
+<!-- 
+Tex 1978
+Word 1983
+LaTeX 1984
+Power Points 1987
+HTML 1993
+Beamer 2003
+Markdown 2004
+Google Docs 2006
+Pandoc 2009
+Microsoft 365 2013
+Libre Office 2014
+Quarto 2022
+Typst 2023
+-->
+
