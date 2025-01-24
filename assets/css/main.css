@@ -3126,3 +3126,44 @@ button:active,
     grid-template-columns: 1fr;
   }
 }
+
+/* Base evaluation card styles */
+.evaluation-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect for all cards */
+.evaluation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Status-specific styles */
+.evaluation-card[data-status="à venir"] {
+  /* Default style, no special border */
+  border-color: rgba(30, 58, 138, 0.1);
+}
+
+.evaluation-card[data-status="en cours"] {
+  border-color: #22c55e; /* Green border */
+}
+
+.evaluation-card[data-status="terminé"] {
+  border-color: #ef4444; /* Red border */
+}
+
+/* Status text colors to match borders */
+.evaluation-card[data-status="en cours"] .evaluation-status p {
+  color: #22c55e;
+}
+
+.evaluation-card[data-status="terminé"] .evaluation-status p {
+  color: #ef4444;
+}
