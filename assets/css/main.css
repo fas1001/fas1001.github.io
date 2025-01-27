@@ -3169,5 +3169,5 @@ button:active,
 }
 
 .two .row + .row {
-  margin-top: 2rem; /* Adds space between rows */
+  margin-top: 1rem; /* Adds space between rows */
 }
