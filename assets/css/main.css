@@ -3167,3 +3167,7 @@ button:active,
 .evaluation-card[data-status="terminé"] .evaluation-status p {
   color: #ef4444;
 }
+
+.two .row + .row {
+  margin-top: 2rem; /* Adds space between rows */
+}
