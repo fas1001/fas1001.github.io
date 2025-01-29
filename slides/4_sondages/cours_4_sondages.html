@@ -1407,60 +1407,61 @@ Laurence-Olivier M. Foisy
 <h1>Nettoyer des données de sondages <span class="emoji" data-emoji="broom">🧹</span></h1>
 
 </section>
-<section id="étude-électorale-canadienne-de-1993---raw" class="slide level2 smaller">
-<h2>Étude électorale canadienne de 1993 - Raw</h2>
+<section id="étude-électorale-canadienne-de-1993" class="slide level2">
+<h2>Étude électorale canadienne de 1993</h2>
+<h3 id="raw">Raw</h3>
 <table>
 <thead>
 <tr class="header">
-<th>cpsigen</th>
-<th>cpsa3</th>
-<th>cpsg1</th>
-<th>cpso11</th>
-<th>pesf7</th>
+<th>CPSIGEN</th>
+<th>CPSA3</th>
+<th>CPSG1</th>
+<th>CPSO11</th>
+<th>CPSA2</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>female</td>
-<td>conservative</td>
-<td>verymuch opposed</td>
-<td>canada</td>
-<td>75</td>
+<td>5</td>
+<td>1</td>
+<td>7</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<td>female</td>
-<td>liberal</td>
-<td>somewhat opposed</td>
-<td>canada</td>
-<td>40</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr class="odd">
-<td>female</td>
-<td>refused</td>
-<td>verymuch opposed</td>
-<td>canada</td>
-<td>70</td>
+<td>5</td>
+<td>99</td>
+<td>7</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<td>male</td>
-<td>liberal</td>
-<td>verymuch opposed</td>
-<td>canada</td>
-<td>80</td>
+<td>1</td>
+<td>2</td>
+<td>7</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr class="odd">
-<td>female</td>
-<td>conservative</td>
-<td>somewhat favour</td>
-<td>canada</td>
-<td>NA</td>
+<td>5</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<td>male</td>
-<td>liberal</td>
-<td>somewhat opposed</td>
-<td>canada</td>
-<td>70</td>
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>1</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
@@ -1471,86 +1472,75 @@ Laurence-Olivier M. Foisy
 <div class="column" style="width:65%;">
 <p><img data-src="img/codebook.png" style="width:100.0%"></p>
 </div><div class="column" style="width:35%;">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>r<span class="sc">$</span><span class="er">&gt;</span> <span class="fu">table</span>(df_raw<span class="sc">$</span>cpsg1)</span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>r<span class="sc">$</span><span class="er">&gt;</span> <span class="fu">table</span>(df_raw<span class="sc">$</span>CPSG1)</span>
 <span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a>           d.k.          refused        </span>
-<span id="cb10-4"><a href=""></a>             <span class="dv">57</span>                <span class="dv">6</span>        </span>
-<span id="cb10-5"><a href=""></a> somewhat favour somewhat opposed        </span>
-<span id="cb10-6"><a href=""></a>            <span class="dv">743</span>              <span class="dv">957</span>        </span>
-<span id="cb10-7"><a href=""></a>verymuch favour verymuch opposed        </span>
-<span id="cb10-8"><a href=""></a>            <span class="dv">169</span>             <span class="dv">1843</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href=""></a>   <span class="dv">1</span>    <span class="dv">3</span>    <span class="dv">5</span>    <span class="dv">7</span>    <span class="dv">8</span>    <span class="dv">9</span> </span>
+<span id="cb10-4"><a href=""></a> <span class="dv">169</span>  <span class="dv">743</span>  <span class="dv">957</span> <span class="dv">1843</span>   <span class="dv">57</span>    <span class="dv">6</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="étude-électorale-canadienne-de-1993---clean" class="slide level2 smaller">
-<h2>Étude électorale canadienne de 1993 - Clean</h2>
+<section id="étude-électorale-canadienne-de-1993-1" class="slide level2 smaller">
+<h2>Étude électorale canadienne de 1993</h2>
+<h3 id="clean">Clean</h3>
 <table>
 <colgroup>
-<col style="width: 4%">
 <col style="width: 13%">
-<col style="width: 17%">
-<col style="width: 23%">
-<col style="width: 20%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 28%">
 <col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>id</th>
 <th>ses_gender</th>
-<th>vote_intention</th>
-<th>issue_gst_opposed</th>
 <th>ses_born_canada</th>
-<th>issue_native_feel</th>
+<th>vote_intention</th>
+<th>vote_probability_to_vote</th>
+<th>issue_gst_opposed</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
 <td>female</td>
-<td>cpc</td>
-<td>1.00</td>
 <td>1</td>
-<td>0.75</td>
+<td>cpc</td>
+<td>1</td>
+<td>1.00</td>
 </tr>
 <tr class="even">
-<td>2</td>
 <td>female</td>
+<td>1</td>
 <td>lpc</td>
+<td>1</td>
 <td>0.67</td>
-<td>1</td>
-<td>0.40</td>
 </tr>
 <tr class="odd">
-<td>3</td>
 <td>female</td>
-<td>NA</td>
-<td>1.00</td>
 <td>1</td>
-<td>0.70</td>
+<td>NA</td>
+<td>1</td>
+<td>1.00</td>
 </tr>
 <tr class="even">
-<td>4</td>
 <td>male</td>
-<td>lpc</td>
-<td>1.00</td>
 <td>1</td>
-<td>0.80</td>
+<td>lpc</td>
+<td>1</td>
+<td>1.00</td>
 </tr>
 <tr class="odd">
-<td>5</td>
 <td>female</td>
+<td>1</td>
 <td>cpc</td>
+<td>1</td>
 <td>0.33</td>
-<td>1</td>
-<td>NA</td>
 </tr>
 <tr class="even">
-<td>6</td>
 <td>male</td>
-<td>lpc</td>
-<td>0.67</td>
 <td>1</td>
-<td>0.70</td>
+<td>lpc</td>
+<td>1</td>
+<td>0.67</td>
 </tr>
 </tbody>
 </table>
@@ -1559,25 +1549,26 @@ Laurence-Olivier M. Foisy
 <h2>Décortiquer le processus de cleaning</h2>
 <div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a>df_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/ces/1993/ces93.csv"</span>) </span>
+<span id="cb11-3"><a href=""></a>df_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/ces/1993/raw/CES-E-1993_F1_subset.csv"</span>)</span>
 <span id="cb11-4"><a href=""></a></span>
 <span id="cb11-5"><a href=""></a>df_clean <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_raw))</span>
 <span id="cb11-6"><a href=""></a></span>
-<span id="cb11-7"><a href=""></a><span class="co"># Cleaning cpsg1 - gst opposition</span></span>
-<span id="cb11-8"><a href=""></a><span class="co"># In 1991 the Federal government adopted a new tax on goods and services, the GST. </span></span>
-<span id="cb11-9"><a href=""></a><span class="co"># All things considered, are you VERY MUCH IN FAVOUR, SOMEWHAT IN FAVOUR, </span></span>
-<span id="cb11-10"><a href=""></a><span class="co"># SOMEWHAT OPPOSED, or VERY MUCH OPPOSED to the GST?</span></span>
-<span id="cb11-11"><a href=""></a><span class="co"># 1 = Opposed, 0 = Favour</span></span>
-<span id="cb11-12"><a href=""></a></span>
-<span id="cb11-13"><a href=""></a><span class="fu">table</span>(df_raw<span class="sc">$</span>cpsg1)</span>
-<span id="cb11-14"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb11-15"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"verymuch favour"</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb11-16"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"somewhat favour"</span>] <span class="ot">&lt;-</span> <span class="fl">0.33</span></span>
-<span id="cb11-17"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"somewhat opposed"</span>] <span class="ot">&lt;-</span> <span class="fl">0.67</span></span>
-<span id="cb11-18"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"verymuch opposed"</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb11-19"><a href=""></a><span class="fu">table</span>(df_clean<span class="sc">$</span>issue_gst_opposed, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span>
-<span id="cb11-20"><a href=""></a></span>
-<span id="cb11-21"><a href=""></a><span class="fu">write.csv</span>(df_clean, <span class="st">"data/ces/1993/ces93_clean.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-7"><a href=""></a><span class="co">#------------------------------------------------------------------------------#</span></span>
+<span id="cb11-8"><a href=""></a><span class="co"># VARIABLE : CPSG1 - GST opposition</span></span>
+<span id="cb11-9"><a href=""></a><span class="co"># Question : In 1991 the Federal government adopted a new tax on goods and </span></span>
+<span id="cb11-10"><a href=""></a><span class="co">#           services, the GST. All things considered, are you VERY MUCH IN FAVOUR, </span></span>
+<span id="cb11-11"><a href=""></a><span class="co">#           SOMEWHAT IN FAVOUR, SOMEWHAT OPPOSED, or VERY MUCH OPPOSED to the GST?</span></span>
+<span id="cb11-12"><a href=""></a><span class="co"># Codage   : 1 = Opposed, 0 = Favour</span></span>
+<span id="cb11-13"><a href=""></a><span class="co">#------------------------------------------------------------------------------#</span></span>
+<span id="cb11-14"><a href=""></a><span class="fu">table</span>(df_raw<span class="sc">$</span>CPSG1, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span>
+<span id="cb11-15"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb11-16"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>CPSG1 <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb11-17"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>CPSG1 <span class="sc">==</span> <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fl">0.33</span></span>
+<span id="cb11-18"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>CPSG1 <span class="sc">==</span> <span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="fl">0.67</span></span>
+<span id="cb11-19"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>CPSG1 <span class="sc">==</span> <span class="dv">7</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb11-20"><a href=""></a><span class="fu">table</span>(df_clean<span class="sc">$</span>issue_gst_opposed, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span>
+<span id="cb11-21"><a href=""></a></span>
+<span id="cb11-22"><a href=""></a><span class="fu">write.csv</span>(df_clean, <span class="st">"data/ces/1993/ces93_clean.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="avantage-de-nettoyer-tout-de-la-même-façon" class="slide level2 smaller">
 <h2>Avantage de nettoyer tout de la même façon</h2>

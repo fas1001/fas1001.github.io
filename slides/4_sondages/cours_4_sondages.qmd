@@ -552,16 +552,18 @@ Source: Schuman et Presser 1996
 
 # Nettoyer des données de sondages :broom:
 
-## Étude électorale canadienne de 1993 - Raw {.smaller}
+## Étude électorale canadienne de 1993
 
-| cpsigen | cpsa3 | cpsg1 | cpso11 | pesf7 |
+### Raw
+
+| CPSIGEN | CPSA3 | CPSG1 | CPSO11 | CPSA2 |
 |---------|-------|-------|--------|-------|
-| female | conservative | verymuch opposed | canada | 75 |
-| female | liberal | somewhat opposed | canada | 40 |
-| female | refused | verymuch opposed | canada | 70 |
-| male | liberal | verymuch opposed | canada | 80 |
-| female | conservative | somewhat favour | canada | NA |
-| male | liberal | somewhat opposed | canada | 70 |
+| 5       | 1     | 7     | 1      | 1     |
+| 5       | 2     | 5     | 1      | 1     |
+| 5       | 99    | 7     | 1      | 1     |
+| 1       | 2     | 7     | 1      | 1     |
+| 5       | 1     | 3     | 1      | 1     |
+| 1       | 2     | 5     | 1      | 1     |
 
 ## Codebooks {.smaller}
 
@@ -576,51 +578,50 @@ Source: Schuman et Presser 1996
 ::: {.column width="35%"}
 
 ```R
-r$> table(df_raw$cpsg1)
+r$> table(df_raw$CPSG1)
 
-           d.k.          refused        
-             57                6        
- somewhat favour somewhat opposed        
-            743              957        
-verymuch favour verymuch opposed        
-            169             1843
+   1    3    5    7    8    9 
+ 169  743  957 1843   57    6 
 ```
 :::
 
 ::::
 
-## Étude électorale canadienne de 1993 - Clean {.smaller}
+## Étude électorale canadienne de 1993 {.smaller}
 
-| id | ses_gender | vote_intention | issue_gst_opposed | ses_born_canada | issue_native_feel |
-|----|------------|----------------|---------------------|-------------------|-------------------|
-| 1 | female | cpc | 1.00 | 1 | 0.75 |
-| 2 | female | lpc | 0.67 | 1 | 0.40 |
-| 3 | female | NA | 1.00 | 1 | 0.70 |
-| 4 | male | lpc | 1.00 | 1 | 0.80 |
-| 5 | female | cpc | 0.33 | 1 | NA |
-| 6 | male | lpc | 0.67 | 1 | 0.70 |
+### Clean
+
+| ses_gender | ses_born_canada | vote_intention | vote_probability_to_vote | issue_gst_opposed |
+|------------|----------------|----------------|-------------------------|------------------|
+| female     | 1              | cpc            | 1                       | 1.00             |
+| female     | 1              | lpc            | 1                       | 0.67             |
+| female     | 1              | NA             | 1                       | 1.00             |
+| male       | 1              | lpc            | 1                       | 1.00             |
+| female     | 1              | cpc            | 1                       | 0.33             |
+| male       | 1              | lpc            | 1                       | 0.67             |
 
 ## Décortiquer le processus de cleaning {.smaller}
 
 ```R
 library(dplyr)
 
-df_raw <- read.csv("data/ces/1993/ces93.csv") 
+df_raw <- read.csv("data/ces/1993/raw/CES-E-1993_F1_subset.csv")
 
 df_clean <- data.frame(id = 1:nrow(df_raw))
 
-# Cleaning cpsg1 - gst opposition
-# In 1991 the Federal government adopted a new tax on goods and services, the GST. 
-# All things considered, are you VERY MUCH IN FAVOUR, SOMEWHAT IN FAVOUR, 
-# SOMEWHAT OPPOSED, or VERY MUCH OPPOSED to the GST?
-# 1 = Opposed, 0 = Favour
-
-table(df_raw$cpsg1)
+#------------------------------------------------------------------------------#
+# VARIABLE : CPSG1 - GST opposition
+# Question : In 1991 the Federal government adopted a new tax on goods and 
+#           services, the GST. All things considered, are you VERY MUCH IN FAVOUR, 
+#           SOMEWHAT IN FAVOUR, SOMEWHAT OPPOSED, or VERY MUCH OPPOSED to the GST?
+# Codage   : 1 = Opposed, 0 = Favour
+#------------------------------------------------------------------------------#
+table(df_raw$CPSG1, useNA = "ifany")
 df_clean$issue_gst_opposed <- NA
-df_clean$issue_gst_opposed[df_raw$cpsg1 == "verymuch favour"] <- 0
-df_clean$issue_gst_opposed[df_raw$cpsg1 == "somewhat favour"] <- 0.33
-df_clean$issue_gst_opposed[df_raw$cpsg1 == "somewhat opposed"] <- 0.67
-df_clean$issue_gst_opposed[df_raw$cpsg1 == "verymuch opposed"] <- 1
+df_clean$issue_gst_opposed[df_raw$CPSG1 == 1] <- 0
+df_clean$issue_gst_opposed[df_raw$CPSG1 == 3] <- 0.33
+df_clean$issue_gst_opposed[df_raw$CPSG1 == 5] <- 0.67
+df_clean$issue_gst_opposed[df_raw$CPSG1 == 7] <- 1
 table(df_clean$issue_gst_opposed, useNA = "ifany")
 
 write.csv(df_clean, "data/ces/1993/ces93_clean.csv", row.names = FALSE)
