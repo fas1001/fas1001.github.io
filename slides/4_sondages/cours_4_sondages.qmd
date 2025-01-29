@@ -26,6 +26,7 @@ bibliography: bibliography.bib
 - Pourquoi selon vous le concept de chemin d'accès est autant difficile à maitriser?
 - C'est quoi un .RProj? Comment ça fonctionne?
 - C'est quoi un package? `library(ggplot2)`
+- Pourquoi le Quarto ne compilait pas?
 - Rouler le code ligne par ligne
 - Comprenez vous comment fonctionne `git`? 
 - "This is not a git repository"
