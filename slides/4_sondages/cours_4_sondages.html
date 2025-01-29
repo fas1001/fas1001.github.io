@@ -7,6 +7,13 @@
 <link href="cours_4_sondages_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="cours_4_sondages_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="cours_4_sondages_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="cours_4_sondages_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><script src="cours_4_sondages_files/libs/clipboard/clipboard.min.js"></script>
+<script src="cours_4_sondages_files/libs/quarto-html/tabby.min.js"></script>
+<script src="cours_4_sondages_files/libs/quarto-html/popper.min.js"></script>
+<script src="cours_4_sondages_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="cours_4_sondages_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="cours_4_sondages_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="cours_4_sondages_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="cours_4_sondages_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
@@ -550,7 +557,7 @@ Laurence-Olivier M. Foisy
 <span id="cb1-15"><a href=""></a>      <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
 <span id="cb1-16"><a href=""></a>    )</span>
 <span id="cb1-17"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb1-18"><a href=""></a>  <span class="fu">arrange</span>(religion, revenu)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-18"><a href=""></a>  <span class="fu">arrange</span>(religion, revenu)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="les-en-têtes-sont-des-valeurs-2" class="slide level2">
 <h2>1. Les en-têtes sont des valeurs</h2>
@@ -657,7 +664,7 @@ Laurence-Olivier M. Foisy
 <span id="cb2-19"><a href=""></a>      age <span class="sc">==</span> <span class="st">"2534"</span> <span class="sc">~</span> <span class="st">"25-34"</span>,</span>
 <span id="cb2-20"><a href=""></a>      age <span class="sc">==</span> <span class="st">"3544"</span> <span class="sc">~</span> <span class="st">"35-44"</span></span>
 <span id="cb2-21"><a href=""></a>    )</span>
-<span id="cb2-22"><a href=""></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-22"><a href=""></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="plusieurs-variables-dans-une-colonne-2" class="slide level2">
 <h2>2. Plusieurs variables dans une colonne</h2>
@@ -755,7 +762,7 @@ Laurence-Olivier M. Foisy
 <span id="cb3-6"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"valeur"</span>,</span>
 <span id="cb3-7"><a href=""></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>  <span class="co"># Optionnel: supprime les NA</span></span>
 <span id="cb3-8"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-9"><a href=""></a>  <span class="fu">rename</span>(<span class="at">mesure =</span> élément)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a href=""></a>  <span class="fu">rename</span>(<span class="at">mesure =</span> élément)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="variables-dans-lignes-et-colonnes-2" class="slide level2">
 <h2>3. Variables dans lignes et colonnes</h2>
@@ -850,7 +857,7 @@ Laurence-Olivier M. Foisy
 <span id="cb4-12"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"semaine"</span>,</span>
 <span id="cb4-13"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"rang"</span>,</span>
 <span id="cb4-14"><a href=""></a>    <span class="at">names_prefix =</span> <span class="st">"rang_sem"</span></span>
-<span id="cb4-15"><a href=""></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-15"><a href=""></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="plusieurs-types-dobservations-2" class="slide level2 smaller">
 <h2>4. Plusieurs types d’observations</h2>
@@ -972,7 +979,7 @@ Laurence-Olivier M. Foisy
 <span id="cb5-8"><a href=""></a></span>
 <span id="cb5-9"><a href=""></a><span class="co"># Joindre les tables</span></span>
 <span id="cb5-10"><a href=""></a>df_final <span class="ot">&lt;-</span> df_patients <span class="sc">%&gt;%</span></span>
-<span id="cb5-11"><a href=""></a>  <span class="fu">left_join</span>(df_mesures, <span class="at">by =</span> <span class="st">"id_patient"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-11"><a href=""></a>  <span class="fu">left_join</span>(df_mesures, <span class="at">by =</span> <span class="st">"id_patient"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="une-observation-dans-plusieurs-tableaux-2" class="slide level2">
 <h2>5. Une observation dans plusieurs tableaux</h2>
@@ -1030,7 +1037,7 @@ Laurence-Olivier M. Foisy
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Exemple avec des données tidy</span></span>
 <span id="cb6-2"><a href=""></a>donnees_tidy <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href=""></a>  <span class="fu">group_by</span>(categorie) <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">moyenne =</span> <span class="fu">mean</span>(valeur))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">moyenne =</span> <span class="fu">mean</span>(valeur))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="en-résumé" class="slide level2 center">
 <h2>En Résumé</h2>
@@ -1147,6 +1154,16 @@ Laurence-Olivier M. Foisy
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
+      }</style><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
       }</style></aside>
 </section>
 <section id="erreurs-de-représentativité" class="slide level2 smaller">
@@ -1157,7 +1174,101 @@ Laurence-Olivier M. Foisy
 <li>L’échantillonnage doit être représentatif de la population cible.</li>
 <li>Les non-réponses doivent être distribuées de manière aléatoire.</li>
 </ul>
-</section></section>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="https://cdn.prod.website-files.com/62ba4211475cc61b25d12c08/62bf3c6e8f4a5a5241c79536_3B-Diagram-01.png" class="r-stretch"></section>
+<section id="la-pondération" class="slide level2 smaller">
+<h2>La pondération</h2>
+<h3 id="quest-ce-que-la-pondération">Qu’est-ce que la pondération?</h3>
+<ul>
+<li>On donne plus ou moins de “poids” à certaines réponses pour corriger les biais d’échantillonnage</li>
+<li>But : Faire en sorte que notre échantillon représente mieux la population réelle</li>
+</ul>
+<h3 id="exemple-simple-la-cafétéria-universitaire">Exemple simple : La cafétéria universitaire</h3>
+<p>Imaginons un sondage sur la satisfaction des repas :</p>
+<ul>
+<li>80 étudiants de 1er cycle répondent</li>
+<li>20 étudiants des cycles supérieurs répondent</li>
+<li>MAIS dans la vraie université, c’est 50-50</li>
+</ul>
+</section>
+<section id="pourquoi-pondérer" class="slide level2 smaller">
+<h2>Pourquoi pondérer?</h2>
+<h3 id="le-problème-de-la-représentativité">Le problème de la représentativité</h3>
+<ul>
+<li>Certains groupes sont sur-représentés</li>
+<li>D’autres sont sous-représentés</li>
+<li>Les non-réponses ne sont pas aléatoires</li>
+</ul>
+<h3 id="lexemple-de-la-cafétéria-suite">L’exemple de la cafétéria (suite)</h3>
+<ul>
+<li>Dans notre sondage: 80% cycle 1 / 20% cycles sup</li>
+<li>Réalité: 50% cycle 1 / 50% cycles sup</li>
+<li>Solution: Donner plus de poids aux réponses des cycles sup</li>
+</ul>
+</section>
+<section id="comment-pondérer" class="slide level2 smaller">
+<h2>Comment pondérer?</h2>
+<h3 id="la-formule-de-base">La formule de base</h3>
+<pre><code>Poids = % dans population / % dans échantillon</code></pre>
+<h3 id="pour-notre-exemple">Pour notre exemple</h3>
+<ul>
+<li>Étudiants 1er cycle: 50/80 = 0.625</li>
+<li>Étudiants cycles sup: 50/20 = 2.5</li>
+</ul>
+<h3 id="en-pratique">En pratique</h3>
+<ol type="1">
+<li>On compare notre échantillon au recensement</li>
+<li>On calcule les poids pour chaque groupe</li>
+<li>On applique les poids dans nos analyses</li>
+</ol>
+</section>
+<section id="exemple-réel-sondage-électoral" class="slide level2 smaller">
+<h2>Exemple réel : Sondage électoral</h2>
+<h3 id="la-situation">La situation</h3>
+<ul>
+<li>Sondage de 1000 personnes</li>
+<li>Sur-représentation des 65+ ans</li>
+<li>Sous-représentation des 18-34 ans</li>
+</ul>
+<h3 id="les-données">Les données</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Âge</th>
+<th>Sondage</th>
+<th>Recensement</th>
+<th>Poids</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>18-34</td>
+<td>20%</td>
+<td>30%</td>
+<td>1.5</td>
+</tr>
+<tr class="even">
+<td>35-64</td>
+<td>45%</td>
+<td>45%</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td>65+</td>
+<td>35%</td>
+<td>25%</td>
+<td>0.71</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visualisation-de-lajustement" class="slide level2">
+<h2>Visualisation de l’ajustement</h2>
+
+<img data-src="img/weighting-diagram.svg" class="r-stretch"></section></section>
 <section>
 <section id="mesure" class="title-slide slide level1 center">
 <h1>Mesure</h1>
@@ -1226,13 +1337,25 @@ Laurence-Olivier M. Foisy
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
+      }</style><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
       }</style></aside>
 </section>
 <section id="meilleure-façon-de-poser-des-questions" class="slide level2 smaller">
 <h2>Meilleure façon de poser des questions</h2>
+<div class="r-fit-text">
 <ul>
 <li>Copier les questions des sondages précédents</li>
 </ul>
+</div>
 </section>
 <section id="comment-collecter-des-données-de-sondages" class="slide level2">
 <h2>Comment collecter des données de sondages? <span class="emoji" data-emoji="chart_with_upwards_trend">📈</span></h2>
@@ -1244,7 +1367,7 @@ Laurence-Olivier M. Foisy
 <li><a href="https://www.mturk.com/" data-preview-link="true">MTurk</a></li>
 </ul></li>
 <li>Compagnies de sondage.</li>
-<li>Par contre, les sondages coûtent très, très cher <span class="emoji" data-emoji="moneybag">💰</span></li>
+<li>Les sondages sont dispendieux <span class="emoji" data-emoji="moneybag">💰</span></li>
 </ul>
 </section>
 <section id="quelle-plateforme-de-sondage-choisir" class="slide level2">
@@ -1260,8 +1383,8 @@ Laurence-Olivier M. Foisy
 <section id="autres-options" class="slide level2">
 <h2>Autres options?</h2>
 <ul>
-<li>Données électorales exemple: <a href="https://c-dem.ca/">C-Dem</a></li>
-<li>Site comme <a href="https://odesi.ca/en">Odesi</a></li>
+<li>Données électorales comme les <a href="https://ces-eec.ca">CES</a></li>
+<li>Banques de données comme <a href="https://odesi.ca/en">Odesi</a></li>
 </ul>
 </section></section>
 <section>
@@ -1333,14 +1456,14 @@ Laurence-Olivier M. Foisy
 <div class="column" style="width:65%;">
 <p><img data-src="img/codebook.png" style="width:100.0%"></p>
 </div><div class="column" style="width:35%;">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>r<span class="sc">$</span><span class="er">&gt;</span> <span class="fu">table</span>(df_raw<span class="sc">$</span>cpsg1)</span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a>           d.k.          refused        </span>
-<span id="cb7-4"><a href=""></a>             <span class="dv">57</span>                <span class="dv">6</span>        </span>
-<span id="cb7-5"><a href=""></a> somewhat favour somewhat opposed        </span>
-<span id="cb7-6"><a href=""></a>            <span class="dv">743</span>              <span class="dv">957</span>        </span>
-<span id="cb7-7"><a href=""></a>verymuch favour verymuch opposed        </span>
-<span id="cb7-8"><a href=""></a>            <span class="dv">169</span>             <span class="dv">1843</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>r<span class="sc">$</span><span class="er">&gt;</span> <span class="fu">table</span>(df_raw<span class="sc">$</span>cpsg1)</span>
+<span id="cb8-2"><a href=""></a></span>
+<span id="cb8-3"><a href=""></a>           d.k.          refused        </span>
+<span id="cb8-4"><a href=""></a>             <span class="dv">57</span>                <span class="dv">6</span>        </span>
+<span id="cb8-5"><a href=""></a> somewhat favour somewhat opposed        </span>
+<span id="cb8-6"><a href=""></a>            <span class="dv">743</span>              <span class="dv">957</span>        </span>
+<span id="cb8-7"><a href=""></a>verymuch favour verymuch opposed        </span>
+<span id="cb8-8"><a href=""></a>            <span class="dv">169</span>             <span class="dv">1843</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1419,27 +1542,27 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="décortiquer-le-processus-de-cleaning" class="slide level2 smaller">
 <h2>Décortiquer le processus de cleaning</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb8-2"><a href=""></a></span>
-<span id="cb8-3"><a href=""></a>df_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/ces/1993/ces93.csv"</span>) </span>
-<span id="cb8-4"><a href=""></a></span>
-<span id="cb8-5"><a href=""></a>df_clean <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_raw))</span>
-<span id="cb8-6"><a href=""></a></span>
-<span id="cb8-7"><a href=""></a><span class="co"># Cleaning cpsg1 - gst opposition</span></span>
-<span id="cb8-8"><a href=""></a><span class="co"># In 1991 the Federal government adopted a new tax on goods and services, the GST. </span></span>
-<span id="cb8-9"><a href=""></a><span class="co"># All things considered, are you VERY MUCH IN FAVOUR, SOMEWHAT IN FAVOUR, </span></span>
-<span id="cb8-10"><a href=""></a><span class="co"># SOMEWHAT OPPOSED, or VERY MUCH OPPOSED to the GST?</span></span>
-<span id="cb8-11"><a href=""></a><span class="co"># 1 = Opposed, 0 = Favour</span></span>
-<span id="cb8-12"><a href=""></a></span>
-<span id="cb8-13"><a href=""></a><span class="fu">table</span>(df_raw<span class="sc">$</span>cpsg1)</span>
-<span id="cb8-14"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb8-15"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"verymuch favour"</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb8-16"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"somewhat favour"</span>] <span class="ot">&lt;-</span> <span class="fl">0.33</span></span>
-<span id="cb8-17"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"somewhat opposed"</span>] <span class="ot">&lt;-</span> <span class="fl">0.67</span></span>
-<span id="cb8-18"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"verymuch opposed"</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb8-19"><a href=""></a><span class="fu">table</span>(df_clean<span class="sc">$</span>issue_gst_opposed, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span>
-<span id="cb8-20"><a href=""></a></span>
-<span id="cb8-21"><a href=""></a><span class="fu">write.csv</span>(df_clean, <span class="st">"data/ces/1993/ces93_clean.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a>df_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/ces/1993/ces93.csv"</span>) </span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a>df_clean <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_raw))</span>
+<span id="cb9-6"><a href=""></a></span>
+<span id="cb9-7"><a href=""></a><span class="co"># Cleaning cpsg1 - gst opposition</span></span>
+<span id="cb9-8"><a href=""></a><span class="co"># In 1991 the Federal government adopted a new tax on goods and services, the GST. </span></span>
+<span id="cb9-9"><a href=""></a><span class="co"># All things considered, are you VERY MUCH IN FAVOUR, SOMEWHAT IN FAVOUR, </span></span>
+<span id="cb9-10"><a href=""></a><span class="co"># SOMEWHAT OPPOSED, or VERY MUCH OPPOSED to the GST?</span></span>
+<span id="cb9-11"><a href=""></a><span class="co"># 1 = Opposed, 0 = Favour</span></span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a><span class="fu">table</span>(df_raw<span class="sc">$</span>cpsg1)</span>
+<span id="cb9-14"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb9-15"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"verymuch favour"</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb9-16"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"somewhat favour"</span>] <span class="ot">&lt;-</span> <span class="fl">0.33</span></span>
+<span id="cb9-17"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"somewhat opposed"</span>] <span class="ot">&lt;-</span> <span class="fl">0.67</span></span>
+<span id="cb9-18"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>cpsg1 <span class="sc">==</span> <span class="st">"verymuch opposed"</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb9-19"><a href=""></a><span class="fu">table</span>(df_clean<span class="sc">$</span>issue_gst_opposed, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span>
+<span id="cb9-20"><a href=""></a></span>
+<span id="cb9-21"><a href=""></a><span class="fu">write.csv</span>(df_clean, <span class="st">"data/ces/1993/ces93_clean.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="avantage-de-nettoyer-tout-de-la-même-façon" class="slide level2 smaller">
 <h2>Avantage de nettoyer tout de la même façon</h2>
@@ -1485,6 +1608,15 @@ Laurence-Olivier M. Foisy
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+
 'controlsAuto': true,
 'previewLinksAuto': false,
 'pdfSeparateFragments': false,
@@ -1663,6 +1795,7 @@ Laurence-Olivier M. Foisy
 
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,

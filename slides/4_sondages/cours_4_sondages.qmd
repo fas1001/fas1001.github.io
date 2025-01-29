@@ -385,6 +385,71 @@ Points clés pour la discussion:
 - L'échantillonnage doit être représentatif de la population cible.
 - Les non-réponses doivent être distribuées de manière aléatoire.
 
+## 
+
+![](https://cdn.prod.website-files.com/62ba4211475cc61b25d12c08/62bf3c6e8f4a5a5241c79536_3B-Diagram-01.png)
+
+## La pondération{.smaller}
+
+### Qu'est-ce que la pondération?
+- On donne plus ou moins de "poids" à certaines réponses pour corriger les biais d'échantillonnage
+- But : Faire en sorte que notre échantillon représente mieux la population réelle
+
+### Exemple simple : La cafétéria universitaire 
+Imaginons un sondage sur la satisfaction des repas :
+
+- 80 étudiants de 1er cycle répondent
+- 20 étudiants des cycles supérieurs répondent
+- MAIS dans la vraie université, c'est 50-50
+
+## Pourquoi pondérer? {.smaller}
+
+### Le problème de la représentativité
+- Certains groupes sont sur-représentés
+- D'autres sont sous-représentés 
+- Les non-réponses ne sont pas aléatoires
+
+### L'exemple de la cafétéria (suite)
+- Dans notre sondage: 80% cycle 1 / 20% cycles sup
+- Réalité: 50% cycle 1 / 50% cycles sup
+- Solution: Donner plus de poids aux réponses des cycles sup
+
+## Comment pondérer? {.smaller} 
+
+### La formule de base
+
+```
+Poids = % dans population / % dans échantillon
+```
+
+### Pour notre exemple
+- Étudiants 1er cycle: 50/80 = 0.625
+- Étudiants cycles sup: 50/20 = 2.5
+
+### En pratique
+1. On compare notre échantillon au recensement
+2. On calcule les poids pour chaque groupe
+3. On applique les poids dans nos analyses
+
+## Exemple réel : Sondage électoral {.smaller}
+
+### La situation
+- Sondage de 1000 personnes
+- Sur-représentation des 65+ ans
+- Sous-représentation des 18-34 ans
+
+### Les données
+
+| Âge    | Sondage | Recensement | Poids |
+|--------|---------|-------------|-------|
+| 18-34  | 20%     | 30%         | 1.5   |
+| 35-64  | 45%     | 45%         | 1.0   |
+| 65+    | 35%     | 25%         | 0.71  |
+
+## Visualisation de l'ajustement
+
+![](img/weighting-diagram.svg)
+
 # Mesure
 
 ## Une question de formulation...
@@ -432,7 +497,9 @@ Source: Schuman et Presser 1996
 
 ## Meilleure façon de poser des questions {.smaller}
 
+::: {.r-fit-text}
 - Copier les questions des sondages précédents
+:::
 
 ## Comment collecter des données de sondages? :chart_with_upwards_trend:
 
@@ -441,7 +508,7 @@ Source: Schuman et Presser 1996
   - [Survey Monkey](https://www.surveymonkey.com/){preview-link="true"}
   - [MTurk](https://www.mturk.com/){preview-link="true"}
 - Compagnies de sondage.
-- Par contre, les sondages coûtent très, très cher :moneybag:
+- Les sondages sont dispendieux :moneybag:
 
 ## Quelle plateforme de sondage choisir?
 
@@ -454,8 +521,8 @@ Source: Schuman et Presser 1996
 
 ## Autres options?
 
-- Données électorales exemple: [C-Dem](https://c-dem.ca/)
-- Site comme [Odesi](https://odesi.ca/en)
+- Données électorales comme les [CES](https://ces-eec.ca)
+- Banques de données comme [Odesi](https://odesi.ca/en)
 
 # Nettoyer des données de sondages :broom:
 
