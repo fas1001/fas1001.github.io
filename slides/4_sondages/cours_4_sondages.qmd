@@ -19,15 +19,17 @@ format:
 bibliography: bibliography.bib
 ---
 
-# Retour sur le TP1
-
-## Réactions
+## Retour sur le TP1{.smaller}  
 
 - Qu'est-ce qui était le plus difficile?
 - Combien d'heures ça vous a pris?
 - Pourquoi selon vous le concept de chemin d'accès est autant difficile à maitriser?
+- C'est quoi un .RProj? Comment ça fonctionne?
+- C'est quoi un package? `library(ggplot2)`
+- Rouler le code ligne par ligne
+- Comprenez vous comment fonctionne `git`? 
+- "This is not a git repository"
 - Est-ce que vous seriez capable de le refaire sans regarder les instructions?
-- Comprenez vous comment fonctionne `git`?
 
 # Plan du cours
 
@@ -36,10 +38,6 @@ bibliography: bibliography.bib
 3. Les sondages
     1. Comment collecter des données de sondages?
     2. Comment nettoyer des données de sondages?
-
-# Tidy Data {.center}
-
-![](img/tidydata.png){width="100%"}
 
 ## L'objectif
 
@@ -58,6 +56,12 @@ Notre travail
 
 :::
 ::::
+
+
+# Tidy Data {.center}
+
+![](img/tidydata.png){width="100%"}
+
 
 
 ## Pourquoi "Tidy" les données? {.center}
@@ -537,6 +541,8 @@ write.csv(df_clean, "data/ces/1993/ces93_clean.csv", row.names = FALSE)
 ![](img/graph_prop_religiosite.png){width="100%"}
 
 
-# Prochain cours
+## Questions?
 
+
+# Prochain cours
 
