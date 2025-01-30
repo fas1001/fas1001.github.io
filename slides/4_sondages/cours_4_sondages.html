@@ -1172,9 +1172,9 @@ Laurence-Olivier M. Foisy
 <h3 id="exemple-simple-la-cafétéria-universitaire">Exemple simple : La cafétéria universitaire</h3>
 <p>Imaginons un sondage sur la satisfaction des repas :</p>
 <ul>
-<li>80 étudiants de 1er cycle répondent</li>
-<li>20 étudiants des cycles supérieurs répondent</li>
-<li>MAIS dans la vraie université, c’est 50-50</li>
+<li>50 étudiants de 1er cycle répondent</li>
+<li>50 étudiants des cycles supérieurs répondent</li>
+<li>MAIS dans la vraie université, c’est 70-30</li>
 </ul>
 </section>
 <section id="pourquoi-pondérer" class="slide level2 smaller">
@@ -1187,8 +1187,8 @@ Laurence-Olivier M. Foisy
 </ul>
 <h3 id="lexemple-de-la-cafétéria-suite">L’exemple de la cafétéria (suite)</h3>
 <ul>
-<li>Dans notre sondage: 80% cycle 1 / 20% cycles sup</li>
-<li>Réalité: 50% cycle 1 / 50% cycles sup</li>
+<li>Dans notre sondage: 50% cycle 1 / 50% cycles sup</li>
+<li>Réalité: 70% cycle 1 / 30% cycles sup</li>
 <li>Solution: Donner plus de poids aux réponses des cycles sup</li>
 </ul>
 </section>
@@ -1198,8 +1198,8 @@ Laurence-Olivier M. Foisy
 <pre><code>Poids = % dans population / % dans échantillon</code></pre>
 <h3 id="pour-notre-exemple">Pour notre exemple</h3>
 <ul>
-<li>Étudiants 1er cycle: 50/80 = 0.625</li>
-<li>Étudiants cycles sup: 50/20 = 2.5</li>
+<li>Étudiants 1er cycle: 70/50 = 1.4</li>
+<li>Étudiants cycles sup: 30/50 = 0.6</li>
 </ul>
 <h3 id="en-pratique">En pratique</h3>
 <ol type="1">
@@ -1212,7 +1212,7 @@ Laurence-Olivier M. Foisy
 <h2>Exemple réel : Sondage électoral</h2>
 <h3 id="la-situation">La situation</h3>
 <ul>
-<li>Sondage de 1000 personnes</li>
+<li>Sondage de 1000 personnes, population totale de 1000000</li>
 <li>Sur-représentation des 65+ ans</li>
 <li>Sous-représentation des 18-34 ans</li>
 </ul>
@@ -1569,6 +1569,33 @@ Laurence-Olivier M. Foisy
 <span id="cb11-20"><a href=""></a><span class="fu">table</span>(df_clean<span class="sc">$</span>issue_gst_opposed, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span>
 <span id="cb11-21"><a href=""></a></span>
 <span id="cb11-22"><a href=""></a><span class="fu">write.csv</span>(df_clean, <span class="st">"data/ces/1993/ces93_clean.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="anatomie-dune-ligne-de-code" class="slide level2 smaller">
+<h2>Anatomie d’une ligne de code</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>CPSG1 <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>1️⃣ <strong>Nouvelle variable</strong> : <code>df_clean$issue_gst_opposed</code></p>
+<ul>
+<li>Dataframe de destination : <code>df_clean</code></li>
+<li>Nom de la variable créée : <code>issue_gst_opposed</code></li>
+</ul>
+<p>2️⃣ <strong>Condition de sélection</strong> : <code>[df_raw$CPSG1 == 1]</code></p>
+<ul>
+<li>Dataframe source : <code>df_raw</code></li>
+<li>Variable source : <code>CPSG1</code></li>
+<li>Condition : égal à 1</li>
+</ul>
+<p>3️⃣ <strong>Attribution</strong> : <code>&lt;- 0</code></p>
+<ul>
+<li>Opérateur d’assignation : <code>&lt;-</code></li>
+<li>Nouvelle valeur : <code>0</code></li>
+</ul>
+</section>
+<section id="en-langage-naturel" class="slide level2">
+<h2>En langage naturel</h2>
+<blockquote>
+<p>“Pour toutes les observations où <code>CPSG1</code> égale 1 dans <code>df_raw</code>,<br>
+assigner la valeur 0 à la variable <code>issue_gst_opposed</code> dans <code>df_clean</code>”</p>
+</blockquote>
 </section>
 <section id="avantage-de-nettoyer-tout-de-la-même-façon" class="slide level2 smaller">
 <h2>Avantage de nettoyer tout de la même façon</h2>
