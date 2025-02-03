@@ -3156,7 +3156,7 @@ button:active,
 }
 
 .evaluation-card[data-status="terminé"] {
-  border-color: #ef4444; /* Red border */
+  border-color: #2044ac; /* Red border */
 }
 
 /* Status text colors to match borders */
@@ -3165,7 +3165,7 @@ button:active,
 }
 
 .evaluation-card[data-status="terminé"] .evaluation-status p {
-  color: #ef4444;
+  color: #2044ac;
 }
 
 .two .row + .row {
