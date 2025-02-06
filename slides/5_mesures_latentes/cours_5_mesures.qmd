@@ -19,6 +19,13 @@ format:
 bibliography: bibliography.bib
 ---
 
+# Cours 5
+
+- Retour sur le dernier cours
+- Le prochain cours
+- Mesurer des variables latentes
+- Introduction à la régression linéaire
+
 # Les variables latentes
 
 ## Introduction
