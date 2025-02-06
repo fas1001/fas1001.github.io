@@ -19,6 +19,10 @@ format:
 bibliography: bibliography.bib
 ---
 
+##
+
+![](img/structure_cours.png)
+
 # Cours 5
 
 - Retour sur le dernier cours
