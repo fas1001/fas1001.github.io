@@ -118,9 +118,7 @@ bibliography: bibliography.bib
 
 ## Différentes méthodes d'analyse textuelle
 
-::: {style="text-align:center;"}
-![](img/schema_analyse_textuelle.png){.fragment width="1000" height="750"}
-:::
+![](img/schema_analyse_textuelle.png)
 
 
 ## De texte à données
@@ -330,7 +328,8 @@ str_extract(texte, "https?://[\\w\\.]+\\.\\w+")
 
 # Analyse de sentiment
 
-## La ligne rouge
+## La ligne rouge {transition="none"}
+
 
 ::: {.columns}
 
@@ -351,7 +350,8 @@ str_extract(texte, "https?://[\\w\\.]+\\.\\w+")
 ::::
 
 
-## Étape 1: Création du dataframe
+## Étape 1: Création du datafram {transition="none"}
+e
 ```r
 # Créer un data.frame avec notre review
 review <- data.frame(
@@ -402,7 +402,8 @@ review_clean$text <- stringr::str_remove_all(review_clean$text, ",")          # 
 :::
 :::
 
-## Étape 3: Tokenisation
+## Étape 3: Tokenisation {transition="none"}
+
 
 :::: {.columns}
 
@@ -440,7 +441,8 @@ r$> head(tokens, 10)
 
 ::::
 
-## Étape 4: Retrait des mots vides
+## Étape 4: Retrait des mots vides {transition="none"}
+
 
 :::: {.columns}
 
@@ -482,7 +484,8 @@ r$> head(tokens_clean, 10)
 
 ::::
 
-## Étape 5: Analyse de sentiment (AFINN)
+## Étape 5: Analyse de sentiment (AFINN) {transition="none"}
+
 
 ::: {.columns}
 
@@ -525,7 +528,8 @@ r$> head(arranged_scores, 10)
 
 ::::
 
-## Étape 6: Score total
+## Étape 6: Score total {transition="none"}
+
 ```r
 total_sentiment <- dplyr::summarise(
   sentiment_scores,
@@ -542,7 +546,7 @@ r$> total_sentiment
 1       7          17  2.428571
 ```
 
-## Avec plusieurs textes {.smaller}
+## Avec plusieurs textes {.smaller transition="none"}
 
 > Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there
 
@@ -563,7 +567,8 @@ reviews <- data.frame(
   dplyr::mutate(id = 1:nrow(.))
 ```
 
-## Nettoyage des multiples textes
+## Nettoyage des multiples textes {transition="none"}
+
 
 ```r
 reviews_clean <- reviews
@@ -574,7 +579,8 @@ reviews_clean$text <- stringr::str_remove_all(reviews_clean$text, ",")          
 
 ```
 
-## Étape 3: Tokenisation
+## Étape 3: Tokenisation {transition="none"}
+
 
 ::::{.columns}
 
@@ -609,7 +615,8 @@ r$> head(tokens, 10)
 
 ::::
 
-## Étape 4: Retrait des mots vides
+## Étape 4: Retrait des mots vides {transition="none"}
+
 
 ::::{.columns}
 
@@ -649,7 +656,8 @@ r$> head(tokens_clean, 10)
 ::::
 
 
-## Étape 5: Analyse de sentiment (AFINN)
+## Étape 5: Analyse de sentiment (AFINN) {transition="none"}
+
 
 ::::{.columns}
 
@@ -689,7 +697,7 @@ r$> head(sentiment_scores, 10)
 
 ::::
 
-## Étape 6: Score total {.smaller}
+## Étape 6: Score total {.smaller transition="none"}
 
 
 ```r
@@ -720,7 +728,7 @@ r$> print(sentiment_summary)
 ```
 
 
-## Réassembler les données{.smaller}
+## Réassembler les données{.smaller transition="none"}
 
 ```r
 # First, let's create a dataframe with just id and text
@@ -741,7 +749,227 @@ r$> sentiment_summary_with_text
 1     1 La ligne rouge              17           2.43          7             1             3 Super good kebab! [...]
 2     2 La ligne rouge               2           0.5           4            -2             3 Nothing exceptional [...]
 3     3 La ligne rouge               1           0.5           2            -2             3 Food is good and price is ok. [...]
+
 ```
+## Lexicoder (LSD) {transition="none"}
+
+
+- Spécialisé pour textes politiques
+- Gestion avancée des négations
+- Validation académique extensive
+- Plus précis pour l'analyse politique
+
+## Pourquoi LSD pour la science politique? {.smaller transition="none"}
+
+
+1. **Contexte politique**
+   - Vocabulaire politique spécifique
+   - Expressions complexes
+   - Nuances importantes
+
+2. **Gestion des négations**
+   - "not bad" ≠ "bad"
+   - "no support" vs "support"
+
+3. **Validation scientifique**
+   - Testé sur des textes politiques
+   - Utilisé dans des publications majeures
+   - Benchmark en science politique
+
+## Préparation des données pour LSD {transition="none"}
+
+
+```r
+library(quanteda)
+library(pbapply)
+library(dplyr)
+library(LSX)
+
+source("functions/lsd_prep_functions.R")
+
+# Charger les reviews
+reviews <- data.frame(
+  restaurant = "La ligne rouge",
+  text = c(
+    "Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!",
+    "Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there",
+    "Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."
+  ),
+  stringsAsFactors = FALSE
+) %>%
+  dplyr::mutate(id = 1:nrow(.))
+
+```
+
+## Étape 2 : Division en phrases {.smaller transition="none"}
+
+```r
+# Diviser en phrases et créer ID unique
+reviews_sentences <- reviews %>%
+  tidytext::unnest_sentences(text, text) %>%
+  mutate(id_sentence = row_number())
+
+print(head(reviews_sentences, 2))
+```
+```
+r$> head(reviews_sentences, 5)
+      restaurant                                                                                   text id id_sentence
+1 La ligne rouge                                                                      super good kebab!  1           1
+2 La ligne rouge the portions are generous, the prices are really reasonable, and the quality is there.  1           2
+3 La ligne rouge                              tasty meat, fresh bread, and everything is well seasoned.  1           3
+4 La ligne rouge                an excellent address for a meal that is good without breaking the bank.  1           4
+5 La ligne rouge                                                                           i recommend!  1           5
+```
+
+## Étape 3 : Application des fonctions de préparation {transition="none"}
+
+
+```r
+reviews_sentences$text_prepped <- NA
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text, LSDprep_contr)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_dict_punct)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, remove_punctuation_from_acronyms)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, remove_punctuation_from_abbreviations)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_punctspace)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_negation)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_dict)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, mark_proper_nouns)
+```
+
+## Prétraitement LSD {.smaller transition="none"}
+
+
+1. **Ordre des fonctions**
+   - L'ordre d'application est important
+   - Chaque fonction a un rôle spécifique
+
+2. **Fonctions spéciales**
+   - LSDprep_contr : Gère les contractions (don't → do not)
+   - LSDprep_negation : Traite les négations
+   - mark_proper_nouns : Identifie les noms propres
+
+3. **Avantages**
+   - Prétraitement standardisé
+   - Meilleure gestion des négations
+   - Plus précis pour l'analyse de sentiment
+
+
+## Étape 4 : Création du corpus et analyse {transition="none"}
+
+
+
+```r
+# Créer le corpus avec les textes préparés
+corpus_reviews <- corpus(
+  reviews_sentences$text_prepped, 
+  docnames = reviews_sentences$id_sentence
+)
+
+# Tokenisation
+tokens_reviews <- tokens(
+  corpus_reviews,
+  what = "word",
+  remove_punct = TRUE,
+  remove_numbers = TRUE,
+  remove_symbols = TRUE
+)
+
+# Conversion en minuscules
+tokens_reviews <- tokens_tolower(tokens_reviews)
+```
+
+## Étape 5 : Création de la matrice document-terme {transition="none"}
+
+
+```r
+# Créer la matrice document-terme (DFM)
+dfm_reviews <- dfm(tokens_reviews)
+
+# Vérifier la structure
+print(dfm_reviews)
+```
+
+## Analyse avec LSD {transition="none"}
+
+```r
+# Charger le dictionnaire LSD
+data(data_dictionary_LSD2015)
+
+# Appliquer le dictionnaire
+sentiment_scores <- dfm_lookup(
+  dfm_reviews, 
+  dictionary = data_dictionary_LSD2015
+)
+```
+
+```
+r$> sentiment_scores
+Document-feature matrix of: 15 documents, 4 features (76.67% sparse) and 0 docvars.
+    features
+docs negative positive neg_positive neg_negative
+   1        0        2            0            0
+   2        0        3            0            0
+   3        0        2            0            0
+   4        1        2            0            0
+   5        0        0            0            0
+   6        0        1            0            0
+[ reached max_ndoc ... 9 more documents ]
+```
+
+## Interprétation des résultats LSD {transition="none"}
+
+::::{.columns}
+
+:::{.column width="60%"}
+```r
+# Créer un dataframe avec les scores
+sentiment_df <- convert(sentiment_scores, to = "data.frame") %>%
+  # Ajouter l'ID de l'article depuis reviews_sentences
+  mutate(id = reviews_sentences$id)
+
+# Agréger par article
+lsd_metrics <- sentiment_df %>%
+  group_by(id) %>%
+  summarise(
+    positif = sum(positive),
+    negatif = sum(negative),
+    score_net = positif - negatif,
+    tone = (positif - negatif) / (positif + negatif)
+  )
+
+```
+:::
+
+:::{.column width="40%"}
+```
+r$> print(lsd_metrics)
+# A tibble: 3 × 5
+     id positif negatif score_net  tone
+  <int>   <dbl>   <dbl>     <dbl> <dbl>
+1     1       9       1         8   0.8
+2     2       3       3         0   0  
+3     3       2       2         0   0  
+```
+:::
+
+::::
+
+## Conseils pratiques
+
+1. **Choisir le bon dictionnaire**
+   - Textes politiques → LSD
+   - Réseaux sociaux → AFINN/BING
+   - Analyse émotionnelle → NRC
+
+2. **Validation**
+   - Vérifier manuellement les résultats
+   - Comparer les dictionnaires
+   - Documenter les choix méthodologiques
+
+3. **Limites**
+   - Aucun dictionnaire n'est parfait
+   - Contexte est toujours important
+   - Valider avec analyses qualitatives
 
 ## Quel lexique choisir? {.smaller}
 

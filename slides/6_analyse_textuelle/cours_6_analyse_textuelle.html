@@ -521,10 +521,8 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="différentes-méthodes-danalyse-textuelle" class="slide level2">
 <h2>Différentes méthodes d’analyse textuelle</h2>
-<div style="text-align:center;">
-<p><img data-src="img/schema_analyse_textuelle.png" class="fragment" width="1000" height="750"></p>
-</div>
-</section>
+
+<img data-src="img/schema_analyse_textuelle.png" class="r-stretch"></section>
 <section id="de-texte-à-données" class="slide level2">
 <h2>De texte à données</h2>
 <div class="cell" data-reveal="true" data-layout-align="default">
@@ -712,7 +710,7 @@ graph LR
 <h1>Analyse de sentiment</h1>
 
 </section>
-<section id="la-ligne-rouge" class="slide level2">
+<section id="la-ligne-rouge" class="slide level2" data-transition="none">
 <h2>La ligne rouge</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -728,8 +726,9 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-1-création-du-dataframe" class="slide level2">
-<h2>Étape 1: Création du dataframe</h2>
+<section id="étape-1-création-du-datafram" class="slide level2" data-transition="none">
+<h2>Étape 1: Création du datafram</h2>
+<p>e</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># Créer un data.frame avec notre review</span></span>
 <span id="cb15-2"><a href=""></a>review <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb15-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
@@ -784,7 +783,7 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-3-tokenisation" class="slide level2">
+<section id="étape-3-tokenisation" class="slide level2" data-transition="none">
 <h2>Étape 3: Tokenisation</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -809,7 +808,7 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-4-retrait-des-mots-vides" class="slide level2">
+<section id="étape-4-retrait-des-mots-vides" class="slide level2" data-transition="none">
 <h2>Étape 4: Retrait des mots vides</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -838,7 +837,7 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-5-analyse-de-sentiment-afinn" class="slide level2">
+<section id="étape-5-analyse-de-sentiment-afinn" class="slide level2" data-transition="none">
 <h2>Étape 5: Analyse de sentiment (AFINN)</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
@@ -869,7 +868,7 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-6-score-total" class="slide level2">
+<section id="étape-6-score-total" class="slide level2" data-transition="none">
 <h2>Étape 6: Score total</h2>
 <div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>total_sentiment <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
 <span id="cb24-2"><a href=""></a>  sentiment_scores,</span>
@@ -881,7 +880,7 @@ graph LR
   n_words total_score avg_score
 1       7          17  2.428571</code></pre>
 </section>
-<section id="avec-plusieurs-textes" class="slide level2 smaller">
+<section id="avec-plusieurs-textes" class="slide level2 smaller" data-transition="none">
 <h2>Avec plusieurs textes</h2>
 <blockquote>
 <p>Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won’t go back there</p>
@@ -901,7 +900,7 @@ graph LR
 <span id="cb26-10"><a href=""></a>) <span class="sc">%&gt;%</span></span>
 <span id="cb26-11"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="nettoyage-des-multiples-textes" class="slide level2">
+<section id="nettoyage-des-multiples-textes" class="slide level2" data-transition="none">
 <h2>Nettoyage des multiples textes</h2>
 <div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>reviews_clean <span class="ot">&lt;-</span> reviews</span>
 <span id="cb27-2"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(reviews_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
@@ -909,7 +908,7 @@ graph LR
 <span id="cb27-4"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
 <span id="cb27-5"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="étape-3-tokenisation-1" class="slide level2">
+<section id="étape-3-tokenisation-1" class="slide level2" data-transition="none">
 <h2>Étape 3: Tokenisation</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -934,7 +933,7 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-4-retrait-des-mots-vides-1" class="slide level2">
+<section id="étape-4-retrait-des-mots-vides-1" class="slide level2" data-transition="none">
 <h2>Étape 4: Retrait des mots vides</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -963,7 +962,7 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-5-analyse-de-sentiment-afinn-1" class="slide level2">
+<section id="étape-5-analyse-de-sentiment-afinn-1" class="slide level2" data-transition="none">
 <h2>Étape 5: Analyse de sentiment (AFINN)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -992,7 +991,7 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-6-score-total-1" class="slide level2 smaller">
+<section id="étape-6-score-total-1" class="slide level2 smaller" data-transition="none">
 <h2>Étape 6: Score total</h2>
 <div class="sourceCode" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="co"># Calculate summary statistics per review</span></span>
 <span id="cb34-2"><a href=""></a>sentiment_summary <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
@@ -1015,7 +1014,7 @@ graph LR
 2     2 La ligne rouge               2           0.5           4            -2             3
 3     3 La ligne rouge               1           0.5           2            -2             3</code></pre>
 </section>
-<section id="réassembler-les-données" class="slide level2 smaller">
+<section id="réassembler-les-données" class="slide level2 smaller" data-transition="none">
 <h2>Réassembler les données</h2>
 <div class="sourceCode" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="co"># First, let's create a dataframe with just id and text</span></span>
 <span id="cb36-2"><a href=""></a>original_texts <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
@@ -1031,7 +1030,212 @@ graph LR
   &lt;int&gt; &lt;chr&gt;                    &lt;dbl&gt;          &lt;dbl&gt;      &lt;int&gt;         &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;                                                  
 1     1 La ligne rouge              17           2.43          7             1             3 Super good kebab! [...]
 2     2 La ligne rouge               2           0.5           4            -2             3 Nothing exceptional [...]
-3     3 La ligne rouge               1           0.5           2            -2             3 Food is good and price is ok. [...]</code></pre>
+3     3 La ligne rouge               1           0.5           2            -2             3 Food is good and price is ok. [...]
+</code></pre>
+</section>
+<section id="lexicoder-lsd" class="slide level2" data-transition="none">
+<h2>Lexicoder (LSD)</h2>
+<ul>
+<li>Spécialisé pour textes politiques</li>
+<li>Gestion avancée des négations</li>
+<li>Validation académique extensive</li>
+<li>Plus précis pour l’analyse politique</li>
+</ul>
+</section>
+<section id="pourquoi-lsd-pour-la-science-politique" class="slide level2 smaller" data-transition="none">
+<h2>Pourquoi LSD pour la science politique?</h2>
+<ol type="1">
+<li><strong>Contexte politique</strong>
+<ul>
+<li>Vocabulaire politique spécifique</li>
+<li>Expressions complexes</li>
+<li>Nuances importantes</li>
+</ul></li>
+<li><strong>Gestion des négations</strong>
+<ul>
+<li>“not bad” ≠ “bad”</li>
+<li>“no support” vs “support”</li>
+</ul></li>
+<li><strong>Validation scientifique</strong>
+<ul>
+<li>Testé sur des textes politiques</li>
+<li>Utilisé dans des publications majeures</li>
+<li>Benchmark en science politique</li>
+</ul></li>
+</ol>
+</section>
+<section id="préparation-des-données-pour-lsd" class="slide level2" data-transition="none">
+<h2>Préparation des données pour LSD</h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb38-2"><a href=""></a><span class="fu">library</span>(pbapply)</span>
+<span id="cb38-3"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb38-4"><a href=""></a><span class="fu">library</span>(LSX)</span>
+<span id="cb38-5"><a href=""></a></span>
+<span id="cb38-6"><a href=""></a><span class="fu">source</span>(<span class="st">"functions/lsd_prep_functions.R"</span>)</span>
+<span id="cb38-7"><a href=""></a></span>
+<span id="cb38-8"><a href=""></a><span class="co"># Charger les reviews</span></span>
+<span id="cb38-9"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb38-10"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb38-11"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
+<span id="cb38-12"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb38-13"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
+<span id="cb38-14"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
+<span id="cb38-15"><a href=""></a>  ),</span>
+<span id="cb38-16"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb38-17"><a href=""></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-18"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="étape-2-division-en-phrases" class="slide level2 smaller" data-transition="none">
+<h2>Étape 2 : Division en phrases</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="co"># Diviser en phrases et créer ID unique</span></span>
+<span id="cb39-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_sentences</span>(text, text) <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">id_sentence =</span> <span class="fu">row_number</span>())</span>
+<span id="cb39-5"><a href=""></a></span>
+<span id="cb39-6"><a href=""></a><span class="fu">print</span>(<span class="fu">head</span>(reviews_sentences, <span class="dv">2</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>r$&gt; head(reviews_sentences, 5)
+      restaurant                                                                                   text id id_sentence
+1 La ligne rouge                                                                      super good kebab!  1           1
+2 La ligne rouge the portions are generous, the prices are really reasonable, and the quality is there.  1           2
+3 La ligne rouge                              tasty meat, fresh bread, and everything is well seasoned.  1           3
+4 La ligne rouge                an excellent address for a meal that is good without breaking the bank.  1           4
+5 La ligne rouge                                                                           i recommend!  1           5</code></pre>
+</section>
+<section id="étape-3-application-des-fonctions-de-préparation" class="slide level2" data-transition="none">
+<h2>Étape 3 : Application des fonctions de préparation</h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb41-2"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text, LSDprep_contr)</span>
+<span id="cb41-3"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict_punct)</span>
+<span id="cb41-4"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_acronyms)</span>
+<span id="cb41-5"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_abbreviations)</span>
+<span id="cb41-6"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_punctspace)</span>
+<span id="cb41-7"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_negation)</span>
+<span id="cb41-8"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict)</span>
+<span id="cb41-9"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, mark_proper_nouns)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="prétraitement-lsd" class="slide level2 smaller" data-transition="none">
+<h2>Prétraitement LSD</h2>
+<ol type="1">
+<li><strong>Ordre des fonctions</strong>
+<ul>
+<li>L’ordre d’application est important</li>
+<li>Chaque fonction a un rôle spécifique</li>
+</ul></li>
+<li><strong>Fonctions spéciales</strong>
+<ul>
+<li>LSDprep_contr : Gère les contractions (don’t → do not)</li>
+<li>LSDprep_negation : Traite les négations</li>
+<li>mark_proper_nouns : Identifie les noms propres</li>
+</ul></li>
+<li><strong>Avantages</strong>
+<ul>
+<li>Prétraitement standardisé</li>
+<li>Meilleure gestion des négations</li>
+<li>Plus précis pour l’analyse de sentiment</li>
+</ul></li>
+</ol>
+</section>
+<section id="étape-4-création-du-corpus-et-analyse" class="slide level2" data-transition="none">
+<h2>Étape 4 : Création du corpus et analyse</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="co"># Créer le corpus avec les textes préparés</span></span>
+<span id="cb42-2"><a href=""></a>corpus_reviews <span class="ot">&lt;-</span> <span class="fu">corpus</span>(</span>
+<span id="cb42-3"><a href=""></a>  reviews_sentences<span class="sc">$</span>text_prepped, </span>
+<span id="cb42-4"><a href=""></a>  <span class="at">docnames =</span> reviews_sentences<span class="sc">$</span>id_sentence</span>
+<span id="cb42-5"><a href=""></a>)</span>
+<span id="cb42-6"><a href=""></a></span>
+<span id="cb42-7"><a href=""></a><span class="co"># Tokenisation</span></span>
+<span id="cb42-8"><a href=""></a>tokens_reviews <span class="ot">&lt;-</span> <span class="fu">tokens</span>(</span>
+<span id="cb42-9"><a href=""></a>  corpus_reviews,</span>
+<span id="cb42-10"><a href=""></a>  <span class="at">what =</span> <span class="st">"word"</span>,</span>
+<span id="cb42-11"><a href=""></a>  <span class="at">remove_punct =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb42-12"><a href=""></a>  <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb42-13"><a href=""></a>  <span class="at">remove_symbols =</span> <span class="cn">TRUE</span></span>
+<span id="cb42-14"><a href=""></a>)</span>
+<span id="cb42-15"><a href=""></a></span>
+<span id="cb42-16"><a href=""></a><span class="co"># Conversion en minuscules</span></span>
+<span id="cb42-17"><a href=""></a>tokens_reviews <span class="ot">&lt;-</span> <span class="fu">tokens_tolower</span>(tokens_reviews)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="étape-5-création-de-la-matrice-document-terme" class="slide level2" data-transition="none">
+<h2>Étape 5 : Création de la matrice document-terme</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="co"># Créer la matrice document-terme (DFM)</span></span>
+<span id="cb43-2"><a href=""></a>dfm_reviews <span class="ot">&lt;-</span> <span class="fu">dfm</span>(tokens_reviews)</span>
+<span id="cb43-3"><a href=""></a></span>
+<span id="cb43-4"><a href=""></a><span class="co"># Vérifier la structure</span></span>
+<span id="cb43-5"><a href=""></a><span class="fu">print</span>(dfm_reviews)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="analyse-avec-lsd" class="slide level2" data-transition="none">
+<h2>Analyse avec LSD</h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="co"># Charger le dictionnaire LSD</span></span>
+<span id="cb44-2"><a href=""></a><span class="fu">data</span>(data_dictionary_LSD2015)</span>
+<span id="cb44-3"><a href=""></a></span>
+<span id="cb44-4"><a href=""></a><span class="co"># Appliquer le dictionnaire</span></span>
+<span id="cb44-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> <span class="fu">dfm_lookup</span>(</span>
+<span id="cb44-6"><a href=""></a>  dfm_reviews, </span>
+<span id="cb44-7"><a href=""></a>  <span class="at">dictionary =</span> data_dictionary_LSD2015</span>
+<span id="cb44-8"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>r$&gt; sentiment_scores
+Document-feature matrix of: 15 documents, 4 features (76.67% sparse) and 0 docvars.
+    features
+docs negative positive neg_positive neg_negative
+   1        0        2            0            0
+   2        0        3            0            0
+   3        0        2            0            0
+   4        1        2            0            0
+   5        0        0            0            0
+   6        0        1            0            0
+[ reached max_ndoc ... 9 more documents ]</code></pre>
+</section>
+<section id="interprétation-des-résultats-lsd" class="slide level2" data-transition="none">
+<h2>Interprétation des résultats LSD</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="co"># Créer un dataframe avec les scores</span></span>
+<span id="cb46-2"><a href=""></a>sentiment_df <span class="ot">&lt;-</span> <span class="fu">convert</span>(sentiment_scores, <span class="at">to =</span> <span class="st">"data.frame"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href=""></a>  <span class="co"># Ajouter l'ID de l'article depuis reviews_sentences</span></span>
+<span id="cb46-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">id =</span> reviews_sentences<span class="sc">$</span>id)</span>
+<span id="cb46-5"><a href=""></a></span>
+<span id="cb46-6"><a href=""></a><span class="co"># Agréger par article</span></span>
+<span id="cb46-7"><a href=""></a>lsd_metrics <span class="ot">&lt;-</span> sentiment_df <span class="sc">%&gt;%</span></span>
+<span id="cb46-8"><a href=""></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span></span>
+<span id="cb46-9"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb46-10"><a href=""></a>    <span class="at">positif =</span> <span class="fu">sum</span>(positive),</span>
+<span id="cb46-11"><a href=""></a>    <span class="at">negatif =</span> <span class="fu">sum</span>(negative),</span>
+<span id="cb46-12"><a href=""></a>    <span class="at">score_net =</span> positif <span class="sc">-</span> negatif,</span>
+<span id="cb46-13"><a href=""></a>    <span class="at">tone =</span> (positif <span class="sc">-</span> negatif) <span class="sc">/</span> (positif <span class="sc">+</span> negatif)</span>
+<span id="cb46-14"><a href=""></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<pre><code>r$&gt; print(lsd_metrics)
+# A tibble: 3 × 5
+     id positif negatif score_net  tone
+  &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1     1       9       1         8   0.8
+2     2       3       3         0   0  
+3     3       2       2         0   0  </code></pre>
+</div>
+</div>
+</section>
+<section id="conseils-pratiques" class="slide level2">
+<h2>Conseils pratiques</h2>
+<ol type="1">
+<li><strong>Choisir le bon dictionnaire</strong>
+<ul>
+<li>Textes politiques → LSD</li>
+<li>Réseaux sociaux → AFINN/BING</li>
+<li>Analyse émotionnelle → NRC</li>
+</ul></li>
+<li><strong>Validation</strong>
+<ul>
+<li>Vérifier manuellement les résultats</li>
+<li>Comparer les dictionnaires</li>
+<li>Documenter les choix méthodologiques</li>
+</ul></li>
+<li><strong>Limites</strong>
+<ul>
+<li>Aucun dictionnaire n’est parfait</li>
+<li>Contexte est toujours important</li>
+<li>Valider avec analyses qualitatives</li>
+</ul></li>
+</ol>
 </section>
 <section id="quel-lexique-choisir" class="slide level2 smaller">
 <h2>Quel lexique choisir?</h2>
