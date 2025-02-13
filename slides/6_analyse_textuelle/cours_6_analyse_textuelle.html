@@ -706,6 +706,11 @@ graph LR
 <p><img data-src="img/regex_claude.png" class="absolute" style="top: 100px; left: 600px; width: 50%; "></p>
 </div>
 </div>
+</section></section>
+<section>
+<section id="analyse-de-sentiment" class="title-slide slide level1 center">
+<h1>Analyse de sentiment</h1>
+
 </section>
 <section id="la-ligne-rouge" class="slide level2">
 <h2>La ligne rouge</h2>
@@ -787,28 +792,27 @@ graph LR
 <span id="cb18-2"><a href=""></a>  review_clean,</span>
 <span id="cb18-3"><a href=""></a>  <span class="at">output =</span> word,</span>
 <span id="cb18-4"><a href=""></a>  <span class="at">input =</span> text</span>
-<span id="cb18-5"><a href=""></a>)</span>
-<span id="cb18-6"><a href=""></a></span>
-<span id="cb18-7"><a href=""></a><span class="fu">head</span>(tokens, <span class="dv">10</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:40%;">
-<pre><code>          restaurant  word
-1   La ligne rouge  super
-2   La ligne rouge   good
-3   La ligne rouge  kebab
-4   La ligne rouge    the
-5   La ligne rouge portions
-6   La ligne rouge    are
-7   La ligne rouge generous
-8   La ligne rouge    the
-9   La ligne rouge prices
-10  La ligne rouge    are</code></pre>
+<pre><code>r$&gt; head(tokens, 10)
+       restaurant     word
+1  La ligne rouge    super
+2  La ligne rouge     good
+3  La ligne rouge    kebab
+4  La ligne rouge      the
+5  La ligne rouge portions
+6  La ligne rouge      are
+7  La ligne rouge generous
+8  La ligne rouge      the
+9  La ligne rouge   prices
+10 La ligne rouge      are</code></pre>
 </div>
 </div>
 </section>
 <section id="étape-4-retrait-des-mots-vides" class="slide level2">
 <h2>Étape 4: Retrait des mots vides</h2>
 <div class="columns">
-<div class="column" style="width:65%;">
+<div class="column" style="width:60%;">
 <div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
 <span id="cb20-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
 <span id="cb20-3"><a href=""></a></span>
@@ -817,22 +821,20 @@ graph LR
 <span id="cb20-6"><a href=""></a>  tokens, </span>
 <span id="cb20-7"><a href=""></a>  stop_words,</span>
 <span id="cb20-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb20-9"><a href=""></a>)</span>
-<span id="cb20-10"><a href=""></a></span>
-<span id="cb20-11"><a href=""></a>tokens_clean</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:35%;">
-<pre><code>          restaurant     word
-1   La ligne rouge    super
-2   La ligne rouge     good
-3   La ligne rouge    kebab
-4   La ligne rouge portions
-5   La ligne rouge generous
-6   La ligne rouge   prices
-7   La ligne rouge reasonable
-8   La ligne rouge  quality
-9   La ligne rouge    tasty
-10  La ligne rouge     meat
-# ... with 10 more rows</code></pre>
+<span id="cb20-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<pre><code>r$&gt; head(tokens_clean, 10)
+       restaurant       word
+1  La ligne rouge      super
+2  La ligne rouge       good
+3  La ligne rouge      kebab
+4  La ligne rouge   portions
+5  La ligne rouge   generous
+6  La ligne rouge     prices
+7  La ligne rouge     really
+8  La ligne rouge reasonable
+9  La ligne rouge    quality
+10 La ligne rouge      tasty</code></pre>
 </div>
 </div>
 </section>
@@ -851,19 +853,19 @@ graph LR
 <span id="cb22-9"><a href=""></a>)</span>
 <span id="cb22-10"><a href=""></a></span>
 <span id="cb22-11"><a href=""></a><span class="co"># Voir les scores</span></span>
-<span id="cb22-12"><a href=""></a>sentiment_scores <span class="sc">%&gt;%</span></span>
+<span id="cb22-12"><a href=""></a>arranged_scores <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
 <span id="cb22-13"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(word, value) <span class="sc">%&gt;%</span></span>
 <span id="cb22-14"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(value))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:30%;">
-<pre><code>    word      value
-1  excellent     3
-2  good          3
-3  super         3
-4  generous      2
-5  recommend     2
-6  reasonable    1
-7  tasty         2
-8  quality       2</code></pre>
+<pre><code>r$&gt; head(arranged_scores, 10)
+       word value
+1     super     3
+2      good     3
+3 excellent     3
+4      good     3
+5  generous     2
+6 recommend     2
+7     fresh     1</code></pre>
 </div>
 </div>
 </section>
@@ -874,11 +876,10 @@ graph LR
 <span id="cb24-3"><a href=""></a>  <span class="at">n_words =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
 <span id="cb24-4"><a href=""></a>  <span class="at">total_score =</span> <span class="fu">sum</span>(value),</span>
 <span id="cb24-5"><a href=""></a>  <span class="at">avg_score =</span> <span class="fu">mean</span>(value)</span>
-<span id="cb24-6"><a href=""></a>)</span>
-<span id="cb24-7"><a href=""></a></span>
-<span id="cb24-8"><a href=""></a>total_sentiment</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>  n_words total_score avg_score
-1      8         18     2.25</code></pre>
+<span id="cb24-6"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>r$&gt; total_sentiment
+  n_words total_score avg_score
+1       7          17  2.428571</code></pre>
 </section>
 <section id="avec-plusieurs-textes" class="slide level2 smaller">
 <h2>Avec plusieurs textes</h2>
@@ -910,66 +911,127 @@ graph LR
 </section>
 <section id="étape-3-tokenisation-1" class="slide level2">
 <h2>Étape 3: Tokenisation</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
 <span id="cb28-2"><a href=""></a>  reviews_clean,</span>
 <span id="cb28-3"><a href=""></a>  <span class="at">output =</span> word,</span>
 <span id="cb28-4"><a href=""></a>  <span class="at">input =</span> text</span>
 <span id="cb28-5"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<pre><code>r$&gt; head(tokens, 10)
+       restaurant id     word
+1  La ligne rouge  1    super
+2  La ligne rouge  1     good
+3  La ligne rouge  1    kebab
+4  La ligne rouge  1      the
+5  La ligne rouge  1 portions
+6  La ligne rouge  1      are
+7  La ligne rouge  1 generous
+8  La ligne rouge  1      the
+9  La ligne rouge  1   prices
+10 La ligne rouge  1      are</code></pre>
+</div>
+</div>
 </section>
 <section id="étape-4-retrait-des-mots-vides-1" class="slide level2">
 <h2>Étape 4: Retrait des mots vides</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
-<span id="cb29-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
-<span id="cb29-3"><a href=""></a></span>
-<span id="cb29-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
-<span id="cb29-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
-<span id="cb29-6"><a href=""></a>  tokens, </span>
-<span id="cb29-7"><a href=""></a>  stop_words,</span>
-<span id="cb29-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb29-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
+<span id="cb30-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
+<span id="cb30-3"><a href=""></a></span>
+<span id="cb30-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
+<span id="cb30-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
+<span id="cb30-6"><a href=""></a>  tokens, </span>
+<span id="cb30-7"><a href=""></a>  stop_words,</span>
+<span id="cb30-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb30-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<pre><code>r$&gt; head(tokens_clean, 10)
+       restaurant id       word
+1  La ligne rouge  1      super
+2  La ligne rouge  1       good
+3  La ligne rouge  1      kebab
+4  La ligne rouge  1   portions
+5  La ligne rouge  1   generous
+6  La ligne rouge  1     prices
+7  La ligne rouge  1     really
+8  La ligne rouge  1 reasonable
+9  La ligne rouge  1    quality
+10 La ligne rouge  1      tasty</code></pre>
+</div>
+</div>
 </section>
 <section id="étape-5-analyse-de-sentiment-afinn-1" class="slide level2">
 <h2>Étape 5: Analyse de sentiment (AFINN)</h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
-<span id="cb30-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
-<span id="cb30-3"><a href=""></a></span>
-<span id="cb30-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
-<span id="cb30-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
-<span id="cb30-6"><a href=""></a>  tokens_clean,</span>
-<span id="cb30-7"><a href=""></a>  afinn,</span>
-<span id="cb30-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb30-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
+<span id="cb32-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
+<span id="cb32-3"><a href=""></a></span>
+<span id="cb32-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
+<span id="cb32-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
+<span id="cb32-6"><a href=""></a>  tokens_clean,</span>
+<span id="cb32-7"><a href=""></a>  afinn,</span>
+<span id="cb32-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb32-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:55%;">
+<pre><code>r$&gt; head(sentiment_scores, 10)
+       restaurant id         word value
+1  La ligne rouge  1        super     3
+2  La ligne rouge  1         good     3
+3  La ligne rouge  1     generous     2
+4  La ligne rouge  1        fresh     1
+5  La ligne rouge  1    excellent     3
+6  La ligne rouge  1         good     3
+7  La ligne rouge  1    recommend     2
+8  La ligne rouge  2         good     3
+9  La ligne rouge  2 disappointed    -2
+10 La ligne rouge  2 unacceptable    -2</code></pre>
+</div>
+</div>
 </section>
-<section id="étape-6-score-total-1" class="slide level2">
+<section id="étape-6-score-total-1" class="slide level2 smaller">
 <h2>Étape 6: Score total</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="co"># Calculate summary statistics per review</span></span>
-<span id="cb31-2"><a href=""></a>sentiment_summary <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
-<span id="cb31-3"><a href=""></a>  <span class="fu">group_by</span>(id, restaurant) <span class="sc">%&gt;%</span></span>
-<span id="cb31-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb31-5"><a href=""></a>    <span class="at">total_sentiment =</span> <span class="fu">sum</span>(value),            <span class="co"># Sum of all sentiment scores</span></span>
-<span id="cb31-6"><a href=""></a>    <span class="at">mean_sentiment =</span> <span class="fu">mean</span>(value),            <span class="co"># Average sentiment</span></span>
-<span id="cb31-7"><a href=""></a>    <span class="at">word_count =</span> <span class="fu">n</span>(),                        <span class="co"># Number of sentiment words</span></span>
-<span id="cb31-8"><a href=""></a>    <span class="at">min_sentiment =</span> <span class="fu">min</span>(value),              <span class="co"># Most negative word</span></span>
-<span id="cb31-9"><a href=""></a>    <span class="at">max_sentiment =</span> <span class="fu">max</span>(value)               <span class="co"># Most positive word</span></span>
-<span id="cb31-10"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb31-11"><a href=""></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb31-12"><a href=""></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="co"># Calculate summary statistics per review</span></span>
+<span id="cb34-2"><a href=""></a>sentiment_summary <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href=""></a>  <span class="fu">group_by</span>(id, restaurant) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb34-5"><a href=""></a>    <span class="at">total_sentiment =</span> <span class="fu">sum</span>(value),            <span class="co"># Sum of all sentiment scores</span></span>
+<span id="cb34-6"><a href=""></a>    <span class="at">mean_sentiment =</span> <span class="fu">mean</span>(value),            <span class="co"># Average sentiment</span></span>
+<span id="cb34-7"><a href=""></a>    <span class="at">word_count =</span> <span class="fu">n</span>(),                        <span class="co"># Number of sentiment words</span></span>
+<span id="cb34-8"><a href=""></a>    <span class="at">min_sentiment =</span> <span class="fu">min</span>(value),              <span class="co"># Most negative word</span></span>
+<span id="cb34-9"><a href=""></a>    <span class="at">max_sentiment =</span> <span class="fu">max</span>(value)               <span class="co"># Most positive word</span></span>
+<span id="cb34-10"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb34-11"><a href=""></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb34-12"><a href=""></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="voici-les-résultats">Voici les résultats</h3>
+<pre><code>r$&gt; print(sentiment_summary)
+# A tibble: 3 × 7
+     id restaurant     total_sentiment mean_sentiment word_count min_sentiment max_sentiment
+  &lt;int&gt; &lt;chr&gt;                    &lt;dbl&gt;          &lt;dbl&gt;      &lt;int&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+1     1 La ligne rouge              17           2.43          7             1             3
+2     2 La ligne rouge               2           0.5           4            -2             3
+3     3 La ligne rouge               1           0.5           2            -2             3</code></pre>
 </section>
-<section id="réassembler-les-données" class="slide level2">
+<section id="réassembler-les-données" class="slide level2 smaller">
 <h2>Réassembler les données</h2>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="co"># First, let's create a dataframe with just id and text</span></span>
-<span id="cb32-2"><a href=""></a>original_texts <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href=""></a>  <span class="fu">select</span>(id, text)</span>
-<span id="cb32-4"><a href=""></a></span>
-<span id="cb32-5"><a href=""></a><span class="co"># Then merge it with your sentiment summary</span></span>
-<span id="cb32-6"><a href=""></a>sentiment_summary_with_text <span class="ot">&lt;-</span> sentiment_summary <span class="sc">%&gt;%</span></span>
-<span id="cb32-7"><a href=""></a>  <span class="fu">left_join</span>(original_texts, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="lexiques-de-sentiment" class="slide level2">
-<h2>Lexiques de sentiment</h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)   <span class="co"># Scores de -5 à +5</span></span>
-<span id="cb33-2"><a href=""></a><span class="fu">get_sentiments</span>(<span class="st">"bing"</span>)    <span class="co"># Positif/Négatif</span></span>
-<span id="cb33-3"><a href=""></a><span class="fu">get_sentiments</span>(<span class="st">"nrc"</span>)     <span class="co"># 8 émotions + pos/neg</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="co"># First, let's create a dataframe with just id and text</span></span>
+<span id="cb36-2"><a href=""></a>original_texts <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href=""></a>  <span class="fu">select</span>(id, text)</span>
+<span id="cb36-4"><a href=""></a></span>
+<span id="cb36-5"><a href=""></a><span class="co"># Then merge it with your sentiment summary</span></span>
+<span id="cb36-6"><a href=""></a>sentiment_summary_with_text <span class="ot">&lt;-</span> sentiment_summary <span class="sc">%&gt;%</span></span>
+<span id="cb36-7"><a href=""></a>  <span class="fu">left_join</span>(original_texts, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="en-réunissant-le-text-original-avec-les-analyses">En réunissant le text original avec les analyses:</h3>
+<pre><code>r$&gt; sentiment_summary_with_text
+# A tibble: 3 × 8
+     id restaurant     total_sentiment mean_sentiment word_count min_sentiment max_sentiment text                                                   
+  &lt;int&gt; &lt;chr&gt;                    &lt;dbl&gt;          &lt;dbl&gt;      &lt;int&gt;         &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;                                                  
+1     1 La ligne rouge              17           2.43          7             1             3 Super good kebab! [...]
+2     2 La ligne rouge               2           0.5           4            -2             3 Nothing exceptional [...]
+3     3 La ligne rouge               1           0.5           2            -2             3 Food is good and price is ok. [...]</code></pre>
 </section>
 <section id="quel-lexique-choisir" class="slide level2 smaller">
 <h2>Quel lexique choisir?</h2>
@@ -1029,8 +1091,11 @@ graph LR
 </tbody>
 </table>
 </section>
-<section id="données-textuelles-et-méthodes-quantitatives-pour-les-analyser-pas-sans-limites" class="slide level2">
-<h2>Données textuelles (et méthodes quantitatives pour les analyser) pas sans limites <span class="emoji" data-emoji="no_entry_sign">🚫</span></h2>
+<section id="lexicoder-sentiment-dictionary-lsd" class="slide level2 smaller">
+<h2>Lexicoder Sentiment Dictionary (LSD)</h2>
+</section>
+<section id="méthodes-quantitatives-pour-analyse-textuelle-pas-sans-limites" class="slide level2 smaller">
+<h2>Méthodes quantitatives pour analyse textuelle pas sans limites <span class="emoji" data-emoji="no_entry_sign">🚫</span></h2>
 <ul>
 <li>Des idées sur des limites possibles?</li>
 <li>Nécessité d’analyser de gros corpus/volumes de textes. Les méthodes ne remplacent pas l’humain. Vous n’êtes pas capable de lire l’ensemble des textes tellement le corpus est volumineux… <span class="emoji" data-emoji="anguished">😧</span></li>
