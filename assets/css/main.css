@@ -3220,62 +3220,33 @@ button:active,
   }
 }
 
-.meeting-card {
-  background: #ffffff;
+.meeting-container {
+  background: white;
   border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 2rem 0;
+  min-height: 200px;
 }
 
-.meeting-info {
-  margin-bottom: 2rem;
+.no-appointments,
+.calendar-embed {
+  display: none;
 }
 
-.meeting-info ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 1rem 0;
-}
-
-.meeting-info li {
-  padding: 0.5rem 0;
-  margin: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.meeting-info li:last-child {
-  border-bottom: none;
-}
-
-.meeting-note {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 6px;
-  font-style: italic;
-}
-
-.calendar-container {
-  background: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-top: 2rem;
-}
-
-.calendar-container iframe {
+.no-appointments.active,
+.calendar-embed.active {
   display: block;
-  width: 100%;
-  height: 600px;
-  border: none;
+}
+
+.no-appointments {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #666;
+  background: #f8f9fa;
+  border-radius: 12px;
 }
 
 @media screen and (max-width: 736px) {
-  .meeting-card {
-    padding: 1rem;
-  }
-
-  .calendar-container iframe {
-    height: 500px;
+  .meeting-container {
+    margin: 1rem 0;
   }
 }

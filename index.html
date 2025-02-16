@@ -556,31 +556,17 @@
         <div class="container">
           <header>
             <h2>Rencontres individuelles</h2>
-            <p>
-              Réservez votre plage horaire pour la rencontre individuelle du
-              jeudi
-            </p>
           </header>
 
-          <div class="meeting-card">
-            <div class="meeting-info">
-              <p>Cette rencontre de 30 minutes sera l'occasion de :</p>
-              <ul>
-                <li>Discuter de votre progression dans le cours</li>
-                <li>Faire le point sur le TP1 et préparer le TP2</li>
-                <li>Répondre à vos questions spécifiques</li>
-                <li>
-                  Aborder vos défis avec R, GitHub ou tout autre aspect du cours
-                </li>
-              </ul>
-              <p class="meeting-note">
-                Veuillez préparer vos questions avant la rencontre pour
-                optimiser notre temps ensemble.
+          <div class="meeting-container">
+            <!-- Add 'active' class to show either placeholder or calendar -->
+            <div class="no-appointments">
+              <p>
+                Aucune plage de rendez-vous n'est disponible pour le moment.
               </p>
             </div>
 
-            <div class="calendar-container">
-              <!-- Google Calendar Appointment Scheduling begin -->
+            <div class="calendar-embed active">
               <iframe
                 src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1uSw4MqGeY0osd6KEGqJNT1y9u9xmwcRsYkFWxkCa8GZHaXkVlyWvO7Gd5zEeNALOjpPF1DSSA?gv=true"
                 style="border: 0"
@@ -588,11 +574,11 @@
                 height="600"
                 frameborder="0"
               ></iframe>
-              <!-- end Google Calendar Appointment Scheduling -->
             </div>
           </div>
         </div>
       </section>
+
       <!-- Calendrier -->
       <section id="calendar" class="calendar-section">
         <div class="container">
