@@ -19,15 +19,122 @@ format:
 bibliography: bibliography.bib
 ---
 
-# Retour sur le TP1
+# Retour sur le Quiz 1 {.smaller}
 
-- Chemins d'accès relatifs
-- `../../results/graphs/graph.png`
-- `.RProj`
-- Le titre de votre document
-- Les références .bib
-- Les citations \@auteurdate et [\@auteurdate]
+- Chemins d'accès relatifs et (../..)
+- Les factors
+- Alpha de Cronbach à 0.6?
+- Utilisation de ChatGPT
+- Éviter de mettre raw dans clean
+- Éviter de mettre les citations en texte
+- Ne laissez pas de code inutile
 - Comment retourner sur GitHub pour voir l'ancienne version de votre TP1
+
+## Utiliser .. dans les chemins d'accès {.smaller}
+
+Dans le quarto, le chemin vers le graph était: 
+
+`![](../../results/graphs/evolution_graph.png)`
+
+```
+quiz_1/ <---------------------------------------- R Part de ici
+├── data/
+│   └── raw
+│       ├── ces2021.csv
+│       └── CES-E-1993_F1_subset.csv
+├── docs
+│   ├── codebooks/
+│   └── quiz_1
+│       ├── img
+│       │   └── UdeM_CoA.png
+│       ├── quiz_1.pdf
+│       ├── quiz_1.qmd <------------------------- Quarto part de ici 
+│       └── references.bib
+├── R
+│   ├── 1_cleaning_1993.R
+│   ├── 2_cleaning_2021.R
+│   ├── 3_merging.R
+│   └── 4_graph.R
+├── README.md
+└── results
+    └── graphs
+        └── evolution_graph.png
+```
+
+## Les factors
+
+```r
+table(df_raw_1993$CPSIGEN, useNA = "ifany") 
+df_clean_1993$ses_female <- NA
+df_clean_1993$ses_female[df_raw_1993$CPSIGEN != 1] <- 0
+df_clean_1993$ses_female[df_raw_1993$CPSIGEN == 5] <- 1 
+df_clean_1993$ses_female <- as.factor(df_clean_1993$ses_female)
+table(df_clean_1993$ses_female, useNA = "ifany") 
+```
+Si on fait `class(df_clean$ses_female)`
+```r
+r$> class(df_clean_1993$ses_female)
+[1] "factor"
+```
+
+## Quand utiliser les factors?
+
+```r
+table(df_raw$country, useNA = "ifany")
+df_clean$country[df_raw$country == 1] <- "CA"
+df_clean$country[df_raw$country == 2] <- "UK"
+df_clean$country[df_raw$country == 3] <- "FR"
+df_clean$country <- as.factor(df_clean$country)
+table(df_clean$country, useNA = "ifany")
+
+m <- lm(variable ~ country, data = df_clean)
+```
+
+## Évitez de mettre raw dans clean {.smaller}
+
+```r
+table(df_raw_1993$CPSIGEN)
+df_clean_1993 <- df_raw_1993 %>%
+  mutate(ses_female = case_when(
+    CPSIGEN == 5 ~ 1,
+    CPSIGEN == 1 ~ 0,
+    TRUE ~ NA_real_ ))
+table(df_clean_1993$ses_female, useNA = "ifany")
+```
+La variable est polluée
+```r
+r$> names(df_clean_1993)
+[1] "CPSIGEN"          "CPSA3"           
+[3] "CPSG1"            "CPSO11"          
+[5] "CPSA2"            "ses_female"      
+[7] "vote_probability"
+```
+
+## Utiliser les citations en markdown {.smaller}
+
+### La mauvaise façon :x:
+
+```markdown
+Selon Wickham (2014) [@wickham14], les tidy data ont trois propriétés.
+```
+Selon Wickham (2014) (Wickham, 2014), les tidy data ont trois propriétés.
+
+### Les deux options :white_check_mark:
+```markdown
+Selon @wickham14, les tidy data ont trois propriétés.
+```
+Selon Wickham (2014), les tidy data ont trois propriétés:
+
+```markdown
+Les tidy data ont trois propriétés [@wickham14].
+```
+Les tidy data ont trois propriétés (Wickham, 2014).
+
+## Ne pas laisser de code inutile {.smaller}
+
+Utiliser l'historique GitHub pour voir les changements
+
+![](img/github_history.png)
 
 ## TP2 - Travail de mi-session {.smaller}
 
@@ -40,7 +147,6 @@ bibliography: bibliography.bib
 3. Préparation de l'environnement de travail
 4. Création de l'arborescence
 5. Préparation des données
-6. Nettoyage de deux variables
 
 :::
 ::: {.column width="10%"}
@@ -49,12 +155,12 @@ bibliography: bibliography.bib
 
 ::: {.column width="45%"}
 
-7. Une visualisation
-8. Un document quarto
-9. Une question de recherche
-10. Courte revue de littérature
-11. Source et structure des données
-12. Planification méthodologique
+6. Une visualisation
+7. Un document quarto
+8. Une question de recherche
+9. Courte revue de littérature
+10. Source et structure des données
+11. Planification méthodologique
 
 :::
 
@@ -751,8 +857,8 @@ r$> sentiment_summary_with_text
 3     3 La ligne rouge               1           0.5           2            -2             3 Food is good and price is ok. [...]
 
 ```
-## Lexicoder (LSD) {transition="none"}
 
+## Lexicoder (LSD) {transition="none"}
 
 - Spécialisé pour textes politiques
 - Gestion avancée des négations
@@ -760,7 +866,6 @@ r$> sentiment_summary_with_text
 - Plus précis pour l'analyse politique
 
 ## Pourquoi LSD pour la science politique? {.smaller transition="none"}
-
 
 1. **Contexte politique**
    - Vocabulaire politique spécifique
@@ -776,18 +881,18 @@ r$> sentiment_summary_with_text
    - Utilisé dans des publications majeures
    - Benchmark en science politique
 
-## Préparation des données pour LSD {transition="none"}
-
+## Étape 1 : Préparation des données pour LSD {transition="none"}
 
 ```r
 library(quanteda)
 library(pbapply)
 library(dplyr)
-library(LSX)
+library(tidytext)
+library(stringr)
 
-source("functions/lsd_prep_functions.R")
+source("R/lsd_prep_functions.R")
 
-# Charger les reviews
+# Charger les exemples de reviews de restaurants
 reviews <- data.frame(
   restaurant = "La ligne rouge",
   text = c(
@@ -798,7 +903,6 @@ reviews <- data.frame(
   stringsAsFactors = FALSE
 ) %>%
   dplyr::mutate(id = 1:nrow(.))
-
 ```
 
 ## Étape 2 : Division en phrases {.smaller transition="none"}
@@ -809,35 +913,9 @@ reviews_sentences <- reviews %>%
   tidytext::unnest_sentences(text, text) %>%
   mutate(id_sentence = row_number())
 
-print(head(reviews_sentences, 2))
-```
-```
-r$> head(reviews_sentences, 5)
-      restaurant                                                                                   text id id_sentence
-1 La ligne rouge                                                                      super good kebab!  1           1
-2 La ligne rouge the portions are generous, the prices are really reasonable, and the quality is there.  1           2
-3 La ligne rouge                              tasty meat, fresh bread, and everything is well seasoned.  1           3
-4 La ligne rouge                an excellent address for a meal that is good without breaking the bank.  1           4
-5 La ligne rouge                                                                           i recommend!  1           5
 ```
 
-## Étape 3 : Application des fonctions de préparation {transition="none"}
-
-
-```r
-reviews_sentences$text_prepped <- NA
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text, LSDprep_contr)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_dict_punct)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, remove_punctuation_from_acronyms)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, remove_punctuation_from_abbreviations)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_punctspace)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_negation)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_dict)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, mark_proper_nouns)
-```
-
-## Prétraitement LSD {.smaller transition="none"}
-
+## Prétraitement LSD : Fonctionnalités {.smaller transition="none"}
 
 1. **Ordre des fonctions**
    - L'ordre d'application est important
@@ -853,120 +931,182 @@ reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepp
    - Meilleure gestion des négations
    - Plus précis pour l'analyse de sentiment
 
-
-## Étape 4 : Création du corpus et analyse {transition="none"}
-
-
+## Étape 3 : Application des fonctions de préparation {transition="none"}
 
 ```r
-# Créer le corpus avec les textes préparés
-corpus_reviews <- corpus(
-  reviews_sentences$text_prepped, 
-  docnames = reviews_sentences$id_sentence
-)
-
-# Tokenisation
-tokens_reviews <- tokens(
-  corpus_reviews,
-  what = "word",
-  remove_punct = TRUE,
-  remove_numbers = TRUE,
-  remove_symbols = TRUE
-)
-
-# Conversion en minuscules
-tokens_reviews <- tokens_tolower(tokens_reviews)
+# Application séquentielle des fonctions de préparation LSD
+reviews_sentences$text_prepped <- NA
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text, LSDprep_contr)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_dict_punct)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, remove_punctuation_from_acronyms)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, remove_punctuation_from_abbreviations)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_punctspace)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_negation)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_dict)
+reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, mark_proper_nouns)
 ```
 
-## Étape 5 : Création de la matrice document-terme {transition="none"}
+## Étape 3 : Application des fonctions de préparation {transition="none"}
 
+#### Avant
+
+```markdown
+nothing exceptional, just edible.
+```
+
+#### Après
+
+```markdown
+(nothing) not exceptional , just edible .
+```
+
+## Étape 4 : Création du corpus et tokenisation {transition="none"}
 
 ```r
-# Créer la matrice document-terme (DFM)
-dfm_reviews <- dfm(tokens_reviews)
+# Convertir en dataframe (pour s'assurer du type)
+reviews_sentences <- as.data.frame(reviews_sentences)
 
-# Vérifier la structure
-print(dfm_reviews)
+# Création du corpus et tokenisation
+corpus_text <- quanteda::tokens(reviews_sentences$text_prepped)
+```
+```
+r$> head(corpus_text)
+Tokens consisting of 6 documents.
+text1 :
+[1] "super" "good"  "kebab" "!"    
+
+text2 :
+ [1] "the"        "portions"   "are"        "generous"   ","          "the"       
+ [7] "prices"     "are"        "really"     "reasonable" ","          "and"       
+[ ... and 5 more ]
+
+text3 :
+ [1] "tasty"      "meat"       ","          "fresh"      "bread"      ","         
+ [7] "and"        "everything" "is"         "well"       "seasoned"   "."         
 ```
 
-## Analyse avec LSD {transition="none"}
+
+## Étape 5 : Application du dictionnaire LSD {transition="none"}
 
 ```r
-# Charger le dictionnaire LSD
-data(data_dictionary_LSD2015)
-
-# Appliquer le dictionnaire
-sentiment_scores <- dfm_lookup(
-  dfm_reviews, 
-  dictionary = data_dictionary_LSD2015
+# Application du dictionnaire LSD pour l'analyse de sentiment
+matrice_sentiment <- quanteda::dfm(
+  quanteda::tokens_lookup(corpus_text, data_dictionary_LSD2015, nested_scope = "dictionary")
 )
+
 ```
 
 ```
-r$> sentiment_scores
+r$> print(matrice_sentiment)
 Document-feature matrix of: 15 documents, 4 features (76.67% sparse) and 0 docvars.
-    features
-docs negative positive neg_positive neg_negative
-   1        0        2            0            0
-   2        0        3            0            0
-   3        0        2            0            0
-   4        1        2            0            0
-   5        0        0            0            0
-   6        0        1            0            0
+       features
+docs    negative positive neg_positive neg_negative
+  text1        0        2            0            0
+  text2        0        3            0            0
+  text3        0        2            0            0
+  text4        0        2            0            1
+  text5        0        0            0            0
+  text6        0        0            1            0
 [ reached max_ndoc ... 9 more documents ]
 ```
 
-## Interprétation des résultats LSD {transition="none"}
+## Étape 6 : Calcul des scores de sentiment {transition="none"}
 
-::::{.columns}
-
-:::{.column width="60%"}
 ```r
-# Créer un dataframe avec les scores
-sentiment_df <- convert(sentiment_scores, to = "data.frame") %>%
-  # Ajouter l'ID de l'article depuis reviews_sentences
-  mutate(id = reviews_sentences$id)
+# Conversion de la matrice de fréquence des termes en dataframe
+resultats_sentiment <- quanteda::convert(matrice_sentiment, to = "data.frame")
 
-# Agréger par article
-lsd_metrics <- sentiment_df %>%
+# Combinaison des résultats de sentiment avec les données originales
+articles_sentiment <- cbind(reviews_sentences, resultats_sentiment)
+
+# Calcul des métriques de sentiment
+articles_sentiment <- articles_sentiment %>%
+  mutate(
+    total_words = str_count(text_prepped, "\\S+"),
+    # Calcul des proportions de termes positifs et négatifs
+    proportion_positive = (positive + neg_negative) / total_words,
+    proportion_negative = (negative + neg_positive) / total_words,
+    tone_index = proportion_positive - proportion_negative
+  )
+```
+
+## Étape 6 : Calcul des scores de sentiment {transition="none"}
+
+| doc_id | positive | negative | neg_pos | neg_neg | tone_index |
+|--------|----------|----------|---------|---------|------------|
+| text1  | 2        | 0        | 0       | 0       | 0.500      |
+| text2  | 3        | 0        | 0       | 0       | 0.176      |
+| text3  | 2        | 0        | 0       | 0       | 0.167      |
+| text4  | 2        | 0        | 0       | 1       | 0.200      |
+| text5  | 0        | 0        | 0       | 0       | 0.000      |
+| text6  | 0        | 0        | 1       | 0       | -0.143     |
+
+## Étape 7 : Agrégation et interprétation des résultats {transition="none"}
+
+```r
+# Agrégation des résultats par review (id)
+sentiment_par_review <- articles_sentiment %>%
   group_by(id) %>%
   summarise(
-    positif = sum(positive),
-    negatif = sum(negative),
-    score_net = positif - negatif,
-    tone = (positif - negatif) / (positif + negatif)
-  )
+    text_original = first(reviews$text[id]),     # Texte original complet
+    total_positive = sum(positive),              # Somme des termes positifs
+    total_negative = sum(negative),              # Somme des termes négatifs
+    total_neg_positive = sum(neg_positive),      # Somme des négations de termes positifs
+    total_neg_negative = sum(neg_negative),      # Somme des négations de termes négatifs
+    total_words = sum(total_words),              # Nombre total de mots
+    # Calcul des proportions globales
+    proportion_positive = sum(positive) / sum(total_words),
+    proportion_negative = sum(negative) / sum(total_words),
+    # Indice de ton global normalisé
+    tone_index = (sum(positive) - sum(negative)) / (sum(positive) + sum(negative)),
+    .groups = "drop"
+  ) %>%
+  select(id, text_original, tone_index)
 
 ```
-:::
 
-:::{.column width="40%"}
-```
-r$> print(lsd_metrics)
-# A tibble: 3 × 5
-     id positif negatif score_net  tone
-  <int>   <dbl>   <dbl>     <dbl> <dbl>
-1     1       9       1         8   0.8
-2     2       3       3         0   0  
-3     3       2       2         0   0  
-```
-:::
+## Comparaison des scores de sentiment {transition="none"}
 
-::::
+<div style="display: flex; justify-content: space-around; margin-top: 20px;">
+<div>
+<h3>Scores par review</h3>
+<table style="border-collapse: collapse; width: 100%;">
+<tr style="border-bottom: 2px solid #ddd; background-color: #f5f5f5;">
+  <th style="padding: 8px; text-align: left;">Review</th>
+  <th style="padding: 8px; text-align: center;">Positif</th>
+  <th style="padding: 8px; text-align: center;">Négatif</th>
+  <th style="padding: 8px; text-align: center;">Score final</th>
+</tr>
+<tr style="border-bottom: 1px solid #ddd;">
+  <td style="padding: 8px;">Review #1</td>
+  <td style="padding: 8px; text-align: center; color: green;">9</td>
+  <td style="padding: 8px; text-align: center; color: red;">0</td>
+  <td style="padding: 8px; text-align: center; font-weight: bold; color: green;">+1.0</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd;">
+  <td style="padding: 8px;">Review #2</td>
+  <td style="padding: 8px; text-align: center; color: green;">2</td>
+  <td style="padding: 8px; text-align: center; color: red;">3</td>
+  <td style="padding: 8px; text-align: center; font-weight: bold; color: red;">-0.2</td>
+</tr>
+<tr style="border-bottom: 1px solid #ddd;">
+  <td style="padding: 8px;">Review #3</td>
+  <td style="padding: 8px; text-align: center; color: green;">2</td>
+  <td style="padding: 8px; text-align: center; color: red;">2</td>
+  <td style="padding: 8px; text-align: center; font-weight: bold; color: gray;">0.0</td>
+</tr>
+</table>
+</div>
+</div>
 
-## Conseils pratiques
+## Conseils pratiques 
 
-1. **Choisir le bon dictionnaire**
-   - Textes politiques → LSD
-   - Réseaux sociaux → AFINN/BING
-   - Analyse émotionnelle → NRC
-
-2. **Validation**
+1. **Validation**
    - Vérifier manuellement les résultats
    - Comparer les dictionnaires
    - Documenter les choix méthodologiques
 
-3. **Limites**
+2. **Limites**
    - Aucun dictionnaire n'est parfait
    - Contexte est toujours important
    - Valider avec analyses qualitatives
@@ -981,15 +1121,3 @@ r$> print(lsd_metrics)
 | Lexicoder | Binaire + thèmes | Validé académiquement | Discours politiques | Science politique |
 | VADER | -1 à +1 | Gère emojis/web | Médias sociaux | Communications |## Exemple comparatif
 
-## Lexicoder Sentiment Dictionary (LSD) {.smaller}
-
-
-
-## Méthodes quantitatives pour analyse textuelle pas sans limites :no_entry_sign: {.smaller}
-
-- Des idées sur des limites possibles?
-- Nécessité d'analyser de gros corpus/volumes de textes. Les méthodes ne remplacent pas l'humain. Vous n'êtes pas capable de lire l'ensemble des textes tellement le corpus est volumineux... :anguished:
-- Si vous pouvez lire le texte... **LISEZ-LE** et analysez-le avec des méthodes **QUALITATIVES**.
-- Méthodes nécessitant d'importantes validations...
-
-# Quiz 1
