@@ -1121,3 +1121,292 @@ sentiment_par_review <- articles_sentiment %>%
 | Lexicoder | Binaire + thèmes | Validé académiquement | Discours politiques | Science politique |
 | VADER | -1 à +1 | Gère emojis/web | Médias sociaux | Communications |## Exemple comparatif
 
+## LDA : Allocation de Dirichlet Latente {transition="none"}
+
+:::: {.columns}
+::: {.column width="60%"}
+### Qu'est-ce que c'est?
+- Une méthode pour **découvrir automatiquement** des thèmes dans une collection de textes
+- Développée en 2003 (Blei, Ng, Jordan)
+- **Apprentissage non supervisé** : l'algorithme découvre seul les structures
+:::
+
+::: {.column width="40%"}
+![](https://www.cs.columbia.edu/~blei/blei-hi-res.jpg)
+*David Blei, concepteur principal du LDA*
+:::
+::::
+
+## L'intuition derrière LDA {transition="none"}
+
+### L'idée centrale
+- Chaque **document** contient plusieurs **sujets**
+- Chaque **sujet** est une collection de **mots** liés
+- Les mots apparaissent avec différentes **probabilités** dans chaque sujet
+
+## Comment fonctionne LDA? {transition="fade"}
+
+### Approche non supervisée
+1. **Aucune connaissance préalable**
+   - Pas de liste de mots prédéfinie
+   - Pas d'étiquettes nécessaires
+   
+2. **Découverte automatique**
+   - Les relations entre mots émergent des données
+   - Les thèmes se forment naturellement
+
+## Le processus en pratique {transition="none"}
+
+### Étapes simplifiées
+1. Transformer les textes en chiffres
+2. Commencer par des assignations aléatoires
+3. Répéter des milliers de fois:
+   - Pour chaque mot: quel sujet est le plus probable?
+   - Mettre à jour les distributions
+4. Aboutir à des groupes cohérents
+
+## Avantages pour les sciences sociales {transition="none"}
+
+### Pourquoi utiliser LDA en sciences sociales?
+
+1. **Analyse de grandes quantités de texte** (discours politiques, médias sociaux)
+2. **Découverte objective de thèmes** sans biais d'interprétation préalable
+3. **Suivi de l'évolution des discours** dans le temps
+4. **Combinaison possible avec l'analyse de sentiment**
+
+## Limites à connaître {transition="none"}
+
+### Défis du LDA
+- Nombre de sujets à définir à l'avance
+- Les sujets nécessitent une interprétation humaine
+- Besoin d'un volume suffisant de données
+
+## Modélisation de sujets (Topic Modeling) {transition="none"}
+
+```r
+# Chargement des bibliothèques
+library(tidytext)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(topicmodels)
+
+# Charger les exemples de reviews de restaurants
+reviews <- data.frame(
+  restaurant = "La ligne rouge",
+  text = c(
+    "Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!",
+    "Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there",
+    "Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."
+  ),
+  stringsAsFactors = FALSE
+) %>%
+  dplyr::mutate(id = 1:nrow(.))
+```
+
+## Préparation des données pour le topic modeling {transition="none"}
+
+```r
+# Tokenisation et nettoyage
+reviews_tokens <- reviews %>%
+  mutate(doc_id = paste0("doc_", id)) %>%
+  tidytext::unnest_tokens(word, text) %>%
+  anti_join(stop_words) # Supprimer les mots vides
+
+# Voir les premiers tokens
+head(reviews_tokens, 10)
+```
+
+## Création de la matrice document-terme {transition="none"}
+
+```r
+# Créer la matrice document-terme (DTM)
+reviews_dtm <- reviews_tokens %>%
+  count(doc_id, word) %>%
+  cast_dtm(doc_id, word, n)
+
+# Afficher un aperçu de la matrice
+reviews_dtm
+```
+
+```
+<<DocumentTermMatrix (documents: 3, terms: 71)>>
+Non-/sparse entries: 77/136
+Sparsity           : 64%
+Maximal term length: 11
+Weighting          : term frequency (tf)
+Sample             :
+      Terms
+Docs   food good price quality
+  doc_1    0    2     0       1
+  doc_2    1    1     0       0
+  doc_3    1    1     1       0
+```
+
+## Application du modèle LDA {transition="none"}
+
+```r
+# Exécuter le modèle LDA
+set.seed(123) # Pour la reproductibilité
+lda_model <- LDA(reviews_dtm, k = 2, control = list(seed = 123))
+
+# Examiner la distribution des sujets pour chaque document
+topics <- tidy(lda_model, matrix = "gamma")
+topics_wide <- topics %>%
+  pivot_wider(names_from = topic, values_from = gamma)
+
+print(topics_wide)
+```
+
+```
+# A tibble: 3 × 3
+  document   `1`   `2`
+  <chr>    <dbl> <dbl>
+1 doc_1    0.692 0.308
+2 doc_2    0.333 0.667
+3 doc_3    0.391 0.609
+```
+
+## Extraction des termes principaux pour chaque sujet {transition="none"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```r
+# Extraire les termes principaux de chaque sujet
+top_terms <- tidy(lda_model, matrix = "beta") %>%
+  group_by(topic) %>%
+  slice_max(beta, n = 10) %>%
+  arrange(topic, -beta)
+
+# Afficher les termes principaux pour chaque sujet
+print(top_terms)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```
+r$> print(top_terms)
+# A tibble: 20 × 3
+# Groups:   topic [2]
+   topic term           beta
+   <int> <chr>         <dbl>
+ 1     1 portions     0.0384
+ 2     1 hygiene      0.0381
+ 3     1 takes        0.0374
+ 4     1 seasoned     0.0366
+ 5     1 recommend    0.0364
+ 6     1 lady         0.0352
+ 7     1 disappointed 0.0334
+ 8     1 client       0.0333
+ 9     1 super        0.0328
+10     1 address      0.0321
+11     2 cash         0.113 
+12     2 food         0.0600
+13     2 bank         0.0390
+14     2 meal         0.0389
+15     2 feedback     0.0377
+16     2 bread        0.0374
+17     2 meat         0.0371
+18     2 kebab        0.0350
+19     2 prices       0.0317
+20     2 generous     0.0305
+```
+
+:::
+
+::::
+
+## Interprétation des résultats {.smaller transition="none"}
+
+:::: {.columns}
+::: {.column width="50%"}
+### Sujet : Services et expérience
+
+- portions (0.0384)
+- hygiene (0.0381)
+- takes (0.0374)
+- seasoned (0.0366)
+- recommend (0.0364)
+- lady (0.0352)
+- disappointed (0.0334)
+- client (0.0333)
+- super (0.0328)
+- address (0.0321)
+
+:::
+
+::: {.column width="50%"}
+### Sujet : Nourriture et prix
+
+- cash (0.1130)
+- food (0.0600)
+- bank (0.0390)
+- meal (0.0389)
+- feedback (0.0377)
+- bread (0.0374)
+- meat (0.0371)
+- kebab (0.0350)
+- prices (0.0317)
+- generous (0.0305)
+
+:::
+::::
+
+## Classification des reviews par sujet {transition="none"}
+
+```r
+# Afficher la distribution des sujets pour chaque review
+document_topics <- augment(lda_model, data = reviews_dtm)
+
+# Mettre en forme pour faciliter la lecture
+review_classifications <- document_topics %>%
+  select(document, .topic) %>%
+  distinct() %>%
+  mutate(
+    review_id = as.integer(gsub("doc_", "", document)),
+    review_text = reviews$text[review_id],
+    primary_topic = ifelse(.topic == 1, "Nourriture", "Service/Expérience")
+  ) %>%
+  select(document, review_text, primary_topic) %>%
+  arrange(document)
+
+# Afficher la classification des reviews
+head(review_classifications, 3)
+
+```
+
+## Classification des reviews par sujet {.smaller transition="none"}
+
+:::: {.columns}
+::: {.column width="45%"}
+### Sujet : Nourriture
+
+::: {style="background-color: #f0f8ff; padding: 10px; border-left: 4px solid #4682b4;"}
+**Review 1**  
+"Super good kebab! The portions are generous, the prices are really reasonable..."  
+**Mots-clés:** kebab, meat, bread, portions
+:::
+:::
+
+::: {.column width="55%"}
+### Sujet : Service/Expérience
+
+::: {style="background-color: #fff0f5; padding: 10px; border-left: 4px solid #db7093; margin-bottom: 10px;"}
+**Review 2**  
+"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed..."  
+**Mots-clés:** disappointed, cash only, exceptional
+:::
+
+::: {style="background-color: #fff0f5; padding: 10px; border-left: 4px solid #db7093;"}
+**Review 3**  
+"Food is good and price is ok. The only issu is the attitude of the staff..."  
+**Mots-clés:** staff, attitude, hygiene
+:::
+:::
+::::
+
+
