@@ -1133,7 +1133,6 @@ sentiment_par_review <- articles_sentiment %>%
 
 ::: {.column width="40%"}
 ![](https://www.cs.columbia.edu/~blei/blei-hi-res.jpg)
-*David Blei, concepteur principal du LDA*
 :::
 ::::
 
