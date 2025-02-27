@@ -808,9 +808,8 @@ graph LR
 </div>
 </div>
 </section>
-<section id="étape-1-création-du-datafram" class="slide level2" data-transition="none">
-<h2>Étape 1: Création du datafram</h2>
-<p>e</p>
+<section id="étape-1-création-du-dataframe" class="slide level2" data-transition="none">
+<h2>Étape 1: Création du dataframe</h2>
 <div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Créer un data.frame avec notre review</span></span>
 <span id="cb24-2"><a href=""></a>review <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb24-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
@@ -1514,7 +1513,7 @@ Review #3
 <li><strong>Apprentissage non supervisé</strong> : l’algorithme découvre seul les structures</li>
 </ul>
 </div><div class="column" style="width:40%;">
-<p><img data-src="https://www.cs.columbia.edu/~blei/blei-hi-res.jpg"> <em>David Blei, concepteur principal du LDA</em></p>
+<p><img data-src="https://www.cs.columbia.edu/~blei/blei-hi-res.jpg"></p>
 </div>
 </div>
 </section>
@@ -1529,8 +1528,6 @@ Review #3
 </section>
 <section id="comment-fonctionne-lda" class="slide level2" data-transition="fade">
 <h2>Comment fonctionne LDA?</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
 <h3 id="approche-non-supervisée">Approche non supervisée</h3>
 <ol type="1">
 <li><strong>Aucune connaissance préalable</strong>
@@ -1544,15 +1541,9 @@ Review #3
 <li>Les thèmes se forment naturellement</li>
 </ul></li>
 </ol>
-</div><div class="column" style="width:40%;">
-<p><img data-src="https://miro.medium.com/max/700/1*3cXMbs25Qt4OI9VPAH8zJQ.png"> <em>Les thèmes émergent des données</em></p>
-</div>
-</div>
 </section>
 <section id="le-processus-en-pratique" class="slide level2" data-transition="none">
 <h2>Le processus en pratique</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
 <h3 id="étapes-simplifiées">Étapes simplifiées</h3>
 <ol type="1">
 <li>Transformer les textes en chiffres</li>
@@ -1564,46 +1555,25 @@ Review #3
 </ul></li>
 <li>Aboutir à des groupes cohérents</li>
 </ol>
-</div><div class="column" style="width:40%;">
-<p><img data-src="https://miro.medium.com/max/700/1*hwT_g-4hN0XmeFTvv4i_iw.png"> <em>Processus itératif d’optimisation</em></p>
-</div>
-</div>
 </section>
 <section id="avantages-pour-les-sciences-sociales" class="slide level2" data-transition="none">
 <h2>Avantages pour les sciences sociales</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Pourquoi utiliser LDA en sciences sociales?</strong></p>
-</div>
-<div class="callout-content">
+<h3 id="pourquoi-utiliser-lda-en-sciences-sociales">Pourquoi utiliser LDA en sciences sociales?</h3>
 <ol type="1">
 <li><strong>Analyse de grandes quantités de texte</strong> (discours politiques, médias sociaux)</li>
 <li><strong>Découverte objective de thèmes</strong> sans biais d’interprétation préalable</li>
 <li><strong>Suivi de l’évolution des discours</strong> dans le temps</li>
 <li><strong>Combinaison possible avec l’analyse de sentiment</strong></li>
 </ol>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-à-connaître" class="slide level2" data-transition="none">
 <h2>Limites à connaître</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
 <h3 id="défis-du-lda">Défis du LDA</h3>
 <ul>
 <li>Nombre de sujets à définir à l’avance</li>
 <li>Les sujets nécessitent une interprétation humaine</li>
 <li>Besoin d’un volume suffisant de données</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="https://miro.medium.com/max/700/1*eoYXuTVrw8YHro8rtXxsXQ.png"> <em>Comment choisir le bon nombre de sujets?</em></p>
-</div>
-</div>
 </section>
 <section id="modélisation-de-sujets-topic-modeling" class="slide level2" data-transition="none">
 <h2>Modélisation de sujets (Topic Modeling)</h2>

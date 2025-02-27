@@ -456,8 +456,8 @@ str_extract(texte, "https?://[\\w\\.]+\\.\\w+")
 ::::
 
 
-## Étape 1: Création du datafram {transition="none"}
-e
+## Étape 1: Création du dataframe {transition="none"}
+
 ```r
 # Créer un data.frame avec notre review
 review <- data.frame(
