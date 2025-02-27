@@ -431,6 +431,86 @@ str_extract(texte, "https?://[\\w\\.]+\\.\\w+")
 
 ::::
 
+# Les fonctions
+
+## Qu'est-ce qu'une fonction en R?
+
+- Une fonction est un bloc de code réutilisable
+- Elle effectue une tâche spécifique
+- Elle peut accepter des inputs (arguments)
+- Elle produit généralement un output
+
+```r
+# Structure de base d'une fonction
+ma_fonction <- function(argument1, argument2) {
+  # Corps de la fonction
+  resultat <- argument1 + argument2
+  return(resultat)
+}
+```
+
+## Pourquoi utiliser des fonctions?
+
+- **Réutiliser du code**: Évite de copier-coller et répéter le même code
+- **Modularité**: Décompose des problèmes complexes en parties gérables
+- **Lisibilité**: Rend le code plus facile à comprendre
+
+## Types de fonctions en R
+
+::: {.columns}
+::: {.column width="50%"}
+**Fonctions intégrées**
+- `mean()`, `sum()`, `length()`
+- `read.csv()`, `write.csv()`
+- `lm()`, `glm()`
+:::
+
+::: {.column width="50%"}
+**Fonctions de packages**
+- `dplyr::filter()`
+- `ggplot2::geom_point()`
+- `sondr::topdown_fa()`
+:::
+:::
+
+**Fonctions personnalisées**
+- Créées par vous pour des besoins spécifiques
+
+---
+
+## Anatomie d'une fonction {.smaller}
+
+```r
+calculer_moyenne <- function(nombres) {
+  # Documentation: Calcule la moyenne d'un vecteur de nombres
+  
+  # Corps de la fonction
+  somme <- sum(nombres)       # Somme de tous les nombres
+  taille <- length(nombres)   # Nombre d'éléments
+  moyenne <- somme / taille   # Calcul de la moyenne
+  
+  # Valeur de retour
+  return(moyenne)
+}
+
+# Utilisation
+moyenne_classe <- calculer_moyenne(c(85, 90, 78, 92, 88))
+print(moyenne_classe)  # Affiche: 86.6
+```
+
+- **Nom**: Choisir un nom descriptif, utiliser des verbes
+- **Arguments**: Paramètres d'entrée, peuvent avoir des valeurs par défaut
+- **Corps**: Les opérations à effectuer
+- **Retour**: La valeur ou l'objet que la fonction renvoie
+
+
+## Bonnes pratiques pour les fonctions
+
+- Donner des noms clairs et descriptifs 
+  - Utiliser des verbes pour les fonctions (`calculer_`, `analyser_`)
+- Une fonction = une tâche unique et précise
+- Ajouter des commentaires expliquant le but et les arguments
+
 
 # Analyse de sentiment
 
@@ -1247,7 +1327,7 @@ Docs   food good price quality
 ```r
 # Exécuter le modèle LDA
 set.seed(123) # Pour la reproductibilité
-lda_model <- LDA(reviews_dtm, k = 2, control = list(seed = 123))
+lda_model <- LDA(reviews_dtm, k = 2, control = list(seed = 123, verbose = TRUE))
 
 # Examiner la distribution des sujets pour chaque document
 topics <- tidy(lda_model, matrix = "gamma")

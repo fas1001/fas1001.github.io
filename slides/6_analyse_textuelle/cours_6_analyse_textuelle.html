@@ -788,6 +788,80 @@ graph LR
 </div>
 </section></section>
 <section>
+<section id="les-fonctions" class="title-slide slide level1 center">
+<h1>Les fonctions</h1>
+
+</section>
+<section id="quest-ce-quune-fonction-en-r" class="slide level2">
+<h2>Qu’est-ce qu’une fonction en R?</h2>
+<ul>
+<li>Une fonction est un bloc de code réutilisable</li>
+<li>Elle effectue une tâche spécifique</li>
+<li>Elle peut accepter des inputs (arguments)</li>
+<li>Elle produit généralement un output</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Structure de base d'une fonction</span></span>
+<span id="cb24-2"><a href=""></a>ma_fonction <span class="ot">&lt;-</span> <span class="cf">function</span>(argument1, argument2) {</span>
+<span id="cb24-3"><a href=""></a>  <span class="co"># Corps de la fonction</span></span>
+<span id="cb24-4"><a href=""></a>  resultat <span class="ot">&lt;-</span> argument1 <span class="sc">+</span> argument2</span>
+<span id="cb24-5"><a href=""></a>  <span class="fu">return</span>(resultat)</span>
+<span id="cb24-6"><a href=""></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pourquoi-utiliser-des-fonctions" class="slide level2">
+<h2>Pourquoi utiliser des fonctions?</h2>
+<ul>
+<li><strong>Réutiliser du code</strong>: Évite de copier-coller et répéter le même code</li>
+<li><strong>Modularité</strong>: Décompose des problèmes complexes en parties gérables</li>
+<li><strong>Lisibilité</strong>: Rend le code plus facile à comprendre</li>
+</ul>
+</section>
+<section id="types-de-fonctions-en-r" class="slide level2">
+<h2>Types de fonctions en R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Fonctions intégrées</strong> - <code>mean()</code>, <code>sum()</code>, <code>length()</code> - <code>read.csv()</code>, <code>write.csv()</code> - <code>lm()</code>, <code>glm()</code></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Fonctions de packages</strong> - <code>dplyr::filter()</code> - <code>ggplot2::geom_point()</code> - <code>sondr::topdown_fa()</code></p>
+</div>
+</div>
+<p><strong>Fonctions personnalisées</strong> - Créées par vous pour des besoins spécifiques</p>
+</section>
+<section id="anatomie-dune-fonction" class="slide level2 smaller">
+<h2>Anatomie d’une fonction</h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>calculer_moyenne <span class="ot">&lt;-</span> <span class="cf">function</span>(nombres) {</span>
+<span id="cb25-2"><a href=""></a>  <span class="co"># Documentation: Calcule la moyenne d'un vecteur de nombres</span></span>
+<span id="cb25-3"><a href=""></a>  </span>
+<span id="cb25-4"><a href=""></a>  <span class="co"># Corps de la fonction</span></span>
+<span id="cb25-5"><a href=""></a>  somme <span class="ot">&lt;-</span> <span class="fu">sum</span>(nombres)       <span class="co"># Somme de tous les nombres</span></span>
+<span id="cb25-6"><a href=""></a>  taille <span class="ot">&lt;-</span> <span class="fu">length</span>(nombres)   <span class="co"># Nombre d'éléments</span></span>
+<span id="cb25-7"><a href=""></a>  moyenne <span class="ot">&lt;-</span> somme <span class="sc">/</span> taille   <span class="co"># Calcul de la moyenne</span></span>
+<span id="cb25-8"><a href=""></a>  </span>
+<span id="cb25-9"><a href=""></a>  <span class="co"># Valeur de retour</span></span>
+<span id="cb25-10"><a href=""></a>  <span class="fu">return</span>(moyenne)</span>
+<span id="cb25-11"><a href=""></a>}</span>
+<span id="cb25-12"><a href=""></a></span>
+<span id="cb25-13"><a href=""></a><span class="co"># Utilisation</span></span>
+<span id="cb25-14"><a href=""></a>moyenne_classe <span class="ot">&lt;-</span> <span class="fu">calculer_moyenne</span>(<span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">78</span>, <span class="dv">92</span>, <span class="dv">88</span>))</span>
+<span id="cb25-15"><a href=""></a><span class="fu">print</span>(moyenne_classe)  <span class="co"># Affiche: 86.6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Nom</strong>: Choisir un nom descriptif, utiliser des verbes</li>
+<li><strong>Arguments</strong>: Paramètres d’entrée, peuvent avoir des valeurs par défaut</li>
+<li><strong>Corps</strong>: Les opérations à effectuer</li>
+<li><strong>Retour</strong>: La valeur ou l’objet que la fonction renvoie</li>
+</ul>
+</section>
+<section id="bonnes-pratiques-pour-les-fonctions" class="slide level2">
+<h2>Bonnes pratiques pour les fonctions</h2>
+<ul>
+<li>Donner des noms clairs et descriptifs
+<ul>
+<li>Utiliser des verbes pour les fonctions (<code>calculer_</code>, <code>analyser_</code>)</li>
+</ul></li>
+<li>Une fonction = une tâche unique et précise</li>
+<li>Ajouter des commentaires expliquant le but et les arguments</li>
+</ul>
+</section></section>
+<section>
 <section id="analyse-de-sentiment" class="title-slide slide level1 center">
 <h1>Analyse de sentiment</h1>
 
@@ -810,12 +884,12 @@ graph LR
 </section>
 <section id="étape-1-création-du-dataframe" class="slide level2" data-transition="none">
 <h2>Étape 1: Création du dataframe</h2>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Créer un data.frame avec notre review</span></span>
-<span id="cb24-2"><a href=""></a>review <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb24-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
-<span id="cb24-4"><a href=""></a>  <span class="at">text =</span> <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
-<span id="cb24-5"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb24-6"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="co"># Créer un data.frame avec notre review</span></span>
+<span id="cb26-2"><a href=""></a>review <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb26-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb26-4"><a href=""></a>  <span class="at">text =</span> <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb26-5"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb26-6"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h3 id="donne-un-dataframe-comme-ceci">Donne un dataframe comme ceci</h3>
 <table>
 <thead>
@@ -834,12 +908,12 @@ graph LR
 </section>
 <section id="étape-2-nettoyage-de-base" class="slide level2" data-transition="none">
 <h2>Étape 2: Nettoyage de base</h2>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="co"># Nettoyage avec stringr</span></span>
-<span id="cb25-2"><a href=""></a>review_clean <span class="ot">&lt;-</span> review</span>
-<span id="cb25-3"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(review_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
-<span id="cb25-4"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
-<span id="cb25-5"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
-<span id="cb25-6"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="co"># Nettoyage avec stringr</span></span>
+<span id="cb27-2"><a href=""></a>review_clean <span class="ot">&lt;-</span> review</span>
+<span id="cb27-3"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(review_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
+<span id="cb27-4"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
+<span id="cb27-5"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
+<span id="cb27-6"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="columns">
 <div class="column" style="width:100%;">
 <blockquote>
@@ -850,12 +924,12 @@ graph LR
 </section>
 <section id="étape-2-nettoyage-de-base-1" class="slide level2" data-transition="none">
 <h2>Étape 2: Nettoyage de base</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="co"># Nettoyage avec stringr</span></span>
-<span id="cb26-2"><a href=""></a>review_clean <span class="ot">&lt;-</span> review</span>
-<span id="cb26-3"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(review_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
-<span id="cb26-4"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
-<span id="cb26-5"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
-<span id="cb26-6"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># Nettoyage avec stringr</span></span>
+<span id="cb28-2"><a href=""></a>review_clean <span class="ot">&lt;-</span> review</span>
+<span id="cb28-3"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(review_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
+<span id="cb28-4"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
+<span id="cb28-5"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
+<span id="cb28-6"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="columns">
 <div class="column" style="width:100%;">
 <blockquote>
@@ -868,11 +942,11 @@ graph LR
 <h2>Étape 3: Tokenisation</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
-<span id="cb27-2"><a href=""></a>  review_clean,</span>
-<span id="cb27-3"><a href=""></a>  <span class="at">output =</span> word,</span>
-<span id="cb27-4"><a href=""></a>  <span class="at">input =</span> text</span>
-<span id="cb27-5"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
+<span id="cb29-2"><a href=""></a>  review_clean,</span>
+<span id="cb29-3"><a href=""></a>  <span class="at">output =</span> word,</span>
+<span id="cb29-4"><a href=""></a>  <span class="at">input =</span> text</span>
+<span id="cb29-5"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:40%;">
 <pre><code>r$&gt; head(tokens, 10)
        restaurant     word
@@ -893,15 +967,15 @@ graph LR
 <h2>Étape 4: Retrait des mots vides</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
-<span id="cb29-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
-<span id="cb29-3"><a href=""></a></span>
-<span id="cb29-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
-<span id="cb29-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
-<span id="cb29-6"><a href=""></a>  tokens, </span>
-<span id="cb29-7"><a href=""></a>  stop_words,</span>
-<span id="cb29-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb29-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
+<span id="cb31-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
+<span id="cb31-3"><a href=""></a></span>
+<span id="cb31-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
+<span id="cb31-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
+<span id="cb31-6"><a href=""></a>  tokens, </span>
+<span id="cb31-7"><a href=""></a>  stop_words,</span>
+<span id="cb31-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb31-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:40%;">
 <pre><code>r$&gt; head(tokens_clean, 10)
        restaurant       word
@@ -922,20 +996,20 @@ graph LR
 <h2>Étape 5: Analyse de sentiment (AFINN)</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
-<span id="cb31-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
-<span id="cb31-3"><a href=""></a></span>
-<span id="cb31-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
-<span id="cb31-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
-<span id="cb31-6"><a href=""></a>  tokens_clean,</span>
-<span id="cb31-7"><a href=""></a>  afinn,</span>
-<span id="cb31-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb31-9"><a href=""></a>)</span>
-<span id="cb31-10"><a href=""></a></span>
-<span id="cb31-11"><a href=""></a><span class="co"># Voir les scores</span></span>
-<span id="cb31-12"><a href=""></a>arranged_scores <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
-<span id="cb31-13"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(word, value) <span class="sc">%&gt;%</span></span>
-<span id="cb31-14"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(value))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
+<span id="cb33-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
+<span id="cb33-3"><a href=""></a></span>
+<span id="cb33-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
+<span id="cb33-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
+<span id="cb33-6"><a href=""></a>  tokens_clean,</span>
+<span id="cb33-7"><a href=""></a>  afinn,</span>
+<span id="cb33-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb33-9"><a href=""></a>)</span>
+<span id="cb33-10"><a href=""></a></span>
+<span id="cb33-11"><a href=""></a><span class="co"># Voir les scores</span></span>
+<span id="cb33-12"><a href=""></a>arranged_scores <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
+<span id="cb33-13"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(word, value) <span class="sc">%&gt;%</span></span>
+<span id="cb33-14"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(value))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:30%;">
 <pre><code>r$&gt; head(arranged_scores, 10)
        word value
@@ -951,12 +1025,12 @@ graph LR
 </section>
 <section id="étape-6-score-total" class="slide level2" data-transition="none">
 <h2>Étape 6: Score total</h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>total_sentiment <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
-<span id="cb33-2"><a href=""></a>  sentiment_scores,</span>
-<span id="cb33-3"><a href=""></a>  <span class="at">n_words =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
-<span id="cb33-4"><a href=""></a>  <span class="at">total_score =</span> <span class="fu">sum</span>(value),</span>
-<span id="cb33-5"><a href=""></a>  <span class="at">avg_score =</span> <span class="fu">mean</span>(value)</span>
-<span id="cb33-6"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>total_sentiment <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb35-2"><a href=""></a>  sentiment_scores,</span>
+<span id="cb35-3"><a href=""></a>  <span class="at">n_words =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb35-4"><a href=""></a>  <span class="at">total_score =</span> <span class="fu">sum</span>(value),</span>
+<span id="cb35-5"><a href=""></a>  <span class="at">avg_score =</span> <span class="fu">mean</span>(value)</span>
+<span id="cb35-6"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>r$&gt; total_sentiment
   n_words total_score avg_score
 1       7          17  2.428571</code></pre>
@@ -969,35 +1043,35 @@ graph LR
 <blockquote>
 <p>Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash.</p>
 </blockquote>
-<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="co"># Créer un data.frame avec plusieurs reviews</span></span>
-<span id="cb35-2"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb35-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
-<span id="cb35-4"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
-<span id="cb35-5"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
-<span id="cb35-6"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
-<span id="cb35-7"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
-<span id="cb35-8"><a href=""></a>  ),</span>
-<span id="cb35-9"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb35-10"><a href=""></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb35-11"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="co"># Créer un data.frame avec plusieurs reviews</span></span>
+<span id="cb37-2"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb37-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb37-4"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
+<span id="cb37-5"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb37-6"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
+<span id="cb37-7"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
+<span id="cb37-8"><a href=""></a>  ),</span>
+<span id="cb37-9"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb37-10"><a href=""></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb37-11"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="nettoyage-des-multiples-textes" class="slide level2" data-transition="none">
 <h2>Nettoyage des multiples textes</h2>
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>reviews_clean <span class="ot">&lt;-</span> reviews</span>
-<span id="cb36-2"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(reviews_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
-<span id="cb36-3"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
-<span id="cb36-4"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
-<span id="cb36-5"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>reviews_clean <span class="ot">&lt;-</span> reviews</span>
+<span id="cb38-2"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(reviews_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
+<span id="cb38-3"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
+<span id="cb38-4"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
+<span id="cb38-5"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="étape-3-tokenisation-1" class="slide level2" data-transition="none">
 <h2>Étape 3: Tokenisation</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
-<span id="cb37-2"><a href=""></a>  reviews_clean,</span>
-<span id="cb37-3"><a href=""></a>  <span class="at">output =</span> word,</span>
-<span id="cb37-4"><a href=""></a>  <span class="at">input =</span> text</span>
-<span id="cb37-5"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
+<span id="cb39-2"><a href=""></a>  reviews_clean,</span>
+<span id="cb39-3"><a href=""></a>  <span class="at">output =</span> word,</span>
+<span id="cb39-4"><a href=""></a>  <span class="at">input =</span> text</span>
+<span id="cb39-5"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:40%;">
 <pre><code>r$&gt; head(tokens, 10)
        restaurant id     word
@@ -1018,15 +1092,15 @@ graph LR
 <h2>Étape 4: Retrait des mots vides</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
-<span id="cb39-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
-<span id="cb39-3"><a href=""></a></span>
-<span id="cb39-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
-<span id="cb39-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
-<span id="cb39-6"><a href=""></a>  tokens, </span>
-<span id="cb39-7"><a href=""></a>  stop_words,</span>
-<span id="cb39-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb39-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
+<span id="cb41-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
+<span id="cb41-3"><a href=""></a></span>
+<span id="cb41-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
+<span id="cb41-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
+<span id="cb41-6"><a href=""></a>  tokens, </span>
+<span id="cb41-7"><a href=""></a>  stop_words,</span>
+<span id="cb41-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb41-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:40%;">
 <pre><code>r$&gt; head(tokens_clean, 10)
        restaurant id       word
@@ -1047,15 +1121,15 @@ graph LR
 <h2>Étape 5: Analyse de sentiment (AFINN)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
-<span id="cb41-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
-<span id="cb41-3"><a href=""></a></span>
-<span id="cb41-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
-<span id="cb41-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
-<span id="cb41-6"><a href=""></a>  tokens_clean,</span>
-<span id="cb41-7"><a href=""></a>  afinn,</span>
-<span id="cb41-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb41-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
+<span id="cb43-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
+<span id="cb43-3"><a href=""></a></span>
+<span id="cb43-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
+<span id="cb43-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
+<span id="cb43-6"><a href=""></a>  tokens_clean,</span>
+<span id="cb43-7"><a href=""></a>  afinn,</span>
+<span id="cb43-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb43-9"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:55%;">
 <pre><code>r$&gt; head(sentiment_scores, 10)
        restaurant id         word value
@@ -1074,18 +1148,18 @@ graph LR
 </section>
 <section id="étape-6-score-total-1" class="slide level2 smaller" data-transition="none">
 <h2>Étape 6: Score total</h2>
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="co"># Calculate summary statistics per review</span></span>
-<span id="cb43-2"><a href=""></a>sentiment_summary <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
-<span id="cb43-3"><a href=""></a>  <span class="fu">group_by</span>(id, restaurant) <span class="sc">%&gt;%</span></span>
-<span id="cb43-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb43-5"><a href=""></a>    <span class="at">total_sentiment =</span> <span class="fu">sum</span>(value),            <span class="co"># Sum of all sentiment scores</span></span>
-<span id="cb43-6"><a href=""></a>    <span class="at">mean_sentiment =</span> <span class="fu">mean</span>(value),            <span class="co"># Average sentiment</span></span>
-<span id="cb43-7"><a href=""></a>    <span class="at">word_count =</span> <span class="fu">n</span>(),                        <span class="co"># Number of sentiment words</span></span>
-<span id="cb43-8"><a href=""></a>    <span class="at">min_sentiment =</span> <span class="fu">min</span>(value),              <span class="co"># Most negative word</span></span>
-<span id="cb43-9"><a href=""></a>    <span class="at">max_sentiment =</span> <span class="fu">max</span>(value)               <span class="co"># Most positive word</span></span>
-<span id="cb43-10"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb43-11"><a href=""></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb43-12"><a href=""></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="co"># Calculate summary statistics per review</span></span>
+<span id="cb45-2"><a href=""></a>sentiment_summary <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href=""></a>  <span class="fu">group_by</span>(id, restaurant) <span class="sc">%&gt;%</span></span>
+<span id="cb45-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb45-5"><a href=""></a>    <span class="at">total_sentiment =</span> <span class="fu">sum</span>(value),            <span class="co"># Sum of all sentiment scores</span></span>
+<span id="cb45-6"><a href=""></a>    <span class="at">mean_sentiment =</span> <span class="fu">mean</span>(value),            <span class="co"># Average sentiment</span></span>
+<span id="cb45-7"><a href=""></a>    <span class="at">word_count =</span> <span class="fu">n</span>(),                        <span class="co"># Number of sentiment words</span></span>
+<span id="cb45-8"><a href=""></a>    <span class="at">min_sentiment =</span> <span class="fu">min</span>(value),              <span class="co"># Most negative word</span></span>
+<span id="cb45-9"><a href=""></a>    <span class="at">max_sentiment =</span> <span class="fu">max</span>(value)               <span class="co"># Most positive word</span></span>
+<span id="cb45-10"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb45-11"><a href=""></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb45-12"><a href=""></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h3 id="voici-les-résultats">Voici les résultats</h3>
 <pre><code>r$&gt; print(sentiment_summary)
 # A tibble: 3 × 7
@@ -1097,13 +1171,13 @@ graph LR
 </section>
 <section id="réassembler-les-données" class="slide level2 smaller" data-transition="none">
 <h2>Réassembler les données</h2>
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="co"># First, let's create a dataframe with just id and text</span></span>
-<span id="cb45-2"><a href=""></a>original_texts <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
-<span id="cb45-3"><a href=""></a>  <span class="fu">select</span>(id, text)</span>
-<span id="cb45-4"><a href=""></a></span>
-<span id="cb45-5"><a href=""></a><span class="co"># Then merge it with your sentiment summary</span></span>
-<span id="cb45-6"><a href=""></a>sentiment_summary_with_text <span class="ot">&lt;-</span> sentiment_summary <span class="sc">%&gt;%</span></span>
-<span id="cb45-7"><a href=""></a>  <span class="fu">left_join</span>(original_texts, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="co"># First, let's create a dataframe with just id and text</span></span>
+<span id="cb47-2"><a href=""></a>original_texts <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href=""></a>  <span class="fu">select</span>(id, text)</span>
+<span id="cb47-4"><a href=""></a></span>
+<span id="cb47-5"><a href=""></a><span class="co"># Then merge it with your sentiment summary</span></span>
+<span id="cb47-6"><a href=""></a>sentiment_summary_with_text <span class="ot">&lt;-</span> sentiment_summary <span class="sc">%&gt;%</span></span>
+<span id="cb47-7"><a href=""></a>  <span class="fu">left_join</span>(original_texts, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h3 id="en-réunissant-le-text-original-avec-les-analyses">En réunissant le text original avec les analyses:</h3>
 <pre><code>r$&gt; sentiment_summary_with_text
 # A tibble: 3 × 8
@@ -1147,32 +1221,32 @@ graph LR
 </section>
 <section id="étape-1-préparation-des-données-pour-lsd" class="slide level2" data-transition="none">
 <h2>Étape 1 : Préparation des données pour LSD</h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">library</span>(quanteda)</span>
-<span id="cb47-2"><a href=""></a><span class="fu">library</span>(pbapply)</span>
-<span id="cb47-3"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb47-4"><a href=""></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb47-5"><a href=""></a><span class="fu">library</span>(stringr)</span>
-<span id="cb47-6"><a href=""></a></span>
-<span id="cb47-7"><a href=""></a><span class="fu">source</span>(<span class="st">"R/lsd_prep_functions.R"</span>)</span>
-<span id="cb47-8"><a href=""></a></span>
-<span id="cb47-9"><a href=""></a><span class="co"># Charger les exemples de reviews de restaurants</span></span>
-<span id="cb47-10"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb47-11"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
-<span id="cb47-12"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
-<span id="cb47-13"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
-<span id="cb47-14"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
-<span id="cb47-15"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
-<span id="cb47-16"><a href=""></a>  ),</span>
-<span id="cb47-17"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb47-18"><a href=""></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb47-19"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb49-2"><a href=""></a><span class="fu">library</span>(pbapply)</span>
+<span id="cb49-3"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb49-4"><a href=""></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb49-5"><a href=""></a><span class="fu">library</span>(stringr)</span>
+<span id="cb49-6"><a href=""></a></span>
+<span id="cb49-7"><a href=""></a><span class="fu">source</span>(<span class="st">"R/lsd_prep_functions.R"</span>)</span>
+<span id="cb49-8"><a href=""></a></span>
+<span id="cb49-9"><a href=""></a><span class="co"># Charger les exemples de reviews de restaurants</span></span>
+<span id="cb49-10"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb49-11"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb49-12"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
+<span id="cb49-13"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb49-14"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
+<span id="cb49-15"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
+<span id="cb49-16"><a href=""></a>  ),</span>
+<span id="cb49-17"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb49-18"><a href=""></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-19"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="étape-2-division-en-phrases" class="slide level2 smaller" data-transition="none">
 <h2>Étape 2 : Division en phrases</h2>
-<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="co"># Diviser en phrases et créer ID unique</span></span>
-<span id="cb48-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
-<span id="cb48-3"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_sentences</span>(text, text) <span class="sc">%&gt;%</span></span>
-<span id="cb48-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">id_sentence =</span> <span class="fu">row_number</span>())</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="co"># Diviser en phrases et créer ID unique</span></span>
+<span id="cb50-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_sentences</span>(text, text) <span class="sc">%&gt;%</span></span>
+<span id="cb50-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">id_sentence =</span> <span class="fu">row_number</span>())</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="prétraitement-lsd-fonctionnalités" class="slide level2 smaller" data-transition="none">
 <h2>Prétraitement LSD : Fonctionnalités</h2>
@@ -1198,31 +1272,31 @@ graph LR
 </section>
 <section id="étape-3-application-des-fonctions-de-préparation" class="slide level2" data-transition="none">
 <h2>Étape 3 : Application des fonctions de préparation</h2>
-<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="co"># Application séquentielle des fonctions de préparation LSD</span></span>
-<span id="cb49-2"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb49-3"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text, LSDprep_contr)</span>
-<span id="cb49-4"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict_punct)</span>
-<span id="cb49-5"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_acronyms)</span>
-<span id="cb49-6"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_abbreviations)</span>
-<span id="cb49-7"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_punctspace)</span>
-<span id="cb49-8"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_negation)</span>
-<span id="cb49-9"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict)</span>
-<span id="cb49-10"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, mark_proper_nouns)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="co"># Application séquentielle des fonctions de préparation LSD</span></span>
+<span id="cb51-2"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb51-3"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text, LSDprep_contr)</span>
+<span id="cb51-4"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict_punct)</span>
+<span id="cb51-5"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_acronyms)</span>
+<span id="cb51-6"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_abbreviations)</span>
+<span id="cb51-7"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_punctspace)</span>
+<span id="cb51-8"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_negation)</span>
+<span id="cb51-9"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict)</span>
+<span id="cb51-10"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, mark_proper_nouns)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="étape-3-application-des-fonctions-de-préparation-1" class="slide level2" data-transition="none">
 <h2>Étape 3 : Application des fonctions de préparation</h2>
 <h4 id="avant">Avant</h4>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href=""></a>nothing exceptional, just edible.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href=""></a>nothing exceptional, just edible.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h4 id="après">Après</h4>
-<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb51-1"><a href=""></a>(nothing) not exceptional , just edible .</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb53-1"><a href=""></a>(nothing) not exceptional , just edible .</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="étape-4-création-du-corpus-et-tokenisation" class="slide level2" data-transition="none">
 <h2>Étape 4 : Création du corpus et tokenisation</h2>
-<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="co"># Convertir en dataframe (pour s'assurer du type)</span></span>
-<span id="cb52-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(reviews_sentences)</span>
-<span id="cb52-3"><a href=""></a></span>
-<span id="cb52-4"><a href=""></a><span class="co"># Création du corpus et tokenisation</span></span>
-<span id="cb52-5"><a href=""></a>corpus_text <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">tokens</span>(reviews_sentences<span class="sc">$</span>text_prepped)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="co"># Convertir en dataframe (pour s'assurer du type)</span></span>
+<span id="cb54-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(reviews_sentences)</span>
+<span id="cb54-3"><a href=""></a></span>
+<span id="cb54-4"><a href=""></a><span class="co"># Création du corpus et tokenisation</span></span>
+<span id="cb54-5"><a href=""></a>corpus_text <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">tokens</span>(reviews_sentences<span class="sc">$</span>text_prepped)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>r$&gt; head(corpus_text)
 Tokens consisting of 6 documents.
 text1 :
@@ -1239,10 +1313,10 @@ text3 :
 </section>
 <section id="étape-5-application-du-dictionnaire-lsd" class="slide level2" data-transition="none">
 <h2>Étape 5 : Application du dictionnaire LSD</h2>
-<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="co"># Application du dictionnaire LSD pour l'analyse de sentiment</span></span>
-<span id="cb54-2"><a href=""></a>matrice_sentiment <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">dfm</span>(</span>
-<span id="cb54-3"><a href=""></a>  quanteda<span class="sc">::</span><span class="fu">tokens_lookup</span>(corpus_text, data_dictionary_LSD2015, <span class="at">nested_scope =</span> <span class="st">"dictionary"</span>)</span>
-<span id="cb54-4"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="co"># Application du dictionnaire LSD pour l'analyse de sentiment</span></span>
+<span id="cb56-2"><a href=""></a>matrice_sentiment <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">dfm</span>(</span>
+<span id="cb56-3"><a href=""></a>  quanteda<span class="sc">::</span><span class="fu">tokens_lookup</span>(corpus_text, data_dictionary_LSD2015, <span class="at">nested_scope =</span> <span class="st">"dictionary"</span>)</span>
+<span id="cb56-4"><a href=""></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>r$&gt; print(matrice_sentiment)
 Document-feature matrix of: 15 documents, 4 features (76.67% sparse) and 0 docvars.
        features
@@ -1257,21 +1331,21 @@ docs    negative positive neg_positive neg_negative
 </section>
 <section id="étape-6-calcul-des-scores-de-sentiment" class="slide level2" data-transition="none">
 <h2>Étape 6 : Calcul des scores de sentiment</h2>
-<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="co"># Conversion de la matrice de fréquence des termes en dataframe</span></span>
-<span id="cb56-2"><a href=""></a>resultats_sentiment <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">convert</span>(matrice_sentiment, <span class="at">to =</span> <span class="st">"data.frame"</span>)</span>
-<span id="cb56-3"><a href=""></a></span>
-<span id="cb56-4"><a href=""></a><span class="co"># Combinaison des résultats de sentiment avec les données originales</span></span>
-<span id="cb56-5"><a href=""></a>articles_sentiment <span class="ot">&lt;-</span> <span class="fu">cbind</span>(reviews_sentences, resultats_sentiment)</span>
-<span id="cb56-6"><a href=""></a></span>
-<span id="cb56-7"><a href=""></a><span class="co"># Calcul des métriques de sentiment</span></span>
-<span id="cb56-8"><a href=""></a>articles_sentiment <span class="ot">&lt;-</span> articles_sentiment <span class="sc">%&gt;%</span></span>
-<span id="cb56-9"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb56-10"><a href=""></a>    <span class="at">total_words =</span> <span class="fu">str_count</span>(text_prepped, <span class="st">"</span><span class="sc">\\</span><span class="st">S+"</span>),</span>
-<span id="cb56-11"><a href=""></a>    <span class="co"># Calcul des proportions de termes positifs et négatifs</span></span>
-<span id="cb56-12"><a href=""></a>    <span class="at">proportion_positive =</span> (positive <span class="sc">+</span> neg_negative) <span class="sc">/</span> total_words,</span>
-<span id="cb56-13"><a href=""></a>    <span class="at">proportion_negative =</span> (negative <span class="sc">+</span> neg_positive) <span class="sc">/</span> total_words,</span>
-<span id="cb56-14"><a href=""></a>    <span class="at">tone_index =</span> proportion_positive <span class="sc">-</span> proportion_negative</span>
-<span id="cb56-15"><a href=""></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Conversion de la matrice de fréquence des termes en dataframe</span></span>
+<span id="cb58-2"><a href=""></a>resultats_sentiment <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">convert</span>(matrice_sentiment, <span class="at">to =</span> <span class="st">"data.frame"</span>)</span>
+<span id="cb58-3"><a href=""></a></span>
+<span id="cb58-4"><a href=""></a><span class="co"># Combinaison des résultats de sentiment avec les données originales</span></span>
+<span id="cb58-5"><a href=""></a>articles_sentiment <span class="ot">&lt;-</span> <span class="fu">cbind</span>(reviews_sentences, resultats_sentiment)</span>
+<span id="cb58-6"><a href=""></a></span>
+<span id="cb58-7"><a href=""></a><span class="co"># Calcul des métriques de sentiment</span></span>
+<span id="cb58-8"><a href=""></a>articles_sentiment <span class="ot">&lt;-</span> articles_sentiment <span class="sc">%&gt;%</span></span>
+<span id="cb58-9"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb58-10"><a href=""></a>    <span class="at">total_words =</span> <span class="fu">str_count</span>(text_prepped, <span class="st">"</span><span class="sc">\\</span><span class="st">S+"</span>),</span>
+<span id="cb58-11"><a href=""></a>    <span class="co"># Calcul des proportions de termes positifs et négatifs</span></span>
+<span id="cb58-12"><a href=""></a>    <span class="at">proportion_positive =</span> (positive <span class="sc">+</span> neg_negative) <span class="sc">/</span> total_words,</span>
+<span id="cb58-13"><a href=""></a>    <span class="at">proportion_negative =</span> (negative <span class="sc">+</span> neg_positive) <span class="sc">/</span> total_words,</span>
+<span id="cb58-14"><a href=""></a>    <span class="at">tone_index =</span> proportion_positive <span class="sc">-</span> proportion_negative</span>
+<span id="cb58-15"><a href=""></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="étape-6-calcul-des-scores-de-sentiment-1" class="slide level2" data-transition="none">
 <h2>Étape 6 : Calcul des scores de sentiment</h2>
@@ -1340,24 +1414,24 @@ docs    negative positive neg_positive neg_negative
 </section>
 <section id="étape-7-agrégation-et-interprétation-des-résultats" class="slide level2" data-transition="none">
 <h2>Étape 7 : Agrégation et interprétation des résultats</h2>
-<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="co"># Agrégation des résultats par review (id)</span></span>
-<span id="cb57-2"><a href=""></a>sentiment_par_review <span class="ot">&lt;-</span> articles_sentiment <span class="sc">%&gt;%</span></span>
-<span id="cb57-3"><a href=""></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span></span>
-<span id="cb57-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb57-5"><a href=""></a>    <span class="at">text_original =</span> <span class="fu">first</span>(reviews<span class="sc">$</span>text[id]),     <span class="co"># Texte original complet</span></span>
-<span id="cb57-6"><a href=""></a>    <span class="at">total_positive =</span> <span class="fu">sum</span>(positive),              <span class="co"># Somme des termes positifs</span></span>
-<span id="cb57-7"><a href=""></a>    <span class="at">total_negative =</span> <span class="fu">sum</span>(negative),              <span class="co"># Somme des termes négatifs</span></span>
-<span id="cb57-8"><a href=""></a>    <span class="at">total_neg_positive =</span> <span class="fu">sum</span>(neg_positive),      <span class="co"># Somme des négations de termes positifs</span></span>
-<span id="cb57-9"><a href=""></a>    <span class="at">total_neg_negative =</span> <span class="fu">sum</span>(neg_negative),      <span class="co"># Somme des négations de termes négatifs</span></span>
-<span id="cb57-10"><a href=""></a>    <span class="at">total_words =</span> <span class="fu">sum</span>(total_words),              <span class="co"># Nombre total de mots</span></span>
-<span id="cb57-11"><a href=""></a>    <span class="co"># Calcul des proportions globales</span></span>
-<span id="cb57-12"><a href=""></a>    <span class="at">proportion_positive =</span> <span class="fu">sum</span>(positive) <span class="sc">/</span> <span class="fu">sum</span>(total_words),</span>
-<span id="cb57-13"><a href=""></a>    <span class="at">proportion_negative =</span> <span class="fu">sum</span>(negative) <span class="sc">/</span> <span class="fu">sum</span>(total_words),</span>
-<span id="cb57-14"><a href=""></a>    <span class="co"># Indice de ton global normalisé</span></span>
-<span id="cb57-15"><a href=""></a>    <span class="at">tone_index =</span> (<span class="fu">sum</span>(positive) <span class="sc">-</span> <span class="fu">sum</span>(negative)) <span class="sc">/</span> (<span class="fu">sum</span>(positive) <span class="sc">+</span> <span class="fu">sum</span>(negative)),</span>
-<span id="cb57-16"><a href=""></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb57-17"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb57-18"><a href=""></a>  <span class="fu">select</span>(id, text_original, tone_index)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="co"># Agrégation des résultats par review (id)</span></span>
+<span id="cb59-2"><a href=""></a>sentiment_par_review <span class="ot">&lt;-</span> articles_sentiment <span class="sc">%&gt;%</span></span>
+<span id="cb59-3"><a href=""></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span></span>
+<span id="cb59-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb59-5"><a href=""></a>    <span class="at">text_original =</span> <span class="fu">first</span>(reviews<span class="sc">$</span>text[id]),     <span class="co"># Texte original complet</span></span>
+<span id="cb59-6"><a href=""></a>    <span class="at">total_positive =</span> <span class="fu">sum</span>(positive),              <span class="co"># Somme des termes positifs</span></span>
+<span id="cb59-7"><a href=""></a>    <span class="at">total_negative =</span> <span class="fu">sum</span>(negative),              <span class="co"># Somme des termes négatifs</span></span>
+<span id="cb59-8"><a href=""></a>    <span class="at">total_neg_positive =</span> <span class="fu">sum</span>(neg_positive),      <span class="co"># Somme des négations de termes positifs</span></span>
+<span id="cb59-9"><a href=""></a>    <span class="at">total_neg_negative =</span> <span class="fu">sum</span>(neg_negative),      <span class="co"># Somme des négations de termes négatifs</span></span>
+<span id="cb59-10"><a href=""></a>    <span class="at">total_words =</span> <span class="fu">sum</span>(total_words),              <span class="co"># Nombre total de mots</span></span>
+<span id="cb59-11"><a href=""></a>    <span class="co"># Calcul des proportions globales</span></span>
+<span id="cb59-12"><a href=""></a>    <span class="at">proportion_positive =</span> <span class="fu">sum</span>(positive) <span class="sc">/</span> <span class="fu">sum</span>(total_words),</span>
+<span id="cb59-13"><a href=""></a>    <span class="at">proportion_negative =</span> <span class="fu">sum</span>(negative) <span class="sc">/</span> <span class="fu">sum</span>(total_words),</span>
+<span id="cb59-14"><a href=""></a>    <span class="co"># Indice de ton global normalisé</span></span>
+<span id="cb59-15"><a href=""></a>    <span class="at">tone_index =</span> (<span class="fu">sum</span>(positive) <span class="sc">-</span> <span class="fu">sum</span>(negative)) <span class="sc">/</span> (<span class="fu">sum</span>(positive) <span class="sc">+</span> <span class="fu">sum</span>(negative)),</span>
+<span id="cb59-16"><a href=""></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb59-17"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb59-18"><a href=""></a>  <span class="fu">select</span>(id, text_original, tone_index)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="comparaison-des-scores-de-sentiment" class="slide level2" data-transition="none">
 <h2>Comparaison des scores de sentiment</h2>
@@ -1577,45 +1651,45 @@ Review #3
 </section>
 <section id="modélisation-de-sujets-topic-modeling" class="slide level2" data-transition="none">
 <h2>Modélisation de sujets (Topic Modeling)</h2>
-<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Chargement des bibliothèques</span></span>
-<span id="cb58-2"><a href=""></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb58-3"><a href=""></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb58-4"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb58-5"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb58-6"><a href=""></a><span class="fu">library</span>(topicmodels)</span>
-<span id="cb58-7"><a href=""></a></span>
-<span id="cb58-8"><a href=""></a><span class="co"># Charger les exemples de reviews de restaurants</span></span>
-<span id="cb58-9"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb58-10"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
-<span id="cb58-11"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
-<span id="cb58-12"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
-<span id="cb58-13"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
-<span id="cb58-14"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
-<span id="cb58-15"><a href=""></a>  ),</span>
-<span id="cb58-16"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb58-17"><a href=""></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb58-18"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="co"># Chargement des bibliothèques</span></span>
+<span id="cb60-2"><a href=""></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb60-3"><a href=""></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb60-4"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb60-5"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb60-6"><a href=""></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb60-7"><a href=""></a></span>
+<span id="cb60-8"><a href=""></a><span class="co"># Charger les exemples de reviews de restaurants</span></span>
+<span id="cb60-9"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb60-10"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb60-11"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
+<span id="cb60-12"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb60-13"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
+<span id="cb60-14"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
+<span id="cb60-15"><a href=""></a>  ),</span>
+<span id="cb60-16"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb60-17"><a href=""></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb60-18"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="préparation-des-données-pour-le-topic-modeling" class="slide level2" data-transition="none">
 <h2>Préparation des données pour le topic modeling</h2>
-<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="co"># Tokenisation et nettoyage</span></span>
-<span id="cb59-2"><a href=""></a>reviews_tokens <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
-<span id="cb59-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="fu">paste0</span>(<span class="st">"doc_"</span>, id)) <span class="sc">%&gt;%</span></span>
-<span id="cb59-4"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
-<span id="cb59-5"><a href=""></a>  <span class="fu">anti_join</span>(stop_words) <span class="co"># Supprimer les mots vides</span></span>
-<span id="cb59-6"><a href=""></a></span>
-<span id="cb59-7"><a href=""></a><span class="co"># Voir les premiers tokens</span></span>
-<span id="cb59-8"><a href=""></a><span class="fu">head</span>(reviews_tokens, <span class="dv">10</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="co"># Tokenisation et nettoyage</span></span>
+<span id="cb61-2"><a href=""></a>reviews_tokens <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="fu">paste0</span>(<span class="st">"doc_"</span>, id)) <span class="sc">%&gt;%</span></span>
+<span id="cb61-4"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb61-5"><a href=""></a>  <span class="fu">anti_join</span>(stop_words) <span class="co"># Supprimer les mots vides</span></span>
+<span id="cb61-6"><a href=""></a></span>
+<span id="cb61-7"><a href=""></a><span class="co"># Voir les premiers tokens</span></span>
+<span id="cb61-8"><a href=""></a><span class="fu">head</span>(reviews_tokens, <span class="dv">10</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="création-de-la-matrice-document-terme" class="slide level2" data-transition="none">
 <h2>Création de la matrice document-terme</h2>
-<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="co"># Créer la matrice document-terme (DTM)</span></span>
-<span id="cb60-2"><a href=""></a>reviews_dtm <span class="ot">&lt;-</span> reviews_tokens <span class="sc">%&gt;%</span></span>
-<span id="cb60-3"><a href=""></a>  <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a href=""></a>  <span class="fu">cast_dtm</span>(doc_id, word, n)</span>
-<span id="cb60-5"><a href=""></a></span>
-<span id="cb60-6"><a href=""></a><span class="co"># Afficher un aperçu de la matrice</span></span>
-<span id="cb60-7"><a href=""></a>reviews_dtm</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="co"># Créer la matrice document-terme (DTM)</span></span>
+<span id="cb62-2"><a href=""></a>reviews_dtm <span class="ot">&lt;-</span> reviews_tokens <span class="sc">%&gt;%</span></span>
+<span id="cb62-3"><a href=""></a>  <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span></span>
+<span id="cb62-4"><a href=""></a>  <span class="fu">cast_dtm</span>(doc_id, word, n)</span>
+<span id="cb62-5"><a href=""></a></span>
+<span id="cb62-6"><a href=""></a><span class="co"># Afficher un aperçu de la matrice</span></span>
+<span id="cb62-7"><a href=""></a>reviews_dtm</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>&lt;&lt;DocumentTermMatrix (documents: 3, terms: 71)&gt;&gt;
 Non-/sparse entries: 77/136
 Sparsity           : 64%
@@ -1630,16 +1704,16 @@ Docs   food good price quality
 </section>
 <section id="application-du-modèle-lda" class="slide level2" data-transition="none">
 <h2>Application du modèle LDA</h2>
-<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="co"># Exécuter le modèle LDA</span></span>
-<span id="cb62-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Pour la reproductibilité</span></span>
-<span id="cb62-3"><a href=""></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(reviews_dtm, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">123</span>))</span>
-<span id="cb62-4"><a href=""></a></span>
-<span id="cb62-5"><a href=""></a><span class="co"># Examiner la distribution des sujets pour chaque document</span></span>
-<span id="cb62-6"><a href=""></a>topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"gamma"</span>)</span>
-<span id="cb62-7"><a href=""></a>topics_wide <span class="ot">&lt;-</span> topics <span class="sc">%&gt;%</span></span>
-<span id="cb62-8"><a href=""></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> topic, <span class="at">values_from =</span> gamma)</span>
-<span id="cb62-9"><a href=""></a></span>
-<span id="cb62-10"><a href=""></a><span class="fu">print</span>(topics_wide)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="co"># Exécuter le modèle LDA</span></span>
+<span id="cb64-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Pour la reproductibilité</span></span>
+<span id="cb64-3"><a href=""></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(reviews_dtm, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">123</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb64-4"><a href=""></a></span>
+<span id="cb64-5"><a href=""></a><span class="co"># Examiner la distribution des sujets pour chaque document</span></span>
+<span id="cb64-6"><a href=""></a>topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"gamma"</span>)</span>
+<span id="cb64-7"><a href=""></a>topics_wide <span class="ot">&lt;-</span> topics <span class="sc">%&gt;%</span></span>
+<span id="cb64-8"><a href=""></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> topic, <span class="at">values_from =</span> gamma)</span>
+<span id="cb64-9"><a href=""></a></span>
+<span id="cb64-10"><a href=""></a><span class="fu">print</span>(topics_wide)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code># A tibble: 3 × 3
   document   `1`   `2`
   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
@@ -1651,14 +1725,14 @@ Docs   food good price quality
 <h2>Extraction des termes principaux pour chaque sujet</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="co"># Extraire les termes principaux de chaque sujet</span></span>
-<span id="cb64-2"><a href=""></a>top_terms <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb64-3"><a href=""></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
-<span id="cb64-4"><a href=""></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb64-5"><a href=""></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
-<span id="cb64-6"><a href=""></a></span>
-<span id="cb64-7"><a href=""></a><span class="co"># Afficher les termes principaux pour chaque sujet</span></span>
-<span id="cb64-8"><a href=""></a><span class="fu">print</span>(top_terms)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="co"># Extraire les termes principaux de chaque sujet</span></span>
+<span id="cb66-2"><a href=""></a>top_terms <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb66-3"><a href=""></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb66-4"><a href=""></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb66-5"><a href=""></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
+<span id="cb66-6"><a href=""></a></span>
+<span id="cb66-7"><a href=""></a><span class="co"># Afficher les termes principaux pour chaque sujet</span></span>
+<span id="cb66-8"><a href=""></a><span class="fu">print</span>(top_terms)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <pre><code>r$&gt; print(top_terms)
 # A tibble: 20 × 3
@@ -1724,23 +1798,23 @@ Docs   food good price quality
 </section>
 <section id="classification-des-reviews-par-sujet" class="slide level2" data-transition="none">
 <h2>Classification des reviews par sujet</h2>
-<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="co"># Afficher la distribution des sujets pour chaque review</span></span>
-<span id="cb66-2"><a href=""></a>document_topics <span class="ot">&lt;-</span> <span class="fu">augment</span>(lda_model, <span class="at">data =</span> reviews_dtm)</span>
-<span id="cb66-3"><a href=""></a></span>
-<span id="cb66-4"><a href=""></a><span class="co"># Mettre en forme pour faciliter la lecture</span></span>
-<span id="cb66-5"><a href=""></a>review_classifications <span class="ot">&lt;-</span> document_topics <span class="sc">%&gt;%</span></span>
-<span id="cb66-6"><a href=""></a>  <span class="fu">select</span>(document, .topic) <span class="sc">%&gt;%</span></span>
-<span id="cb66-7"><a href=""></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb66-8"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb66-9"><a href=""></a>    <span class="at">review_id =</span> <span class="fu">as.integer</span>(<span class="fu">gsub</span>(<span class="st">"doc_"</span>, <span class="st">""</span>, document)),</span>
-<span id="cb66-10"><a href=""></a>    <span class="at">review_text =</span> reviews<span class="sc">$</span>text[review_id],</span>
-<span id="cb66-11"><a href=""></a>    <span class="at">primary_topic =</span> <span class="fu">ifelse</span>(.topic <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Nourriture"</span>, <span class="st">"Service/Expérience"</span>)</span>
-<span id="cb66-12"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb66-13"><a href=""></a>  <span class="fu">select</span>(document, review_text, primary_topic) <span class="sc">%&gt;%</span></span>
-<span id="cb66-14"><a href=""></a>  <span class="fu">arrange</span>(document)</span>
-<span id="cb66-15"><a href=""></a></span>
-<span id="cb66-16"><a href=""></a><span class="co"># Afficher la classification des reviews</span></span>
-<span id="cb66-17"><a href=""></a><span class="fu">head</span>(review_classifications, <span class="dv">3</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a><span class="co"># Afficher la distribution des sujets pour chaque review</span></span>
+<span id="cb68-2"><a href=""></a>document_topics <span class="ot">&lt;-</span> <span class="fu">augment</span>(lda_model, <span class="at">data =</span> reviews_dtm)</span>
+<span id="cb68-3"><a href=""></a></span>
+<span id="cb68-4"><a href=""></a><span class="co"># Mettre en forme pour faciliter la lecture</span></span>
+<span id="cb68-5"><a href=""></a>review_classifications <span class="ot">&lt;-</span> document_topics <span class="sc">%&gt;%</span></span>
+<span id="cb68-6"><a href=""></a>  <span class="fu">select</span>(document, .topic) <span class="sc">%&gt;%</span></span>
+<span id="cb68-7"><a href=""></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb68-8"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb68-9"><a href=""></a>    <span class="at">review_id =</span> <span class="fu">as.integer</span>(<span class="fu">gsub</span>(<span class="st">"doc_"</span>, <span class="st">""</span>, document)),</span>
+<span id="cb68-10"><a href=""></a>    <span class="at">review_text =</span> reviews<span class="sc">$</span>text[review_id],</span>
+<span id="cb68-11"><a href=""></a>    <span class="at">primary_topic =</span> <span class="fu">ifelse</span>(.topic <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Nourriture"</span>, <span class="st">"Service/Expérience"</span>)</span>
+<span id="cb68-12"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb68-13"><a href=""></a>  <span class="fu">select</span>(document, review_text, primary_topic) <span class="sc">%&gt;%</span></span>
+<span id="cb68-14"><a href=""></a>  <span class="fu">arrange</span>(document)</span>
+<span id="cb68-15"><a href=""></a></span>
+<span id="cb68-16"><a href=""></a><span class="co"># Afficher la classification des reviews</span></span>
+<span id="cb68-17"><a href=""></a><span class="fu">head</span>(review_classifications, <span class="dv">3</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="classification-des-reviews-par-sujet-1" class="slide level2 smaller" data-transition="none">
 <h2>Classification des reviews par sujet</h2>
