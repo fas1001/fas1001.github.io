@@ -1,0 +1,77 @@
+/*-- scss:defaults --*/
+// Custom SCSS for the presentation
+
+$primary: #4A235A;
+$secondary: #0B5345;
+$tertiary: #17202A;
+$quaternary: #784212;
+
+$body-bg: #ffffff;
+$body-color: #333333;
+$link-color: #2980B9;
+$code-block-bg: #f8f8f8;
+
+/*-- scss:rules --*/
+.reveal .slide-number {
+  font-size: 14pt;
+  color: $primary;
+}
+
+.reveal .footer {
+  font-size: 10pt;
+  color: #666666;
+}
+
+.reveal .slide-logo {
+  max-height: 50px !important;
+}
+
+// Custom styles for specific slides
+.reveal .slide h2 {
+  color: $primary;
+  margin-bottom: 0.5em;
+}
+
+.reveal table {
+  font-size: 0.8em;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.reveal table th {
+  background-color: lighten($primary, 50%);
+  color: $primary;
+  padding: 0.2em 0.5em;
+  border: 1px solid #cccccc;
+}
+
+.reveal table td {
+  padding: 0.2em 0.5em;
+  border: 1px solid #dddddd;
+}
+
+.reveal table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.reveal .callout-note {
+  background-color: lighten($secondary, 60%);
+  border-left: 5px solid $secondary;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+}
+
+.reveal .callout-tip {
+  background-color: lighten($tertiary, 70%);
+  border-left: 5px solid $tertiary;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+}
+
+.smaller {
+  font-size: 0.85em;
+}
+
+.center h2, .center h3 {
+  text-align: center;
+}
