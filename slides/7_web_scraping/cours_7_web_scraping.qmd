@@ -9,7 +9,7 @@ format:
   revealjs:
     mermaid: 
       theme: default
-    theme: [simple, custom.scss]
+    theme: simple
     slide-number: true
     logo: img/udem.png 
     footer: "[FAS1001](https://fas1001.com)"
