@@ -23,9 +23,19 @@ format:
 
 # Retour sur le TP2 - Travail de Mi-Session
 
-- Le but du TP2
 - Difficile?
+- GitHub LFS? 
 - Questions?
+
+## 
+
+![](img/structure_cours.png)
+
+## Plan du cours {.smaller}
+
+1. Introduction à Internet
+2. Web scraping
+3. Exemples concrets
 
 # Internet
 
