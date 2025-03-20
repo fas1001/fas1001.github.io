@@ -1,5 +1,5 @@
 ---
-title: "Cours 8 : LLM"
+title: "Cours 8 : Les grands modèles linguistiques"
 subtitle: "Introduction aux mégadonnées en sciences sociales"
 author: Laurence-Olivier M. Foisy
 institute: Université de Montréal
@@ -111,7 +111,7 @@ graph TD
 - **Phase 2:** S'entraîner à être utile
 - **Phase 3:** S'améliorer avec les retours humains
 
-![](https://www.researchgate.net/publication/373642018/figure/fig1/AS:11431281185751651@1693796764125/Overview-of-LLM-training-process-LLMs-learn-from-more-focused-inputs-at-each-stage-of.png)
+![](img/training.png)
 
 ## Comment un LLM "comprend" le texte {.smaller}
 
@@ -696,6 +696,10 @@ for (i in 1:nrow(df)) {
   Sys.sleep(2)
 }
 ```
+
+### Fonction `paste0()` et `paste()`
+
+Permet de coller des éléments ensemble en conservant le format de texte
 
 ## ID 1
 
