@@ -1,0 +1,286 @@
+---
+title: "Résumé de la session"
+subtitle: "Introduction aux mégadonnées en sciences sociales"
+author: Laurence-Olivier M. Foisy
+institute: Université de Montréal
+lang: fr
+from: markdown+emoji
+format:
+  revealjs:
+    mermaid: 
+      theme: dark
+    theme: simple
+    logo: https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Universite_de_Montreal_logo.svg/1920px-Universite_de_Montreal_logo.svg.png
+    footer: "[FAS1001](https://fas1001.com)"
+    transition: slide
+    transition-speed: fast
+    code-fold: false
+    code-overflow: wrap
+---
+
+# Introduction aux mégadonnées en sciences sociales {background-color="#40666e"}
+
+## Structure du cours
+
+![](img/structure_cours.png)
+
+## Le parcours du semestre {.smaller}
+
+1. **Introduction aux mégadonnées** : Concepts fondamentaux des big data
+2. **Introduction à R** : Programmation et analyse de données
+3. **Git, GitHub et Quarto** : Contrôle de version et documents reproductibles
+4. **Sondages** : Collecte et analyse de données d'enquêtes
+5. **Mesures latentes** : Variables non observables et analyses factorielles
+6. **Analyse textuelle** : Traitement et analyse de textes
+7. **Web scraping** : Extraction automatisée de données web
+8. **Grands modèles linguistiques** : Utilisation de l'IA pour analyser des données
+9. **Analyse d'images** : Traitement et interprétation d'images pour la recherche
+
+# Concepts fondamentaux {background-color="#40666e"}
+
+## Qu'est-ce que des mégadonnées ?
+
+### Les "V" des mégadonnées
+
+- **Volume** : Quantité massive de données
+- **Vélocité** : Rapidité de génération et traitement
+- **Variété** : Diversité des formats et sources 
+
+## Les mégadonnées en sciences sociales {.smaller}
+
+- **Avant** : Données créées spécifiquement pour répondre à une question de recherche
+- **Maintenant** : Utilisation de données existantes pour répondre à des questions de recherche
+
+::: {.callout-note}
+L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
+:::
+
+## Principe fondamental : la reconversion {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](img/abstraction.png)
+:::
+
+::: {.column width="50%"}
+Notre travail consiste à transformer des données collectées pour d'autres fins en matériel de recherche pertinent pour les sciences sociales.
+:::
+
+::::
+
+# Outils et méthodes {background-color="#40666e"}
+
+## R et RStudio {.smaller}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- Essayez Positron
+- VSCode 
+- VIM
+- Cursor
+:::
+
+::: {.column width="40%"}
+![](img/r.png)
+![](img/rstudio.png)
+:::
+
+::::
+
+## Git et GitHub {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](img/git_github.png)
+:::
+
+::: {.column width="50%"}
+- Système de contrôle de version
+- Suivi des modifications du code
+- Historique complet du projet
+- Branches pour développer en parallèle
+:::
+
+::::
+
+## Quarto pour documents reproductibles {.smaller}
+
+- Documents combinant texte, code, et résultats
+- Format Markdown simplifié pour la rédaction
+- Intégration de code R
+- Génération de documents variés (HTML, PDF, Word...)
+- Facilite la reproductibilité de la recherche
+
+```markdown
+# Titre
+## Sous-titre
+
+Texte avec **emphase** et *italique*.
+```
+
+```r
+library(ggplot2)
+
+# Code R intégré
+ggplot(data, aes(x, y)) + 
+  geom_point()
+```
+
+# Méthodes d'analyse {background-color="#40666e"}
+
+## Sondages et analyse d'enquêtes {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Conception de questionnaires
+- Échantillonnage et représentativité 
+- Pondération des données
+- Nettoyage et préparation
+- Analyses statistiques descriptives et inférentielles
+- Visualisation des résultats
+
+:::
+
+::: {.column width="50%"}
+![](img/weighting-diagram.png)
+:::
+
+::::
+
+## Mesures latentes {.smaller}
+
+- Variables non directement observables (attitudes, traits, opinions)
+- Échelles multiples pour mesurer des concepts complexes
+- Analyse factorielle pour identifier des structures sous-jacentes
+- Création de variables composites
+- Évaluation de la fiabilité et validité des mesures
+
+![](img/redneck_scale.png){width="50%"}
+
+## Analyse textuelle {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Prétraitement du texte (tokenisation, stemming...)
+- Analyse de sentiments
+- Modélisation de sujets (topic modeling)
+- Classification de textes
+
+:::
+
+::: {.column width="50%"}
+![](img/schema_analyse_textuelle.png)
+:::
+
+::::
+
+## Web scraping {.smaller}
+
+- Extraction automatisée de données du web
+- APIs pour accéder aux données structurées
+- HTML parsing pour extraire des informations de sites web
+- Considérations éthiques et légales
+- Automatisation de la collecte
+- Gestion et organisation des données extraites
+
+![](img/network_api.png){width="50%"}
+
+## Grands modèles linguistiques (LLM) {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- IA entraînée sur d'énormes volumes de texte
+- Capacités de génération et compréhension du texte
+- Applications en sciences sociales:
+  - Classification de textes
+  - Analyse de sentiment
+  - Codage qualitatif assisté
+
+:::
+
+::: {.column width="50%"}
+
+- Enjeux éthiques:
+  - Biais algorithmiques
+  - Confidentialité des données
+  - Fiabilité des résultats
+  - Besoin de validation humaine
+
+:::
+
+::::
+
+![](img/training.png){width="50%"}
+
+## Analyse d'images {.smaller}
+
+- Traitement d'images à grande échelle
+- Reconnaissance d'objets et classification
+- Analyse de représentations médiatiques
+- Computer vision et réseaux de neurones
+- Applications en sciences sociales:
+  - Analyse de couverture médiatique
+  - Étude des représentations sociales
+  - Mesure de la diversité et de l'inclusion
+  
+![](img/images/CNN.jpg){width="50%"}
+
+## Compétences acquises {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+
+**Compétences techniques**
+
+- Programmation en R
+- Utilisation de Git/GitHub
+- Création de documents reproductibles
+- Manipulation et visualisation de données
+- Extraction et analyse de données diverses
+
+:::
+
+::: {.column width="50%"}
+
+**Compétences analytiques**
+
+- Conception de recherche quantitative
+- Interprétation des résultats
+- Évaluation de la qualité des données
+- Application de méthodes adaptées aux questions de recherche
+
+:::
+:::
+
+## L'avenir des mégadonnées en sciences sociales {.smaller}
+
+- Démocratisation des outils d'analyse
+- Intégration croissante de l'IA dans la recherche
+- Recherche plus collaborative et interdisciplinaire
+- Nouvelles sources de données (IoT, réalité virtuelle, etc.)
+
+# Conclusion {background-color="#40666e"}
+
+## Les mégadonnées comme outil complémentaire {.smaller}
+
+Les mégadonnées ne remplacent pas les méthodes traditionnelles, mais offrent:
+
+- De nouvelles sources d'information
+- Des méthodes complémentaires aux approches existantes
+- La possibilité d'étudier des phénomènes à grande échelle
+- Des perspectives inédites sur les phénomènes sociaux
+
+## Mot de la fin {.biggest}
+
+::: {.r-fit-text}
+Merci pour votre participation tout au long du semestre!
+:::
