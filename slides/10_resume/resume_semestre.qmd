@@ -279,8 +279,4 @@ Les mégadonnées ne remplacent pas les méthodes traditionnelles, mais offrent:
 - La possibilité d'étudier des phénomènes à grande échelle
 - Des perspectives inédites sur les phénomènes sociaux
 
-## Mot de la fin {.biggest}
-
-::: {.r-fit-text}
-Merci pour votre participation tout au long du semestre!
-:::
+# Merci {.biggest}
