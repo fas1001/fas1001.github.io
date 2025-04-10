@@ -3242,3 +3242,43 @@ button:active,
     margin: 1rem 0;
   }
 }
+
+/* Summary button styling Résumé du cours*/
+.summary-item {
+  margin-top: 2rem;
+}
+
+.summary-link {
+  display: block;
+  text-decoration: none;
+}
+
+.summary-button {
+  background: linear-gradient(to right, #1e3a8a, #1e40af);
+  color: white;
+  text-align: center;
+  padding: 2.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.summary-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.summary-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.summary-text {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.8rem;
+}
+
+.summary-button p {
+  margin: 0;
+  opacity: 0.8;
+}
