@@ -497,7 +497,7 @@ img {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #10b981; /* Success green */
+    color: #10b981; /* Default Success green */
     background: rgba(16, 185, 129, 0.1);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
@@ -676,4 +676,47 @@ footer {
     opacity: 0.5;
     pointer-events: none;
     filter: grayscale(100%);
+}
+
+/* Evaluation Status Colors */
+.timeline-tag.status-pending {
+    color: #38bdf8; /* Sky 400 (Blue) */
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.timeline-tag.status-active {
+    color: #4ade80; /* Green 400 */
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.timeline-tag.status-completed {
+    color: #94a3b8; /* Slate 400 (Grey) */
+    background: rgba(148, 163, 184, 0.1);
+}
+
+/* Rencontres Placeholder */
+.rencontres-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* Or whatever height matches the iframe typically */
+    background: var(--bg-surface);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+
+.rencontres-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--border-light);
+}
+
+.rencontres-placeholder h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
 }

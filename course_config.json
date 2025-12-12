@@ -21,10 +21,14 @@
         "site_web": false
     },
     "evaluations": {
+        "_comment": "Status options: 'pending' (À venir - Blue), 'active' (En cours - Green), 'completed' (Terminé - Grey)",
         "tp1": "pending",
         "quiz1": "pending",
         "tp2": "pending",
         "quiz2": "pending",
         "tp3": "pending"
+    },
+    "rencontres": {
+        "link": null 
     }
 }

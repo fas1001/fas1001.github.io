@@ -449,8 +449,18 @@
                     <p>Besoin d'aide? Prenez rendez-vous.</p>
                 </div>
                 <div class="calendar-wrapper">
-                    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1GlNsQbh6Y-8QIR_YLuMuyj32qjIou74vOzHJE0MaHJryKvxmtpEC1RoNcUHh_D7aQsmfS6qzU?gv=true" 
-                            style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                    <!-- Placeholder -->
+                    <div id="rencontres-placeholder" class="rencontres-placeholder" style="display: none;">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3>Aucun créneau disponible</h3>
+                        <p>Veuillez contacter l'enseignant ou revenir plus tard.</p>
+                    </div>
+
+                    <!-- Iframe container -->
+                    <div id="rencontres-iframe-container" class="iframe-container" style="display: none;">
+                        <iframe id="rencontres-iframe" src="" 
+                                style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                    </div>
                 </div>
             </div>
         </section>
@@ -479,7 +489,7 @@
                             <tr>
                                 <td>Quiz 1</td>
                                 <td>15%</td>
-                                <td>5 fév. 2026 (Classe)</td>
+                                <td>5 fév. 2026</td>
                             </tr>
                             <tr>
                                 <td>TP2 - Mi-session</td>
@@ -489,7 +499,7 @@
                             <tr>
                                 <td>Quiz 2</td>
                                 <td>15%</td>
-                                <td>9 avr. 2026 (Classe)</td>
+                                <td>9 avr. 2026</td>
                             </tr>
                             <tr>
                                 <td>TP3 - Session</td>
