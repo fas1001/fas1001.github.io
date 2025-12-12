@@ -23,7 +23,7 @@
   "evaluations": {
     "_comment": "Status options: 'pending' (À venir - Blue), 'active' (En cours - Green), 'completed' (Terminé - Grey). You can also use an object: { \"status\": \"active\", \"url\": \"https://...\" }",
     "tp1": {
-      "status": "completed",
+      "status": "pending",
       "url": "https://classroom.github.com/a/zxD7k-73"
     },
     "quiz1": {
