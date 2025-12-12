@@ -1,845 +1,521 @@
-<!doctype html>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>FAS 1001</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=0.5, user-scalable=yes"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="icon" type="image/svg+xml" href="images/fas1001_logo.svg" />
-    <!-- Fallback for browsers that don't support SVG favicons -->
-    <link rel="alternate icon" href="images/fas1001_logo.ico" />
-  </head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAS 1001 | Introduction aux mégadonnées</title>
+    <meta name="description" content="Cours d'introduction aux mégadonnées en sciences sociales - FAS 1001">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="icon" type="image/svg+xml" href="images/fas1001_logo.svg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
 
-  <body class="is-preload">
-    <!-- Header -->
-    <div id="header">
-      <div class="top">
-        <!-- Logo -->
-        <div id="logo">
-          <span class="image avatar48"
-            ><img src="images/fas1001_logo.svg" alt=""
-          /></span>
-          <h1 id="title">FAS 1001</h1>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="#home" class="logo">
+                <img src="images/fas1001_logo.svg" alt="FAS 1001 Logo">
+                <span>FAS 1001</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#diapositives">Diapositives</a></li>
+                <li><a href="#evaluations">Évaluations</a></li>
+                <li><a href="#exercices">Exercices</a></li>
+                <li><a href="#datacamp">DataCamp</a></li>
+                <li><a href="#plan">Plan</a></li>
+                <li><a href="#meetings">Rencontres</a></li>
+                <li><a href="#calendar">Calendrier</a></li>
+                <li><a href="https://github.com/fas1001" target="_blank" class="github-link"><i class="fab fa-github"></i></a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- Navigation -->
-        <nav id="nav">
-          <ul>
-            <li>
-              <a href="#diapositives" id="diapositives-link"
-                ><span class="icon solid fa-images">Diapositives</span></a
-              >
-            </li>
-            <li>
-              <a href="#evaluations" id="evaluations-link">
-                <span class="icon solid fa-tasks">Évaluations</span>
-              </a>
-            </li>
-            <li>
-              <a href="#exercices" id="exercices-link"
-                ><span class="icon solid fa-pen">Exercices</span></a
-              >
-            </li>
-            <li>
-              <a href="#datacamp" id="datacamp-link"
-                ><span class="icon solid fa-star">DataCamp</span></a
-              >
-            </li>
-            <li>
-              <a href="#plan" id="plan-link"
-                ><span class="icon solid fa-book">Plan de cours</span></a
-              >
-            </li>
-            <li>
-              <a href="#meetings" id="meetings-link">
-                <span class="icon solid fa-user">Rencontres</span>
-              </a>
-            </li>
-            <li>
-              <a href="#calendar" id="calendar-link"
-                ><span class="icon solid fa-calendar">Calendrier</span></a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <div class="bottom">
-        <!-- Social Icons -->
-        <ul class="icons">
-          <li>
-            <a href="https://github.com/fas1001" class="icon brands fa-github"
-              ><span class="label">Github</span></a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Main -->
-    <div id="main">
-      <!-- Intro -->
-      <section id="top" class="one dark cover">
-        <div class="container">
-          <header>
-            <h2 class="alt">
-              Bienvenue sur le site du cours FAS 1001<br />Introduction aux
-              mégadonnées en sciences sociales
-            </h2>
-          </header>
-        </div>
-      </section>
-
-      <!-- Diapositives -->
-      <section id="diapositives" class="two">
-        <div class="container">
-          <header>
-            <h2>Diapositives</h2>
-          </header>
-          <p>
-            Les diapositives du cours sont disponibles ici. Vous pouvez les
-            télécharger en les ouvrant et les imprimants en format PDF.
-          </p>
-          <div class="row">
-            <!-- Cours 1 -->
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/1_introduction/cours_1_intro.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_1.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 1</h3>
-                </header>
-              </article>
-            </div>
-
-            <!-- Cours 2 -->
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/2_introduction_r/index.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_2.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 2</h3>
-                </header>
-              </article>
-            </div>
-
-            <!-- Cours 3 -->
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/3_introduction_git_github/git_github.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_3.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 3</h3>
-                </header>
-              </article>
-            </div>
-          </div>
-
-          <div class="row">
-            <!-- Cours 4 -->
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/4_sondages/cours_4_sondages.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_4.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 4</h3>
-                </header>
-              </article>
-            </div>
-
-            <!-- Cours 5 -->
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/5_mesures_latentes/cours_5_mesures.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_5.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 5</h3>
-                </header>
-              </article>
-            </div>
-
-            <!-- Cours 6 -->
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/6_analyse_textuelle/cours_6_analyse_textuelle.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_6.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 6</h3>
-                </header>
-              </article>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/7_web_scraping/cours_7_web_scraping.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_7.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 7</h3>
-                </header>
-              </article>
-            </div>
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/8_llms/cours_8_llms.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_8.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 8</h3>
-                </header>
-              </article>
-            </div>
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a
-                  href="https://fas1001.com/slides/9_analyse_images/index.html"
-                  class="image fit"
-                >
-                  <img src="images/cours_9.png" alt="" />
-                </a>
-                <header>
-                  <h3>Cours 9</h3>
-                </header>
-              </article>
-            </div>
-          </div>
-
-          <!-- After the third row of presentations (where course 9 ends) -->
-          <div class="row">
-            <div class="col-12">
-              <article class="item summary-item">
-                <a
-                  href="https://fas1001.com/slides/10_resume/resume_semestre.html"
-                  class="image fit summary-link"
-                >
-                  <div class="summary-button">
-                    <span class="summary-icon"
-                      ><i class="fas fa-book-open"></i
-                    ></span>
-                    <h2 class="summary-text">Résumé du cours</h2>
-                  </div>
-                </a>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Évaluations -->
-      <section id="evaluations" class="five">
-        <div class="container">
-          <header>
-            <h2>Évaluations</h2>
-            <p>Liens vers les travaux et examens du cours</p>
-          </header>
-
-          <div class="evaluations-grid">
-            <!-- TP1 -->
-            <a
-              href="#evaluations"
-              class="evaluation-card"
-              data-status="terminé"
-            >
-              <div class="evaluation-content">
-                <div class="evaluation-header">
-                  <h3>TP1 - Introduction</h3>
-                  <span class="due-date">29 janvier</span>
-                </div>
-                <div class="evaluation-status">
-                  <p>Terminé</p>
-                  <span class="points">10%</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Quiz 1 -->
-            <a
-              href="#evaluations"
-              class="evaluation-card"
-              data-status="terminé"
-            >
-              <div class="evaluation-content">
-                <div class="evaluation-header">
-                  <h3>Quiz 1</h3>
-                  <span class="due-date">13 février</span>
-                </div>
-                <div class="evaluation-status">
-                  <p>Terminé</p>
-                  <span class="points">15%</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- TP2 -->
-            <a
-              href="#evaluations"
-              class="evaluation-card"
-              data-status="terminé"
-            >
-              <div class="evaluation-content">
-                <div class="evaluation-header">
-                  <h3>TP2 - Mi-session</h3>
-                  <span class="due-date">12 mars</span>
-                </div>
-                <div class="evaluation-status">
-                  <p>Terminé</p>
-                  <span class="points">20%</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Quiz 2 -->
-            <a
-              href="https://classroom.github.com/a/YY3HCBX2"
-              class="evaluation-card"
-              data-status="terminé"
-            >
-              <div class="evaluation-content">
-                <div class="evaluation-header">
-                  <h3>Quiz 2</h3>
-                  <span class="due-date">10 avril</span>
-                </div>
-                <div class="evaluation-status">
-                  <p>Terminé</p>
-                  <span class="points">15%</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- TP3 -->
-            <a
-              href="https://classroom.github.com/a/4N0VI5lj"
-              class="evaluation-card"
-              data-status="terminé"
-            >
-              <div class="evaluation-content">
-                <div class="evaluation-header">
-                  <h3>TP3 - Travail de session</h3>
-                  <span class="due-date">30 avril</span>
-                </div>
-                <div class="evaluation-status">
-                  <p>Terminé</p>
-                  <span class="points">30%</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section Exercices -->
-      <section id="exercices" class="exercises-section">
-        <div class="container">
-          <header>
-            <h2>Exercices</h2>
-            <p>
-              Mettez en pratique vos connaissances avec des exercices guidés
+    <header id="home" class="hero">
+        <div class="container hero-content">
+            <span class="hero-label">FAS 1001</span>
+            <h1 class="hero-title">Introduction aux <span class="gradient-text">mégadonnées</span> <br>en sciences sociales</h1>
+            <p class="hero-subtitle">
+                Maîtrisez l'analyse de données, de la collecte à la visualisation, avec R et les outils modernes de la science des données.
             </p>
-          </header>
-          <div class="exercises-grid">
-            <a
-              href="https://github.com/fas1001/introduction_r"
-              class="exercise-card"
-            >
-              <div class="exercise-content">
-                <h3>Introduction à l'analyse de données</h3>
-                <div class="exercise-description">
-                  <p>
-                    Un projet guidé complet couvrant les bases de l'analyse de
-                    données avec R.
-                  </p>
-                  <div class="exercise-features">
-                    <span>✓ Importation de données</span>
-                    <span>✓ Nettoyage de données</span>
-                    <span>✓ Visualisation</span>
-                    <span>✓ Analyse statistique</span>
-                  </div>
-                </div>
-                <div class="exercise-footer">
-                  <span class="difficulty">Niveau: Débutant</span>
-                  <span class="duration">Durée estimée: 1-3h</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Nouvel exercice de nettoyage -->
-            <a
-              href="https://github.com/fas1001/exercice_cleaning"
-              class="exercise-card"
-            >
-              <div class="exercise-content">
-                <h3>Nettoyage des données du CES</h3>
-                <div class="exercise-description">
-                  <p>
-                    Un exercice pratique de nettoyage de données utilisant
-                    l'Étude électorale canadienne de 1993 et 2021.
-                  </p>
-                  <div class="exercise-features">
-                    <span>✓ Recodage de variables</span>
-                    <span>✓ Gestion des valeurs manquantes</span>
-                    <span>✓ Standardisation des données</span>
-                    <span>✓ Chargement et sauvegarde</span>
-                  </div>
-                </div>
-                <div class="exercise-footer">
-                  <span class="difficulty">Niveau: Intermédiaire</span>
-                  <span class="duration">Durée estimée: 2h</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Les futurs exercices peuvent être ajoutés ici -->
-            <a
-              href="https://github.com/fas1001/exercice_analyse"
-              class="exercise-card"
-            >
-              <div class="exercise-content">
-                <h3>Analyse factorielle et régressions</h3>
-                <div class="exercise-description">
-                  <p>
-                    Un projet complet d'analyse factorielle exploratoire suivie
-                    d'une analyse de régression, permettant d'explorer la
-                    création et l'utilisation d'échelles de mesure.
-                  </p>
-                  <div class="exercise-features">
-                    <span>✓ Nettoyage et préparation des données</span>
-                    <span>✓ Analyse factorielle exploratoire</span>
-                    <span>✓ Construction d'échelles</span>
-                    <span>✓ Modélisation statistique</span>
-                  </div>
-                </div>
-                <div class="exercise-footer">
-                  <span class="difficulty">Niveau: Avancé</span>
-                  <span class="duration">Durée estimée: 2-3h</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Exercice Text analysis -->
-
-            <a
-              href="https://github.com/fas1001/exercice_analyse_textuelle"
-              class="exercise-card"
-            >
-              <div class="exercise-content">
-                <h3>Analyse de sentiment textuel</h3>
-                <div class="exercise-description">
-                  <p>
-                    Apprenez à effectuer des analyses de sentiment sur des
-                    textes en utilisant différentes méthodes et dictionnaires.
-                  </p>
-                  <div class="exercise-features">
-                    <span>✓ Préparation de données textuelles</span>
-                    <span
-                      >✓ Analyses avec différents lexiques (AFINN, Bing,
-                      LSD)</span
-                    >
-                    <span>✓ Comparaison de sources médiatiques</span>
-                    <span>✓ Visualisation des résultats</span>
-                  </div>
-                </div>
-                <div class="exercise-footer">
-                  <span class="difficulty">Niveau: Avancé</span>
-                  <span class="duration">Durée estimée: 3-4h</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Exercice Web Scraping -->
-            <a
-              href="https://github.com/fas1001/exercice_scraping"
-              class="exercise-card"
-            >
-              <div class="exercise-content">
-                <h3>Moissonage (Web scraping)</h3>
-                <div class="exercise-description">
-                  <p>
-                    Apprenez à moissoner des données du web en utilisant R,
-                    Wikipedia et le site du parlement du Canada
-                  </p>
-                  <div class="exercise-features">
-                    <span
-                      >✓ Extraction de données parlementaires en HTML et à
-                      travers un API</span
-                    >
-                    <span>✓ Nettoyage de données en format JSON</span>
-                    <span>✓ Analyse statistique</span>
-                    <span>✓ Visualisation des résultats</span>
-                  </div>
-                </div>
-                <div class="exercise-footer">
-                  <span class="difficulty">Niveau: Avancé</span>
-                  <span class="duration">Durée estimée: 1-2h</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Exercice LLM -->
-            <a
-              href="https://github.com/fas1001/exercice_llm"
-              class="exercise-card"
-            >
-              <div class="exercise-content">
-                <h3>Introduction aux LLM et à l'API Prompting</h3>
-                <div class="exercise-description">
-                  <p>
-                    Familiarisez-vous avec l'utilisation des grands modèles de
-                    langage (LLM) via des API pour analyser des données
-                    textuelles issues d'avis clients de restaurant
-                  </p>
-                  <div class="exercise-features">
-                    <span>✓ Nettoyage de données d'avis clients</span>
-                    <span
-                      >✓ Construction de prompts efficaces pour l'analyse de
-                      sentiment</span
-                    >
-                    <span>✓ Optimisation des requêtes API</span>
-                    <span
-                      >✓ Génération automatique de rapports avec analyses et
-                      visualisations</span
-                    >
-                  </div>
-                </div>
-                <div class="exercise-footer">
-                  <span class="difficulty">Niveau: Intermédiaire</span>
-                  <span class="duration">Durée estimée: 1-2h</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Exercice site web perso -->
-            <a
-              href="https://github.com/clessn/gabarit_site_web"
-              class="exercise-card"
-            >
-              <div class="exercise-content">
-                <h3>Création d'un site web personnel</h3>
-                <div class="exercise-description">
-                  <p>
-                    Apprenez à créer et déployer votre propre site web
-                    professionnel
-                  </p>
-                  <div class="exercise-features">
-                    <span>✓ Configuration d'un dépôt GitHub</span>
-                    <span>✓ Personnalisation du template HTML/CSS</span>
-                    <span>✓ Ajout de contenu et mise en page responsive</span>
-                    <span>✓ Déploiement du site avec GitHub Pages</span>
-                  </div>
-                </div>
-                <div class="exercise-footer">
-                  <span class="difficulty">Niveau: Intermédiaire</span>
-                  <span class="duration">Durée estimée: 2-3h</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- DataCamp -->
-      <section id="datacamp" class="four">
-        <div class="container">
-          <header>
-            <h2>Cours DataCamp recommandés</h2>
-            <p>Une sélection de cours pour approfondir vos connaissances</p>
-          </header>
-
-          <!-- All Courses in 4x2 grid -->
-          <div class="datacamp-section">
-            <div class="datacamp-grid">
-              <a
-                href="https://app.datacamp.com/learn/courses/free-introduction-to-r"
-                class="datacamp-card"
-              >
-                <div class="card-content">
-                  <div class="course-number">1</div>
-                  <h4>Introduction to R</h4>
-                  <p>
-                    Apprenez les bases de R, un langage essentiel pour l'analyse
-                    de données.
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="https://app.datacamp.com/learn/courses/intermediate-r"
-                class="datacamp-card"
-              >
-                <div class="card-content">
-                  <div class="course-number">2</div>
-                  <h4>Intermediate R</h4>
-                  <p>
-                    Perfectionnez vos compétences en R avec des concepts plus
-                    avancés.
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse"
-                class="datacamp-card"
-              >
-                <div class="card-content">
-                  <div class="course-number">3</div>
-                  <h4>Introduction to the Tidyverse</h4>
-                  <p>
-                    Découvrez l'écosystème Tidyverse pour la manipulation de
-                    données.
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="https://app.datacamp.com/learn/courses/web-scraping-in-r"
-                class="datacamp-card"
-              >
-                <div class="card-content">
-                  <div class="course-number">4</div>
-                  <h4>Web Scraping in R</h4>
-                  <p>Apprenez à extraire des données du web avec R.</p>
-                </div>
-              </a>
-
-              <a
-                href="https://app.datacamp.com/learn/courses/introduction-to-git"
-                class="datacamp-card"
-              >
-                <div class="card-content">
-                  <div class="course-number">5</div>
-                  <h4>Introduction to Git</h4>
-                  <p>Maîtrisez les bases du contrôle de version avec Git.</p>
-                </div>
-              </a>
-
-              <a
-                href="https://app.datacamp.com/learn/courses/introduction-to-shell"
-                class="datacamp-card"
-              >
-                <div class="card-content">
-                  <div class="course-number">6</div>
-                  <h4>Introduction to Shell</h4>
-                  <p>
-                    Familiarisez-vous avec l'interface en ligne de commande.
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="https://app.datacamp.com/learn/courses/cluster-analysis-in-r"
-                class="datacamp-card"
-              >
-                <div class="card-content">
-                  <div class="course-number">7</div>
-                  <h4>Cluster Analysis in R</h4>
-                  <p>Explorez les techniques d'analyse par regroupement.</p>
-                </div>
-              </a>
-
-              <a
-                href="https://app.datacamp.com/learn/courses/introduction-to-text-analysis-in-r"
-                class="datacamp-card"
-              >
-                <div class="card-content">
-                  <div class="course-number">8</div>
-                  <h4>Introduction to Text Analysis in R</h4>
-                  <p>
-                    Apprenez les notions de base de l'analyse textuelle en R
-                  </p>
-                </div>
-              </a>
+            <div class="hero-actions">
+                <a href="#diapositives" class="btn btn-primary">Voir les cours</a>
+                <a href="#plan" class="btn btn-secondary">Plan de cours</a>
             </div>
-          </div>
         </div>
-      </section>
+    </header>
 
-      <!-- Plan de cours -->
-      <section id="plan" class="three">
-        <div class="container">
-          <header>
-            <h2>Plan de cours</h2>
-            <p>
-              Consultez le plan de cours directement sur cette page ou
-              téléchargez-le en format PDF
-            </p>
-          </header>
+    <main>
+        <!-- Diapositives Section -->
+        <section id="diapositives" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Diapositives</h2>
+                    <p>Matériel didactique pour chaque séance de cours.</p>
+                </div>
+                
+                <div class="grid-cards">
+                    <!-- Cours 1 -->
+                    <article class="card slide-card">
+                        <a href="slides/1_introduction/cours_1_intro.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_1.png" alt="Aperçu du cours 1" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 1</h3>
+                            <p>Introduction aux mégadonnées</p>
+                        </div>
+                    </article>
 
-          <div class="syllabus-viewer">
-            <!-- PDF Viewer -->
-            <iframe
-              src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/fas1001/syllabus/main/fas1001_syllabus.pdf"
-              class="pdf-container"
-              title="Visualiseur de plan de cours"
-              aria-label="Visualiseur de plan de cours"
-            >
-            </iframe>
+                    <!-- Cours 2 -->
+                    <article class="card slide-card">
+                        <a href="slides/2_introduction_r/index.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_2.png" alt="Aperçu du cours 2" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 2</h3>
+                            <p>Introduction à R et RStudio</p>
+                        </div>
+                    </article>
 
-            <!-- Download Button -->
-            <div class="button-container">
-              <a
-                href="https://raw.githubusercontent.com/fas1001/syllabus/main/fas1001_syllabus.pdf"
-                download
-                class="button"
-                aria-label="Télécharger le plan de cours en PDF"
-              >
-                <i class="fas fa-download"></i> Télécharger la version PDF
-              </a>
+                    <!-- Cours 3 -->
+                    <article class="card slide-card">
+                        <a href="slides/3_introduction_git_github/git_github.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_3.png" alt="Aperçu du cours 3" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 3</h3>
+                            <p>Git et GitHub</p>
+                        </div>
+                    </article>
+
+                    <!-- Cours 4 -->
+                    <article class="card slide-card">
+                        <a href="slides/4_sondages/cours_4_sondages.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_4.png" alt="Aperçu du cours 4" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 4</h3>
+                            <p>Les sondages</p>
+                        </div>
+                    </article>
+
+                    <!-- Cours 5 -->
+                    <article class="card slide-card">
+                        <a href="slides/5_mesures_latentes/cours_5_mesures.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_5.png" alt="Aperçu du cours 5" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 5</h3>
+                            <p>Mesures latentes</p>
+                        </div>
+                    </article>
+
+                    <!-- Cours 6 -->
+                    <article class="card slide-card">
+                        <a href="slides/6_analyse_textuelle/cours_6_analyse_textuelle.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_6.png" alt="Aperçu du cours 6" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 6</h3>
+                            <p>Analyse textuelle</p>
+                        </div>
+                    </article>
+
+                    <!-- Cours 7 -->
+                    <article class="card slide-card">
+                        <a href="slides/7_web_scraping/cours_7_web_scraping.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_7.png" alt="Aperçu du cours 7" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 7</h3>
+                            <p>Web Scraping</p>
+                        </div>
+                    </article>
+
+                    <!-- Cours 8 -->
+                    <article class="card slide-card">
+                        <a href="slides/8_llms/cours_8_llms.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_8.png" alt="Aperçu du cours 8" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 8</h3>
+                            <p>LLMs et IA</p>
+                        </div>
+                    </article>
+
+                    <!-- Cours 9 -->
+                    <article class="card slide-card">
+                        <a href="slides/9_analyse_images/index.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_9.png" alt="Aperçu du cours 9" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Cours 9</h3>
+                            <p>Analyse d'images</p>
+                        </div>
+                    </article>
+
+                    <!-- Résumé -->
+                    <article class="card slide-card summary-card slide-card-full-width">
+                        <a href="slides/10_resume/resume_semestre.html" target="_blank" class="card-image-link summary-link-wrapper">
+                            <div class="summary-icon">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Résumé</h3>
+                            <p>Synthèse du semestre</p>
+                        </div>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <!-- Accessibility Information -->
-            <div class="accessibility-info">
-              <p>
-                Vous pouvez télécharger le plan de cours en format PDF pour le
-                consulter avec votre lecteur PDF préféré.
-              </p>
+        <!-- Évaluations Section -->
+        <section id="evaluations" class="section section-darker">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Évaluations</h2>
+                    <p>Dates importantes et pondération</p>
+                </div>
+
+                <div class="timeline">
+                    <!-- TP1 -->
+                    <div class="timeline-item completed">
+                        <div class="timeline-date">29 Jan</div>
+                        <div class="timeline-content">
+                            <div class="timeline-tag">Terminé</div>
+                            <h3>TP1 - Introduction</h3>
+                            <p>10% de la note finale</p>
+                        </div>
+                    </div>
+
+                    <!-- Quiz 1 -->
+                    <div class="timeline-item completed">
+                        <div class="timeline-date">13 Fév</div>
+                        <div class="timeline-content">
+                            <div class="timeline-tag">Terminé</div>
+                            <h3>Quiz 1</h3>
+                            <p>15% de la note finale</p>
+                        </div>
+                    </div>
+
+                    <!-- TP2 -->
+                    <div class="timeline-item completed">
+                        <div class="timeline-date">12 Mar</div>
+                        <div class="timeline-content">
+                            <div class="timeline-tag">Terminé</div>
+                            <h3>TP2 - Mi-session</h3>
+                            <p>20% de la note finale</p>
+                        </div>
+                    </div>
+
+                    <!-- Quiz 2 -->
+                    <div class="timeline-item completed">
+                        <div class="timeline-date">10 Avr</div>
+                        <div class="timeline-content">
+                            <div class="timeline-tag">Terminé</div>
+                            <h3>Quiz 2</h3>
+                            <p>15% de la note finale</p>
+                        </div>
+                    </div>
+
+                    <!-- TP3 -->
+                    <div class="timeline-item completed">
+                        <div class="timeline-date">30 Avr</div>
+                        <div class="timeline-content">
+                            <div class="timeline-tag">Terminé</div>
+                            <h3>TP3 - Final</h3>
+                            <p>30% de la note finale</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Rencontres Individuelles -->
-      <section id="meetings" class="six">
-        <div class="container">
-          <header>
-            <h2>Rencontres individuelles</h2>
-          </header>
+        <!-- Exercices Section -->
+        <section id="exercices" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Exercices</h2>
+                    <p>Pratiquez avec des dépôts GitHub guidés.</p>
+                </div>
 
-          <div class="meeting-container">
-            <!-- Add 'active' class to show either placeholder or calendar -->
-            <!-- <div class="no-appointments"> -->
-            <!--   <p> -->
-            <!--     Contactez-moi sur Slack pour planifier une rencontre -->
-            <!--     individuelle si vous avez des questions ou des préoccupations. -->
-            <!--   </p> -->
-            <!-- </div> -->
-            <!---->
-            <div class="calendar-embed active">
-              <iframe
-                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1GlNsQbh6Y-8QIR_YLuMuyj32qjIou74vOzHJE0MaHJryKvxmtpEC1RoNcUHh_D7aQsmfS6qzU?gv=true"
-                style="border: 0"
-                width="100%"
-                height="600"
-                frameborder="0"
-              ></iframe>
+                <div class="grid-list">
+                    <a href="https://github.com/fas1001/introduction_r" target="_blank" class="list-item">
+                        <div class="list-icon"><i class="fab fa-r-project"></i></div>
+                        <div class="list-details">
+                            <h3>Introduction à l'analyse de données</h3>
+                            <p>Importation, nettoyage, visualisation, et statistiques de base.</p>
+                            <div class="list-meta">
+                                <span class="badge">Débutant</span>
+                                <span class="badge-time">1-3h</span>
+                            </div>
+                        </div>
+                        <div class="list-action"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+
+                    <a href="https://github.com/fas1001/exercice_cleaning" target="_blank" class="list-item">
+                        <div class="list-icon"><i class="fas fa-broom"></i></div>
+                        <div class="list-details">
+                            <h3>Nettoyage des données du CES</h3>
+                            <p>Recodage, valeurs manquantes et standardisation.</p>
+                            <div class="list-meta">
+                                <span class="badge">Intermédiaire</span>
+                                <span class="badge-time">2h</span>
+                            </div>
+                        </div>
+                        <div class="list-action"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+
+                    <a href="https://github.com/fas1001/exercice_analyse" target="_blank" class="list-item">
+                        <div class="list-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="list-details">
+                            <h3>Analyse factorielle et régressions</h3>
+                            <p>Exploration et modélisation statistique avancée.</p>
+                            <div class="list-meta">
+                                <span class="badge">Avancé</span>
+                                <span class="badge-time">2-3h</span>
+                            </div>
+                        </div>
+                        <div class="list-action"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                    
+                    <a href="https://github.com/fas1001/exercice_analyse_textuelle" target="_blank" class="list-item">
+                        <div class="list-icon"><i class="fas fa-quote-right"></i></div>
+                        <div class="list-details">
+                            <h3>Analyse de sentiment textuel</h3>
+                            <p>Analyses avec lexiques (AFINN, Bing, LSD) et visualisation.</p>
+                            <div class="list-meta">
+                                <span class="badge">Avancé</span>
+                                <span class="badge-time">3-4h</span>
+                            </div>
+                        </div>
+                        <div class="list-action"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+
+                    <a href="https://github.com/fas1001/exercice_scraping" target="_blank" class="list-item">
+                        <div class="list-icon"><i class="fas fa-spider"></i></div>
+                        <div class="list-details">
+                            <h3>Moissonage (Web scraping)</h3>
+                            <p>Extraction de données avec R, Wikipedia et API.</p>
+                            <div class="list-meta">
+                                <span class="badge">Avancé</span>
+                                <span class="badge-time">1-2h</span>
+                            </div>
+                        </div>
+                        <div class="list-action"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+
+                    <a href="https://github.com/fas1001/exercice_llm" target="_blank" class="list-item">
+                        <div class="list-icon"><i class="fas fa-robot"></i></div>
+                        <div class="list-details">
+                            <h3>LLM et API Prompting</h3>
+                            <p>Analyse d'avis clients avec des modèles de langage.</p>
+                            <div class="list-meta">
+                                <span class="badge">Intermédiaire</span>
+                                <span class="badge-time">1-2h</span>
+                            </div>
+                        </div>
+                        <div class="list-action"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+
+                    <a href="https://github.com/clessn/gabarit_site_web" target="_blank" class="list-item">
+                        <div class="list-icon"><i class="fas fa-globe"></i></div>
+                        <div class="list-details">
+                            <h3>Création d'un site web personnel</h3>
+                            <p>Déployer un portfolio professionnel avec GitHub Pages.</p>
+                            <div class="list-meta">
+                                <span class="badge">Intermédiaire</span>
+                                <span class="badge-time">2-3h</span>
+                            </div>
+                        </div>
+                        <div class="list-action"><i class="fas fa-chevron-right"></i></div>
+                    </a>
+                </div>
             </div>
-          </div>
+        </section>
+
+        <!-- DataCamp Section -->
+        <section id="datacamp" class="section section-darker">
+            <div class="container">
+                <div class="section-header">
+                    <h2>DataCamp</h2>
+                    <p>Cours recommandés pour approfondir vos compétences.</p>
+                </div>
+
+                <div class="grid-compact">
+                    <a href="https://app.datacamp.com/learn/courses/free-introduction-to-r" target="_blank" class="compact-card">
+                        <span class="number">01</span>
+                        <h4>Introduction to R</h4>
+                    </a>
+                    <a href="https://app.datacamp.com/learn/courses/intermediate-r" target="_blank" class="compact-card">
+                        <span class="number">02</span>
+                        <h4>Intermediate R</h4>
+                    </a>
+                    <a href="https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse" target="_blank" class="compact-card">
+                        <span class="number">03</span>
+                        <h4>Into to Tidyverse</h4>
+                    </a>
+                    <a href="https://app.datacamp.com/learn/courses/web-scraping-in-r" target="_blank" class="compact-card">
+                        <span class="number">04</span>
+                        <h4>Web Scraping in R</h4>
+                    </a>
+                    <a href="https://app.datacamp.com/learn/courses/introduction-to-git" target="_blank" class="compact-card">
+                        <span class="number">05</span>
+                        <h4>Introduction to Git</h4>
+                    </a>
+                    <a href="https://app.datacamp.com/learn/courses/introduction-to-shell" target="_blank" class="compact-card">
+                        <span class="number">06</span>
+                        <h4>Introduction to Shell</h4>
+                    </a>
+                    <a href="https://app.datacamp.com/learn/courses/cluster-analysis-in-r" target="_blank" class="compact-card">
+                        <span class="number">07</span>
+                        <h4>Cluster Analysis</h4>
+                    </a>
+                    <a href="https://app.datacamp.com/learn/courses/introduction-to-text-analysis-in-r" target="_blank" class="compact-card">
+                        <span class="number">08</span>
+                        <h4>Text Analysis</h4>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plan / Syllabus -->
+        <section id="plan" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Plan de cours</h2>
+                    <p>Le contrat d'apprentissage officiel.</p>
+                </div>
+                
+                <div class="syllabus-wrapper">
+                    <div class="iframe-container">
+                        <iframe src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/fas1001/syllabus/main/fas1001_syllabus.pdf" 
+                                title="Visualiseur de plan de cours"></iframe>
+                    </div>
+                    <div class="actions-center">
+                        <a href="https://raw.githubusercontent.com/fas1001/syllabus/main/fas1001_syllabus.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download"></i> Télécharger le PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Rencontres (Hidden/Optional based on original, keeping iframe logic but styling) -->
+        <section id="meetings" class="section section-darker">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Rencontres</h2>
+                    <p>Besoin d'aide? Prenez rendez-vous.</p>
+                </div>
+                <div class="calendar-wrapper">
+                    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1GlNsQbh6Y-8QIR_YLuMuyj32qjIou74vOzHJE0MaHJryKvxmtpEC1RoNcUHh_D7aQsmfS6qzU?gv=true" 
+                            style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Summary -->
+        <section id="calendar" class="section">
+             <div class="container">
+                <div class="section-header">
+                    <h2>Calendrier Récapitulatif</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Évaluation</th>
+                                <th>Pondération</th>
+                                <th>Échéance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TP1 - Introduction</td>
+                                <td>10%</td>
+                                <td>29 janv. 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Quiz 1</td>
+                                <td>15%</td>
+                                <td>13 fév. 2025 (Classe)</td>
+                            </tr>
+                            <tr>
+                                <td>TP2 - Mi-session</td>
+                                <td>20%</td>
+                                <td>12 mars 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Quiz 2</td>
+                                <td>15%</td>
+                                <td>10 avr. 2025 (Classe)</td>
+                            </tr>
+                            <tr>
+                                <td>TP3 - Session</td>
+                                <td>30%</td>
+                                <td>30 avr. 2025</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>Participation</td>
+                                <td>10%</td>
+                                <td>Tout le semestre</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+             </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 FAS 1001. Propulsé par <a href="https://github.com/fas1001">GitHub Pages</a>.</p>
+            <div class="footer-social">
+                <a href="https://github.com/fas1001"><i class="fab fa-github"></i></a>
+            </div>
         </div>
-      </section>
-
-      <!-- Calendrier -->
-      <section id="calendar" class="calendar-section">
-        <div class="container">
-          <header>
-            <h2>Calendrier des évaluations</h2>
-          </header>
-          <div class="table-container">
-            <table class="evaluation-table">
-              <thead>
-                <tr>
-                  <th>Évaluations</th>
-                  <th>Points</th>
-                  <th>Dates</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>TP1 - Introduction</td>
-                  <td>10%</td>
-                  <td>29 janvier 2025 avant minuit</td>
-                </tr>
-                <tr>
-                  <td>Quiz 1</td>
-                  <td>15%</td>
-                  <td>13 février 2025 en classe</td>
-                </tr>
-                <tr>
-                  <td>TP2 - Travail de mi-session</td>
-                  <td>20%</td>
-                  <td>12 mars 2025 avant minuit</td>
-                </tr>
-                <tr>
-                  <td>Quiz 2</td>
-                  <td>15%</td>
-                  <td>10 avril 2025 en classe</td>
-                </tr>
-                <tr>
-                  <td>TP3 - Travail de session</td>
-                  <td>30%</td>
-                  <td>30 avril 2025 avant minuit</td>
-                </tr>
-                <tr>
-                  <td>Participation en classe</td>
-                  <td>10%</td>
-                  <td>9 janvier au 10 avril</td>
-                </tr>
-                <tr class="total-row">
-                  <td>Total</td>
-                  <td>100%</td>
-                  <td>9 janvier au 30 avril</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-    </div>
-
-    <!-- Footer -->
-    <div id="footer">
-      <!-- Copyright -->
-      <ul class="copyright">
-        <li>&copy; FAS 1001</li>
-        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-      </ul>
-    </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
+    </footer>
+</body>
 </html>
