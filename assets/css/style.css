@@ -356,6 +356,18 @@ img {
     color: var(--text-accent);
 }
 
+.slide-card-full-width {
+    grid-column: 1 / -1; /* Default to full width for mobile */
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .slide-card-full-width {
+        grid-column: span 3; /* Span 3 columns on larger screens */
+    }
+}
+
+
 /* List Items (Exercises) */
 .grid-list {
     display: grid;
