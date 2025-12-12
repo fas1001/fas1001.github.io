@@ -72,7 +72,7 @@ function applyConfig(config) {
                     }
                 } else if (status === 'completed') {
                     element.classList.add('completed');
-                    element.style.opacity = '1';
+                    element.style.opacity = '0.8';
                     if (tag) {
                         tag.textContent = 'Terminé';
                         tag.classList.add('status-completed');
@@ -90,7 +90,7 @@ function applyConfig(config) {
                 const content = element.querySelector('.timeline-content');
                 let linkBtn = element.querySelector('.eval-link');
 
-                if (url && content) {
+                if (url && content && status === 'active') {
                     if (!linkBtn) {
                         linkBtn = document.createElement('a');
                         linkBtn.className = 'btn btn-primary eval-link';
@@ -104,7 +104,7 @@ function applyConfig(config) {
                     linkBtn.href = url;
                     linkBtn.style.display = 'inline-flex';
                 } else if (linkBtn) {
-                    // Remove button if no url provided (or if removed from config)
+                    // Remove button if no url provided, or if status is not active
                     linkBtn.remove();
                 }
             }
