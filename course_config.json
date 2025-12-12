@@ -1,0 +1,30 @@
+{
+    "slides": {
+        "cours_1": true,
+        "cours_2": false,
+        "cours_3": false,
+        "cours_4": false,
+        "cours_5": false,
+        "cours_6": false,
+        "cours_7": false,
+        "cours_8": false,
+        "cours_9": false,
+        "resume": false
+    },
+    "exercises": {
+        "intro_r": false,
+        "cleaning": false,
+        "analyse": false,
+        "textuelle": false,
+        "scraping": false,
+        "llm": false,
+        "site_web": false
+    },
+    "evaluations": {
+        "tp1": "pending",
+        "quiz1": "pending",
+        "tp2": "pending",
+        "quiz2": "pending",
+        "tp3": "pending"
+    }
+}

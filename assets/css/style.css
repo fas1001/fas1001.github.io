@@ -670,3 +670,10 @@ footer {
     text-align: center;
     margin-top: 1rem;
 }
+
+/* Disabled State */
+.disabled-item {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
