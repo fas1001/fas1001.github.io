@@ -26,13 +26,24 @@
       "status": "completed",
       "url": "https://classroom.github.com/a/zxD7k-73"
     },
-    "quiz1": "pending",
-    "tp2": "pending",
-    "quiz2": "pending",
-    "tp3": "pending"
+    "quiz1": {
+      "status": "pending",
+      "url": ""
+    },
+    "tp2": {
+      "status": "pending",
+      "url": ""
+    },
+    "quiz2": {
+      "status": "pending",
+      "url": ""
+    },
+    "tp3": {
+      "status": "pending",
+      "url": ""
+    }
   },
   "rencontres": {
     "link": null
   }
 }
-
