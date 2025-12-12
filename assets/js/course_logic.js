@@ -43,13 +43,22 @@ function applyConfig(config) {
 
     // Handle Evaluations
     if (config.evaluations) {
-        for (const [id, status] of Object.entries(config.evaluations)) {
+        for (const [id, value] of Object.entries(config.evaluations)) {
             if (id === '_comment') continue; // Skip comment key
 
             const element = document.getElementById(`eval-${id}`);
             if (element) {
                 const tag = element.querySelector('.timeline-tag');
                 
+                // Determine status and url
+                let status = value;
+                let url = null;
+                
+                if (typeof value === 'object' && value !== null) {
+                    status = value.status;
+                    url = value.url;
+                }
+
                 // Reset classes
                 element.classList.remove('completed', 'pending', 'active');
                 if (tag) tag.className = 'timeline-tag'; // Reset tag classes
@@ -75,6 +84,28 @@ function applyConfig(config) {
                         tag.textContent = 'En cours';
                         tag.classList.add('status-active');
                     }
+                }
+
+                // Handle Link Button
+                const content = element.querySelector('.timeline-content');
+                let linkBtn = element.querySelector('.eval-link');
+
+                if (url && content) {
+                    if (!linkBtn) {
+                        linkBtn = document.createElement('a');
+                        linkBtn.className = 'btn btn-primary eval-link';
+                        linkBtn.target = '_blank';
+                        linkBtn.innerHTML = '<i class="fab fa-github"></i> Accéder'; // Add icon
+                        linkBtn.style.marginTop = '1rem';
+                        linkBtn.style.width = '100%'; // Full width on mobile looks good, or auto
+                        linkBtn.style.justifyContent = 'center';
+                        content.appendChild(linkBtn);
+                    }
+                    linkBtn.href = url;
+                    linkBtn.style.display = 'inline-flex';
+                } else if (linkBtn) {
+                    // Remove button if no url provided (or if removed from config)
+                    linkBtn.remove();
                 }
             }
         }
