@@ -1,10 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetch('course_config.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(config => {
             applyConfig(config);
         })
-        .catch(error => console.error('Error loading course config:', error));
+        .catch(error => {
+            console.error('Error loading course config:', error);
+            const container = document.getElementById('dynamic-calendar-container');
+            if (container) {
+                container.innerHTML = `
+                    <div style="padding: 2rem; text-align: center; color: var(--text-muted);">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem; color: #f59e0b;"></i>
+                        <p>Impossible de charger la configuration.</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                            Si vous testez en local (file://), les navigateurs bloquent souvent les fichiers JSON externes.<br>
+                            Utilisez un serveur local (ex: <code>python3 -m http.server</code>) ou visualisez via GitHub Pages.
+                        </p>
+                    </div>
+                `;
+            }
+        });
 });
 
 function applyConfig(config) {
