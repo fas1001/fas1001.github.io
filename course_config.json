@@ -48,20 +48,12 @@
   },
   "schedule": [
     {
-      "week": "Fete Cam",
-      "date": "2025-12-15",
-      "title": "Introduction",
-      "description": "Mégadonnées en sciences sociales, plan de cours et installation des outils.",
-      "type": "lecture"
-    },
-    {
       "week": 1,
       "date": "2026-01-08",
       "title": "Introduction",
       "description": "Mégadonnées en sciences sociales, plan de cours et installation des outils.",
       "type": "lecture"
     },
-
     {
       "week": 2,
       "date": "2026-01-15",
