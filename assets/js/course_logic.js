@@ -128,4 +128,82 @@ function applyConfig(config) {
             if (placeholderContainer) placeholderContainer.style.display = 'flex'; // Use flex for centering
         }
     }
+
+    // Handle Schedule (Dynamic Calendar)
+    if (config.schedule) {
+        renderCalendar(config.schedule);
+    }
+}
+
+function renderCalendar(schedule) {
+    const container = document.getElementById('dynamic-calendar-container');
+    if (!container) return;
+
+    container.innerHTML = ''; // Clear loading text
+    
+    // Create wrapper for the roadmap style
+    const roadmap = document.createElement('div');
+    roadmap.className = 'roadmap-container';
+    container.appendChild(roadmap);
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // Sort schedule by date
+    schedule.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    // Find current week index
+    let currentIndex = -1;
+    for (let i = 0; i < schedule.length; i++) {
+        const itemDate = new Date(schedule[i].date);
+        if (today >= itemDate) {
+            currentIndex = i;
+        }
+    }
+
+    schedule.forEach((item, index) => {
+        const itemDate = new Date(item.date);
+        const isPast = index < currentIndex;
+        const isCurrent = index === currentIndex;
+        
+        // Format date: "7 Janv"
+        const dateStr = itemDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+
+        const card = document.createElement('div');
+        card.className = `roadmap-item ${isCurrent ? 'current' : ''} ${isPast ? 'past' : ''} ${item.type === 'break' ? 'is-break' : ''}`;
+        
+        // HTML Structure
+        let tagsHtml = '';
+        if (item.tags) {
+            tagsHtml = `<div class="roadmap-tags">` + 
+                item.tags.map(t => `<span class="roadmap-tag tag-${t.type}">${t.text}</span>`).join('') + 
+                `</div>`;
+        }
+
+        // Arrow/Label for current
+        const arrowHtml = isCurrent ? 
+            `<div class="current-indicator">
+                <i class="fas fa-arrow-right"></i> <span>Cette semaine</span>
+             </div>` : '';
+
+        card.innerHTML = `
+            <div class="roadmap-marker"></div>
+            <div class="roadmap-content-wrapper">
+                ${arrowHtml}
+                <div class="roadmap-card">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week">${typeof item.week === 'number' ? 'Semaine ' + item.week : item.week}</span>
+                        <span class="roadmap-date">${dateStr}</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <h4>${item.title}</h4>
+                        <p>${item.description}</p>
+                        ${tagsHtml}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        roadmap.appendChild(card);
+    });
 }
