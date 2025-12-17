@@ -720,3 +720,10 @@ footer {
     margin-bottom: 0.5rem;
     color: var(--text-main);
 }
+
+.rencontres-placeholder p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
