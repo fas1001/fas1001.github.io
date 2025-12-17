@@ -136,35 +136,35 @@
       "type": "break",
       "tags": [{ "text": "Rencontres", "type": "break" }]
     },
-    {
-      "week": 13,
-      "date": "2026-04-02",
-      "title": "Analyse d'images et audio",
-      "description": "Vision par ordinateur et reconnaissance vocale.",
-      "type": "lecture"
-    },
-    {
-      "week": 14,
-      "date": "2026-04-09",
-      "title": "Quiz 2",
-      "description": "Évaluation finale en classe (3 heures).",
-      "type": "eval",
-      "tags": [{ "text": "Quiz 2", "type": "eval" }]
-    },
-    {
-      "week": 15,
-      "date": "2026-04-16",
-      "title": "Fin de session",
-      "description": "Semaine d'examens / Fin des cours.",
-      "type": "break"
-    },
-    {
-      "week": "Fin",
-      "date": "2026-04-30",
-      "title": "Remise du TP3",
-      "description": "Date limite pour le travail de session.",
-      "type": "eval",
-      "tags": [{ "text": "TP3 (30 Avr)", "type": "eval" }]
+        {
+          "week": 13,
+          "date": "2026-04-02",
+          "title": "Analyse d'images et audio",
+          "description": "Vision par ordinateur et reconnaissance vocale.",
+          "type": "lecture"
+        },
+        {
+          "week": 14,
+          "date": "2026-04-09",
+          "title": "Conclusion",
+          "description": "Revue des concepts clés et applications futures des mégadonnées.",
+          "type": "lecture"
+        },
+        {
+          "week": 15,
+          "date": "2026-04-16",
+          "title": "Quiz 2",
+          "description": "Évaluation finale en classe (3 heures).",
+          "type": "eval",
+          "tags": [{"text": "Quiz 2", "type": "eval"}]
+        },
+        {
+          "week": "Fin",
+          "date": "2026-04-30",
+          "title": "Remise du TP3",
+          "description": "Date limite pour le travail de session.",
+          "type": "eval",
+          "tags": [{"text": "TP3 (30 Avr)", "type": "eval"}]
+        }
+      ]
     }
-  ]
-}
