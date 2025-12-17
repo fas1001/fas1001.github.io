@@ -569,6 +569,97 @@ img {
     background: rgba(56, 189, 248, 0.05);
 }
 
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.calendar-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.calendar-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--text-accent);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.week-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.week-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.calendar-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.calendar-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.calendar-footer {
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.cal-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.tag-eval {
+    background: rgba(56, 189, 248, 0.1); /* Sky Blue */
+    color: #38bdf8;
+}
+
+.tag-break {
+    background: rgba(148, 163, 184, 0.1); /* Slate */
+    color: #94a3b8;
+}
+
+.calendar-card.is-break {
+    background: rgba(0, 0, 0, 0.2);
+    border-style: dashed;
+}
+
 /* Footer */
 footer {
     padding: 3rem 0;
