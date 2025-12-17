@@ -618,42 +618,28 @@ img {
     border-color: var(--text-muted);
 }
 
+/* Current Week Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .roadmap-item.current .roadmap-marker {
-    background: var(--text-accent);
-    border-color: var(--text-accent);
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
-    width: 18px;
-    height: 18px;
-    left: 7px;
-    top: 18px;
+    background: var(--bg-surface);
+    border: 2px solid rgba(56, 189, 248, 0.2); /* Faint ring */
+    border-top-color: var(--text-accent); /* Spinning active part */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    left: 6px; /* Centered on line: 16px - 10px = 6px */
+    top: 17px;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); /* Glow */
+    animation: spin 1s linear infinite;
 }
 
 .roadmap-content-wrapper {
     margin-left: 2.5rem;
     position: relative;
-}
-
-/* Current Indicator Arrow */
-.current-indicator {
-    position: absolute;
-    left: -130px;
-    top: 15px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-accent);
-    font-weight: 600;
-    font-size: 0.9rem;
-    animation: slideRight 1s infinite alternate;
-}
-
-@keyframes slideRight {
-    from { transform: translateX(0); }
-    to { transform: translateX(5px); }
-}
-
-.current-indicator i {
-    font-size: 1.2rem;
 }
 
 /* Roadmap Card */

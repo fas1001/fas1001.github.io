@@ -182,7 +182,10 @@ function renderCalendar(schedule) {
     }
 
     schedule.forEach((item, index) => {
-        const itemDate = new Date(item.date);
+        // Fix date parsing to avoid timezone issues (YYYY-MM-DD -> Local Date)
+        const [year, month, day] = item.date.split('-').map(Number);
+        const itemDate = new Date(year, month - 1, day);
+        
         const isPast = index < currentIndex;
         const isCurrent = index === currentIndex;
         
@@ -200,16 +203,9 @@ function renderCalendar(schedule) {
                 `</div>`;
         }
 
-        // Arrow/Label for current
-        const arrowHtml = isCurrent ? 
-            `<div class="current-indicator">
-                <i class="fas fa-arrow-right"></i> <span>Cette semaine</span>
-             </div>` : '';
-
         card.innerHTML = `
             <div class="roadmap-marker"></div>
             <div class="roadmap-content-wrapper">
-                ${arrowHtml}
                 <div class="roadmap-card">
                     <div class="roadmap-header">
                         <span class="roadmap-week">${typeof item.week === 'number' ? 'Semaine ' + item.week : item.week}</span>
