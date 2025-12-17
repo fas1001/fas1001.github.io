@@ -49,115 +49,122 @@
   "schedule": [
     {
       "week": 1,
-      "date": "2026-01-07",
-      "title": "Introduction aux mégadonnées",
-      "description": "Concepts clés et impact social.",
+      "date": "2026-01-08",
+      "title": "Introduction",
+      "description": "Mégadonnées en sciences sociales, plan de cours et installation des outils.",
       "type": "lecture"
     },
     {
       "week": 2,
-      "date": "2026-01-14",
+      "date": "2026-01-15",
       "title": "Introduction à R",
-      "description": "Environnement RStudio et bases du langage.",
+      "description": "Importation, manipulation (dplyr) et types de données.",
       "type": "lecture"
     },
     {
       "week": 3,
-      "date": "2026-01-21",
-      "title": "Git et GitHub",
-      "description": "Contrôle de version et collaboration.",
+      "date": "2026-01-22",
+      "title": "Git, GitHub et Quarto",
+      "description": "Contrôle de version, collaboration et documents dynamiques.",
       "type": "lecture"
     },
     {
       "week": 4,
-      "date": "2026-01-28",
-      "title": "Les sondages",
-      "description": "Méthodologie et analyse.",
+      "date": "2026-01-29",
+      "title": "Les données structurées",
+      "description": "Données de sondages, nettoyage (tidydata) et éthique.",
       "type": "lecture",
-      "tags": [{"text": "TP1", "type": "eval"}]
+      "tags": [{"text": "TP1 (28 Jan)", "type": "eval"}]
     },
     {
       "week": 5,
-      "date": "2026-02-04",
-      "title": "Mesures latentes",
-      "description": "Réduction de dimensionnalité.",
-      "type": "lecture",
-      "tags": [{"text": "Quiz 1 (5 Fév)", "type": "eval"}]
+      "date": "2026-02-05",
+      "title": "Quiz 1",
+      "description": "Évaluation en classe (3 heures).",
+      "type": "eval",
+      "tags": [{"text": "Quiz 1", "type": "eval"}]
     },
     {
       "week": 6,
-      "date": "2026-02-11",
-      "title": "Analyse textuelle",
-      "description": "Mining et sentiment analysis.",
+      "date": "2026-02-12",
+      "title": "Les mesures et les régressions",
+      "description": "Analyse factorielle et introduction aux régressions.",
       "type": "lecture"
     },
     {
       "week": 7,
-      "date": "2026-02-18",
-      "title": "Web Scraping",
-      "description": "Collecte de données web.",
-      "type": "lecture",
+      "date": "2026-02-19",
+      "title": "Rencontres individuelles",
+      "description": "Retour sur TP1/Quiz 1 et discussion des travaux.",
+      "type": "break",
       "tags": [{"text": "Rencontres", "type": "break"}]
     },
     {
       "week": 8,
-      "date": "2026-02-25",
-      "title": "LLMs",
-      "description": "Modèles de langage (GPT, etc.).",
+      "date": "2026-02-26",
+      "title": "Données textuelles",
+      "description": "Manipulation de texte, analyse de sentiment et modélisation.",
       "type": "lecture"
-    },
-    {
-      "week": "Lecture",
-      "date": "2026-03-04",
-      "title": "Semaine de lecture",
-      "description": "Pas de cours magistral.",
-      "type": "break"
     },
     {
       "week": 9,
-      "date": "2026-03-11",
-      "title": "Analyse d'images",
-      "description": "Vision par ordinateur.",
-      "type": "lecture",
-      "tags": [{"text": "TP2", "type": "eval"}]
+      "date": "2026-03-05",
+      "title": "Semaine de lecture",
+      "description": "Pas de cours magistral. Travail sur le TP2.",
+      "type": "break"
     },
     {
       "week": 10,
-      "date": "2026-03-18",
-      "title": "Résumé du semestre",
-      "description": "Synthèse et intégration.",
-      "type": "lecture"
+      "date": "2026-03-12",
+      "title": "Web Scraping",
+      "description": "Collecte de données (rvest), API et éthique.",
+      "type": "lecture",
+      "tags": [{"text": "TP2 (11 Mars)", "type": "eval"}]
     },
     {
       "week": 11,
-      "date": "2026-03-25",
-      "title": "Atelier pratique",
-      "description": "Avancement des projets.",
-      "type": "workshop"
+      "date": "2026-03-19",
+      "title": "LLM",
+      "description": "Grands modèles linguistiques, prompts et biais.",
+      "type": "lecture"
     },
     {
       "week": 12,
-      "date": "2026-04-01",
-      "title": "Rencontres & Révision",
-      "description": "Préparation aux évaluations finales.",
-      "type": "workshop",
+      "date": "2026-03-26",
+      "title": "Rencontres individuelles",
+      "description": "Consultations pour le travail final et préparation au Quiz 2.",
+      "type": "break",
       "tags": [{"text": "Rencontres", "type": "break"}]
     },
     {
       "week": 13,
-      "date": "2026-04-08",
-      "title": "Évaluation en classe",
-      "description": "Examen des connaissances.",
-      "type": "lecture",
-      "tags": [{"text": "Quiz 2 (9 Avr)", "type": "eval"}]
+      "date": "2026-04-02",
+      "title": "Analyse d'images et audio",
+      "description": "Vision par ordinateur et reconnaissance vocale.",
+      "type": "lecture"
+    },
+    {
+      "week": 14,
+      "date": "2026-04-09",
+      "title": "Quiz 2",
+      "description": "Évaluation finale en classe (3 heures).",
+      "type": "eval",
+      "tags": [{"text": "Quiz 2", "type": "eval"}]
+    },
+    {
+      "week": 15,
+      "date": "2026-04-16",
+      "title": "Fin de session",
+      "description": "Semaine d'examens / Fin des cours.",
+      "type": "break"
     },
     {
       "week": "Fin",
       "date": "2026-04-30",
-      "title": "Remise finale",
-      "description": "Date limite pour le TP3.",
+      "title": "Remise du TP3",
+      "description": "Date limite pour le travail de session.",
       "type": "eval",
-      "tags": [{"text": "TP3", "type": "eval"}]
+      "tags": [{"text": "TP3 (30 Avr)", "type": "eval"}]
     }
   ]
 }
