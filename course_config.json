@@ -69,29 +69,36 @@
         "url": "slides/2_introduction_r/index.html"
       }
     },
-    {
-      "week": 3,
-      "date": "2026-01-22",
-      "title": "Git, GitHub et Quarto",
-      "description": "Contrôle de version, collaboration et documents dynamiques.",
-      "type": "lecture",
-      "slide": {
-        "image": "images/cours_3.png",
-        "url": "slides/3_introduction_git_github/git_github.html"
-      }
-    },
-    {
-      "week": 4,
-      "date": "2026-01-29",
-      "title": "Les données structurées",
-      "description": "Données de sondages, nettoyage (tidydata) et éthique.",
-      "type": "lecture",
-      "tags": [{ "text": "TP1 (28 Jan)", "type": "eval" }],
-      "slide": {
-        "image": "images/cours_4.png",
-        "url": "slides/4_sondages/cours_4_sondages.html"
-      }
-    },
+        {
+          "week": 3,
+          "date": "2026-01-22",
+          "title": "Git, GitHub et Quarto",
+          "description": "Contrôle de version, collaboration et documents dynamiques.",
+          "type": "lecture",
+          "slide": {
+            "image": "images/cours_3.png",
+            "url": "slides/3_introduction_git_github/git_github.html"
+          }
+        },
+        {
+          "week": "Remise",
+          "date": "2026-01-28",
+          "title": "Remise du TP1",
+          "description": "Date limite pour le TP1 (Introduction).",
+          "type": "important-eval"
+        },
+        {
+          "week": 4,
+          "date": "2026-01-29",
+          "title": "Les données structurées",
+          "description": "Données de sondages, nettoyage (tidydata) et éthique.",
+          "type": "lecture",
+          "tags": [{"text": "TP1 (28 Jan)", "type": "eval"}],
+          "slide": {
+            "image": "images/cours_4.png",
+            "url": "slides/4_sondages/cours_4_sondages.html"
+          }
+        },
     {
       "week": 5,
       "date": "2026-02-05",
@@ -130,25 +137,32 @@
         "url": "slides/6_analyse_textuelle/cours_6_analyse_textuelle.html"
       }
     },
-    {
-      "week": 9,
-      "date": "2026-03-05",
-      "title": "Semaine de lecture",
-      "description": "Pas de cours magistral. Travail sur le TP2.",
-      "type": "break"
-    },
-    {
-      "week": 10,
-      "date": "2026-03-12",
-      "title": "Web Scraping",
-      "description": "Collecte de données (rvest), API et éthique.",
-      "type": "lecture",
-      "tags": [{ "text": "TP2 (11 Mars)", "type": "eval" }],
-      "slide": {
-        "image": "images/cours_7.png",
-        "url": "slides/7_web_scraping/cours_7_web_scraping.html"
-      }
-    },
+        {
+          "week": 9,
+          "date": "2026-03-05",
+          "title": "Semaine de lecture",
+          "description": "Pas de cours magistral. Travail sur le TP2.",
+          "type": "break"
+        },
+        {
+          "week": "Remise",
+          "date": "2026-03-11",
+          "title": "Remise du TP2",
+          "description": "Date limite pour le TP2 (Travail de mi-session).",
+          "type": "important-eval"
+        },
+        {
+          "week": 10,
+          "date": "2026-03-12",
+          "title": "Web Scraping",
+          "description": "Collecte de données (rvest), API et éthique.",
+          "type": "lecture",
+          "tags": [{"text": "TP2 (11 Mars)", "type": "eval"}],
+          "slide": {
+            "image": "images/cours_7.png",
+            "url": "slides/7_web_scraping/cours_7_web_scraping.html"
+          }
+        },
     {
       "week": 11,
       "date": "2026-03-19",
@@ -198,13 +212,13 @@
       "type": "eval",
       "tags": [{ "text": "Quiz 2", "type": "eval" }]
     },
-    {
-      "week": "Fin",
-      "date": "2026-04-30",
-      "title": "Remise du TP3",
-      "description": "Date limite pour le travail de session.",
-      "type": "eval",
-      "tags": [{ "text": "TP3 (30 Avr)", "type": "eval" }]
+        {
+          "week": "Remise",
+          "date": "2026-04-30",
+          "title": "Remise du TP3",
+          "description": "Date limite finale pour le travail de session.",
+          "type": "important-eval",
+          "tags": [{"text": "TP3 (30 Avr)", "type": "eval"}]
+        }
+      ]
     }
-  ]
-}

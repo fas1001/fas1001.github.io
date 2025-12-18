@@ -193,7 +193,7 @@ function renderCalendar(schedule, config) {
         const dateStr = itemDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
 
         const card = document.createElement('div');
-        card.className = `roadmap-item ${isCurrent ? 'current' : ''} ${isPast ? 'past' : ''} ${item.type === 'break' ? 'is-break' : ''}`;
+        card.className = `roadmap-item ${isCurrent ? 'current' : ''} ${isPast ? 'past' : ''} ${item.type === 'break' ? 'is-break' : ''} ${item.type === 'important-eval' ? 'is-important' : ''}`;
         
         // HTML Structure
         let tagsHtml = '';

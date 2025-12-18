@@ -666,6 +666,30 @@ img {
     background: rgba(0,0,0,0.1);
 }
 
+/* Important Evaluations (Red) */
+.roadmap-item.is-important .roadmap-card {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.roadmap-item.is-important .roadmap-marker {
+    background: #ef4444;
+    border-color: #ef4444;
+}
+
+.roadmap-item.is-important .roadmap-week {
+    color: #ef4444;
+}
+
+.roadmap-item.is-important.past .roadmap-card {
+    opacity: 0.8;
+}
+
+.roadmap-item.is-important.past .roadmap-marker {
+    background: #991b1b; /* Darker red for past */
+    border-color: #991b1b;
+}
+
 .roadmap-header {
     display: flex;
     justify-content: space-between;
