@@ -7,7 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(config => {
-            applyConfig(config);
+            try {
+                applyConfig(config);
+            } catch (e) {
+                console.error('Error applying config:', e);
+                const container = document.getElementById('dynamic-calendar-container');
+                if (container) {
+                    container.innerHTML = `
+                        <div style="padding: 2rem; text-align: center; color: var(--text-muted);">
+                            <i class="fas fa-bug" style="font-size: 2rem; margin-bottom: 1rem; color: #f59e0b;"></i>
+                            <p>Erreur de traitement de la configuration.</p>
+                            <pre style="font-size: 0.8rem; margin-top: 0.5rem; white-space: pre-wrap; color: #ef4444;">${e.message}</pre>
+                        </div>
+                    `;
+                }
+            }
         })
         .catch(error => {
             console.error('Error loading course config:', error);
@@ -21,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             Si vous testez en local (file://), les navigateurs bloquent souvent les fichiers JSON externes.<br>
                             Utilisez un serveur local (ex: <code>python3 -m http.server</code>) ou visualisez via GitHub Pages.
                         </p>
+                        <pre style="font-size: 0.7rem; margin-top: 1rem; opacity: 0.7;">${error.message}</pre>
                     </div>
                 `;
             }
