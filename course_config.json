@@ -86,7 +86,7 @@
       "title": "Les données structurées",
       "description": "Données de sondages, nettoyage (tidydata) et éthique.",
       "type": "lecture",
-      "tags": [{"text": "TP1 (28 Jan)", "type": "eval"}],
+      "tags": [{ "text": "TP1 (28 Jan)", "type": "eval" }],
       "slide": {
         "image": "images/cours_4.png",
         "url": "slides/4_sondages/cours_4_sondages.html"
@@ -98,7 +98,7 @@
       "title": "Quiz 1",
       "description": "Évaluation en classe (3 heures).",
       "type": "eval",
-      "tags": [{"text": "Quiz 1", "type": "eval"}]
+      "tags": [{ "text": "Quiz 1", "type": "eval" }]
     },
     {
       "week": 6,
@@ -117,7 +117,7 @@
       "title": "Rencontres individuelles",
       "description": "Retour sur TP1/Quiz 1 et discussion des travaux.",
       "type": "break",
-      "tags": [{"text": "Rencontres", "type": "break"}]
+      "tags": [{ "text": "Rencontres", "type": "break" }]
     },
     {
       "week": 8,
@@ -143,7 +143,7 @@
       "title": "Web Scraping",
       "description": "Collecte de données (rvest), API et éthique.",
       "type": "lecture",
-      "tags": [{"text": "TP2 (11 Mars)", "type": "eval"}],
+      "tags": [{ "text": "TP2 (11 Mars)", "type": "eval" }],
       "slide": {
         "image": "images/cours_7.png",
         "url": "slides/7_web_scraping/cours_7_web_scraping.html"
@@ -166,7 +166,7 @@
       "title": "Rencontres individuelles",
       "description": "Consultations pour le travail final et préparation au Quiz 2.",
       "type": "break",
-      "tags": [{"text": "Rencontres", "type": "break"}]
+      "tags": [{ "text": "Rencontres", "type": "break" }]
     },
     {
       "week": 13,
@@ -196,7 +196,7 @@
       "title": "Quiz 2",
       "description": "Évaluation finale en classe (3 heures).",
       "type": "eval",
-      "tags": [{"text": "Quiz 2", "type": "eval"}]
+      "tags": [{ "text": "Quiz 2", "type": "eval" }]
     },
     {
       "week": "Fin",
@@ -204,7 +204,7 @@
       "title": "Remise du TP3",
       "description": "Date limite pour le travail de session.",
       "type": "eval",
-      "tags": [{"text": "TP3 (30 Avr)", "type": "eval"}]
+      "tags": [{ "text": "TP3 (30 Avr)", "type": "eval" }]
     }
   ]
 }
