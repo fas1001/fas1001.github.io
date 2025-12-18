@@ -80,34 +80,35 @@
             "url": "slides/3_introduction_git_github/git_github.html"
           }
         },
-        {
-          "week": "Remise",
-          "date": "2026-01-28",
-          "title": "Remise du TP1",
-          "description": "Date limite pour le TP1 (Introduction).",
-          "type": "important-eval"
-        },
-        {
-          "week": 4,
-          "date": "2026-01-29",
-          "title": "Les données structurées",
-          "description": "Données de sondages, nettoyage (tidydata) et éthique.",
-          "type": "lecture",
-          "tags": [{"text": "TP1 (28 Jan)", "type": "eval"}],
-          "slide": {
-            "image": "images/cours_4.png",
-            "url": "slides/4_sondages/cours_4_sondages.html"
-          }
-        },
-        {
-          "week": 5,
-          "date": "2026-02-05",
-          "title": "Quiz 1",
-          "description": "Évaluation en classe (3 heures).",
-          "type": "important-eval",
-          "tags": [{"text": "Quiz 1", "type": "eval"}]
-        },
-        {
+            {
+              "week": "Remise",
+              "date": "2026-01-28",
+              "title": "Remise du TP1",
+              "description": "Date limite pour le TP1 (Introduction).",
+              "type": "important-eval",
+              "anchor": "eval-tp1"
+            },
+            {
+              "week": 4,
+              "date": "2026-01-29",
+              "title": "Les données structurées",
+              "description": "Données de sondages, nettoyage (tidydata) et éthique.",
+              "type": "lecture",
+              "tags": [{"text": "TP1 (28 Jan)", "type": "eval"}],
+              "slide": {
+                "image": "images/cours_4.png",
+                "url": "slides/4_sondages/cours_4_sondages.html"
+              }
+            },
+            {
+              "week": 5,
+              "date": "2026-02-05",
+              "title": "Quiz 1",
+              "description": "Évaluation en classe (3 heures).",
+              "type": "important-eval",
+              "tags": [{"text": "Quiz 1", "type": "eval"}],
+              "anchor": "eval-quiz1"
+            },        {
           "week": 6,
           "date": "2026-02-12",
           "title": "Les mesures et les régressions",
@@ -144,81 +145,84 @@
           "description": "Pas de cours magistral. Travail sur le TP2.",
           "type": "break"
         },
-        {
-          "week": "Remise",
-          "date": "2026-03-11",
-          "title": "Remise du TP2",
-          "description": "Date limite pour le TP2 (Travail de mi-session).",
-          "type": "important-eval"
-        },
-        {
-          "week": 10,
-          "date": "2026-03-12",
-          "title": "Web Scraping",
-          "description": "Collecte de données (rvest), API et éthique.",
-          "type": "lecture",
-          "tags": [{"text": "TP2 (11 Mars)", "type": "eval"}],
-          "slide": {
-            "image": "images/cours_7.png",
-            "url": "slides/7_web_scraping/cours_7_web_scraping.html"
-          }
-        },
-    {
-      "week": 11,
-      "date": "2026-03-19",
-      "title": "LLM",
-      "description": "Grands modèles linguistiques, prompts et biais.",
-      "type": "lecture",
-      "slide": {
-        "image": "images/cours_8.png",
-        "url": "slides/8_llms/cours_8_llms.html"
-      }
-    },
-    {
-      "week": 12,
-      "date": "2026-03-26",
-      "title": "Rencontres individuelles",
-      "description": "Consultations pour le travail final et préparation au Quiz 2.",
-      "type": "break",
-      "tags": [{ "text": "Rencontres", "type": "break" }]
-    },
-    {
-      "week": 13,
-      "date": "2026-04-02",
-      "title": "Analyse d'images et audio",
-      "description": "Vision par ordinateur et reconnaissance vocale.",
-      "type": "lecture",
-      "slide": {
-        "image": "images/cours_9.png",
-        "url": "slides/9_analyse_images/index.html"
-      }
-    },
-    {
-      "week": 14,
-      "date": "2026-04-09",
-      "title": "Conclusion",
-      "description": "Revue des concepts clés et applications futures des mégadonnées.",
-      "type": "lecture",
-      "slide": {
-        "icon": "fas fa-book-reader",
-        "url": "slides/10_resume/resume_semestre.html"
-      }
-    },
-        {
-          "week": 15,
-          "date": "2026-04-16",
-          "title": "Quiz 2",
-          "description": "Évaluation finale en classe (3 heures).",
-          "type": "important-eval",
-          "tags": [{"text": "Quiz 2", "type": "eval"}]
-        },
-        {
-          "week": "Remise",
-          "date": "2026-04-30",
-          "title": "Remise du TP3",
-          "description": "Date limite finale pour le travail de session.",
-          "type": "important-eval",
-          "tags": [{"text": "TP3 (30 Avr)", "type": "eval"}]
+            {
+              "week": "Remise",
+              "date": "2026-03-11",
+              "title": "Remise du TP2",
+              "description": "Date limite pour le TP2 (Travail de mi-session).",
+              "type": "important-eval",
+              "anchor": "eval-tp2"
+            },
+            {
+              "week": 10,
+              "date": "2026-03-12",
+              "title": "Web Scraping",
+              "description": "Collecte de données (rvest), API et éthique.",
+              "type": "lecture",
+              "tags": [{"text": "TP2 (11 Mars)", "type": "eval"}],
+              "slide": {
+                "image": "images/cours_7.png",
+                "url": "slides/7_web_scraping/cours_7_web_scraping.html"
+              }
+            },
+            {
+              "week": 11,
+              "date": "2026-03-19",
+              "title": "LLM",
+              "description": "Grands modèles linguistiques, prompts et biais.",
+              "type": "lecture",
+              "slide": {
+                "image": "images/cours_8.png",
+                "url": "slides/8_llms/cours_8_llms.html"
+              }
+            },
+            {
+              "week": 12,
+              "date": "2026-03-26",
+              "title": "Rencontres individuelles",
+              "description": "Consultations pour le travail final et préparation au Quiz 2.",
+              "type": "break",
+              "tags": [{"text": "Rencontres", "type": "break"}]
+            },
+            {
+              "week": 13,
+              "date": "2026-04-02",
+              "title": "Analyse d'images et audio",
+              "description": "Vision par ordinateur et reconnaissance vocale.",
+              "type": "lecture",
+              "slide": {
+                "image": "images/cours_9.png",
+                "url": "slides/9_analyse_images/index.html"
+              }
+            },
+            {
+              "week": 14,
+              "date": "2026-04-09",
+              "title": "Conclusion",
+              "description": "Revue des concepts clés et applications futures des mégadonnées.",
+              "type": "lecture",
+              "slide": {
+                "icon": "fas fa-book-reader",
+                "url": "slides/10_resume/resume_semestre.html"
+              }
+            },
+            {
+              "week": 15,
+              "date": "2026-04-16",
+              "title": "Quiz 2",
+              "description": "Évaluation finale en classe (3 heures).",
+              "type": "important-eval",
+              "tags": [{"text": "Quiz 2", "type": "eval"}],
+              "anchor": "eval-quiz2"
+            },
+            {
+              "week": "Fin",
+              "date": "2026-04-30",
+              "title": "Remise du TP3",
+              "description": "Date limite finale pour le travail de session.",
+              "type": "important-eval",
+              "tags": [{"text": "TP3 (30 Avr)", "type": "eval"}],
+              "anchor": "eval-tp3"
+            }
+          ]
         }
-      ]
-    }

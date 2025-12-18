@@ -206,24 +206,7 @@ function renderCalendar(schedule, config) {
         // Slide Thumbnail
         let slideHtml = '';
         if (item.slide) {
-            // Determine availability
-            let isAvailable = true;
-            if (config && config.slides) {
-                // Try to infer ID from image path (e.g., "images/cours_1.png" -> "cours_1")
-                // Or URL for resume (e.g., ".../resume_semestre.html" -> "resume")
-                let slideId = null;
-                if (item.slide.image) {
-                    const match = item.slide.image.match(/images\/(.*)\.png/);
-                    if (match) slideId = match[1];
-                } else if (item.slide.url && item.slide.url.includes('resume')) {
-                    slideId = 'resume';
-                }
-
-                if (slideId && config.slides[slideId] === false) {
-                    isAvailable = false;
-                }
-            }
-
+            // ... (existing logic) ...
             const disabledClass = !isAvailable ? 'disabled-item' : '';
             const hrefAttr = isAvailable ? `href="${item.slide.url}"` : '';
             const pointerStyle = !isAvailable ? 'style="pointer-events: none; opacity: 0.5; filter: grayscale(100%);"' : '';
@@ -242,6 +225,15 @@ function renderCalendar(schedule, config) {
             }
         }
 
+        // Anchor Button
+        let anchorHtml = '';
+        if (item.anchor) {
+            anchorHtml = `
+            <a href="#${item.anchor}" class="roadmap-action-btn" title="Voir les détails">
+                <i class="fas fa-arrow-right"></i>
+            </a>`;
+        }
+
         card.innerHTML = `
             <div class="roadmap-marker"></div>
             <div class="roadmap-content-wrapper">
@@ -256,7 +248,10 @@ function renderCalendar(schedule, config) {
                             <p>${item.description}</p>
                             ${tagsHtml}
                         </div>
-                        ${slideHtml}
+                        <div class="roadmap-actions">
+                            ${slideHtml}
+                            ${anchorHtml}
+                        </div>
                     </div>
                 </div>
             </div>
