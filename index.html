@@ -32,12 +32,12 @@
             </button>
             <ul class="nav-links">
                 <li><a href="#calendar">Calendrier</a></li>
-                <li><a href="#diapositives">Diapositives</a></li>
                 <li><a href="#evaluations">Évaluations</a></li>
                 <li><a href="#exercices">Exercices</a></li>
-                <li><a href="#datacamp">DataCamp</a></li>
                 <li><a href="#plan">Plan</a></li>
                 <li><a href="#meetings">Rencontres</a></li>
+                <li><a href="#datacamp">DataCamp</a></li>
+                <li><a href="#diapositives">Diapositives</a></li>
                 <li><a href="https://github.com/fas1001" target="_blank" class="github-link"><i class="fab fa-github"></i></a></li>
             </ul>
         </div>
@@ -58,7 +58,7 @@
     </header>
 
     <main>
-        <!-- Calendar Summary (Moved to Top) -->
+        <!-- Calendar Summary -->
         <section id="calendar" class="section">
              <div class="container">
                 <div class="section-header">
@@ -69,147 +69,6 @@
                     <div class="calendar-loading">Chargement du calendrier...</div>
                 </div>
              </div>
-        </section>
-
-        <!-- Diapositives Section -->
-        <section id="diapositives" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Diapositives</h2>
-                    <p>Matériel didactique pour chaque séance de cours.</p>
-                </div>
-                
-                <div class="grid-cards">
-                    <!-- Cours 1 -->
-                    <article class="card slide-card" id="slide-cours_1">
-                        <a href="slides/1_introduction/cours_1_intro.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_1.png" alt="Aperçu du cours 1" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Introduction aux mégadonnées</h3>
-                        </div>
-                    </article>
-
-                    <!-- Cours 2 -->
-                    <article class="card slide-card" id="slide-cours_2">
-                        <a href="slides/2_introduction_r/index.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_2.png" alt="Aperçu du cours 2" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Introduction à R et RStudio</h3>
-                        </div>
-                    </article>
-
-                    <!-- Cours 3 -->
-                    <article class="card slide-card" id="slide-cours_3">
-                        <a href="slides/3_introduction_git_github/git_github.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_3.png" alt="Aperçu du cours 3" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Git et GitHub</h3>
-                        </div>
-                    </article>
-
-                    <!-- Cours 4 -->
-                    <article class="card slide-card" id="slide-cours_4">
-                        <a href="slides/4_sondages/cours_4_sondages.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_4.png" alt="Aperçu du cours 4" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Les sondages</h3>
-                        </div>
-                    </article>
-
-                    <!-- Cours 5 -->
-                    <article class="card slide-card" id="slide-cours_5">
-                        <a href="slides/5_mesures_latentes/cours_5_mesures.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_5.png" alt="Aperçu du cours 5" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Mesures latentes</h3>
-                        </div>
-                    </article>
-
-                    <!-- Cours 6 -->
-                    <article class="card slide-card" id="slide-cours_6">
-                        <a href="slides/6_analyse_textuelle/cours_6_analyse_textuelle.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_6.png" alt="Aperçu du cours 6" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Analyse textuelle</h3>
-                        </div>
-                    </article>
-
-                    <!-- Cours 7 -->
-                    <article class="card slide-card" id="slide-cours_7">
-                        <a href="slides/7_web_scraping/cours_7_web_scraping.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_7.png" alt="Aperçu du cours 7" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Web Scraping</h3>
-                        </div>
-                    </article>
-
-                    <!-- Cours 8 -->
-                    <article class="card slide-card" id="slide-cours_8">
-                        <a href="slides/8_llms/cours_8_llms.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_8.png" alt="Aperçu du cours 8" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>LLMs et IA</h3>
-                        </div>
-                    </article>
-
-                    <!-- Cours 9 -->
-                    <article class="card slide-card" id="slide-cours_9">
-                        <a href="slides/9_analyse_images/index.html" target="_blank" class="card-image-link">
-                            <div class="card-image-wrapper">
-                                <img src="images/cours_9.png" alt="Aperçu du cours 9" loading="lazy">
-                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Analyse d'images</h3>
-                        </div>
-                    </article>
-
-                    <!-- Résumé -->
-                    <article class="card slide-card summary-card slide-card-full-width" id="slide-resume">
-                        <a href="slides/10_resume/resume_semestre.html" target="_blank" class="card-image-link summary-link-wrapper">
-                            <div class="summary-icon">
-                                <i class="fas fa-book-reader"></i>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <h3>Synthèse du semestre</h3>
-                        </div>
-                    </article>
-                </div>
-            </div>
         </section>
 
         <!-- Évaluations Section -->
@@ -377,6 +236,52 @@
             </div>
         </section>
 
+        <!-- Plan / Syllabus -->
+        <section id="plan" class="section section-darker">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Plan de cours</h2>
+                    <p>Le contrat d'apprentissage officiel.</p>
+                </div>
+                
+                <div class="syllabus-wrapper">
+                    <div class="iframe-container">
+                        <iframe src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/fas1001/syllabus/main/fas1001_syllabus.pdf" 
+                                title="Visualiseur de plan de cours"></iframe>
+                    </div>
+                    <div class="actions-center">
+                        <a href="https://raw.githubusercontent.com/fas1001/syllabus/main/fas1001_syllabus.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download"></i> Télécharger le PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Rencontres -->
+        <section id="meetings" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Rencontres</h2>
+                    <p>Besoin d'aide? Prenez rendez-vous.</p>
+                </div>
+                <div class="calendar-wrapper">
+                    <!-- Placeholder -->
+                    <div id="rencontres-placeholder" class="rencontres-placeholder" style="display: none;">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Rencontres individuelles</h3>
+                        <p>Des rencontres individuelles sont prévues lors de la semaine 7 et la semaine 12. Un lien Google Calendar sera alors fourni en temps et lieu pour préparer les rencontres. Entre-temps, n'hésitez pas à m'écrire sur Slack si vous voulez planifier une rencontre ou si vous avez des questions.</p>
+                    </div>
+
+                    <!-- Iframe container -->
+                    <div id="rencontres-iframe-container" class="iframe-container" style="display: none;">
+                        <iframe id="rencontres-iframe" src="" 
+                                style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- DataCamp Section -->
         <section id="datacamp" class="section section-darker">
             <div class="container">
@@ -422,48 +327,143 @@
             </div>
         </section>
 
-        <!-- Plan / Syllabus -->
-        <section id="plan" class="section">
+        <!-- Diapositives Section -->
+        <section id="diapositives" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Plan de cours</h2>
-                    <p>Le contrat d'apprentissage officiel.</p>
+                    <h2>Diapositives</h2>
+                    <p>Matériel didactique pour chaque séance de cours.</p>
                 </div>
                 
-                <div class="syllabus-wrapper">
-                    <div class="iframe-container">
-                        <iframe src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/fas1001/syllabus/main/fas1001_syllabus.pdf" 
-                                title="Visualiseur de plan de cours"></iframe>
-                    </div>
-                    <div class="actions-center">
-                        <a href="https://raw.githubusercontent.com/fas1001/syllabus/main/fas1001_syllabus.pdf" download class="btn btn-primary">
-                            <i class="fas fa-download"></i> Télécharger le PDF
+                <div class="grid-cards">
+                    <!-- Cours 1 -->
+                    <article class="card slide-card" id="slide-cours_1">
+                        <a href="slides/1_introduction/cours_1_intro.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_1.png" alt="Aperçu du cours 1" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
                         </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Rencontres (Hidden/Optional based on original, keeping iframe logic but styling) -->
-        <section id="meetings" class="section section-darker">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Rencontres</h2>
-                    <p>Besoin d'aide? Prenez rendez-vous.</p>
-                </div>
-                <div class="calendar-wrapper">
-                    <!-- Placeholder -->
-                    <div id="rencontres-placeholder" class="rencontres-placeholder" style="display: none;">
-                        <i class="fas fa-calendar-alt"></i>
-                        <h3>Rencontres individuelles</h3>
-                        <p>Des rencontres individuelles sont prévues lors de la semaine 7 et la semaine 12. Un lien Google Calendar sera alors fourni en temps et lieu pour préparer les rencontres. Entre-temps, n'hésitez pas à m'écrire sur Slack si vous voulez planifier une rencontre ou si vous avez des questions.</p>
-                    </div>
+                        <div class="card-content">
+                            <h3>Introduction aux mégadonnées</h3>
+                        </div>
+                    </article>
 
-                    <!-- Iframe container -->
-                    <div id="rencontres-iframe-container" class="iframe-container" style="display: none;">
-                        <iframe id="rencontres-iframe" src="" 
-                                style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-                    </div>
+                    <!-- Cours 2 -->
+                    <article class="card slide-card" id="slide-cours_2">
+                        <a href="slides/2_introduction_r/index.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_2.png" alt="Aperçu du cours 2" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Introduction à R et RStudio</h3>
+                        </div>
+                    </article>
+
+                    <!-- Cours 3 -->
+                    <article class="card slide-card" id="slide-cours_3">
+                        <a href="slides/3_introduction_git_github/git_github.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_3.png" alt="Aperçu du cours 3" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Git et GitHub</h3>
+                        </div>
+                    </article>
+
+                    <!-- Cours 4 -->
+                    <article class="card slide-card" id="slide-cours_4">
+                        <a href="slides/4_sondages/cours_4_sondages.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_4.png" alt="Aperçu du cours 4" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Les sondages</h3>
+                        </div>
+                    </article>
+
+                    <!-- Cours 5 -->
+                    <article class="card slide-card" id="slide-cours_5">
+                        <a href="slides/5_mesures_latentes/cours_5_mesures.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_5.png" alt="Aperçu du cours 5" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Mesures latentes</h3>
+                        </div>
+                    </article>
+
+                    <!-- Cours 6 -->
+                    <article class="card slide-card" id="slide-cours_6">
+                        <a href="slides/6_analyse_textuelle/cours_6_analyse_textuelle.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_6.png" alt="Aperçu du cours 6" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Analyse textuelle</h3>
+                        </div>
+                    </article>
+
+                    <!-- Cours 7 -->
+                    <article class="card slide-card" id="slide-cours_7">
+                        <a href="slides/7_web_scraping/cours_7_web_scraping.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_7.png" alt="Aperçu du cours 7" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Web Scraping</h3>
+                        </div>
+                    </article>
+
+                    <!-- Cours 8 -->
+                    <article class="card slide-card" id="slide-cours_8">
+                        <a href="slides/8_llms/cours_8_llms.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_8.png" alt="Aperçu du cours 8" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>LLMs et IA</h3>
+                        </div>
+                    </article>
+
+                    <!-- Cours 9 -->
+                    <article class="card slide-card" id="slide-cours_9">
+                        <a href="slides/9_analyse_images/index.html" target="_blank" class="card-image-link">
+                            <div class="card-image-wrapper">
+                                <img src="images/cours_9.png" alt="Aperçu du cours 9" loading="lazy">
+                                <div class="card-overlay"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Analyse d'images</h3>
+                        </div>
+                    </article>
+
+                    <!-- Résumé -->
+                    <article class="card slide-card summary-card slide-card-full-width" id="slide-resume">
+                        <a href="slides/10_resume/resume_semestre.html" target="_blank" class="card-image-link summary-link-wrapper">
+                            <div class="summary-icon">
+                                <i class="fas fa-book-reader"></i>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <h3>Synthèse du semestre</h3>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
