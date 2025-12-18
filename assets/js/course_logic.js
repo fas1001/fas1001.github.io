@@ -151,11 +151,11 @@ function applyConfig(config) {
 
     // Handle Schedule (Dynamic Calendar)
     if (config.schedule) {
-        renderCalendar(config.schedule);
+        renderCalendar(config.schedule, config);
     }
 }
 
-function renderCalendar(schedule) {
+function renderCalendar(schedule, config) {
     const container = document.getElementById('dynamic-calendar-container');
     if (!container) return;
 
@@ -206,15 +206,37 @@ function renderCalendar(schedule) {
         // Slide Thumbnail
         let slideHtml = '';
         if (item.slide) {
+            // Determine availability
+            let isAvailable = true;
+            if (config && config.slides) {
+                // Try to infer ID from image path (e.g., "images/cours_1.png" -> "cours_1")
+                // Or URL for resume (e.g., ".../resume_semestre.html" -> "resume")
+                let slideId = null;
+                if (item.slide.image) {
+                    const match = item.slide.image.match(/images\/(.*)\.png/);
+                    if (match) slideId = match[1];
+                } else if (item.slide.url && item.slide.url.includes('resume')) {
+                    slideId = 'resume';
+                }
+
+                if (slideId && config.slides[slideId] === false) {
+                    isAvailable = false;
+                }
+            }
+
+            const disabledClass = !isAvailable ? 'disabled-item' : '';
+            const hrefAttr = isAvailable ? `href="${item.slide.url}"` : '';
+            const pointerStyle = !isAvailable ? 'style="pointer-events: none; opacity: 0.5; filter: grayscale(100%);"' : '';
+
             if (item.slide.image) {
                 slideHtml = `
-                <a href="${item.slide.url}" target="_blank" class="roadmap-slide-thumb" title="Voir les diapositives">
+                <a ${hrefAttr} target="_blank" class="roadmap-slide-thumb ${disabledClass}" ${pointerStyle} title="Voir les diapositives">
                     <img src="${item.slide.image}" alt="Diapositives" loading="lazy">
                     <div class="slide-overlay"><i class="fas fa-external-link-alt"></i></div>
                 </a>`;
             } else if (item.slide.icon) {
                  slideHtml = `
-                <a href="${item.slide.url}" target="_blank" class="roadmap-slide-thumb is-icon" title="Voir les diapositives">
+                <a ${hrefAttr} target="_blank" class="roadmap-slide-thumb is-icon ${disabledClass}" ${pointerStyle} title="Voir les diapositives">
                     <i class="${item.slide.icon}"></i>
                 </a>`;
             }
