@@ -685,15 +685,80 @@ img {
     font-size: 0.9rem;
 }
 
-.roadmap-body h4 {
+.roadmap-body {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.roadmap-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.roadmap-info h4 {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
 
-.roadmap-body p {
+.roadmap-info p {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
+}
+
+/* Slide Thumbnail */
+.roadmap-slide-thumb {
+    width: 100px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border);
+    display: block;
+    background: var(--bg-surface);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.roadmap-slide-thumb:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border-color: var(--text-accent);
+}
+
+.roadmap-slide-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: white;
+}
+
+.roadmap-slide-thumb:hover .slide-overlay {
+    opacity: 1;
+}
+
+.roadmap-slide-thumb.is-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-accent);
+    font-size: 1.5rem;
+    background: rgba(56, 189, 248, 0.1);
 }
 
 .roadmap-tags {

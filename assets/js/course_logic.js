@@ -203,6 +203,23 @@ function renderCalendar(schedule) {
                 `</div>`;
         }
 
+        // Slide Thumbnail
+        let slideHtml = '';
+        if (item.slide) {
+            if (item.slide.image) {
+                slideHtml = `
+                <a href="${item.slide.url}" target="_blank" class="roadmap-slide-thumb" title="Voir les diapositives">
+                    <img src="${item.slide.image}" alt="Diapositives" loading="lazy">
+                    <div class="slide-overlay"><i class="fas fa-external-link-alt"></i></div>
+                </a>`;
+            } else if (item.slide.icon) {
+                 slideHtml = `
+                <a href="${item.slide.url}" target="_blank" class="roadmap-slide-thumb is-icon" title="Voir les diapositives">
+                    <i class="${item.slide.icon}"></i>
+                </a>`;
+            }
+        }
+
         card.innerHTML = `
             <div class="roadmap-marker"></div>
             <div class="roadmap-content-wrapper">
@@ -212,9 +229,12 @@ function renderCalendar(schedule) {
                         <span class="roadmap-date">${dateStr}</span>
                     </div>
                     <div class="roadmap-body">
-                        <h4>${item.title}</h4>
-                        <p>${item.description}</p>
-                        ${tagsHtml}
+                        <div class="roadmap-info">
+                            <h4>${item.title}</h4>
+                            <p>${item.description}</p>
+                            ${tagsHtml}
+                        </div>
+                        ${slideHtml}
                     </div>
                 </div>
             </div>
