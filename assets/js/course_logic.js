@@ -221,7 +221,22 @@ function renderCalendar(schedule, config) {
         // Slide Thumbnail
         let slideHtml = '';
         if (item.slide) {
-            // ... (existing logic) ...
+            // Determine availability
+            let isAvailable = true;
+            if (config && config.slides) {
+                let slideId = null;
+                if (item.slide.image) {
+                    const match = item.slide.image.match(/images\/(.*)\.png/);
+                    if (match) slideId = match[1];
+                } else if (item.slide.url && item.slide.url.includes('resume')) {
+                    slideId = 'resume';
+                }
+
+                if (slideId && config.slides[slideId] === false) {
+                    isAvailable = false;
+                }
+            }
+
             const disabledClass = !isAvailable ? 'disabled-item' : '';
             const hrefAttr = isAvailable ? `href="${item.slide.url}"` : '';
             const pointerStyle = !isAvailable ? 'style="pointer-events: none; opacity: 0.5; filter: grayscale(100%);"' : '';
