@@ -1,5 +1,5 @@
 ---
-title: "Cours 1: Introduction"
+title: "Introduction"
 subtitle: "Introduction aux mégadonnées en sciences sociales"
 author: Laurence-Olivier M. Foisy
 institute: Université de Montréal
@@ -52,8 +52,9 @@ format:
 
 - Vos programmes d'études?
 - Votre connaissance en R?
+- Utilisez-vous l'IA générative?
 - Votre connaissance en bases de données?
-- Savez-vous c'est quoi un API?
+- Avez-vous déjà scrapé des données sur le web?
 - Pourquoi avez-vous pris ce cours?
 
 # Présentation du cours
@@ -126,6 +127,11 @@ format:
 Réponse: 14!
 :::
 
+::: {.callout-important}
+### La vraie question
+Ce n'est pas "Combien de V?", mais "Comment utiliser ces données de façon responsable et pertinente?"
+:::
+
 ## Une autre définition : Les 5W ? {auto-animate=true}
 
 - Who?
@@ -166,6 +172,32 @@ Réponse: 14!
 **Maintenant**: On utilise des données déjà existantes pour répondre à une question de recherche.
 
 L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
+
+## Le principe de reconversion : Exemples 2025 {.smaller}
+
+### Des données du quotidien deviennent des données de recherche
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Données originales**
+- Discussions Reddit
+- Cartes de chaleur Strava
+- Playlists Spotify
+- Profils LinkedIn
+- Tendances TikTok
+:::
+
+::: {.column width="50%"}
+**Questions de recherche**
+- Opinion publique sur l'IA?
+- Mobilité urbaine post-pandémie?
+- Identités culturelles générationnelles?
+- Trajectoires professionnelles genrées?
+- Diffusion des mouvements sociaux?
+:::
+
+::::
 
 ## Le principe fondamental des big data
 
