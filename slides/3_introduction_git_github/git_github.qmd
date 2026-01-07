@@ -1,5 +1,5 @@
 ---
-title: "Cours 3 : Introduction à git, GitHub et Quarto"
+title: "Introduction à git, GitHub et Quarto"
 subtitle: "Introduction aux mégadonnées en sciences sociales"
 author: Laurence-Olivier M. Foisy
 institute: Université de Montréal

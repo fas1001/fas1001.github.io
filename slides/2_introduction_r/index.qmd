@@ -1,5 +1,5 @@
 ---
-title: "Cours 2 : Introduction à R"
+title: "Introduction à R"
 subtitle: "Introduction aux mégadonnées en sciences sociales"
 author: Laurence-Olivier M. Foisy
 institute: Université de Montréal

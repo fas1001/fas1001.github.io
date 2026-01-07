@@ -1,5 +1,5 @@
 ---
-title: "Cours 7 : Web scraping"
+title: "Web scraping"
 subtitle: "Introduction aux mégadonnées en sciences sociales"
 author: Laurence-Olivier M. Foisy
 institute: Université de Montréal

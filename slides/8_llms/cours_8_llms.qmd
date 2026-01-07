@@ -1,5 +1,5 @@
 ---
-title: "Cours 8 : Les grands modèles linguistiques"
+title: "Les grands modèles linguistiques"
 subtitle: "Introduction aux mégadonnées en sciences sociales"
 author: Laurence-Olivier M. Foisy
 institute: Université de Montréal

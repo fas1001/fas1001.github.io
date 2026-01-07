@@ -1,5 +1,5 @@
 ---
-title: "Cours 5 : Les mesures et les analyses statistiques"
+title: "Les mesures et les analyses statistiques"
 subtitle: "Introduction aux mégadonnées en sciences sociales"
 author: Laurence-Olivier M. Foisy
 institute: Université de Montréal

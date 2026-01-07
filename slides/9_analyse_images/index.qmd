@@ -1,5 +1,5 @@
 ---
-title: "Cours 9 : Analyse d'images"
+title: "Analyse d'images"
 subtitle: "Introduction aux mégadonnées en sciences sociales"
 author: "Étienne Proulx"
 institute: Université de Montréal
