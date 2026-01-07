@@ -21,7 +21,7 @@ format:
 ## Votre chargé de cours {.biggest}
 
 - Laurence-Olivier M. Foisy
-- Courriel: [lomf0@ulaval.ca](mailto:lomf0@ulaval.ca)
+- Courriel: [mail@mfoisy.com](mailto:mail@mfoisy.com)
 - Meilleure façon de me rejoindre: Slack
 - Bureau: Aucun
 - Université: Laval 
@@ -39,7 +39,7 @@ format:
 ::: {.column width="50%"}
 
 - Maitrise au Japon en études de la paix, 100% quali
-- Arrivée au doctorat en 2023
+- Arrivée au doctorat en 2023 
 - Rencontre avec le directeur de la CLESSN
 - Ouverture au monde de la science des données
 - Participation à plusieurs projets de recherche
@@ -48,7 +48,7 @@ format:
 
 ::::
 
-## Question pour vous 
+## Questions pour vous 
 
 - Vos programmes d'études?
 - Votre connaissance en R?
@@ -65,7 +65,6 @@ format:
 - Volume
 - Vélocité
 - Variété
-
 
 ## Les trois V?
 
@@ -204,18 +203,18 @@ Notre travail
 
 | Évaluations                     |Points   | Dates                        |
 |---------------------------------|---------|------------------------------|
-| TP1 - Introduction              | 10%     | 29 janvier 2025 avant minuit |
-| Quiz 1                          | 15%     | 13 février 2025 en classe    |
-| TP2 - Travail de mi-session     | 20%     | 12 mars 2024 avant minuit    |
-| Quiz 2                          | 15%     | 10 avril 2025 en classe      |
-| TP3 - Travail de session        | 30%     | 30 avril 2024 avant minuit   |
-| Participation en classe         | 10%     | 9 janvier au 30 avril        |
-| Total                           | 100%    | 9 janvier au 30 avril        |
+| TP1 - Introduction              | 10%     | 28 janvier 2026 avant minuit |
+| Quiz 1                          | 15%     | 5 février 2026               |
+| TP2 - Travail de mi-session     | 20%     | 11 mars 2026 avant minuit    |
+| Quiz 2                          | 15%     | 16 avril 2026                |
+| TP3 - Travail de session        | 30%     | 30 avril 2026 avant minuit   |
+| Participation en classe         | 10%     | 8 janvier au 30 avril        |
+| Total                           | 100%    | 8 janvier au 30 avril        |
 
 ## Site du cours
 
 Le site web du cours est disponible au [https://fas1001.com](https://fas1001.com).
-Toutes les informations concernant le cours y seront publiées, y compris les diapositives, les travaux pratiques, le plan de cours et les dates importantes.
+Toutes les informations concernant le cours y seront publiées, y compris les diapositives, les travaux pratiques, les quiz, le plan de cours et les dates importantes.
 
 ## En rafale: {.smaller}
 
@@ -225,6 +224,3 @@ Toutes les informations concernant le cours y seront publiées, y compris les di
 - Vous avez des questions? Posez-les!
 - Vous avez des commentaires? Partagez-les!
 - Vous avez des suggestions? Proposez-les!
-
-
-
