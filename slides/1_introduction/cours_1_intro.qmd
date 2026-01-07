@@ -173,14 +173,13 @@ Ce n'est pas "Combien de V?", mais "Comment utiliser ces données de façon resp
 
 L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
 
-## Le principe de reconversion : Exemples 2025 {.smaller}
-
-### Des données du quotidien deviennent des données de recherche
+## Des données du quotidien deviennent des données de recherche {.smaller}
 
 :::: {.columns}
 
 ::: {.column width="50%"}
 **Données originales**
+
 - Discussions Reddit
 - Cartes de chaleur Strava
 - Playlists Spotify
@@ -190,6 +189,7 @@ L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
 
 ::: {.column width="50%"}
 **Questions de recherche**
+
 - Opinion publique sur l'IA?
 - Mobilité urbaine post-pandémie?
 - Identités culturelles générationnelles?
