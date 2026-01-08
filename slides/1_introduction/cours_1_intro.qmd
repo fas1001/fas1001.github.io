@@ -142,6 +142,13 @@ Ce n'est pas "Combien de V?", mais "Comment utiliser ces données de façon resp
 
 ## Une autre définition : Les 5W ? {auto-animate=true}
 
+- Who?
+- What?
+- When?
+- Where?
+
+## Une autre définition : Les 5W ? {auto-animate=true}
+
 - Why?
 
 ## Une autre définition : Les 5W ? {auto-animate=true}
@@ -154,18 +161,18 @@ Ce n'est pas "Combien de V?", mais "Comment utiliser ces données de façon resp
 
 ## Quel jeu de donnée donne les meilleurs résultats ? {auto-animate=true}
 
-- Sondage de 2000 participants représentatif?
-- 2M de tweets?
+- Sondage de 1000 participants représentatif?
+- 2M de commentaires facebook?
 
 ## Quel jeu de donnée donne les meilleurs résultats ? {auto-animate=true}
 
 Ça dépend de la question de recherche!
 
-- Quel est l'effet de la démission de Justin Trudeau sur l'humeur de la population?
+- Quel est l'acceptabilité sociale du kidnaping de Maduro par les États-Unis?
 
 - Quel est l'effet de conduire un camion ou une voiture électrique sur les intentions de vote? 
 
-## Avant et maintenant 
+## Avant et maintenant {.smaller}
 
 **Avant**: On créait des données spécifiquement pour répondre à une question de recherche.
 
@@ -199,6 +206,11 @@ L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
 
 ::::
 
+
+:::{.callout-important}
+Le but de ce cours est de vous apprendre à voir des données du quotidien comme des données de recherche potentielles.
+:::
+
 ## Le principe fondamental des big data
 
 ### Reconversion
@@ -231,6 +243,10 @@ Notre travail
 
 - Démontrer une compréhension des enjeux liés à la mobilisation et à l’utilisation de grandes bases de données en sciences sociales.
 
+## Les outils pour y arriver {.smaller}
+
+![](img/outils_numeriques_2025.jpg)
+
 ## Évaluations {.smaller}
 
 | Évaluations                     |Points   | Dates                        |
@@ -256,3 +272,5 @@ Toutes les informations concernant le cours y seront publiées, y compris les di
 - Vous avez des questions? Posez-les!
 - Vous avez des commentaires? Partagez-les!
 - Vous avez des suggestions? Proposez-les!
+
+# Bonne session!
