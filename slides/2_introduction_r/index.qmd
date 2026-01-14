@@ -29,19 +29,6 @@ format:
 
 > Le but est que vous puissiez sortir d'ici avec une compréhension de base de R et que vous soyez capable d'aller chercher des ressources pour continuer à apprendre.
 
-## Qu'est-ce que l'analyse de données?{.smaller}
-
-> L'analyse de données vise à explorer, décrire et interpréter des informations recueillies sur les comportements humains, les relations sociales et les phénomènes sociétaux. **Ce processus peut inclure des données quantitatives (comme des données issus de sondages) et des données qualitatives (comme des entretiens ou des observations)**.
-
-::: {.incremental}
-Principales étapes de l'analyse de données :
-
-1. Acquisition des données
-2. Préparation des données
-3. Analyse des données
-4. Communication des résultats
-:::
-
 
 ## Les outils d'analyse de données{.smaller}
 
@@ -55,10 +42,9 @@ Principales étapes de l'analyse de données :
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png){.absolute top=200 left=330 width="40%"}
 
+## Pourquoi R?
 
-## Pourquoi R?{.smaller}
-
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png){.absolute top=0 left=800 width="20%"}
+![](https://capsules-metho.github.io/diapos_intro_r/img/r_logo.png){.absolute top=0 left=800 width="20%"}
 
 <br><br>
 
@@ -67,18 +53,11 @@ Principales étapes de l'analyse de données :
 - Gratuit
 - Collaboratif
 - Communauté active
-  - StackExchange
-  - stackoverflow
-  - reddit.com/r/Rlanguage 
 - Adapté aux besoins des utilisateurs
 
-:::{.notes}
-Open source c'est un modèle de développement de logiciels où le code est accessible à tous. Dans un logiciel open source, ce code est publié publiquement, permettant à n'importe qui de le lire, le modifier, le partager, et l'améliorer.
-:::
+## Pourquoi R?
 
-## Pourquoi R?{.smaller}
-
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png){.absolute top=0 left=800 width="20%"}
+![](https://capsules-metho.github.io/diapos_intro_r/img/r_logo.png){.absolute top=0 left=800 width="20%"}
 
 <br><br>
 
@@ -86,31 +65,8 @@ Open source c'est un modèle de développement de logiciels où le code est acce
 
 - Offre une extension des fonctionnalités de base presque infinie
 - Peux répondre à des besoins très spécifiques
-- 21,744 packages sur CRAN (Comprehensive R Archive Network)
-  - Principal dépôt où sont hébergés les packages R
+- Plus de 22,000 packages sur CRAN (Comprehensive R Archive Network)
 - Beaucoup plus sur GitHub
-  - En plus de CRAN, de nombreux chercheurs publient leurs packages sur GitHub, une plateforme de partage de code
-
-:::{.notes}
-Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé et facilité par R. Collègue récemment à la CLESSN catégorisé les code postaux à la main. 
-:::
-
-## Pourquoi R?{.smaller}
-
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png){.absolute top=0 left=800 width="20%"}
-
-<br><br>
-
-### Packages CLESSN
-
-<!-- NOTE: Ajouter descriptions packages -->
-
-- [sondr](https://github.com/clessnverse/sondr)
-  - Permet l'automatisation de plusieurs aspects de l'analyse de données. Nous permet de faire des analyses factorielles en quelques secondes.
-- [clellm](https://github.com/clessn/clellm)
-  - Permet d'utiliser des LLM open-source directement en R et permet d'utiliser des fonctions disponibles seulement en Python, en R.
-- [clessnize](https://github.com/clessnverse/clessnize)
-  - Permet de standardiser le style de nos graphiques rapidement sans avoir à répéter les mêmes étapes à chaque fois.
 
 ## Pourquoi R?{.smaller}
 
@@ -134,18 +90,33 @@ Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé 
 
 <br><br>
 
+### Packages CLESSN
+
+<!-- NOTE: Ajouter descriptions packages -->
+
+- [sondr](https://github.com/clessnverse/sondr)
+  - Permet l'automatisation de plusieurs aspects de l'analyse de données. Nous permet de faire des analyses factorielles en quelques secondes.
+- [clellm](https://github.com/clessn/clellm)
+  - Permet d'utiliser des LLM open-source directement en R et permet d'utiliser des fonctions disponibles seulement en Python, en R.
+- [clessnize](https://github.com/clessnverse/clessnize)
+  - Permet de standardiser le style de nos graphiques rapidement sans avoir à répéter les mêmes étapes à chaque fois.
+
+## Pourquoi R?
+
+![](https://capsules-metho.github.io/diapos_intro_r/img/r_logo.png){.absolute top=0 left=800 width="20%"}
+
+<br><br>
+
 ### Reproductibilité
 
-- Rendre les analyses [reproductibles](https://github.com/clessn/beyond_multiple_choices)
-- Permet de partager les analyses
-  - Les scripts R permettent de partager facilement le travail
+- Rendre les analyses reproductibles
+- Permet de partager le code
+- Facilite la transparence et la collaboration
 - Permet de retracer les erreurs
-- Partager le code
-  - Encourage la transparence et la collaboration dans la recherche
 
 ## Pourquoi R?{.smaller}
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png){.absolute top=0 left=800 width="20%"}
+![](https://capsules-metho.github.io/diapos_intro_r/img/r_logo.png){.absolute top=0 left=800 width="20%"}
 
 <br><br>
 
@@ -153,11 +124,11 @@ Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé 
 
 - Beaucoup de ressources
 - Beaucoup de tutoriels orientés vers les sciences sociales
+  - Swirl
   - Datacamp
-  - swirl()
-  - Coursera
+  - Codecademy
 
-#### Bref... important d'utiliser les mêmes outils que les chercheurs dans votre domaine
+#### Important d'utiliser les mêmes outils que les chercheurs dans votre domaine
 
 ## Pourquoi R?{.smaller}
 
@@ -177,51 +148,9 @@ Chaque tâche spécifique lié à l'analyse de donnéees peut être automatisé 
 
 - [Utilisé par Google, Facebook, Amazon, etc.](https://makemeanalyst.com/companies-using-r/)
 
+## 
 
-
-## Pourquoi R?{.smaller}
-
-### La CLESSN 
-
-![](https://www.clessn.com/assets/img/logo-black.svg){.absolute top=420 left=630 width="30%"}
-![](img/yaduf.png){.absolute top=300 left=0 width="35%"}
-Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
-
-
-::::{.columns}
-
-:::{.column width="50%"}
-- Titulaire: Yannick Dufresne
-:::
-
-:::{.column width="50%"}
-- Objectif: Développer des compétences en science des données pour les étudiants en sciences sociales à travers des projets de recherche et des formations
-:::
-
-::::
-
-## [Datagotchi](https://usa.datagotchi.com){.smaller}
-
-![](img/datagotchi_usa.png){.absolute top=0 left=850 width="30%"}
-
-::::{.columns}
-
-:::{.column width="80%"}
-
-- Application utilisant des variables lifestyles pour prédire le vote
-- Utiliser R et l'analyse de données à travers ce projet:
-  - Prototypage en Shiny
-  - Nettoyage des données
-  - Analyse factorielle
-  - Régressions et modèles
-  - Visualisation
-
-:::
-
-:::{.column width="20%"}
-:::
-
-::::
+![](https://github.com/clessn/agregateur_data/blob/main/img/daily_gif_fr.gif?raw=true)
 
 ## 
 
@@ -239,7 +168,6 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 ## Analyse textuelle{.smaller}
 
 - Analyse de ton 
-  - Est-ce que le texte est positif ou négatif?
 
 ![](img/time_series_by_article.png){.absolute top=200 left=70 width="80%"}  
 
@@ -267,41 +195,23 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 - HTML/CSS
 - Bash 
 
-## Installer R et RStudio{.smaller}
+## Installer R et Positron{.smaller}
 
-- C'est quoi la différence entre R et RStudio?
-- R est le moteur, RStudio est le véhicule
-- R est le langage, RStudio est la feuille de papier
-- RStudio facilite l'utilisation de R
-- RStudio est un IDE (Integrated Development Environment)
-- Personnalisation de l'environnement de travail
+- R est le langage de programmation
+- Positron est l'interface
+- Positron offre plein d'outils pour faciliter l'utilisation de R
+- RStudio est un IDE parmis tant d'autres 
 
 <br><br>
 
 ### À télécharger :
 
 - [Installer R](https://cran.r-project.org/)
-- [Installer RStudio](https://www.rstudio.com/products/rstudio/download/)
+- [Installer Positron](https://positron.posit.co/)
 
-## {background-image="img/rstudio.png"}
-## {background-image="img/rstudio_script.png"}
-## {background-image="img/rstudio_console.png"}
-## {background-image="img/rstudio_files.png"}
-## {background-image="img/rstudio_env.png"}
+# Aperçu de Positron
 
-## Avant de commencer : Concept important {.smaller}
-
-### Le chemin d'arborescence
-
-- À tout moment vous devez savoir où vous êtes dans votre ordinateur pour pouvoir importer des données, exporter des graphiques ou mettre des fichiers en relation
-- Votre R pointe toujours vers un endroit spécifique dans votre ordinateur. Vous devez savoir où pour pouvoir importer des données
-- La fonction `getwd()` dans R permet de savoir où vous êtes
-
-![](https://habefast.ch/wp-content/uploads/2022/03/habefast-infographies-web-arborescence.png){.absolute top=400 left=75 width="80%"}
-
-## Avant de commencer : Concept important{.smaller}
-
-### Planifier avant de coder
+## Avant de commencer : Planifier{.smaller} 
 
 #### La plus grosse erreur est de commencer à coder sans savoir ce que vous voulez faire
 
@@ -313,11 +223,9 @@ Chaire de leadership en enseignement des sciences sociales numériques (CLESSN)
 
 Les possibilités sont infinies, donc il est important de savoir où vous voulez aller
 
-## Avant de commencer : Concept important{.smaller}
+## Avant de commencer : Décomposer le problème{.smaller}
 
-### Décomposer le problème
-
-- Une fois que vous savez ce que vous voulez faire, il est important de décomposer le problème en petites étapes
+- Décomposer le problème en petites étapes
 - Un script R pour une seule tâche
   - Bien nommer vos scripts pour savoir ce qu'ils font
   - Exemples:
@@ -327,6 +235,28 @@ Les possibilités sont infinies, donc il est important de savoir où vous voulez
     - `4_graphique.R`
 - Chaque script doit être clair et facile à comprendre
 - Commenter votre code avec des `#`
+
+## Avant de commencer : Le chemin d'arborescence{.smaller}
+
+- À tout moment vous devez savoir où vous êtes dans votre ordinateur
+- Votre R « pointe » toujours vers un dossier de votre ordinateur
+  - C'est le **répertoire de travail** (working directory)
+- La fonction `getwd()` permet de connaitre le répertoire de travail actuel
+
+![](https://habefast.ch/wp-content/uploads/2022/03/habefast-infographies-web-arborescence.png){.absolute top=320 left=75 width="80%"}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+**~/Collègue/6eme/Centre d'intéret 3/Matériaux/**
+
+## Avant de commencer : Le chemin d'arborescence{.smaller}
+
+![](https://capsules-metho.github.io/diapos_intro_r/img/chemin_arbo.png){width="120%"}
 
 ## Importer des données{.smaller}
 
@@ -345,6 +275,16 @@ df <- read.csv("chemin/vers/data.csv")
   - L'opérateur d'assignation : `<-` 
   - La fonction qui permet de lire le fichier : `read.csv()`
   - Le chemin vers le fichier : `"chemin/vers/data.csv"`
+
+## Importer des données{.smaller}
+
+Autres fonctions pour importer des données dépendamment du format:
+
+- `df <- readxl::read_excel("chemin/vers/data.xlsx")`
+- `df <- readRDS("chemin/vers/data.rds")`
+- `df <- haven::read_sav("chemin/vers/data.sav")` 
+
+![](img/df_in_env.png){.absolute top=300 left=150 width="70%"}
 
 ## Chemins d'arborescence{.smaller}
 
@@ -365,16 +305,6 @@ Voici les deux façons de spécifier le chemin :
 - Mac: `/`
 - Windows: `\` (il faut s'assurer de changer les `\` pour des `/`)
 
-
-## Importer des données{.smaller}
-
-Autres fonctions pour importer des données dépendamment du format:
-
-- `df <- readxl::read_excel("chemin/vers/data.xlsx")`
-- `df <- readRDS("chemin/vers/data.rds")`
-
-![](img/df_in_env.png){.absolute top=300 left=150 width="70%"}
-
 ## Anatomie d'une ligne de code {.smaller}
 
 Prenons un exemple simple :
@@ -390,8 +320,81 @@ Décomposons cette ligne :
 - `df$age` : variable 'age' du dataframe 'df'
 - `na.rm = TRUE` : argument de la fonction (ignorer les NA)
 
-::::{.notes}
-Cette ligne de code calcule la moyenne de la variable 'age' en ignorant les valeurs manquantes (NA) et stocke le résultat dans un objet nommé 'resultat'
+## Comprendre les fonctions {.smaller}
+
+Une fonction est comme une **machine** : elle prend des **ingrédients** (arguments), suit une **recette** interne (code), et retourne un **plat** (résultat/output).
+
+```{mermaid}
+flowchart LR
+    A[Ingrédients<br/>Arguments] -->|Entrée| B(La Machine<br/>Fonction)
+    B -->|Traitement| C[Résultat<br/>Output]
+    
+    style A fill:#e74c3c,stroke:#333,stroke-width:2px,color:white
+    style B fill:#3498db,stroke:#333,stroke-width:2px,color:white
+    style C fill:#2ecc71,stroke:#333,stroke-width:2px,color:white
+```
+
+### Exemple concret
+
+```r
+# La machine "mean" (moyenne)
+resultat <- mean(x = c(10, 20, 30), na.rm = TRUE)
+```
+
+1. **Ingrédients (`x`, `na.rm`)** : Les données (le vecteur) et les options (retirer les valeurs manquantes).
+2. **Machine (`mean`)** : Calcule la somme divisée par le nombre d'éléments.
+3. **Résultat (`resultat`)** : La valeur `20` est stockée dans l'objet.
+
+## Structures de données : 1D vs 2D
+
+En R, tout part du **vecteur**. Un dataframe n'est qu'un assemblage de vecteurs (colonnes) de même longueur mis côte à côte.
+
+:::: {.columns}
+
+::: {.column width="48%"}
+::: {.callout-note icon=false}
+
+### 1. Le Vecteur (1D)
+Une suite de valeurs du **même type**.
+<br>
+
+```r
+# Création avec c()
+noms <- c("Alice", "Bob")
+ages <- c(24, 30)
+
+# Calcul direct
+moyenne <- mean(ages)
+```
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.callout-tip icon=false}
+
+### 2. Le Dataframe (2D)
+Un tableau rectangulaire.
+<br>
+
+```r
+# Assemblage
+df <- data.frame(
+  nom = noms,
+  age = ages
+)
+```
+
+| nom | age |
+|:---|:---:|
+| Alice | 24 |
+| Bob | 30 |
+
+:::
+:::
+
 ::::
 
 ## Les types de données dans R {.smaller}
@@ -516,10 +519,6 @@ Error: object 'data' not found
    - Noms d'objets corrects ?
    - Package chargé (`library()`) ?
 
-::::{.notes}
-Encourager les étudiants à voir les erreurs comme des opportunités d'apprentissage
-::::
-
 # Codons!
 
 ## Nous allons utiliser le dataframe `swiss`{.smaller}
@@ -576,6 +575,54 @@ mean_fertility <- mean(df_selected$Fertility, na.rm = TRUE)
 df_filtered <- df_selected %>%
   filter(Fertility > mean_fertility)
 ```
+
+## Le Pipe `|>` ou `%>%` {.smaller}
+
+Le pipe signifie **"et ensuite"**. Il permet de passer le résultat d'une étape à la suivante sans imbriquer les fonctions.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Sans pipe (Difficile à lire)
+
+On lit de l'intérieur vers l'extérieur :
+
+```r
+s'habiller(
+  se_secher(
+    se_doucher(
+      se_lever(moi)
+    )
+  )
+)
+```
+:::
+
+::: {.column width="50%"}
+
+Avec pipe (Lecture naturelle)
+
+On lit de haut en bas :
+
+```r
+
+moi |> 
+  se_lever() |> 
+  se_doucher() |> 
+  se_secher() |> 
+  s'habiller()
+
+```
+:::
+
+::::
+
+:::{.callout-note} 
+
+Le pipe natif |> (R 4.1+) est le nouveau standard, mais vous croiserez souvent %>% (le pipe du tidyverse). Ils font la même chose à 99%. 
+
+:::
 
 ## Modifier des variables
 
