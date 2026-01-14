@@ -1,7 +1,7 @@
 {
   "slides": {
     "cours_1": true,
-    "cours_2": false,
+    "cours_2": true,
     "cours_3": false,
     "cours_4": false,
     "cours_5": false,
@@ -12,7 +12,7 @@
     "resume": false
   },
   "exercises": {
-    "intro_r": false,
+    "intro_r": true,
     "cleaning": false,
     "analyse": false,
     "textuelle": false,
@@ -262,3 +262,4 @@
     }
   ]
 }
+
