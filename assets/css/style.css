@@ -618,23 +618,30 @@ img {
     border-color: var(--text-muted);
 }
 
-/* Current Week Loading Animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* Current Week Active Animation */
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(56, 189, 248, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+    }
 }
 
 .roadmap-item.current .roadmap-marker {
-    background: var(--bg-surface);
-    border: 2px solid rgba(56, 189, 248, 0.2); /* Faint ring */
-    border-top-color: var(--text-accent); /* Spinning active part */
+    background: var(--text-accent);
+    border: 3px solid var(--bg-surface); /* Clean separation from background */
     border-radius: 50%;
     width: 20px;
     height: 20px;
     left: 6px; /* Centered on line: 16px - 10px = 6px */
     top: 17px;
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); /* Glow */
-    animation: spin 1s linear infinite;
+    /* Static glow + Pulse animation */
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+    animation: pulse-glow 2s infinite;
 }
 
 .roadmap-content-wrapper {
