@@ -768,6 +768,23 @@ ggplot(df, aes(x = Fertility)) +
   theme_minimal()
 ```
 
+## Analyse statistique
+
+```r
+# Calculer la corrélation entre Fertility et Agriculture
+
+correlation <- cor(df$Fertility, df$Agriculture)
+print(paste("Corrélation entre Fertility et Agriculture:", round(correlation, 2)))
+
+# Effectuer une régression linéaire avec Fertility comme variable dépendante
+
+modele <- lm(Fertility ~ Agriculture, data = df)
+
+# Afficher le résumé du modèle de régression
+
+summary(modele)
+```
+
 ## Bonnes pratiques
 
 ### [style.tidyverse.org](https://style.tidyverse.org/)
