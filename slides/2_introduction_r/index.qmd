@@ -18,6 +18,24 @@ format:
     code-overflow: wrap
 ---
 
+## Structure du cours
+
+![](img/structure_cours.png)
+
+## Les outils pour y arriver {.smaller}
+
+::: {.r-stack}
+
+![](img/outils_numeriques_2025.jpg)
+
+
+![](img/outils_numeriques_2025_r.jpg){.fragment}
+
+
+![](img/outils_numeriques_2025_qmd.jpg){.fragment}
+
+:::
+
 ## Objectifs du cours{.smaller}
 
 - Introduire R pour l'analyse de données.
