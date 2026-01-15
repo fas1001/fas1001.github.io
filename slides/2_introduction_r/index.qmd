@@ -200,7 +200,7 @@ format:
 - R est le langage de programmation
 - Positron est l'interface
 - Positron offre plein d'outils pour faciliter l'utilisation de R
-- RStudio est un IDE parmis tant d'autres 
+- Positron est un IDE parmis tant d'autres 
 
 <br><br>
 
@@ -766,23 +766,6 @@ ggplot(df, aes(x = Fertility)) +
     y = "Nombre de cantons"
   ) +
   theme_minimal()
-```
-
-## Analyse statistique
-
-```r
-# Calculer la corrélation entre Fertility et Agriculture
-
-correlation <- cor(df$Fertility, df$Agriculture)
-print(paste("Corrélation entre Fertility et Agriculture:", round(correlation, 2)))
-
-# Effectuer une régression linéaire avec Fertility comme variable dépendante
-
-modele <- lm(Fertility ~ Agriculture, data = df)
-
-# Afficher le résumé du modèle de régression
-
-summary(modele)
 ```
 
 ## Bonnes pratiques
