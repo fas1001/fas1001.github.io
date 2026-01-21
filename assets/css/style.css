@@ -1090,3 +1090,90 @@ footer {
 .track-title i {
   color: var(--text-accent);
 }
+
+/* Enhanced DataCamp Cards */
+.compact-card {
+    padding: 0; /* Reset padding for new layout */
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.compact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--text-accent);
+}
+
+.card-icon-header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-icon-header i {
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+}
+
+.compact-card:hover .card-icon-header i {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--bg-surface);
+}
+
+.compact-card h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--text-main);
+}
+
+.card-action {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-accent);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto; /* Push to bottom */
+}
+
+.card-action i {
+    transition: transform 0.2s;
+}
+
+.compact-card:hover .card-action i {
+    transform: translateX(4px);
+}
+
+/* Gradients for Icon Headers */
+.gradient-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.gradient-indigo { background: linear-gradient(135deg, #6366f1, #4338ca); }
+.gradient-sky { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
+.gradient-orange { background: linear-gradient(135deg, #f97316, #c2410c); }
+.gradient-slate { background: linear-gradient(135deg, #64748b, #334155); }
+.gradient-green { background: linear-gradient(135deg, #22c55e, #15803d); }
+.gradient-purple { background: linear-gradient(135deg, #a855f7, #7e22ce); }
+.gradient-teal { background: linear-gradient(135deg, #14b8a6, #0f766e); }
+.gradient-red { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+.gradient-cyan { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+.gradient-yellow { background: linear-gradient(135deg, #eab308, #a16207); }
+.gradient-pink { background: linear-gradient(135deg, #ec4899, #be185d); }
+.gradient-emerald { background: linear-gradient(135deg, #10b981, #047857); }
+.gradient-rose { background: linear-gradient(135deg, #f43f5e, #be123c); }
