@@ -216,6 +216,18 @@ Laurence-Olivier M. Foisy
 <li>Le balais dans RStudio</li>
 </ul>
 </section>
+<section id="structure-du-cours" class="slide level2">
+<h2>Structure du cours</h2>
+
+<img data-src="img/structure_cours.png" class="r-stretch"></section>
+<section id="les-outils-pour-y-arriver" class="slide level2 smaller">
+<h2>Les outils pour y arriver</h2>
+<div class="r-stack">
+<p><img data-src="img/outils_numeriques_2025.jpg"></p>
+<p><img data-src="img/outils_numeriques_2025_qmd.jpg" class="fragment"></p>
+<p><img data-src="img/term.png" class="absolute fragment" style="top: 0px; left: 800px; width: 35%; "></p>
+</div>
+</section>
 <section id="à-voir-aujourdhui" class="slide level2">
 <h2>À voir aujourd’hui</h2>
 <h3 id="le-reste-des-outils-que-nous-utiliserons-cette-session">Le reste des outils que nous utiliserons cette session:</h3>
@@ -226,10 +238,6 @@ Laurence-Olivier M. Foisy
 <li>Quarto</li>
 </ul>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-
-<img data-src="img/outils_recherche.png" class="r-stretch"></section>
 <section>
 <section id="terminal" class="title-slide slide level1 center">
 <h1>Terminal</h1>
@@ -239,7 +247,7 @@ Laurence-Olivier M. Foisy
 <h2>À propos du terminal</h2>
 <ul>
 <li>Pas du code mais des commandes</li>
-<li>Chaque commande est une application</li>
+<li>Aussi appelé shell ou command line</li>
 <li>Un explorateur de fichier</li>
 <li>À tout moment vous êtes dans une location précise, dans un répertoire ou un dossier</li>
 </ul>
@@ -264,9 +272,10 @@ Laurence-Olivier M. Foisy
 <section id="pourquoi-utiliser-le-terminal" class="slide level2">
 <h2>Pourquoi utiliser le terminal?</h2>
 <ul>
-<li><p>Compréhension accru de l’ordinateur et de votre arborescence</p></li>
+<li><p>Compréhension accrue de l’ordinateur et de votre arborescence</p></li>
 <li><p>Plusieurs outils ne sont disponibles que dans le terminal</p></li>
 <li><p>Se familiariser avec la console de R</p></li>
+<li><p>Donner des instructions précises que la souris ne permet pas.</p></li>
 <li><p>Git est concentré sur le terminal</p></li>
 <li><p>Meilleure raison: Parce que c’est le fun!</p></li>
 </ul>
@@ -275,7 +284,7 @@ Laurence-Olivier M. Foisy
 <h2>Liste de commandes utiles</h2>
 <ul>
 <li><code>ls</code> - Liste les fichiers et dossiers dans le répertoire courant</li>
-<li><code>cd</code> - Change de répertoire</li>
+<li><code>cd dossier</code>et <code>cd ..</code> - Change de répertoire</li>
 <li><code>mkdir</code> - Crée un nouveau dossier</li>
 <li><code>rm</code> - Supprime un fichier</li>
 <li><code>cp</code> - Copie un fichier</li>
@@ -283,6 +292,26 @@ Laurence-Olivier M. Foisy
 <li><code>cat</code> - Affiche le contenu d’un fichier</li>
 <li><code>git</code> - Gestionnaire de version</li>
 </ul>
+</section>
+<section id="attention-zone-de-danger" class="slide level2">
+<h2>⚠️ ATTENTION : Zone de Danger ⚠️</h2>
+<h3 id="le-terminal-est-puissant-mais-impitoyable.">Le terminal est puissant, mais impitoyable.</h3>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Pas de “Ctrl + Z” pour la suppression</strong></p>
+</div>
+<div class="callout-content">
+<p>Contrairement à votre explorateur de fichiers, quand vous supprimez un fichier avec <code>rm</code>, <strong>il ne va pas dans la corbeille.</strong> Il disparaît. Pour toujours.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><strong>La commande interdite (ne jamais taper ça) :</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href=""></a><span class="fu">rm</span> <span class="at">-rf</span> /</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="datacamp" class="slide level2">
 <h2>DataCamp</h2>
@@ -317,9 +346,9 @@ Laurence-Olivier M. Foisy
 <li><p>Configurer git avant de commencer à l’utiliser</p></li>
 <li><p>Dans le terminal:</p></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"username"</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.email votre@email.com</span>
-<span id="cb1-3"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"username"</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> user.email votre@email.com</span>
+<span id="cb2-3"><a href=""></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <!--`-->
 </section></section>
 <section>
@@ -393,34 +422,34 @@ Laurence-Olivier M. Foisy
 <ul>
 <li>Ce projet est maintenant un dossier sur votre ordinateur. Vous pouvez le modifier, le supprimer, le déplacer, etc.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="fu">git</span> clone https://lien/vers/repo.git</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="fu">git</span> clone https://lien/vers/repo.git</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
 <li>Modifier le projet, ajouter des fichiers, etc.</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="fu">git</span> pull </span>
-<span id="cb3-2"><a href=""></a><span class="fu">git</span> add votre_fichier_1 votre_fichier_2</span>
-<span id="cb3-3"><a href=""></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Message de commit"</span></span>
-<span id="cb3-4"><a href=""></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href=""></a><span class="fu">git</span> pull </span>
+<span id="cb4-2"><a href=""></a><span class="fu">git</span> add votre_fichier_1 votre_fichier_2</span>
+<span id="cb4-3"><a href=""></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Message de commit"</span></span>
+<span id="cb4-4"><a href=""></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="organiser-votre-répertoire-et-placer-vos-données" class="slide level2 smaller">
 <h2>Organiser votre répertoire et placer vos données</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href=""></a><span class="ex">/votre_projet</span></span>
-<span id="cb4-2"><a href=""></a><span class="ex">├──</span> data</span>
-<span id="cb4-3"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── processed</span>
-<span id="cb4-4"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> │&nbsp;&nbsp; └── data_clean.csv</span>
-<span id="cb4-5"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── raw</span>
-<span id="cb4-6"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── data_raw.csv</span>
-<span id="cb4-7"><a href=""></a><span class="ex">├──</span> docs</span>
-<span id="cb4-8"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── article</span>
-<span id="cb4-9"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     ├── articles.qmd</span>
-<span id="cb4-10"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── references.bib</span>
-<span id="cb4-11"><a href=""></a><span class="ex">├──</span> R</span>
-<span id="cb4-12"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── 1_analysis.R</span>
-<span id="cb4-13"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── 2_graph.R</span>
-<span id="cb4-14"><a href=""></a><span class="ex">├──</span> README.md</span>
-<span id="cb4-15"><a href=""></a><span class="ex">└──</span> results</span>
-<span id="cb4-16"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span> └── graphs</span>
-<span id="cb4-17"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span>  &nbsp;&nbsp; └── 1_bar_graph.png        </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="ex">/votre_projet</span></span>
+<span id="cb5-2"><a href=""></a><span class="ex">├──</span> data</span>
+<span id="cb5-3"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── processed</span>
+<span id="cb5-4"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> │&nbsp;&nbsp; └── data_clean.csv</span>
+<span id="cb5-5"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── raw</span>
+<span id="cb5-6"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── data_raw.csv</span>
+<span id="cb5-7"><a href=""></a><span class="ex">├──</span> docs</span>
+<span id="cb5-8"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── article</span>
+<span id="cb5-9"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     ├── articles.qmd</span>
+<span id="cb5-10"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span>     └── references.bib</span>
+<span id="cb5-11"><a href=""></a><span class="ex">├──</span> R</span>
+<span id="cb5-12"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> ├── 1_analysis.R</span>
+<span id="cb5-13"><a href=""></a><span class="ex">│&nbsp;&nbsp;</span> └── 2_graph.R</span>
+<span id="cb5-14"><a href=""></a><span class="ex">├──</span> README.md</span>
+<span id="cb5-15"><a href=""></a><span class="ex">└──</span> results</span>
+<span id="cb5-16"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span> └── graphs</span>
+<span id="cb5-17"><a href=""></a> <span class="ex">&nbsp;&nbsp;</span>  &nbsp;&nbsp; └── 1_bar_graph.png        </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="gitignore" class="slide level2 smaller">
 <h2>.gitignore</h2>
@@ -531,7 +560,7 @@ Laurence-Olivier M. Foisy
 <li>Possibilité d’inclure du LaTeX si nécessaire</li>
 <li>Templates facile à créer et à utiliser</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><a href=""></a><span class="ex">quarto</span> use template fas1001/gabarit_udem_science_po</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb6-1"><a href=""></a><span class="ex">quarto</span> use template fas1001/gabarit_udem_science_po</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 
 <img data-src="https://r4ds.hadley.nz/images/quarto-flow.png" class="r-stretch"></section>
 <section id="pourquoi-se-compliquer-la-vie" class="slide level2 smaller">
@@ -566,20 +595,20 @@ Laurence-Olivier M. Foisy
 <h2>Comment utiliser Markdown</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a></span>
-<span id="cb6-2"><a href=""></a><span class="fu">### Titre de niveau 3</span></span>
-<span id="cb6-3"><a href=""></a></span>
-<span id="cb6-4"><a href=""></a><span class="fu">#### Titre de niveau 4</span></span>
-<span id="cb6-5"><a href=""></a></span>
-<span id="cb6-6"><a href=""></a>**Texte en gras**</span>
-<span id="cb6-7"><a href=""></a>_Texte en italique_</span>
-<span id="cb6-8"><a href=""></a></span>
-<span id="cb6-9"><a href=""></a>@citation dans le texte</span>
-<span id="cb6-10"><a href=""></a>En fin de phrase <span class="co">[</span><span class="ot">@citation</span><span class="co">]</span>.</span>
-<span id="cb6-11"><a href=""></a></span>
-<span id="cb6-12"><a href=""></a><span class="at">&gt; Bloc de citation</span></span>
-<span id="cb6-13"><a href=""></a></span>
-<span id="cb6-14"><a href=""></a>Texte normal, écriture, blablabla.</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a></span>
+<span id="cb7-2"><a href=""></a><span class="fu">### Titre de niveau 3</span></span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="fu">#### Titre de niveau 4</span></span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a>**Texte en gras**</span>
+<span id="cb7-7"><a href=""></a>_Texte en italique_</span>
+<span id="cb7-8"><a href=""></a></span>
+<span id="cb7-9"><a href=""></a>@citation dans le texte</span>
+<span id="cb7-10"><a href=""></a>En fin de phrase <span class="co">[</span><span class="ot">@citation</span><span class="co">]</span>.</span>
+<span id="cb7-11"><a href=""></a></span>
+<span id="cb7-12"><a href=""></a><span class="at">&gt; Bloc de citation</span></span>
+<span id="cb7-13"><a href=""></a></span>
+<span id="cb7-14"><a href=""></a>Texte normal, écriture, blablabla.</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:50%;">
 <h3 id="titre-de-niveau-3">Titre de niveau 3</h3>
 <h4 id="titre-de-niveau-4">Titre de niveau 4</h4>
@@ -597,15 +626,15 @@ Laurence-Olivier M. Foisy
 <h2>Comment utiliser Markdown</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="ss">- </span>Liste à puce</span>
-<span id="cb7-2"><a href=""></a><span class="ss">- </span>Liste à puce </span>
-<span id="cb7-3"><a href=""></a><span class="ss">  1. </span>Sous-liste à numéro</span>
-<span id="cb7-4"><a href=""></a><span class="ss">  2. </span>Sous-liste à numéro</span>
-<span id="cb7-5"><a href=""></a><span class="ss">      1. </span>Sou-sous liste à numéro</span>
-<span id="cb7-6"><a href=""></a><span class="ss">        - </span>Sous-sous-sous liste à puce</span>
-<span id="cb7-7"><a href=""></a></span>
-<span id="cb7-8"><a href=""></a><span class="al">![](https://mdg.imgix.net/assets/images/tux.png?auto=format&amp;fit=clip&amp;q=40&amp;w=100)</span></span>
-<span id="cb7-9"><a href=""></a><span class="al">![](img/terminal.png)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="ss">- </span>Liste à puce</span>
+<span id="cb8-2"><a href=""></a><span class="ss">- </span>Liste à puce </span>
+<span id="cb8-3"><a href=""></a><span class="ss">  1. </span>Sous-liste à numéro</span>
+<span id="cb8-4"><a href=""></a><span class="ss">  2. </span>Sous-liste à numéro</span>
+<span id="cb8-5"><a href=""></a><span class="ss">      1. </span>Sou-sous liste à numéro</span>
+<span id="cb8-6"><a href=""></a><span class="ss">        - </span>Sous-sous-sous liste à puce</span>
+<span id="cb8-7"><a href=""></a></span>
+<span id="cb8-8"><a href=""></a><span class="al">![](https://mdg.imgix.net/assets/images/tux.png?auto=format&amp;fit=clip&amp;q=40&amp;w=100)</span></span>
+<span id="cb8-9"><a href=""></a><span class="al">![](img/terminal.png)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:50%;">
 <ul>
 <li>Liste à puce</li>
@@ -626,33 +655,33 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="fichiers-.bib" class="slide level2">
 <h2>Fichiers .bib</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bib number-lines code-with-copy"><code class="sourceCode bibtex"><span id="cb8-1"><a href=""></a><span class="va">@book</span>{<span class="ot">salganik2019bit</span>,</span>
-<span id="cb8-2"><a href=""></a>  <span class="dt">title</span>={Bit by bit: Social research in the digital age},</span>
-<span id="cb8-3"><a href=""></a>  <span class="dt">author</span>={Salganik, Matthew J},</span>
-<span id="cb8-4"><a href=""></a>  <span class="dt">year</span>={2019},</span>
-<span id="cb8-5"><a href=""></a>  <span class="dt">publisher</span>={Princeton University Press}</span>
-<span id="cb8-6"><a href=""></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bib number-lines code-with-copy"><code class="sourceCode bibtex"><span id="cb9-1"><a href=""></a><span class="va">@book</span>{<span class="ot">salganik2019bit</span>,</span>
+<span id="cb9-2"><a href=""></a>  <span class="dt">title</span>={Bit by bit: Social research in the digital age},</span>
+<span id="cb9-3"><a href=""></a>  <span class="dt">author</span>={Salganik, Matthew J},</span>
+<span id="cb9-4"><a href=""></a>  <span class="dt">year</span>={2019},</span>
+<span id="cb9-5"><a href=""></a>  <span class="dt">publisher</span>={Princeton University Press}</span>
+<span id="cb9-6"><a href=""></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="yaml-header" class="slide level2">
 <h2>YAML Header</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href=""></a></span>
-<span id="cb9-2"><a href=""></a><span class="pp">---</span></span>
-<span id="cb9-3"><a href=""></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Laurence-Olivier"</span></span>
-<span id="cb9-4"><a href=""></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Le YAML"</span></span>
-<span id="cb9-5"><a href=""></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"C'est quoi?"</span></span>
-<span id="cb9-6"><a href=""></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
-<span id="cb9-7"><a href=""></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb9-8"><a href=""></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
-<span id="cb9-9"><a href=""></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> article</span></span>
-<span id="cb9-10"><a href=""></a><span class="at">    </span><span class="fu">geometry</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb9-11"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> margin=2.5cm</span></span>
-<span id="cb9-12"><a href=""></a><span class="at">    </span><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
-<span id="cb9-13"><a href=""></a><span class="at">    </span><span class="fu">mainfont</span><span class="kw">:</span><span class="at"> </span><span class="st">"TeX Gyre Termes"</span></span>
-<span id="cb9-14"><a href=""></a><span class="fu">    header-includes</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb9-15"><a href=""></a>      \usepackage[french]{babel}</span>
-<span id="cb9-16"><a href=""></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
-<span id="cb9-17"><a href=""></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl</span></span>
-<span id="cb9-18"><a href=""></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href=""></a></span>
+<span id="cb10-2"><a href=""></a><span class="pp">---</span></span>
+<span id="cb10-3"><a href=""></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Laurence-Olivier"</span></span>
+<span id="cb10-4"><a href=""></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Le YAML"</span></span>
+<span id="cb10-5"><a href=""></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"C'est quoi?"</span></span>
+<span id="cb10-6"><a href=""></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
+<span id="cb10-7"><a href=""></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb10-8"><a href=""></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb10-9"><a href=""></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> article</span></span>
+<span id="cb10-10"><a href=""></a><span class="at">    </span><span class="fu">geometry</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb10-11"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> margin=2.5cm</span></span>
+<span id="cb10-12"><a href=""></a><span class="at">    </span><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
+<span id="cb10-13"><a href=""></a><span class="at">    </span><span class="fu">mainfont</span><span class="kw">:</span><span class="at"> </span><span class="st">"TeX Gyre Termes"</span></span>
+<span id="cb10-14"><a href=""></a><span class="fu">    header-includes</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb10-15"><a href=""></a>      \usepackage[french]{babel}</span>
+<span id="cb10-16"><a href=""></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
+<span id="cb10-17"><a href=""></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl</span></span>
+<span id="cb10-18"><a href=""></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="le-tp1" class="slide level2">
 <h2>Le TP1</h2>

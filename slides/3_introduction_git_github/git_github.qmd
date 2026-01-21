@@ -24,6 +24,23 @@ format:
 - Le path?
 - Le balais dans RStudio
 
+## Structure du cours
+
+![](img/structure_cours.png)
+
+## Les outils pour y arriver {.smaller}
+
+::: {.r-stack}
+
+![](img/outils_numeriques_2025.jpg)
+
+
+![](img/outils_numeriques_2025_qmd.jpg){.fragment}
+
+![](img/term.png){.absolute .fragment width="35%" top=0 left=800}
+
+:::
+
 ## À voir aujourd'hui
 
 ### Le reste des outils que nous utiliserons cette session:
@@ -33,16 +50,12 @@ format:
 - GitHub
 - Quarto
 
-##
-
-![](img/outils_recherche.png)
-
 # Terminal
 
 ## À propos du terminal{.smaller}
 
 - Pas du code mais des commandes
-- Chaque commande est une application
+- Aussi appelé shell ou command line
 - Un explorateur de fichier
 - À tout moment vous êtes dans une location précise, dans un répertoire ou un dossier
 
@@ -74,9 +87,10 @@ format:
 
 ## Pourquoi utiliser le terminal?
 
-- Compréhension accru de l'ordinateur et de votre arborescence
+- Compréhension accrue de l'ordinateur et de votre arborescence
 - Plusieurs outils ne sont disponibles que dans le terminal
 - Se familiariser avec la console de R
+- Donner des instructions précises que la souris ne permet pas.
 - Git est concentré sur le terminal
 
 - Meilleure raison: Parce que c'est le fun!
@@ -84,13 +98,32 @@ format:
 ## Liste de commandes utiles{.center .smaller}
 
 - `ls` - Liste les fichiers et dossiers dans le répertoire courant
-- `cd` - Change de répertoire
+- `cd dossier`et `cd ..` - Change de répertoire
 - `mkdir` - Crée un nouveau dossier
 - `rm` - Supprime un fichier
 - `cp` - Copie un fichier
 - `mv` - Déplace ou renomme un fichier 
 - `cat` - Affiche le contenu d'un fichier
 - `git` - Gestionnaire de version
+
+## ⚠️ ATTENTION : Zone de Danger ⚠️
+
+### Le terminal est puissant, mais impitoyable.
+
+::: {.callout-important}
+
+## Pas de "Ctrl + Z" pour la suppression
+Contrairement à votre explorateur de fichiers, quand vous supprimez un fichier avec `rm`, **il ne va pas dans la corbeille.** Il disparaît. Pour toujours.
+
+:::
+
+<br>
+
+**La commande interdite (ne jamais taper ça) :**
+
+```bash
+rm -rf /
+```
 
 ## DataCamp
 
