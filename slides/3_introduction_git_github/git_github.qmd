@@ -20,9 +20,10 @@ format:
 
 ## Des questions sur le dernier cours?
 
-- Avez-vous essayé l'exercice?
+- Avez-vous pratiqué?
+- Avez-vous essayé les Datacamps? 
 - Le path?
-- Le balais dans RStudio
+- Positron?
 
 ## Structure du cours
 
@@ -37,7 +38,7 @@ format:
 
 ![](img/outils_numeriques_2025_qmd.jpg){.fragment}
 
-![](img/term.png){.absolute .fragment width="35%" top=0 left=800}
+![](img/term.png){.absolute .fragment width="35%" top=-30 left=800}
 
 :::
 
@@ -54,12 +55,16 @@ format:
 
 ## À propos du terminal{.smaller}
 
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
 - Pas du code mais des commandes
 - Aussi appelé shell ou command line
 - Un explorateur de fichier
 - À tout moment vous êtes dans une location précise, dans un répertoire ou un dossier
 
 ## Terminal
+
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
 
 ::::{.columns}
 
@@ -87,6 +92,8 @@ format:
 
 ## Pourquoi utiliser le terminal?
 
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
 - Compréhension accrue de l'ordinateur et de votre arborescence
 - Plusieurs outils ne sont disponibles que dans le terminal
 - Se familiariser avec la console de R
@@ -108,6 +115,8 @@ format:
 
 ## ⚠️ ATTENTION : Zone de Danger ⚠️
 
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
 ### Le terminal est puissant, mais impitoyable.
 
 ::: {.callout-important}
@@ -127,13 +136,18 @@ rm -rf /
 
 ## DataCamp
 
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
 ### [Introduction to Shell](https://learn.datacamp.com/courses/introduction-to-shell)
 
 ![](img/datacamp_shell.png)
 
-# Git
+# git
+
 
 ## Git{.smaller}
+
+![](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png){.absolute top=-30 right=-150 width="10%"}
 
 ::::{.columns}
 
@@ -158,6 +172,8 @@ rm -rf /
 
 ## Important
 
+![](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png){.absolute top=-30 right=-150 width="10%"}
+
 - Télécharger et installer Git depuis [git-scm.com](git-scm.com)
 
 - Configurer git avant de commencer à l'utiliser
@@ -175,14 +191,20 @@ git config --global credential.helper store
 
 ## Git{.smaller transition="none"}
 
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
 ![](img/git.png)
 
 ## GitHub{.smaller transition="none"}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
 
 ![](img/git_github.png)
 
 
 ## GitHub
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
 
 - GitHub = Git + Internet
 
@@ -192,6 +214,8 @@ git config --global credential.helper store
 - Lieu d'entreposage de plusieurs projets open source
 
 ## Projets open source sur GitHub
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
 
 ::::{.columns}
 
@@ -213,6 +237,8 @@ git config --global credential.helper store
 
 ## Ajouter vos accès{.smaller}
 
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
 - Créer un compte GitHub :
 - Générer un token d'accès classique :
     - Connectez-vous à GitHub et allez dans vos Paramètres.
@@ -226,6 +252,8 @@ git config --global credential.helper store
     - Mot de passe : collez le token que vous avez généré.
 
 ## Comment l'utiliser?{.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
 
 1. Cloner un projet existant sur votre ordinateur.
   - Ce projet est maintenant un dossier sur votre ordinateur. Vous pouvez le modifier, le supprimer, le déplacer, etc.
@@ -245,6 +273,8 @@ git push
 ```
 
 ## Organiser votre répertoire et placer vos données{.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
 
 ```bash
 /votre_projet
@@ -268,6 +298,8 @@ git push
 
 ## .gitignore{.smaller}
 
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
 - Fichier texte qui spécifie les fichiers et dossiers à ignorer
 - Les fichiers et dossiers spécifiés dans le .gitignore ne seront pas suivis par Git
 - Exemple de contenu d'un .gitignore
@@ -277,6 +309,8 @@ git push
   - `.Renviron` - Ignore le fichier .Renviron
 
 ## Les README.md{.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
 
 - Fichier principal pour présenter et documenter un projet
 - Doit inclure une description claire du projet, comment l'installer et l'utiliser
@@ -293,11 +327,15 @@ git push
 
 ## Branches{.smaller}
 
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
 - Dans notre contexte, une branche est un chapitre, une section, un élément de votre projet
 
 ![](img/branch.webp)
 
 ## Contribuer? Pull requests (PR){.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
 
 - Les pull requests permettent à d'autres utilisateurs de proposer des modifications à votre projet
 - Processus de collaboration :
@@ -313,11 +351,15 @@ git push
 
 ## [Datacamp](https://app.datacamp.com/learn/skill-tracks/github-foundations)
 
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
 ![](img/datacamp_github.png)
 
 # Quarto
 
 ## Langages de balisage{.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 left=1100 width="10%"}
 
 ::::{.columns}
 
@@ -342,10 +384,14 @@ git push
 
 ## Historique des langages de balisage
 
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
 ![](img/timeline_markup.png)
 
 
 ## Lanages de balisage{.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
 
 ::::{.columns}
 
@@ -367,6 +413,8 @@ Ils sont tous bons!
 
 ## Pourquoi Quarto? {.smaller}
 
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
 - Très facile à utiliser
 - Inclus avec RStudio
 - Possibilité d'inclure du LaTeX si nécessaire
@@ -379,6 +427,8 @@ quarto use template fas1001/gabarit_udem_science_po
 ![](https://r4ds.hadley.nz/images/quarto-flow.png)
 
 ## Pourquoi se compliquer la vie?{.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
 
 ::::{.columns}
 
@@ -402,9 +452,13 @@ quarto use template fas1001/gabarit_udem_science_po
 
 ## Courbe d'apprentissage
 
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
 ![](https://inzaneresearch.com/wp-content/uploads/2018/06/sfhtj.jpg?w=840)
 
-## `Quarto`
+## Quarto 
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
 
 - Markdown amélioré
 - Possibilité d'utiliser plusieurs langage de programmation comme `Julia` ou `Python`.
@@ -412,6 +466,8 @@ quarto use template fas1001/gabarit_udem_science_po
 - `Quarto` permet de faire des belles présentations, livres, rapports de recherche, thèses, site web.
 
 ## Comment utiliser Markdown{.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
 
 ::::{.columns}
 
@@ -460,6 +516,8 @@ Texte normal, écriture, blablabla.
 
 ## Comment utiliser Markdown{.smaller}
 
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
 ::::{.columns}
 
 :::{.column width=50%}
@@ -497,6 +555,8 @@ Texte normal, écriture, blablabla.
 
 ## Fichiers .bib
 
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
 ```bib
 @book{salganik2019bit,
   title={Bit by bit: Social research in the digital age},
@@ -509,8 +569,9 @@ Texte normal, écriture, blablabla.
 
 ## YAML Header
 
-```yaml
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
 
+```yaml
 ---
 author: "Laurence-Olivier"
 title: "Le YAML"
@@ -530,8 +591,6 @@ csl: https://raw.githubusercontent.com/citation-style-language/styles/master/chi
 ---
 
 ```
-
-
 
 ## Le TP1
 
