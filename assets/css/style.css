@@ -1109,28 +1109,29 @@ footer {
 }
 
 .card-icon-header {
-    height: 100px;
+    height: 120px; /* Slightly taller for breathing room */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
-    color: white;
     position: relative;
     overflow: hidden;
+    background: transparent; /* Clean transparent background */
+    border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle separator */
 }
 
-.card-icon-header i {
-    z-index: 1;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    transition: transform 0.3s ease;
-}
-
-.compact-card:hover .card-icon-header i {
-    transform: scale(1.1) rotate(-5deg);
+/* Subtle pattern for header background to make it slick */
+.card-icon-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    z-index: 0;
 }
 
 .card-body {
-    padding: 1.25rem;
+    padding: 1.5rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -1140,13 +1141,14 @@ footer {
 
 .compact-card h4 {
     margin: 0 0 1rem 0;
-    font-size: 1.1rem;
+    font-size: 1.15rem; /* Slightly larger text */
     line-height: 1.4;
     color: var(--text-main);
+    font-weight: 600;
 }
 
 .card-action {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-accent);
     display: flex;
@@ -1163,31 +1165,15 @@ footer {
     transform: translateX(4px);
 }
 
-/* Gradients for Icon Headers */
-.gradient-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
-.gradient-indigo { background: linear-gradient(135deg, #6366f1, #4338ca); }
-.gradient-sky { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
-.gradient-orange { background: linear-gradient(135deg, #f97316, #c2410c); }
-.gradient-slate { background: linear-gradient(135deg, #64748b, #334155); }
-.gradient-green { background: linear-gradient(135deg, #22c55e, #15803d); }
-.gradient-purple { background: linear-gradient(135deg, #a855f7, #7e22ce); }
-.gradient-teal { background: linear-gradient(135deg, #14b8a6, #0f766e); }
-.gradient-red { background: linear-gradient(135deg, #ef4444, #b91c1c); }
-.gradient-cyan { background: linear-gradient(135deg, #06b6d4, #0e7490); }
-.gradient-yellow { background: linear-gradient(135deg, #eab308, #a16207); }
-.gradient-pink { background: linear-gradient(135deg, #ec4899, #be185d); }
-.gradient-emerald { background: linear-gradient(135deg, #10b981, #047857); }
-.gradient-rose { background: linear-gradient(135deg, #f43f5e, #be123c); }
-
 /* Styling for Hex Sticker/Logo Images */
 .card-icon-img {
-    height: 60px; /* Good size for hex stickers */
+    height: 80px; /* Larger stickers */
     width: auto;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
-    transition: transform 0.3s ease;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.3)); /* Deeper shadow for pop */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
     z-index: 1;
 }
 
 .compact-card:hover .card-icon-img {
-    transform: scale(1.1) rotate(-5deg);
+    transform: scale(1.15) rotate(-3deg);
 }
