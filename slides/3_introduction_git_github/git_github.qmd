@@ -397,9 +397,10 @@ git push
 
 :::{.column width=60%}
 
-- ![](https://priv.au/image_proxy?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F92%2FLaTeX_logo.svg%2F2560px-LaTeX_logo.svg.png&h=5bbd23b97bc133701ccafb5e61f367f211f422b02a699aae711b14e0ef0b2633){width=40%}
-- ![](https://priv.au/image_proxy?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F4%2F48%2FMarkdown-mark.svg&h=5c031353f5a7e170d152730497ecd7f3f3b2de5b2c1d14465f0b215efa217858), ![](https://priv.au/image_proxy?url=https%3A%2F%2Frstudio.github.io%2Fcheatsheets%2Fhtml%2Fimages%2Flogo-quarto.png&h=2b8bda8401b6ed48df7273da04f5cd5a122cea5d0b62d49ca17f260b5717253a){width=15%}
-- ![](https://priv.au/image_proxy?url=https%3A%2F%2Fstyles.redditmedia.com%2Ft5_83esp8%2Fstyles%2FcommunityIcon_eytolmfg1gra1.png&h=1b16a38469e43d038e49a52d4efdc768b69e079eed846bc7267acc9bc1f23e1e){width=20%}
+![](https://www.latex-project.org/about/logos/latex-project-logo_288x288.svg){.absolute width=40%, top=100 left=10}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/3840px-Markdown-mark.svg.png){.absolute width=30% top=450 left=110}
+![](https://quarto.org/quarto.png){.absolute width=30% top=280 left=400}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Typst.svg/3840px-Typst.svg.png){.absolute width=40% top=400 left=700}
 
 :::
 
@@ -592,25 +593,8 @@ csl: https://raw.githubusercontent.com/citation-style-language/styles/master/chi
 
 ```
 
-## Le TP1
+# Le TP1
 
-[Lien vers le TP1 sur GitHub Classrooms](https://classroom.github.com/a/zxD7k-73)
+[Disponible sur le site du cours](https://fas1001.com)
 
 # Conclusion
-
-<!-- 
-Tex 1978
-Word 1983
-LaTeX 1984
-Power Points 1987
-HTML 1993
-Beamer 2003
-Markdown 2004
-Google Docs 2006
-Pandoc 2009
-Microsoft 365 2013
-Libre Office 2014
-Quarto 2022
-Typst 2023
--->
-
