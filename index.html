@@ -398,75 +398,120 @@
       <section id="datacamp" class="section section-darker">
         <div class="container">
           <div class="section-header">
-            <h2>DataCamp</h2>
-            <p>Cours recommandés pour approfondir vos compétences.</p>
+            <h2>DataCamp & Pratique</h2>
+            <p>Exercices interactifs et parcours de formation pour compléter le cours.</p>
           </div>
 
-          <div class="grid-compact">
-            <a
-              href="https://app.datacamp.com/learn/courses/free-introduction-to-r"
-              target="_blank"
-              class="compact-card"
-            >
-              <span class="number">01</span>
-              <h4>Introduction to R</h4>
-            </a>
-            <a
-              href="https://app.datacamp.com/learn/courses/intermediate-r"
-              target="_blank"
-              class="compact-card"
-            >
-              <span class="number">02</span>
-              <h4>Intermediate R</h4>
-            </a>
-            <a
-              href="https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse"
-              target="_blank"
-              class="compact-card"
-            >
-              <span class="number">03</span>
-              <h4>Into to Tidyverse</h4>
-            </a>
-            <a
-              href="https://app.datacamp.com/learn/courses/web-scraping-in-r"
-              target="_blank"
-              class="compact-card"
-            >
-              <span class="number">04</span>
-              <h4>Web Scraping in R</h4>
-            </a>
-            <a
-              href="https://app.datacamp.com/learn/courses/introduction-to-git"
-              target="_blank"
-              class="compact-card"
-            >
-              <span class="number">05</span>
-              <h4>Introduction to Git</h4>
-            </a>
-            <a
-              href="https://app.datacamp.com/learn/courses/introduction-to-shell"
-              target="_blank"
-              class="compact-card"
-            >
-              <span class="number">06</span>
-              <h4>Introduction to Shell</h4>
-            </a>
-            <a
-              href="https://app.datacamp.com/learn/courses/cluster-analysis-in-r"
-              target="_blank"
-              class="compact-card"
-            >
-              <span class="number">07</span>
-              <h4>Cluster Analysis</h4>
-            </a>
-            <a
-              href="https://app.datacamp.com/learn/courses/introduction-to-text-analysis-in-r"
-              target="_blank"
-              class="compact-card"
-            >
-              <span class="number">08</span>
-              <h4>Text Analysis</h4>
-            </a>
+          <!-- Embedded Exercise -->
+          <div class="datacamp-embed-wrapper">
+            <div class="embed-header">
+              <div class="icon-box">
+                <i class="fas fa-terminal"></i>
+              </div>
+              <div>
+                <h3>Défi Interactif</h3>
+                <p>Essayez R maintenant. Calculez la moyenne de la consommation (mpg) des voitures.</p>
+              </div>
+            </div>
+            <div data-datacamp-exercise data-lang="r" data-height="350">
+              <code data-type="pre-exercise-code">data(mtcars)</code>
+              <code data-type="sample-code">
+# Le jeu de données 'mtcars' est chargé
+# Utilisez la fonction mean() sur la variable mtcars$mpg
+
+# Écrivez votre code ci-dessous:
+
+</code>
+              <code data-type="solution">
+mean(mtcars$mpg)
+              </code>
+              <code data-type="sct">
+test_function("mean", args = "x")
+success_msg("Bravo! Vous avez exécuté votre premier code R.")
+              </code>
+            </div>
+          </div>
+
+          <!-- Course Tracks -->
+          <div class="datacamp-tracks">
+            
+            <!-- Track 1: Fondamentaux -->
+            <div class="track-group">
+              <h3 class="track-title"><i class="fas fa-cube"></i> Module 1: Fondamentaux (Semaines 2-3)</h3>
+              <div class="grid-compact">
+                <a href="https://app.datacamp.com/learn/courses/free-introduction-to-r" target="_blank" class="compact-card">
+                  <span class="number">01</span>
+                  <h4>Introduction to R</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/intermediate-r" target="_blank" class="compact-card">
+                  <span class="number">02</span>
+                  <h4>Intermediate R</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse" target="_blank" class="compact-card">
+                  <span class="number">03</span>
+                  <h4>Intro to Tidyverse</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/introduction-to-git" target="_blank" class="compact-card">
+                  <span class="number">04</span>
+                  <h4>Introduction to Git</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/introduction-to-shell" target="_blank" class="compact-card">
+                  <span class="number">05</span>
+                  <h4>Introduction to Shell</h4>
+                </a>
+              </div>
+            </div>
+
+            <!-- Track 2: Données Structurées -->
+            <div class="track-group">
+              <h3 class="track-title"><i class="fas fa-table"></i> Module 2: Données Structurées (Semaines 4-6)</h3>
+              <div class="grid-compact">
+                <a href="https://app.datacamp.com/learn/courses/cleaning-data-in-r" target="_blank" class="compact-card">
+                  <span class="number">06</span>
+                  <h4>Cleaning Data in R</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/categorical-data-in-the-tidyverse" target="_blank" class="compact-card">
+                  <span class="number">07</span>
+                  <h4>Categorical Data</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/survey-analysis-in-r" target="_blank" class="compact-card">
+                  <span class="number">08</span>
+                  <h4>Survey Analysis</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/introduction-to-regression-in-r" target="_blank" class="compact-card">
+                  <span class="number">09</span>
+                  <h4>Intro to Regression</h4>
+                </a>
+                 <a href="https://app.datacamp.com/learn/courses/factor-analysis-in-r" target="_blank" class="compact-card">
+                  <span class="number">10</span>
+                  <h4>Factor Analysis</h4>
+                </a>
+              </div>
+            </div>
+
+            <!-- Track 3: Données Non-Structurées -->
+            <div class="track-group">
+              <h3 class="track-title"><i class="fas fa-align-left"></i> Module 3: Données Non-Structurées (Semaines 8-13)</h3>
+              <div class="grid-compact">
+                <a href="https://app.datacamp.com/learn/courses/introduction-to-text-analysis-in-r" target="_blank" class="compact-card">
+                  <span class="number">11</span>
+                  <h4>Text Analysis</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/web-scraping-in-r" target="_blank" class="compact-card">
+                  <span class="number">12</span>
+                  <h4>Web Scraping</h4>
+                </a>
+                <a href="https://app.datacamp.com/learn/courses/introduction-to-chatgpt" target="_blank" class="compact-card">
+                  <span class="number">13</span>
+                  <h4>Intro to ChatGPT</h4>
+                </a>
+                 <a href="https://app.datacamp.com/learn/courses/image-processing-in-r" target="_blank" class="compact-card">
+                  <span class="number">14</span>
+                  <h4>Image Processing</h4>
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -722,5 +767,6 @@
       </div>
     </footer>
     <script src="assets/js/course_logic.js"></script>
+    <script type="text/javascript" src="//cdn.datacamp.com/datacamp-light-latest.min.js"></script>
   </body>
 </html>
