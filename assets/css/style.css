@@ -879,6 +879,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .footer-social a {
@@ -1177,3 +1178,16 @@ footer {
 .gradient-pink { background: linear-gradient(135deg, #ec4899, #be185d); }
 .gradient-emerald { background: linear-gradient(135deg, #10b981, #047857); }
 .gradient-rose { background: linear-gradient(135deg, #f43f5e, #be123c); }
+
+/* Styling for Hex Sticker/Logo Images */
+.card-icon-img {
+    height: 60px; /* Good size for hex stickers */
+    width: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.compact-card:hover .card-icon-img {
+    transform: scale(1.1) rotate(-5deg);
+}
