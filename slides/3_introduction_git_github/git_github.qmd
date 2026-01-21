@@ -145,7 +145,7 @@ rm -rf /
 # git
 
 
-## Git{.smaller}
+## git{.smaller}
 
 ![](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png){.absolute top=-30 right=-150 width="10%"}
 
