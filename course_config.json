@@ -2,7 +2,7 @@
   "slides": {
     "cours_1": true,
     "cours_2": true,
-    "cours_3": false,
+    "cours_3": true,
     "cours_4": false,
     "cours_5": false,
     "cours_6": false,
@@ -262,4 +262,3 @@
     }
   ]
 }
-
