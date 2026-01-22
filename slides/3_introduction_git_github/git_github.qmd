@@ -174,7 +174,7 @@ rm -rf /
 
 ![](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png){.absolute top=-30 right=-150 width="10%"}
 
-- Télécharger et installer Git depuis [git-scm.com](git-scm.com)
+- Télécharger et installer Git depuis [git-scm.com](https://git-scm.com)
 
 - Configurer git avant de commencer à l'utiliser
 
