@@ -210,17 +210,31 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="retour-sur-le-tp1" class="slide level2 smaller">
 <h2>Retour sur le TP1</h2>
+<div class="columns">
+<h3 id="questions">Questions</h3>
+<div class="column" style="width:50%;">
 <ul>
 <li>Qu’est-ce qui était le plus difficile?</li>
 <li>Combien d’heures ça vous a pris?</li>
-<li>Pourquoi selon vous le concept de chemin d’accès est autant difficile à maitriser?</li>
-<li>Rerouler le code quand ça ne fonctionne pas</li>
-<li>C’est quoi un package? <code>library(ggplot2)</code></li>
+<li>Pourquoi on met <code>../</code> dans le chemin d’accès du graphique dans Quarto mais pas dans R?</li>
+<li>C’est quoi un package?</li>
 <li>Pourquoi le Quarto ne compilait pas?</li>
-<li>Comprenez vous comment fonctionne <code>git</code>?</li>
-<li><code>This is not a git repository</code></li>
-<li>Est-ce que vous seriez capable de le refaire sans regarder les instructions?</li>
+<li>Packages LaTeX vs packages R?</li>
 </ul>
+</div><div class="column" style="width:50%;">
+<h3 id="conseils">Conseils</h3>
+<ul>
+<li>Rerouler le code quand ça ne fonctionne pas</li>
+<li>Utiliser la poubelle dans Positron pour réinitialiser l’environnement</li>
+<li><code>This is not a git repository</code></li>
+<li><strong>UTILISEZ L’IA POUR COMPRENDRE LES MESSAGES D’ERREUR!</strong></li>
+</ul>
+</div></div>
+</section>
+<section>
+<section id="un-peu-plus-de-r" class="title-slide slide level1 center">
+<h1>Un peu plus de R?</h1>
+
 </section>
 <section id="structure-du-cours" class="slide level2">
 <h2>Structure du cours</h2>
@@ -228,7 +242,7 @@ Laurence-Olivier M. Foisy
 <p><img data-src="img/structure_cours.png"></p>
 <p><img data-src="img/structure_cours_1.png" class="fragment"></p>
 </div>
-</section>
+</section></section>
 <section>
 <section id="plan-du-cours" class="title-slide slide level1 center">
 <h1>Plan du cours</h1>
@@ -862,55 +876,78 @@ Laurence-Olivier M. Foisy
 </ul></li>
 </ul>
 </section>
-<section id="histoire-des-sondages" class="slide level2 smaller">
-<h2>Histoire des sondages</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 11%">
-<col style="width: 25%">
-<col style="width: 14%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Ère</th>
-<th>années</th>
-<th>Échantillonnage</th>
-<th>Entrevue</th>
-<th>Environnement des données</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Première vague</td>
-<td>1930</td>
-<td>Échantillonnage probabiliste par zone</td>
-<td>Face à face</td>
-<td>Sondage seul</td>
-</tr>
-<tr class="even">
-<td>Deuxième vague</td>
-<td>1950</td>
-<td>Échantillonnage probabiliste par composition aléatoire (RDD)</td>
-<td>Téléphone</td>
-<td>Sondage seul</td>
-</tr>
-<tr class="odd">
-<td>Troisième vague</td>
-<td>2000</td>
-<td>Échantillonnage non-probabiliste</td>
-<td>Ordinateur</td>
-<td>Sondages liées aux sources de mégadonnées</td>
-</tr>
-</tbody>
-</table>
+<section id="vague-1-le-face-à-face-1930-1950" class="slide level2 smaller">
+<h2>Vague 1: Le Face à Face (1930-1950)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>L’approche artisanale</strong></p>
+<ul>
+<li><strong>Échantillonnage</strong> : Probabiliste par zone géographique (on découpe une carte).</li>
+<li><strong>Collecte</strong> : Un enquêteur cogne à la porte.</li>
+<li><strong>Contexte</strong> : Le sondage est un événement rare.</li>
+<li><strong>Avantage</strong> : Taux de réponse très élevé (difficile de dire non en face).</li>
+<li><strong>Inconvénient</strong> : Extrêmement coûteux et lent.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/survey_30s.png"></p>
+</div></div>
+</section>
+<section id="vague-2-lère-du-téléphone-1950-1990" class="slide level2 smaller">
+<h2>Vague 2: L’ère du téléphone (1950-1990)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>L’industrialisation (L’âge d’or)</strong></p>
+<ul>
+<li><strong>Innovation</strong> : Le <em>Random Digit Dialing</em> (RDD).</li>
+<li><strong>Collecte</strong> : Centralisée dans des centres d’appels.</li>
+<li><strong>Contexte</strong> : Presque tout le monde a une ligne fixe.</li>
+<li><strong>Avantage</strong> : Rapide, standardisé, anonyme.</li>
+<li><strong>Inconvénient</strong> : Commence à décliner quand les gens filtrent les appels.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/survey_50s.png"></p>
+</div></div>
+</section>
+<section id="vague-3-lère-numérique-1990-2010" class="slide level2 smaller">
+<h2>Vague 3: L’ère numérique (1990-2010)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>La démocratisation</strong></p>
+<ul>
+<li><strong>Changement</strong> : Déclin du téléphone fixe, montée d’Internet.</li>
+<li><strong>Collecte</strong> : Sondages Web, Panels opt-in (volontaires).</li>
+<li><strong>Nouveau défi</strong> : L’échantillon n’est plus aléatoire simple.</li>
+<li><strong>Solution</strong> : Nécessité de méthodes de pondération complexes.</li>
+<li><strong>Coût</strong> : Drastiquement réduit.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/survey_00s.png"></p>
+</div></div>
+</section>
+<section id="vague-4-lère-comportementale-2010" class="slide level2 smaller">
+<h2>Vague 4: L’ère comportementale (2010+)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>La “Dataification”</strong></p>
+<ul>
+<li><strong>Paradigme</strong> : On ne pose plus de questions, on observe.</li>
+<li><strong>Collecte</strong> : Passive (GPS, Clics, Transactions, Réseaux sociaux).</li>
+<li><strong>Risque</strong> : Données collectées et utilisées sans consentement.</li>
+<li><strong>Futur</strong> : Hybridation (Sondages + Traces numériques).</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/survey_10s.png"></p>
+</div></div>
 </section></section>
 <section>
 <section id="représentativité-des-sondages" class="title-slide slide level1 center">
 <h1>Représentativité des sondages</h1>
 
 </section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="https://cdn.prod.website-files.com/62ba4211475cc61b25d12c08/62bf3c6e8f4a5a5241c79536_3B-Diagram-01.png" class="r-stretch"></section>
 <section id="un-sondage-historique" class="slide level2 center smaller">
 <h2>Un sondage historique</h2>
 <ul>
@@ -953,6 +990,21 @@ Laurence-Olivier M. Foisy
           display:block!important;
       }</style></aside>
 </section>
+<section id="le-cas-du-literary-digest" class="slide level2 smaller">
+<h2>Le cas du literary digest</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><strong>Population</strong> = électeurs américains en 1936</li>
+<li><strong>Population accessible</strong> = Propriétaires de voitures et les gens dans le botin téléphonique</li>
+<li><strong>Méthode d’échantillonnage</strong> = Envoi postal massif</li>
+<li><strong>Base d’échantillonnage</strong> = 10 millions de personnes</li>
+<li><strong>Échantillon</strong> = 2.4 millions de répondants</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="https://cdn.prod.website-files.com/62ba4211475cc61b25d12c08/62bf3c6e8f4a5a5241c79536_3B-Diagram-01.png" class="absolute" style="top: 100px; right: -100px; width: 70%; "></p>
+</div></div>
+</section>
 <section id="erreurs-de-représentativité" class="slide level2 smaller">
 <h2>Erreurs de représentativité</h2>
 
@@ -962,10 +1014,6 @@ Laurence-Olivier M. Foisy
 <li>Les non-réponses doivent être distribuées de manière aléatoire.</li>
 </ul>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-
-<img data-src="https://cdn.prod.website-files.com/62ba4211475cc61b25d12c08/62bf3c6e8f4a5a5241c79536_3B-Diagram-01.png" class="r-stretch"></section>
 <section id="la-pondération" class="slide level2 smaller">
 <h2>La pondération</h2>
 <h3 id="quest-ce-que-la-pondération">Qu’est-ce que la pondération?</h3>
@@ -978,7 +1026,7 @@ Laurence-Olivier M. Foisy
 <ul>
 <li>50 étudiants de 1er cycle répondent</li>
 <li>50 étudiants des cycles supérieurs répondent</li>
-<li>MAIS dans la vraie université, c’est 70-30</li>
+<li>MAIS dans la population universitaire, c’est 70% 1er cycle et 30% cycles supérieurs</li>
 </ul>
 </section>
 <section id="pourquoi-pondérer" class="slide level2 smaller">
@@ -993,7 +1041,7 @@ Laurence-Olivier M. Foisy
 <ul>
 <li>Dans notre sondage: 50% cycle 1 / 50% cycles sup</li>
 <li>Réalité: 70% cycle 1 / 30% cycles sup</li>
-<li>Solution: Donner plus de poids aux réponses des cycles sup</li>
+<li>Solution: Donner plus de poids aux réponses des 1er cycle et moins aux cycles sup</li>
 </ul>
 </section>
 <section id="comment-pondérer" class="slide level2 smaller">
@@ -1410,7 +1458,7 @@ Laurence-Olivier M. Foisy
 <h2>Avantage de standardiser le cleaning</h2>
 <p><img data-src="img/ajps_glm_coefficients_by_year_overall_categorical.png" class="absolute" style="top: 140px; right: 120px; width: 80%; "></p>
 </section>
-<section id="questions" class="slide level2">
+<section id="questions-1" class="slide level2">
 <h2>Questions?</h2>
 </section></section>
 <section id="prochain-cours" class="title-slide slide level1 center">

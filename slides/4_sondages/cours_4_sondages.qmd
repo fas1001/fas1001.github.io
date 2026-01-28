@@ -21,18 +21,38 @@ bibliography: bibliography.bib
 
 ## Retour sur le TP1{.smaller}  
 
+::: {.columns}
+
+### Questions
+
+:::: {.column width="50%"}
+
 - Qu'est-ce qui était le plus difficile?
 - Combien d'heures ça vous a pris?
-- Pourquoi selon vous le concept de chemin d'accès est autant difficile à maitriser?
-- Rerouler le code quand ça ne fonctionne pas
-- C'est quoi un package? `library(ggplot2)`
+- Pourquoi on met `../` dans le chemin d'accès du graphique dans Quarto mais pas dans R?
+- C'est quoi un package?
 - Pourquoi le Quarto ne compilait pas?
-- Comprenez vous comment fonctionne `git`? 
+- Packages LaTeX vs packages R?
+
+::::
+
+:::: {.column width="50%"}
+
+### Conseils
+
+- Rerouler le code quand ça ne fonctionne pas
+- Utiliser la poubelle dans Positron pour réinitialiser l'environnement
 - `This is not a git repository`
-- Est-ce que vous seriez capable de le refaire sans regarder les instructions?
+- **UTILISEZ L'IA POUR COMPRENDRE LES MESSAGES D'ERREUR!**
+
+::::
+
+:::
+
+
+# Un peu plus de R?
 
 ## Structure du cours
-
 
 ::: {.r-stack}
 
@@ -353,15 +373,90 @@ donnees_tidy %>%
   - Sondages
   - Entrevues
 
-## Histoire des sondages {.smaller}
+## Vague 1: Le Face à Face (1930-1950) {.smaller}
 
-| Ère | années | Échantillonnage | Entrevue | Environnement des données |
-|-----|--------|-----------------|----------|---------------------------|
-| Première vague | 1930 | Échantillonnage probabiliste par zone | Face à face | Sondage seul |
-| Deuxième vague | 1950 |Échantillonnage probabiliste par composition aléatoire (RDD) | Téléphone | Sondage seul |
-| Troisième vague | 2000| Échantillonnage non-probabiliste | Ordinateur | Sondages liées aux sources de mégadonnées |
+::: {.columns}
+
+::: {.column width="60%"}
+**L'approche artisanale**
+
+- **Échantillonnage** : Probabiliste par zone géographique (on découpe une carte).
+- **Collecte** : Un enquêteur cogne à la porte.
+- **Contexte** : Le sondage est un événement rare.
+- **Avantage** : Taux de réponse très élevé (difficile de dire non en face).
+- **Inconvénient** : Extrêmement coûteux et lent.
+:::
+
+::: {.column width="40%"}
+![](img/survey_30s.png)
+:::
+
+:::
+
+## Vague 2: L'ère du téléphone (1950-1990) {.smaller}
+
+::: {.columns}
+
+::: {.column width="60%"}
+**L'industrialisation (L'âge d'or)**
+
+- **Innovation** : Le *Random Digit Dialing* (RDD).
+- **Collecte** : Centralisée dans des centres d'appels.
+- **Contexte** : Presque tout le monde a une ligne fixe.
+- **Avantage** : Rapide, standardisé, anonyme.
+- **Inconvénient** : Commence à décliner quand les gens filtrent les appels.
+:::
+
+::: {.column width="40%"}
+![](img/survey_50s.png)
+:::
+
+:::
+
+## Vague 3: L'ère numérique (1990-2010) {.smaller}
+
+::: {.columns}
+
+::: {.column width="60%"}
+**La démocratisation**
+
+- **Changement** : Déclin du téléphone fixe, montée d'Internet.
+- **Collecte** : Sondages Web, Panels opt-in (volontaires).
+- **Nouveau défi** : L'échantillon n'est plus aléatoire simple.
+- **Solution** : Nécessité de méthodes de pondération complexes.
+- **Coût** : Drastiquement réduit.
+:::
+
+::: {.column width="40%"}
+![](img/survey_00s.png)
+:::
+
+:::
+
+## Vague 4: L'ère comportementale (2010+) {.smaller}
+
+::: {.columns}
+
+::: {.column width="60%"}
+**La "Dataification"**
+
+- **Paradigme** : On ne pose plus de questions, on observe.
+- **Collecte** : Passive (GPS, Clics, Transactions, Réseaux sociaux).
+- **Risque** : Données collectées et utilisées sans consentement.
+- **Futur** : Hybridation (Sondages + Traces numériques).
+:::
+
+::: {.column width="40%"}
+![](img/survey_10s.png)
+:::
+
+:::
 
 # Représentativité des sondages
+
+## 
+
+![](https://cdn.prod.website-files.com/62ba4211475cc61b25d12c08/62bf3c6e8f4a5a5241c79536_3B-Diagram-01.png)
 
 ## Un sondage historique {.center .smaller}
 
@@ -385,6 +480,27 @@ Points clés pour la discussion:
 - Parallèles avec les enjeux des mégadonnées aujourd'hui
 :::
 
+## Le cas du literary digest {.smaller}
+
+::::{.columns}
+
+:::{.column width="40%"}
+
+- **Population** = électeurs américains en 1936
+- **Population accessible** = Propriétaires de voitures et les gens dans le botin téléphonique
+- **Méthode d'échantillonnage** = Envoi postal massif
+- **Base d'échantillonnage** = 10 millions de personnes
+- **Échantillon** = 2.4 millions de répondants
+
+:::
+
+:::{.column width="60%"}
+![](https://cdn.prod.website-files.com/62ba4211475cc61b25d12c08/62bf3c6e8f4a5a5241c79536_3B-Diagram-01.png){.absolute top=100 right=-100 width="70%"}
+
+:::
+
+::::
+
 ## Erreurs de représentativité {.smaller}
 
 ![](img/errors.png){width="100%"}
@@ -393,9 +509,7 @@ Points clés pour la discussion:
 - L'échantillonnage doit être représentatif de la population cible.
 - Les non-réponses doivent être distribuées de manière aléatoire.
 
-## 
 
-![](https://cdn.prod.website-files.com/62ba4211475cc61b25d12c08/62bf3c6e8f4a5a5241c79536_3B-Diagram-01.png)
 
 ## La pondération{.smaller}
 
@@ -408,7 +522,7 @@ Imaginons un sondage sur la satisfaction des repas :
 
 - 50 étudiants de 1er cycle répondent
 - 50 étudiants des cycles supérieurs répondent
-- MAIS dans la vraie université, c'est 70-30
+- MAIS dans la population universitaire, c'est 70% 1er cycle et 30% cycles supérieurs
 
 ## Pourquoi pondérer? {.smaller}
 
@@ -420,7 +534,7 @@ Imaginons un sondage sur la satisfaction des repas :
 ### L'exemple de la cafétéria (suite)
 - Dans notre sondage: 50% cycle 1 / 50% cycles sup
 - Réalité: 70% cycle 1 / 30% cycles sup
-- Solution: Donner plus de poids aux réponses des cycles sup
+- Solution: Donner plus de poids aux réponses des 1er cycle et moins aux cycles sup
 
 ## Comment pondérer? {.smaller} 
 
