@@ -27,7 +27,7 @@ bibliography: bibliography.bib
 - C'est quoi un package? `library(ggplot2)`
 - Pourquoi le Quarto ne compilait pas?
 - Comprenez vous comment fonctionne `git`? 
-- "This is not a git repository"
+- `This is not a git repository`
 - Est-ce que vous seriez capable de le refaire sans regarder les instructions?
 
 ## Structure du cours
