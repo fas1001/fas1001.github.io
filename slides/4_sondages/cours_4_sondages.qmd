@@ -24,6 +24,7 @@ bibliography: bibliography.bib
 - Qu'est-ce qui était le plus difficile?
 - Combien d'heures ça vous a pris?
 - Pourquoi selon vous le concept de chemin d'accès est autant difficile à maitriser?
+- Rerouler le code quand ça ne fonctionne pas
 - C'est quoi un package? `library(ggplot2)`
 - Pourquoi le Quarto ne compilait pas?
 - Comprenez vous comment fonctionne `git`? 
