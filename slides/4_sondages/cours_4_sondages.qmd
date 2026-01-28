@@ -669,7 +669,7 @@ Source: Schuman et Presser 1996
 
 ## Autres options?
 
-- Données électorales comme les [CES](https://ces-eec.ca)
+- Données électorales comme les [CES](https://cran.r-project.org/web/packages/ces/index.html)
 - Banques de données comme [Odesi](https://odesi.ca/en)
 
 # Nettoyer des données de sondages
