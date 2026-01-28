@@ -6,8 +6,8 @@
 <script src="cours_4_sondages_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="cours_4_sondages_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="cours_4_sondages_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="cours_4_sondages_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="cours_4_sondages_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Laurence-Olivier M. Foisy">
   <title>Les sondages</title>
@@ -214,14 +214,19 @@ Laurence-Olivier M. Foisy
 <li>Qu’est-ce qui était le plus difficile?</li>
 <li>Combien d’heures ça vous a pris?</li>
 <li>Pourquoi selon vous le concept de chemin d’accès est autant difficile à maitriser?</li>
-<li>C’est quoi un .RProj? Comment ça fonctionne?</li>
 <li>C’est quoi un package? <code>library(ggplot2)</code></li>
 <li>Pourquoi le Quarto ne compilait pas?</li>
-<li>Rouler le code ligne par ligne</li>
 <li>Comprenez vous comment fonctionne <code>git</code>?</li>
 <li>“This is not a git repository”</li>
 <li>Est-ce que vous seriez capable de le refaire sans regarder les instructions?</li>
 </ul>
+</section>
+<section id="structure-du-cours" class="slide level2">
+<h2>Structure du cours</h2>
+<div class="r-stack">
+<p><img data-src="img/structure_cours.png"></p>
+<p><img data-src="img/structure_cours_1.png" class="fragment"></p>
+</div>
 </section>
 <section>
 <section id="plan-du-cours" class="title-slide slide level1 center">
@@ -236,21 +241,28 @@ Laurence-Olivier M. Foisy
 </ol></li>
 </ol>
 </section>
-<section id="lobjectif" class="slide level2">
-<h2>L’objectif</h2>
+<section id="notre-objectif" class="slide level2">
+<h2>Notre objectif</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="img/abstraction.png"></p>
 </div><div class="column" style="width:50%;">
-<p>Notre travail</p>
-<p><img data-src="https://cdn-icons-png.flaticon.com/512/3808/3808508.png" class="absolute" style="top: 200px; right: 0px; width: 40%; "></p>
+<p><img data-src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2hkcXlidGx1NThxcHc0NTdvZmZmZ3Y0eHozcThwcjA5ajdzNzlndCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VfrLCmybNyDcVc5lfU/giphy.gif" class="absolute" style="top: 120px; right: 150px; width: 40%; "></p>
 </div></div>
 </section></section>
 <section>
-<section id="tidy-data" class="title-slide slide level1 center">
+<section id="tidy-data" class="title-slide slide level1 center smaller">
 <h1>Tidy Data</h1>
-
-<img data-src="img/tidydata.png" style="width:100.0%" class="r-stretch"></section>
+<div class="{columns}">
+<div class="column" style="width:50%;">
+<p><img data-src="img/tidydata.png" style="width:70.0%"></p>
+</div><div class="column" style="width:50%;">
+<blockquote>
+<p>Like families, tidy datasets are all alike but every messy dataset is messy in its own way.</p>
+</blockquote>
+<p>Utiliser le format “tidy” équivaut à prendre le chemin de moindre résistance pour l’analyse de données.</p>
+</div></div>
+</section>
 <section id="pourquoi-tidy-les-données" class="slide level2 center">
 <h2>Pourquoi “Tidy” les données?</h2>
 <blockquote>
@@ -274,16 +286,16 @@ Laurence-Olivier M. Foisy
 </thead>
 <tbody>
 <tr class="odd">
-<td>1️⃣</td>
+<td>1</td>
 <td>Chaque colonne est une variable</td>
 </tr>
 <tr class="even">
-<td>2️⃣</td>
+<td>2</td>
 <td>Chaque ligne est une observation</td>
 </tr>
 <tr class="odd">
-<td>3️⃣</td>
-<td>Chaque dataframe est un élément observé</td>
+<td>3</td>
+<td>Chaque table est un type d’unité observé</td>
 </tr>
 </tbody>
 </table>
@@ -342,16 +354,7 @@ Laurence-Olivier M. Foisy
 <span id="cb1-6"><a href=""></a>    <span class="at">cols =</span> <span class="fu">matches</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">$"</span>), <span class="co"># Sélectionne les colonnes contenant "$"</span></span>
 <span id="cb1-7"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"revenu"</span>,</span>
 <span id="cb1-8"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"freq"</span></span>
-<span id="cb1-9"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb1-10"><a href=""></a>  <span class="co"># Optionnel: ordonner les niveaux de revenu</span></span>
-<span id="cb1-11"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-12"><a href=""></a>    <span class="at">revenu =</span> <span class="fu">factor</span>(</span>
-<span id="cb1-13"><a href=""></a>      revenu,</span>
-<span id="cb1-14"><a href=""></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"&lt;$10k"</span>, <span class="st">"$10-20k"</span>, <span class="st">"$20-30k"</span>),</span>
-<span id="cb1-15"><a href=""></a>      <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
-<span id="cb1-16"><a href=""></a>    )</span>
-<span id="cb1-17"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb1-18"><a href=""></a>  <span class="fu">arrange</span>(religion, revenu)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-9"><a href=""></a>  ) </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="les-en-têtes-sont-des-valeurs-2" class="slide level2">
 <h2>1. Les en-têtes sont des valeurs</h2>
@@ -448,17 +451,13 @@ Laurence-Olivier M. Foisy
 <span id="cb2-9"><a href=""></a>    <span class="at">sep =</span> <span class="dv">1</span>,</span>
 <span id="cb2-10"><a href=""></a>    ) <span class="sc">%&gt;%</span></span>
 <span id="cb2-11"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-12"><a href=""></a>    <span class="at">sexe =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-13"><a href=""></a>      sexe <span class="sc">==</span> <span class="st">"m"</span> <span class="sc">~</span> <span class="st">"M"</span>,</span>
-<span id="cb2-14"><a href=""></a>      sexe <span class="sc">==</span> <span class="st">"f"</span> <span class="sc">~</span> <span class="st">"F"</span></span>
-<span id="cb2-15"><a href=""></a>    ),</span>
-<span id="cb2-16"><a href=""></a>    <span class="at">age =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-17"><a href=""></a>      age <span class="sc">==</span> <span class="st">"014"</span> <span class="sc">~</span> <span class="st">"0-14"</span>,</span>
-<span id="cb2-18"><a href=""></a>      age <span class="sc">==</span> <span class="st">"1524"</span> <span class="sc">~</span> <span class="st">"15-24"</span>,</span>
-<span id="cb2-19"><a href=""></a>      age <span class="sc">==</span> <span class="st">"2534"</span> <span class="sc">~</span> <span class="st">"25-34"</span>,</span>
-<span id="cb2-20"><a href=""></a>      age <span class="sc">==</span> <span class="st">"3544"</span> <span class="sc">~</span> <span class="st">"35-44"</span></span>
-<span id="cb2-21"><a href=""></a>    )</span>
-<span id="cb2-22"><a href=""></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-12"><a href=""></a>    <span class="at">age =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-13"><a href=""></a>      age <span class="sc">==</span> <span class="st">"014"</span> <span class="sc">~</span> <span class="st">"0-14"</span>,</span>
+<span id="cb2-14"><a href=""></a>      age <span class="sc">==</span> <span class="st">"1524"</span> <span class="sc">~</span> <span class="st">"15-24"</span>,</span>
+<span id="cb2-15"><a href=""></a>      age <span class="sc">==</span> <span class="st">"2534"</span> <span class="sc">~</span> <span class="st">"25-34"</span>,</span>
+<span id="cb2-16"><a href=""></a>      age <span class="sc">==</span> <span class="st">"3544"</span> <span class="sc">~</span> <span class="st">"35-44"</span></span>
+<span id="cb2-17"><a href=""></a>    )</span>
+<span id="cb2-18"><a href=""></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="plusieurs-variables-dans-une-colonne-2" class="slide level2">
 <h2>2. Plusieurs variables dans une colonne</h2>
@@ -477,35 +476,35 @@ Laurence-Olivier M. Foisy
 <tr class="odd">
 <td>AD</td>
 <td>2000</td>
-<td>M</td>
+<td>m</td>
 <td>0-14</td>
 <td>0</td>
 </tr>
 <tr class="even">
 <td>AD</td>
 <td>2000</td>
-<td>M</td>
+<td>m</td>
 <td>15-24</td>
 <td>0</td>
 </tr>
 <tr class="odd">
 <td>AD</td>
 <td>2000</td>
-<td>M</td>
+<td>m</td>
 <td>25-34</td>
 <td>1</td>
 </tr>
 <tr class="even">
 <td>AD</td>
 <td>2000</td>
-<td>M</td>
+<td>m</td>
 <td>35-44</td>
 <td>0</td>
 </tr>
 <tr class="odd">
 <td>AE</td>
 <td>2000</td>
-<td>M</td>
+<td>m</td>
 <td>0-14</td>
 <td>2</td>
 </tr>
@@ -841,7 +840,6 @@ Laurence-Olivier M. Foisy
 <li>Une variable = une colonne</li>
 <li>Un type d’observation = un tableau</li>
 </ul>
-<p>La structure tidy facilite l’analyse! 🎯</p>
 </section></section>
 <section>
 <section id="les-sondages" class="title-slide slide level1 smaller center">
@@ -851,7 +849,11 @@ Laurence-Olivier M. Foisy
 <section id="observer-vs.-demander" class="slide level2">
 <h2>Observer vs.&nbsp;Demander</h2>
 <ul>
-<li>Observer: Regarder ce que les gens font.</li>
+<li>Observer: Regarder ce que les gens font.
+<ul>
+<li>Données de médias sociaux</li>
+<li>Données de déplacements</li>
+</ul></li>
 <li>Demander: Poser des questions aux gens.
 <ul>
 <li>Sondages</li>
@@ -1173,7 +1175,7 @@ Laurence-Olivier M. Foisy
 </div>
 </section>
 <section id="comment-collecter-des-données-de-sondages" class="slide level2">
-<h2>Comment collecter des données de sondages? <span class="emoji" data-emoji="chart_with_upwards_trend">📈</span></h2>
+<h2>Comment collecter des données de sondages?</h2>
 <ul>
 <li>Plusieurs plateforme
 <ul>
@@ -1182,7 +1184,7 @@ Laurence-Olivier M. Foisy
 <li><a href="https://www.mturk.com/" data-preview-link="true">MTurk</a></li>
 </ul></li>
 <li>Compagnies de sondage.</li>
-<li>Les sondages sont dispendieux <span class="emoji" data-emoji="moneybag">💰</span></li>
+<li>Les sondages sont dispendieux</li>
 </ul>
 </section>
 <section id="quelle-plateforme-de-sondage-choisir" class="slide level2">
@@ -1204,7 +1206,7 @@ Laurence-Olivier M. Foisy
 </section></section>
 <section>
 <section id="nettoyer-des-données-de-sondages" class="title-slide slide level1 center">
-<h1>Nettoyer des données de sondages <span class="emoji" data-emoji="broom">🧹</span></h1>
+<h1>Nettoyer des données de sondages</h1>
 
 </section>
 <section id="étude-électorale-canadienne-de-1993" class="slide level2">
@@ -1372,18 +1374,18 @@ Laurence-Olivier M. Foisy
 <section id="anatomie-dune-ligne-de-code" class="slide level2 smaller">
 <h2>Anatomie d’une ligne de code</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>CPSG1 <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>1️⃣ <strong>Nouvelle variable</strong> : <code>df_clean$issue_gst_opposed</code></p>
+<p>1 - <strong>Nouvelle variable</strong> : <code>df_clean$issue_gst_opposed</code></p>
 <ul>
 <li>Dataframe de destination : <code>df_clean</code></li>
 <li>Nom de la variable créée : <code>issue_gst_opposed</code></li>
 </ul>
-<p>2️⃣ <strong>Condition de sélection</strong> : <code>[df_raw$CPSG1 == 1]</code></p>
+<p>2 - <strong>Condition de sélection</strong> : <code>[df_raw$CPSG1 == 1]</code></p>
 <ul>
 <li>Dataframe source : <code>df_raw</code></li>
 <li>Variable source : <code>CPSG1</code></li>
 <li>Condition : égal à 1</li>
 </ul>
-<p>3️⃣ <strong>Attribution</strong> : <code>&lt;- 0</code></p>
+<p>3 - <strong>Attribution</strong> : <code>&lt;- 0</code></p>
 <ul>
 <li>Opérateur d’assignation : <code>&lt;-</code></li>
 <li>Nouvelle valeur : <code>0</code></li>
@@ -1391,19 +1393,22 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="en-langage-naturel" class="slide level2">
 <h2>En langage naturel</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>df_clean<span class="sc">$</span>issue_gst_opposed[df_raw<span class="sc">$</span>CPSG1 <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote>
-<p>“Pour toutes les observations où <code>CPSG1</code> égale 1 dans <code>df_raw</code>,<br>
-assigner la valeur 0 à la variable <code>issue_gst_opposed</code> dans <code>df_clean</code>”</p>
+<p>“Pour toutes les observations où <code>CPSG1</code> égale 1 dans <code>df_raw</code>,assigner la valeur 0 à la variable <code>issue_gst_opposed</code> dans <code>df_clean</code>”</p>
 </blockquote>
 </section>
-<section id="avantage-de-nettoyer-tout-de-la-même-façon" class="slide level2 smaller">
-<h2>Avantage de nettoyer tout de la même façon</h2>
-
-<img data-src="img/graph_importance_religiosite.png" style="width:100.0%" class="r-stretch"></section>
-<section id="avantage-de-nettoyer-tout-de-la-même-façon-1" class="slide level2 smaller">
-<h2>Avantage de nettoyer tout de la même façon</h2>
-
-<img data-src="img/graph_prop_religiosite.png" style="width:100.0%" class="r-stretch"></section>
+<section id="section-1" class="slide level2" data-background-image="img/cleaning.svg" data-background-size="90%" data-background-position="center">
+<h2></h2>
+</section>
+<section id="avantage-de-standardiser-le-cleaning" class="slide level2">
+<h2>Avantage de standardiser le cleaning</h2>
+<p><img data-src="img/graph_ideologies_evolution_bw.png" class="absolute" style="top: 100px; right: 120px; width: 80%; "></p>
+</section>
+<section id="avantage-de-standardiser-le-cleaning-1" class="slide level2 smaller">
+<h2>Avantage de standardiser le cleaning</h2>
+<p><img data-src="img/ajps_glm_coefficients_by_year_overall_categorical.png" class="absolute" style="top: 140px; right: 120px; width: 80%; "></p>
+</section>
 <section id="questions" class="slide level2">
 <h2>Questions?</h2>
 </section></section>

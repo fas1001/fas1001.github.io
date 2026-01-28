@@ -24,13 +24,22 @@ bibliography: bibliography.bib
 - Qu'est-ce qui était le plus difficile?
 - Combien d'heures ça vous a pris?
 - Pourquoi selon vous le concept de chemin d'accès est autant difficile à maitriser?
-- C'est quoi un .RProj? Comment ça fonctionne?
 - C'est quoi un package? `library(ggplot2)`
 - Pourquoi le Quarto ne compilait pas?
-- Rouler le code ligne par ligne
 - Comprenez vous comment fonctionne `git`? 
 - "This is not a git repository"
 - Est-ce que vous seriez capable de le refaire sans regarder les instructions?
+
+## Structure du cours
+
+
+::: {.r-stack}
+
+![](img/structure_cours.png)
+
+![](img/structure_cours_1.png){.fragment}
+
+:::
 
 # Plan du cours
 
@@ -40,7 +49,7 @@ bibliography: bibliography.bib
     1. Comment collecter des données de sondages?
     2. Comment nettoyer des données de sondages?
 
-## L'objectif
+## Notre objectif
 
 :::: {.columns}
 
@@ -51,17 +60,31 @@ bibliography: bibliography.bib
 
 ::: {.column width="50%"}
 
-Notre travail
-
-![](https://cdn-icons-png.flaticon.com/512/3808/3808508.png){.absolute top=200 right=0 width="40%"}
+![](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2hkcXlidGx1NThxcHc0NTdvZmZmZ3Y0eHozcThwcjA5ajdzNzlndCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VfrLCmybNyDcVc5lfU/giphy.gif){.absolute top=120 right=150 width="40%"}
 
 :::
 ::::
 
 
-# Tidy Data {.center}
+# Tidy Data {.center .smaller}
 
-![](img/tidydata.png){width="100%"}
+::: {columns}
+:::: {.column width="50%"}
+
+![](img/tidydata.png){width="70%"}
+
+::::
+
+:::: {.column width="50%"}
+
+> Like families, tidy datasets are all alike but every messy dataset is messy in its own way.
+
+Utiliser le format "tidy" équivaut à prendre le chemin de moindre résistance pour l'analyse de données.
+
+::::
+
+:::
+
 
 ## Pourquoi "Tidy" les données? {.center}
 
@@ -75,9 +98,9 @@ Notre travail
 
 | Règle | Description |
 |-------|-------------|
-| 1️⃣ | Chaque colonne est une variable |
-| 2️⃣ | Chaque ligne est une observation |
-| 3️⃣ | Chaque dataframe est un élément observé |
+| 1 | Chaque colonne est une variable |
+| 2 | Chaque ligne est une observation |
+| 3 | Chaque table est un type d'unité observé |
 
 ## Les 5 Problèmes Communs {.center}
 
@@ -108,16 +131,7 @@ df %>%
     cols = matches("\\$"), # Sélectionne les colonnes contenant "$"
     names_to = "revenu",
     values_to = "freq"
-  ) %>%
-  # Optionnel: ordonner les niveaux de revenu
-  mutate(
-    revenu = factor(
-      revenu,
-      levels = c("<$10k", "$10-20k", "$20-30k"),
-      ordered = TRUE
-    )
-  ) %>%
-  arrange(religion, revenu)
+  ) 
 ```
 
 ## 1. Les en-têtes sont des valeurs 
@@ -156,10 +170,6 @@ df %>%
     sep = 1,
     ) %>%
   mutate(
-    sexe = case_when(
-      sexe == "m" ~ "M",
-      sexe == "f" ~ "F"
-    ),
     age = case_when(
       age == "014" ~ "0-14",
       age == "1524" ~ "15-24",
@@ -176,11 +186,11 @@ df %>%
 
 | pays | année | sexe | groupe_age | cas |
 |------|-------|------|------------|-----|
-| AD   | 2000  | M    | 0-14       | 0   |
-| AD   | 2000  | M    | 15-24      | 0   |
-| AD   | 2000  | M    | 25-34      | 1   |
-| AD   | 2000  | M    | 35-44      | 0   |
-| AE   | 2000  | M    | 0-14       | 2   |
+| AD   | 2000  |  m   | 0-14       | 0   |
+| AD   | 2000  |  m   | 15-24      | 0   |
+| AD   | 2000  |  m   | 25-34      | 1   |
+| AD   | 2000  |  m   | 35-44      | 0   |
+| AE   | 2000  |  m   | 0-14       | 2   |
 
 ## 3. Variables dans lignes et colonnes
 
@@ -331,13 +341,13 @@ donnees_tidy %>%
 - Une variable = une colonne
 - Un type d'observation = un tableau
 
-La structure tidy facilite l'analyse! 🎯
-
 # Les sondages {.smaller}
 
 ## Observer vs. Demander
 
 - Observer: Regarder ce que les gens font.
+  - Données de médias sociaux
+  - Données de déplacements
 - Demander: Poser des questions aux gens.
   - Sondages
   - Entrevues
@@ -524,14 +534,14 @@ Source: Schuman et Presser 1996
 - Copier les questions des sondages précédents
 :::
 
-## Comment collecter des données de sondages? :chart_with_upwards_trend:
+## Comment collecter des données de sondages? 
 
 - Plusieurs plateforme 
   - [Qualtrics](https://www.qualtrics.com/){preview-link="true"}
   - [Survey Monkey](https://www.surveymonkey.com/){preview-link="true"}
   - [MTurk](https://www.mturk.com/){preview-link="true"}
 - Compagnies de sondage.
-- Les sondages sont dispendieux :moneybag:
+- Les sondages sont dispendieux
 
 ## Quelle plateforme de sondage choisir?
 
@@ -547,7 +557,7 @@ Source: Schuman et Presser 1996
 - Données électorales comme les [CES](https://ces-eec.ca)
 - Banques de données comme [Odesi](https://odesi.ca/en)
 
-# Nettoyer des données de sondages :broom:
+# Nettoyer des données de sondages
 
 ## Étude électorale canadienne de 1993
 
@@ -630,38 +640,42 @@ write.csv(df_clean, "data/ces/1993/ces93_clean.csv", row.names = FALSE)
 df_clean$issue_gst_opposed[df_raw$CPSG1 == 1] <- 0
 ```
 
-1️⃣ **Nouvelle variable** : `df_clean$issue_gst_opposed`
+1 - **Nouvelle variable** : `df_clean$issue_gst_opposed`
 
 - Dataframe de destination : `df_clean`
 - Nom de la variable créée : `issue_gst_opposed`
 
-2️⃣ **Condition de sélection** : `[df_raw$CPSG1 == 1]`
+2 - **Condition de sélection** : `[df_raw$CPSG1 == 1]`
 
 - Dataframe source : `df_raw`
 - Variable source : `CPSG1`
 - Condition : égal à 1
 
-3️⃣ **Attribution** : `<- 0`
+3 - **Attribution** : `<- 0`
 
 - Opérateur d'assignation : `<-`
 - Nouvelle valeur : `0`
 
 ## En langage naturel
 
-> "Pour toutes les observations où `CPSG1` égale 1 dans `df_raw`,  
-> assigner la valeur 0 à la variable `issue_gst_opposed` dans `df_clean`"
+```r
+df_clean$issue_gst_opposed[df_raw$CPSG1 == 1] <- 0
+```
 
-## Avantage de nettoyer tout de la même façon {.smaller}
+> "Pour toutes les observations où `CPSG1` égale 1 dans `df_raw`,assigner la valeur 0 à la variable `issue_gst_opposed` dans `df_clean`"
 
-![](img/graph_importance_religiosite.png){width="100%"}
+## {background-image="img/cleaning.svg" background-size="90%" background-position="center"}
 
-## Avantage de nettoyer tout de la même façon {.smaller}
+## Avantage de standardiser le cleaning 
 
-![](img/graph_prop_religiosite.png){width="100%"}
+![](img/graph_ideologies_evolution_bw.png){.absolute top=100 right=120 width="80%"}
 
+
+## Avantage de standardiser le cleaning {.smaller}
+
+![](img/ajps_glm_coefficients_by_year_overall_categorical.png){.absolute top=140 right=120 width="80%"}
 
 ## Questions?
-
 
 # Prochain cours
 
