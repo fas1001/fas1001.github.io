@@ -13,7 +13,7 @@
   },
   "exercises": {
     "intro_r": true,
-    "cleaning": false,
+    "cleaning": true,
     "analyse": false,
     "textuelle": false,
     "scraping": false,
