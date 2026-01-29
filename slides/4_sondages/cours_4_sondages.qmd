@@ -123,6 +123,10 @@ Utiliser le format "tidy" équivaut à prendre le chemin de moindre résistance 
 | 2 | Chaque ligne est une observation |
 | 3 | Chaque table est un type d'unité observé |
 
+## Étude électorale canadienne 2019
+
+![](img/ces19.png){.absolute top=100 right=120 width="80%"}
+
 ## Les 5 Problèmes Communs {.center}
 
 1. Les en-têtes de colonnes sont des valeurs
@@ -433,7 +437,7 @@ donnees_tidy %>%
 
 :::
 
-## Vague 4: L'ère comportementale (2010+) {.smaller}
+## Maintenant: L'ère comportementale (2010+) {.smaller}
 
 ::: {.columns}
 
