@@ -187,10 +187,6 @@
       margin-right: 0; 
     }
   </style>
-  <meta name="mermaid-theme" content="dark">
-  <script src="cours_5_mesures_files/libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="cours_5_mesures_files/libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="cours_5_mesures_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -212,17 +208,39 @@ Laurence-Olivier M. Foisy
 </div>
 
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-
-<img data-src="img/structure_cours.png" class="r-stretch"></section>
+<section id="retour-sur-le-quiz-1" class="slide level2 smaller">
+<h2>Retour sur le Quiz 1</h2>
+<h3 id="questions">Questions</h3>
+<ul>
+<li>Trop facile?</li>
+<li>Combien d’heures ça vous a pris?</li>
+<li>Comprenez vous la structure du code? <code>1_</code>, <code>2_</code>, <code>3_</code>?</li>
+<li>Comprenez vous la fonction <code>source()</code>?</li>
+<li>Regarder sur GitHub pour voir si votre commit a bien été push</li>
+<li>Utiliser le terminal de Positron</li>
+<li>Ouvrir les pdf directement dans Positron</li>
+<li>Activer la sauvegarde automatique</li>
+<li>Activer la mini-map pour naviguer dans les fichiers</li>
+</ul>
+</section>
+<section id="votre-gabarit-quarto" class="slide level2">
+<h2>Votre gabarit Quarto</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href=""></a><span class="ex">quarto</span> use template fas1001/gabarit_udem</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="structure-du-cours" class="slide level2">
+<h2>Structure du cours</h2>
+<div class="r-stack">
+<p><img data-src="img/structure_cours.png"></p>
+<p><img data-src="img/structure_cours_1.png" class="fragment"></p>
+</div>
+</section>
 <section id="cours-5" class="title-slide slide level1 center">
 <h1>Cours 5</h1>
 <ul>
-<li>Retour sur le dernier cours</li>
-<li>Le prochain cours</li>
-<li>Mesurer des variables latentes</li>
-<li>Introduction à la régression linéaire</li>
+<li><p><strong>Le problème</strong> : On veut étudier des choses invisibles (concepts).</p></li>
+<li><p><strong>La solution</strong> : Construire des échelles de mesure</p></li>
+<li><p><strong>La vérification</strong> : Est-ce que mon instrument marche ? Fiabilité et validité</p></li>
+<li><p><strong>L’application</strong> : Maintenant que j’ai mesuré mon concept, comment il interagit avec le monde ? (Visualisation -&gt; Régression).</p></li>
 </ul>
 </section>
 
@@ -242,33 +260,8 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="exemple-mesurer-lintelligence" class="slide level2">
 <h2>Exemple : Mesurer l’intelligence</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-mindmap
-  root("Intelligence")
-    ("Verbale")
-      ("Vocabulaire")
-      ("Compréhension")
-    ("Mathématique")
-      ("Calcul")
-      ("Logique")
-    ("Spatiale")
-      ("Visualisation")
-      ("Orientation")
-    ("Sociale")
-      ("Empathie")
-      ("Communication")
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<aside class="notes">
+
+<img data-src="img/intelligence.svg" class="r-stretch"><aside class="notes">
 <ul>
 <li>L’intelligence est un concept multidimensionnel</li>
 <li>Chaque branche représente une facette différente</li>
@@ -303,7 +296,7 @@ mindmap
 <section id="dans-une-classe-typique" class="slide level2">
 <h2>Dans une classe typique…</h2>
 
-<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
+<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
 <ul>
 <li>Certains étudiants excellent naturellement</li>
 <li>D’autres sont dans la moyenne</li>
@@ -331,14 +324,48 @@ mindmap
 <li>Les élèves en difficulté auront plus de mal</li>
 </ul>
 </section>
-<section id="distribution-typique-dun-examen" class="slide level2" data-transition="none">
-<h2>Distribution typique d’un examen</h2>
-
-<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="distribution-par-groupes-délèves" class="slide level2" data-transition="none">
-<h2>Distribution par groupes d’élèves</h2>
-
-<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="distribution-typique-dun-examen" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Distribution typique d’un examen</h2>
+<div data-id="dist-plot">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="de-lhistogramme-à-la-densité" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">De l’histogramme à la densité</h2>
+<div data-id="dist-plot">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="distribution-par-groupes-délèves" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Distribution par groupes d’élèves</h2>
+<div data-id="dist-plot">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="question-1-causes-de-la-guerre" class="slide level2" data-transition="none">
 <h2>Question 1 : Causes de la guerre</h2>
 <p>“Quels événements ont directement mené au déclenchement de la Seconde Guerre Mondiale en Europe?”</p>
@@ -365,8 +392,7 @@ mindmap
 
 <img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="une-question-suspecte" class="slide level2">
-<h2>Une question suspecte 🤔</h2>
-<h3 id="problème">🚨 Problème!</h3>
+<h2>Une question suspecte</h2>
 <p>Cette question mesure-t-elle vraiment la <strong>compétence en histoire</strong>?</p>
 <p>Ou mesure-t-elle autre chose?</p>
 <ul>
@@ -375,7 +401,7 @@ mindmap
 </ul>
 </section>
 <section id="ce-qui-cloche" class="slide level2">
-<h2>Ce qui cloche…</h2>
+<h2>Ce qui cloche</h2>
 <ul>
 <li>Les meilleurs élèves échouent mystérieusement</li>
 <li>Les élèves en difficulté excellent soudainement</li>
@@ -401,8 +427,94 @@ mindmap
 </ul>
 </div></div>
 </section>
-<section id="solution-analyse-factorielle" class="slide level2">
-<h2>Solution : Analyse factorielle</h2>
+<section id="solution-créer-une-échelle-de-mesure" class="slide level2">
+<h2>Solution : Créer une échelle de mesure</h2>
+<ul>
+<li>Un examen est une échelle de mesure de la compétence en histoire</li>
+<li>Chaque question est un indicateur de cette compétence</li>
+<li>En combinant plusieurs questions, on peut mesurer le concept latent de “compétence en histoire”</li>
+</ul>
+</section>
+<section id="exemple-concret-lattitude-politique" class="slide level2" data-transition="none">
+<h2>Exemple concret : L’attitude politique</h2>
+
+<img data-src="img/politique_1.svg" class="r-stretch"></section>
+<section id="exemple-concret-lattitude-politique-1" class="slide level2" data-transition="none">
+<h2>Exemple concret : L’attitude politique</h2>
+
+<img data-src="img/politique_2.svg" class="r-stretch"></section>
+<section id="exemple-concret-lattitude-politique-2" class="slide level2" data-transition="none">
+<h2>Exemple concret : L’attitude politique</h2>
+
+<img data-src="img/politique_3.svg" class="r-stretch"></section>
+<section id="exemple-concret-lattitude-politique-3" class="slide level2" data-transition="none">
+<h2>Exemple concret : L’attitude politique</h2>
+
+<img data-src="img/politique_4.svg" class="r-stretch"></section>
+<section id="léchelle-didéologie-de-merkley-2022" class="slide level2">
+<h2>L’échelle d’idéologie de Merkley (2022)</h2>
+
+<img data-src="img/merkley_scale.svg" class="r-stretch"></section>
+<section id="les-8-questions-de-létude-merkley-2022" class="slide level2">
+<h2>Les 8 questions de l’étude (Merkley, 2022)</h2>
+
+<img data-src="img/merkley_questions.svg" class="r-stretch"></section>
+<section id="un-exemple-concret" class="slide level2">
+<h2>Un exemple concret</h2>
+<h3 id="les-rednecks">Les Rednecks</h3>
+<ul>
+<li>Est-ce que l’éducation influence la probabilité d’être un “redneck”?</li>
+<li>Aucune question ne demande directement si quelqu’un est un “redneck”</li>
+<li>Mais on peut inférer ce statut à partir d’autres variables</li>
+<li>Créer une variable de “redneckitude”</li>
+</ul>
+</section>
+<section id="solution-les-échelles-de-mesure" class="slide level2 smaller">
+<h2>Solution : Les échelles de mesure</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="comment-procéder">Comment procéder?</h3>
+<ol type="1">
+<li><strong>Identifier les dimensions clés</strong>
+<ul>
+<li>Décomposer le concept</li>
+<li>Définir les aspects mesurables</li>
+</ul></li>
+<li><strong>Créer des indicateurs</strong>
+<ul>
+<li>Questions précises</li>
+<li>Observations concrètes</li>
+</ul></li>
+<li><strong>Valider l’échelle</strong>
+<ul>
+<li>Fiabilité : Tests statistiques</li>
+<li>Validité : Théorique</li>
+</ul></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/redneck_concept.svg" style="width:100.0%"></p>
+</div></div>
+</section></section>
+<section>
+<section id="évaluation-de-la-qualité" class="title-slide slide level1 center">
+<h1>Évaluation de la qualité</h1>
+
+</section>
+<section id="critères-essentiels" class="slide level2" data-transition="none">
+<h2>Critères essentiels</h2>
+
+<img data-src="img/qualite_1.svg" class="r-stretch"></section>
+<section id="critères-essentiels-1" class="slide level2" data-transition="none">
+<h2>Critères essentiels</h2>
+
+<img data-src="img/qualite_2.svg" class="r-stretch"></section>
+<section id="critères-essentiels-2" class="slide level2" data-transition="none">
+<h2>Critères essentiels</h2>
+
+<img data-src="img/qualite_3.svg" class="r-stretch"></section>
+<section id="fiabilité-mesure-statistique" class="slide level2">
+<h2>Fiabilité : Mesure Statistique</h2>
+<h3 id="analyse-factorielle">Analyse factorielle</h3>
 <ul>
 <li>Détecte automatiquement ces anomalies</li>
 <li>Vérifie si toutes les questions mesurent la même compétence</li>
@@ -458,262 +570,9 @@ mindmap
           display:block!important;
       }</style></aside>
 </section>
-<section id="exemple-concret-lattitude-politique" class="slide level2">
-<h2>Exemple concret : L’attitude politique</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph TD
-    A["Attitude Politique&lt;br/&gt;(Variable Latente)"]
-    
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    
-    class A latent;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="exemple-concret-lattitude-politique-1" class="slide level2">
-<h2>Exemple concret : L’attitude politique</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph TD
-    A["Attitude Politique&lt;br/&gt;(Variable Latente)"] --&gt; B["Opinion sur&lt;br/&gt;l'Immigration"]
-    A --&gt; C["Position sur&lt;br/&gt;l'Économie"]
-    A --&gt; D["Vision de&lt;br/&gt;l'Environnement"]
-    
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    classDef indicator fill:#fff5eb,stroke:#e6550d,stroke-width:2px;
-    
-    class A latent;
-    class B,C,D indicator;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="exemple-concret-lattitude-politique-2" class="slide level2">
-<h2>Exemple concret : L’attitude politique</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph TD
-    A["Attitude Politique&lt;br/&gt;(Variable Latente)"] --&gt; B["Opinion sur&lt;br/&gt;l'Immigration"]
-    A --&gt; C["Position sur&lt;br/&gt;l'Économie"]
-    A --&gt; D["Vision de&lt;br/&gt;l'Environnement"]
-    
-    B --&gt; E["Question 1:&lt;br/&gt;Politique migratoire"]
-    B --&gt; F["Question 2:&lt;br/&gt;Intégration"]
-    
-    C --&gt; G["Question 3:&lt;br/&gt;Impôts"]
-    C --&gt; H["Question 4:&lt;br/&gt;Intervention État"]
-    
-    D --&gt; I["Question 5:&lt;br/&gt;Climat"]
-    D --&gt; J["Question 6:&lt;br/&gt;Régulation"]
-    
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    classDef indicator fill:#fff5eb,stroke:#e6550d,stroke-width:2px;
-    classDef question fill:#f0f0f0,stroke:#636363,stroke-width:1px;
-    
-    class A latent;
-    class B,C,D indicator;
-    class E,F,G,H,I,J question;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="exemple-concret-lattitude-politique-3" class="slide level2">
-<h2>Exemple concret : L’attitude politique</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph TD
-    A["Attitude Politique&lt;br/&gt;Gauche!"] --&gt; B["Opinion sur&lt;br/&gt;l'Immigration"]
-    A --&gt; C["Position sur&lt;br/&gt;l'Économie"]
-    A --&gt; D["Vision de&lt;br/&gt;l'Environnement"]
-    
-    B --&gt; E["Question 1:&lt;br/&gt;Politique migratoire"]
-    B --&gt; F["Question 2:&lt;br/&gt;Intégration"]
-    
-    C --&gt; G["Question 3:&lt;br/&gt;Impôts"]
-    C --&gt; H["Question 4:&lt;br/&gt;Intervention État"]
-    
-    D --&gt; I["Question 5:&lt;br/&gt;Climat"]
-    D --&gt; J["Question 6:&lt;br/&gt;Régulation"]
-
-    E --&gt; K["En Faveur de plus d'immigrants"]
-    F --&gt; L["En Faveur de l'intégration"]
-
-    G --&gt; M["En Faveur de l'augmentation"]
-    H --&gt; N["En Faveur de plus d'intervention"]
-
-    I --&gt; O["Enjeu important"]
-    J --&gt; P["En Faveur de plus de régulation"]
-    
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    classDef indicator fill:#fff5eb,stroke:#e6550d,stroke-width:2px;
-    classDef question fill:#f0f0f0,stroke:#636363,stroke-width:1px;
-    
-    class A latent;
-    class B,C,D indicator;
-    class E,F,G,H,I,J,K,L,M,N,O,P question;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="un-exemple-concret" class="slide level2">
-<h2>Un exemple concret</h2>
-<h3 id="les-rednecks">Les Rednecks</h3>
-<ul>
-<li>Est-ce que l’éducation influence la probabilité d’être un “redneck”?</li>
-<li>Aucun question ne demande directement si quelqu’un est un “redneck”</li>
-<li>Mais on peut inférer ce statut à partir d’autres variables</li>
-<li>Créer une variable de “redneckitude”</li>
-</ul>
-</section>
-<section id="solution-les-échelles-de-mesure" class="slide level2 smaller">
-<h2>Solution : Les échelles de mesure</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="comment-procéder">Comment procéder?</h3>
-<ol type="1">
-<li><strong>Identifier les dimensions clés</strong>
-<ul>
-<li>Décomposer le concept</li>
-<li>Définir les aspects mesurables</li>
-</ul></li>
-<li><strong>Créer des indicateurs</strong>
-<ul>
-<li>Questions précises</li>
-<li>Observations concrètes</li>
-</ul></li>
-<li><strong>Valider l’échelle</strong>
-<ul>
-<li>Fiabilité : Tests statistiques</li>
-<li>Validité : Théorique</li>
-</ul></li>
-</ol>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph LR
-    A["&lt;b&gt;Fréquence d'aller chasser&lt;/b&gt;&lt;br/&gt;0 - Jamais&lt;br/&gt;0.5 - Des fois&lt;br/&gt;1 - Souvent"] --&gt; B["&lt;b&gt;Redneckitude&lt;/b&gt;&lt;br/&gt;0 - Pas redneck&lt;br/&gt;0.5 - Moyen redneck&lt;br/&gt;1 - Très redneck"]
-    C["&lt;b&gt;Possède des armes à feu&lt;/b&gt;&lt;br/&gt;0 - Aucune&lt;br/&gt;0.5 - Un peu&lt;br/&gt;1 - Beaucoup"] --&gt; B
-    D["&lt;b&gt;Conduit un pickup&lt;/b&gt;&lt;br/&gt;0 - non&lt;br/&gt;1 - oui"] --&gt; B    
-   
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    classDef indicator fill:#fff5eb,stroke:#e6550d,stroke-width:2px;
-    
-    class B latent;
-    class A,C,D indicator;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div></div>
-</section></section>
-<section>
-<section id="évaluation-de-la-qualité" class="title-slide slide level1 center">
-<h1>Évaluation de la qualité</h1>
-
-</section>
-<section id="critères-essentiels" class="slide level2" data-transition="none">
-<h2>Critères essentiels</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}, "flowchart": {"nodeSpacing": 200, "rankSpacing": 150, "diagramPadding": 50, "htmlLabels": true}}}%%
-graph LR
-    A[&lt;div style='width: 200px'&gt;Qualité de&lt;br/&gt;la mesure&lt;/div&gt;] --&gt; B[&lt;div style='width: 150px'&gt;Fiabilité&lt;/div&gt;]
-    A --&gt; C[&lt;div style='width: 150px'&gt;Validité&lt;/div&gt;]
-  
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="critères-essentiels-1" class="slide level2" data-transition="none">
-<h2>Critères essentiels</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}, "flowchart": {"nodeSpacing": 200, "rankSpacing": 150, "diagramPadding": 50, "htmlLabels": true}}}%%
-graph LR
-    A[&lt;div style='width: 200px'&gt;Qualité de&lt;br/&gt;la mesure&lt;/div&gt;] --&gt; B[&lt;div style='width: 150px'&gt;Fiabilité&lt;/div&gt;]
-    A --&gt; C[&lt;div style='width: 150px'&gt;Validité&lt;/div&gt;]
-    
-    B --&gt; D[&lt;div style='width: 150px'&gt;Statistique&lt;/div&gt;]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="critères-essentiels-2" class="slide level2" data-transition="none">
-<h2>Critères essentiels</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}, "flowchart": {"nodeSpacing": 200, "rankSpacing": 150, "diagramPadding": 50, "htmlLabels": true}}}%%
-graph LR
-    A[&lt;div style='width: 200px'&gt;Qualité de&lt;br/&gt;la mesure&lt;/div&gt;] --&gt; B[&lt;div style='width: 150px'&gt;Fiabilité&lt;/div&gt;]
-    A --&gt; C[&lt;div style='width: 150px'&gt;Validité&lt;/div&gt;]
-    
-    B --&gt; D[&lt;div style='width: 150px'&gt;Statistique&lt;/div&gt;]
-    
-    C --&gt; E[&lt;div style='width: 150px'&gt;Théorique&lt;/div&gt;]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="la-fiabilité" class="slide level2">
-<h2>La fiabilité</h2>
-<h3 id="comment-la-mesurer">Comment la mesurer?</h3>
-</section>
-<section id="trois-mesures-statistiques" class="slide level2">
-<h2>Trois mesures statistiques</h2>
+<section id="analyse-factorielle-1" class="slide level2">
+<h2>Analyse factorielle</h2>
+<h3 id="trois-mesures-statistiques">Trois mesures statistiques</h3>
 <ol type="1">
 <li><strong>Alpha de Cronbach</strong></li>
 <li><strong>Première valeur propre (Eigenvalue)</strong></li>
@@ -786,8 +645,8 @@ graph LR
 </ul>
 </section></section>
 <section>
-<section id="le-coefficient-de-saturation-factor-loading" class="title-slide slide level1 center">
-<h1>Le Coefficient de Saturation (Factor Loading)</h1>
+<section id="le-coefficient-de-saturationfactor-loading" class="title-slide slide level1 center">
+<h1>Le Coefficient de Saturation(Factor Loading)</h1>
 
 </section>
 <section id="quest-ce-que-cest-2" class="slide level2">
@@ -839,61 +698,61 @@ graph LR
 <section id="comment-faire" class="slide level2">
 <h2>Comment faire</h2>
 <h3 id="installer-le-package-sondr">1. Installer le package sondr</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Dans la console:</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb1-3"><a href=""></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"ellipse-science/sondr"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Dans la console:</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb2-3"><a href=""></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"ellipse-science/sondr"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="comment-faire-1" class="slide level2">
 <h2>Comment faire ?</h2>
 <h3 id="charger-vos-données">2. Charger vos données</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-2"><a href=""></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a href=""></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="déterminer-les-variables-potentielles">3. Déterminer les variables potentielles</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>r<span class="sc">$</span><span class="er">&gt;</span> <span class="fu">names</span>(df)</span>
-<span id="cb3-2"><a href=""></a> [<span class="dv">1</span>] <span class="st">"ses_gender"</span>                        <span class="st">"ses_income"</span>                        <span class="st">"ses_housing"</span>                       <span class="st">"ses_language"</span>                     </span>
-<span id="cb3-3"><a href=""></a> [<span class="dv">5</span>] <span class="st">"ses_religion"</span>                      <span class="st">"ses_education"</span>                     <span class="st">"ses_ethnicity"</span>                     <span class="st">"ses_immigrant"</span>                    </span>
-<span id="cb3-4"><a href=""></a> [<span class="dv">9</span>] <span class="st">"ses_skin_tone"</span>                     <span class="st">"lifestyle_pets"</span>                    <span class="st">"lifestyle_album"</span>                   <span class="st">"lifestyle_movie"</span>                  </span>
-<span id="cb3-5"><a href=""></a>[<span class="dv">13</span>] <span class="st">"lifestyle_prius"</span>                   <span class="st">"ses_postal_code"</span>                   <span class="st">"lifestyle_coffee"</span>                  <span class="st">"lifestyle_gpt_freq"</span>               </span>
-<span id="cb3-6"><a href=""></a>[<span class="dv">17</span>] <span class="st">"lifestyle_transport"</span>               <span class="st">"lifestyle_yoga_freq"</span>               <span class="st">"lifestyle_guns_number"</span>             <span class="st">"lifestyle_classic_meal"</span>           </span>
-<span id="cb3-7"><a href=""></a>[<span class="dv">21</span>] <span class="st">"lifestyle_fishing_freq"</span>            <span class="st">"lifestyle_hunting_freq"</span>            <span class="st">"ses_sexual_orientation"</span>            <span class="st">"lifestyle_eat_meat_freq"</span>          </span>
-<span id="cb3-8"><a href=""></a>[<span class="dv">25</span>] <span class="st">"lifestyle_clothing_style"</span>          <span class="st">"lifestyle_motorized_freq"</span>          <span class="st">"lifestyle_videogame_freq"</span>          <span class="st">"lifestyle_alcohol_favorite"</span>       </span>
-<span id="cb3-9"><a href=""></a>[<span class="dv">29</span>] <span class="st">"ses_religiosity_importance"</span>        <span class="st">"lifestyle_nonmotorized_freq"</span>       <span class="st">"lifestyle_watch_soccer_freq"</span>       <span class="st">"lifestyle_movie_barbenheimer"</span>     </span>
-<span id="cb3-10"><a href=""></a>[<span class="dv">33</span>] <span class="st">"lifestyle_watch_baseball_freq"</span>     <span class="st">"lifestyle_volunteeringsocial_freq"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>r<span class="sc">$</span><span class="er">&gt;</span> <span class="fu">names</span>(df)</span>
+<span id="cb4-2"><a href=""></a> [<span class="dv">1</span>] <span class="st">"ses_gender"</span>                        <span class="st">"ses_income"</span>                        <span class="st">"ses_housing"</span>                       <span class="st">"ses_language"</span>                     </span>
+<span id="cb4-3"><a href=""></a> [<span class="dv">5</span>] <span class="st">"ses_religion"</span>                      <span class="st">"ses_education"</span>                     <span class="st">"ses_ethnicity"</span>                     <span class="st">"ses_immigrant"</span>                    </span>
+<span id="cb4-4"><a href=""></a> [<span class="dv">9</span>] <span class="st">"ses_skin_tone"</span>                     <span class="st">"lifestyle_pets"</span>                    <span class="st">"lifestyle_album"</span>                   <span class="st">"lifestyle_movie"</span>                  </span>
+<span id="cb4-5"><a href=""></a>[<span class="dv">13</span>] <span class="st">"lifestyle_prius"</span>                   <span class="st">"ses_postal_code"</span>                   <span class="st">"lifestyle_coffee"</span>                  <span class="st">"lifestyle_gpt_freq"</span>               </span>
+<span id="cb4-6"><a href=""></a>[<span class="dv">17</span>] <span class="st">"lifestyle_transport"</span>               <span class="st">"lifestyle_yoga_freq"</span>               <span class="st">"lifestyle_guns_number"</span>             <span class="st">"lifestyle_classic_meal"</span>           </span>
+<span id="cb4-7"><a href=""></a>[<span class="dv">21</span>] <span class="st">"lifestyle_fishing_freq"</span>            <span class="st">"lifestyle_hunting_freq"</span>            <span class="st">"ses_sexual_orientation"</span>            <span class="st">"lifestyle_eat_meat_freq"</span>          </span>
+<span id="cb4-8"><a href=""></a>[<span class="dv">25</span>] <span class="st">"lifestyle_clothing_style"</span>          <span class="st">"lifestyle_motorized_freq"</span>          <span class="st">"lifestyle_videogame_freq"</span>          <span class="st">"lifestyle_alcohol_favorite"</span>       </span>
+<span id="cb4-9"><a href=""></a>[<span class="dv">29</span>] <span class="st">"ses_religiosity_importance"</span>        <span class="st">"lifestyle_nonmotorized_freq"</span>       <span class="st">"lifestyle_watch_soccer_freq"</span>       <span class="st">"lifestyle_movie_barbenheimer"</span>     </span>
+<span id="cb4-10"><a href=""></a>[<span class="dv">33</span>] <span class="st">"lifestyle_watch_baseball_freq"</span>     <span class="st">"lifestyle_volunteeringsocial_freq"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="comment-faire-2" class="slide level2 smaller">
 <h2>Comment faire ?</h2>
 <h3 id="cleaner-les-variables-à-évaluer-pour-quelles-soient-numériques">4. Cleaner les variables à évaluer pour qu’elles soient numériques</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>df_clean <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df))</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a><span class="co"># Variable de fréquence de pêche</span></span>
-<span id="cb4-4"><a href=""></a><span class="fu">table</span>(df<span class="sc">$</span>lifestyle_fishing_freq)</span>
-<span id="cb4-5"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale<span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb4-6"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">"Never"</span>] <span class="ot">&lt;-</span> <span class="dv">0</span>    </span>
-<span id="cb4-7"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">"Almost never"</span>] <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
-<span id="cb4-8"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">"Sometimes"</span>] <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb4-9"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">"Often"</span>] <span class="ot">&lt;-</span> <span class="fl">0.75</span></span>
-<span id="cb4-10"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">" Very often"</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb4-11"><a href=""></a><span class="fu">table</span>(df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span>
-<span id="cb4-12"><a href=""></a></span>
-<span id="cb4-13"><a href=""></a><span class="fu">saveRDS</span>(df_clean, <span class="st">"data_clean.rds"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>df_clean <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df))</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a><span class="co"># Variable de fréquence de pêche</span></span>
+<span id="cb5-4"><a href=""></a><span class="fu">table</span>(df<span class="sc">$</span>lifestyle_fishing_freq)</span>
+<span id="cb5-5"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale<span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb5-6"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">"Never"</span>] <span class="ot">&lt;-</span> <span class="dv">0</span>    </span>
+<span id="cb5-7"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">"Almost never"</span>] <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb5-8"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">"Sometimes"</span>] <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb5-9"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">"Often"</span>] <span class="ot">&lt;-</span> <span class="fl">0.75</span></span>
+<span id="cb5-10"><a href=""></a>df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale[df<span class="sc">$</span>lifestyle_fishing_freq <span class="sc">==</span> <span class="st">" Very often"</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb5-11"><a href=""></a><span class="fu">table</span>(df_clean<span class="sc">$</span>lifestyle_fishing_freq_scale, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span>
+<span id="cb5-12"><a href=""></a></span>
+<span id="cb5-13"><a href=""></a><span class="fu">saveRDS</span>(df_clean, <span class="st">"data_clean.rds"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="comment-faire-3" class="slide level2 smaller">
 <h2>Comment faire ?</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <h3 id="isoler-les-variables-à-évaluer">2. Isoler les variables à évaluer</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a></span>
-<span id="cb5-2"><a href=""></a><span class="co"># Sélectionner les variables à évaluer</span></span>
-<span id="cb5-3"><a href=""></a>df_fa <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href=""></a>  <span class="fu">select</span>(lifestyle_fishing_scale, </span>
-<span id="cb5-5"><a href=""></a>         lifestyle_hunting_scale, </span>
-<span id="cb5-6"><a href=""></a>         lifestyle_guns_number_scale,</span>
-<span id="cb5-7"><a href=""></a>         lifestyle_motorized_scale, </span>
-<span id="cb5-8"><a href=""></a>         lifestyle_pickup_scale,</span>
-<span id="cb5-9"><a href=""></a>         lifestyle_eat_meat_scale) <span class="sc">%&gt;%</span></span>
-<span id="cb5-10"><a href=""></a>  <span class="fu">drop_na</span>() <span class="co"># Supprimer les valeurs manquantes</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a></span>
+<span id="cb6-2"><a href=""></a><span class="co"># Sélectionner les variables à évaluer</span></span>
+<span id="cb6-3"><a href=""></a>df_fa <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href=""></a>  <span class="fu">select</span>(lifestyle_fishing_scale, </span>
+<span id="cb6-5"><a href=""></a>         lifestyle_hunting_scale, </span>
+<span id="cb6-6"><a href=""></a>         lifestyle_guns_number_scale,</span>
+<span id="cb6-7"><a href=""></a>         lifestyle_motorized_scale, </span>
+<span id="cb6-8"><a href=""></a>         lifestyle_pickup_scale,</span>
+<span id="cb6-9"><a href=""></a>         lifestyle_eat_meat_scale) <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href=""></a>  <span class="fu">drop_na</span>() <span class="co"># Supprimer les valeurs manquantes</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:45%;">
 <h3 id="conditions-à-respecter">3. Conditions à respecter</h3>
 <ol type="1">
@@ -910,8 +769,8 @@ graph LR
 <div class="column" style="width:35%;">
 <h3 id="utiliser-la-fonction">2. Utiliser la fonction</h3>
 <p><code>sondr::topdown_fa()</code></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Lancer l'analyse</span></span>
-<span id="cb6-2"><a href=""></a>sondr<span class="sc">::</span><span class="fu">topdown_fa</span>(df_fa)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Lancer l'analyse</span></span>
+<span id="cb7-2"><a href=""></a>sondr<span class="sc">::</span><span class="fu">topdown_fa</span>(df_fa)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:65%;">
 <p><img data-src="img/redneck_scale_bad.png"></p>
 </div></div>
@@ -922,21 +781,21 @@ graph LR
 <div class="column" style="width:40%;">
 <h3 id="réesayer">Réesayer</h3>
 <p>Essaie erreur jusqu’à trouver une combinaison gagnante</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Supprimer les variables </span></span>
-<span id="cb7-2"><a href=""></a><span class="co"># non pertinentes</span></span>
-<span id="cb7-3"><a href=""></a>df_fa <span class="ot">&lt;-</span> df_fa <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(lifestyle_eat_meat_scale, </span>
-<span id="cb7-5"><a href=""></a>            lifestyle_pickup_scale)) </span>
-<span id="cb7-6"><a href=""></a></span>
-<span id="cb7-7"><a href=""></a><span class="co"># Relancer l'analyse</span></span>
-<span id="cb7-8"><a href=""></a>sondr<span class="sc">::</span><span class="fu">topdown_fa</span>(df_fa)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Supprimer les variables </span></span>
+<span id="cb8-2"><a href=""></a><span class="co"># non pertinentes</span></span>
+<span id="cb8-3"><a href=""></a>df_fa <span class="ot">&lt;-</span> df_fa <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(lifestyle_eat_meat_scale, </span>
+<span id="cb8-5"><a href=""></a>            lifestyle_pickup_scale)) </span>
+<span id="cb8-6"><a href=""></a></span>
+<span id="cb8-7"><a href=""></a><span class="co"># Relancer l'analyse</span></span>
+<span id="cb8-8"><a href=""></a>sondr<span class="sc">::</span><span class="fu">topdown_fa</span>(df_fa)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:60%;">
 <p><img data-src="img/redneck_scale.png"></p>
 </div></div>
 </section>
 <section id="la-validité" class="slide level2">
 <h2>La validité?</h2>
-<h3 id="comment-la-mesurer-1">Comment la mesurer?</h3>
+<h3 id="comment-la-mesurer">Comment la mesurer?</h3>
 <ol type="1">
 <li><strong>Concordance avec la théorie</strong></li>
 </ol>
@@ -955,16 +814,16 @@ graph LR
 <section id="faire-léchelle" class="slide level2">
 <h2>Faire l’échelle</h2>
 <h3 id="si-la-fiabilité-et-la-validité-sont-acceptables">Si la fiabilité et la validité sont acceptables</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>df<span class="sc">$</span>scale_redneck <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb8-2"><a href=""></a>df<span class="sc">$</span>scale_redneck <span class="ot">&lt;-</span> (df<span class="sc">$</span>lifestyle_motorized_freq_scale <span class="sc">+</span></span>
-<span id="cb8-3"><a href=""></a>                    df<span class="sc">$</span>lifestyle_hunting_freq_scale <span class="sc">+</span></span>
-<span id="cb8-4"><a href=""></a>                    df<span class="sc">$</span>lifestyle_fishing_freq_scale <span class="sc">+</span></span>
-<span id="cb8-5"><a href=""></a>                    df<span class="sc">$</span>lifestyle_pickup_scale <span class="sc">+</span></span>
-<span id="cb8-6"><a href=""></a>                    df<span class="sc">$</span>lifestyle_guns_number_scale) <span class="sc">/</span> <span class="dv">5</span></span>
-<span id="cb8-7"><a href=""></a><span class="fu">table</span>(df<span class="sc">$</span>scale_redneck)</span>
-<span id="cb8-8"><a href=""></a><span class="fu">hist</span>(df<span class="sc">$</span>scale_redneck)</span>
-<span id="cb8-9"><a href=""></a></span>
-<span id="cb8-10"><a href=""></a><span class="fu">saveRDS</span>(df, <span class="st">"data_scale.rds"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>df<span class="sc">$</span>scale_redneck <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb9-2"><a href=""></a>df<span class="sc">$</span>scale_redneck <span class="ot">&lt;-</span> (df<span class="sc">$</span>lifestyle_motorized_freq_scale <span class="sc">+</span></span>
+<span id="cb9-3"><a href=""></a>                    df<span class="sc">$</span>lifestyle_hunting_freq_scale <span class="sc">+</span></span>
+<span id="cb9-4"><a href=""></a>                    df<span class="sc">$</span>lifestyle_fishing_freq_scale <span class="sc">+</span></span>
+<span id="cb9-5"><a href=""></a>                    df<span class="sc">$</span>lifestyle_pickup_scale <span class="sc">+</span></span>
+<span id="cb9-6"><a href=""></a>                    df<span class="sc">$</span>lifestyle_guns_number_scale) <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb9-7"><a href=""></a><span class="fu">table</span>(df<span class="sc">$</span>scale_redneck)</span>
+<span id="cb9-8"><a href=""></a><span class="fu">hist</span>(df<span class="sc">$</span>scale_redneck)</span>
+<span id="cb9-9"><a href=""></a></span>
+<span id="cb9-10"><a href=""></a><span class="fu">saveRDS</span>(df, <span class="st">"data_scale.rds"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="dfscale_redneck" class="slide level2">
 <h2>df$scale_redneck</h2>
@@ -987,7 +846,7 @@ graph LR
 y &amp;= \beta_0 + \beta_1x + \epsilon \\
 \end{aligned}
 \]</span></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(df<span class="sc">$</span>y <span class="sc">~</span> df<span class="sc">$</span>x, <span class="at">data =</span> df) <span class="co"># Une seule ligne de code!</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(df<span class="sc">$</span>y <span class="sc">~</span> df<span class="sc">$</span>x, <span class="at">data =</span> df) <span class="co"># Une seule ligne de code!</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="quest-ce-que-cest-3" class="slide level2">
 <h2>Qu’est-ce que c’est?</h2>
@@ -1004,7 +863,7 @@ y &amp;= \beta_0 + \beta_1x + \epsilon \\
 <section id="comment-ça-marche-1" class="slide level2 smaller" data-transition="none">
 <h2>Comment ça marche?</h2>
 
-<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"><aside class="notes">
+<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"><aside class="notes">
 <p>La régression trouve la ligne qui passe “au mieux” à travers les points. Plus les points sont proches de la ligne, meilleure est la régression.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1021,11 +880,11 @@ y &amp;= \beta_0 + \beta_1x + \epsilon \\
 <section id="comment-ça-marche-2" class="slide level2 smaller" data-transition="none">
 <h2>Comment ça marche?</h2>
 
-<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
+<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
 <section id="comment-ça-marche-3" class="slide level2 smaller" data-transition="none">
 <h2>Comment ça marche?</h2>
 
-<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
+<img data-src="cours_5_mesures_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
 <section id="pourquoi-utiliser-la-régression" class="slide level2">
 <h2>Pourquoi utiliser la régression?</h2>
 <ul>
@@ -1037,66 +896,66 @@ y &amp;= \beta_0 + \beta_1x + \epsilon \\
 </section>
 <section id="régression" class="slide level2">
 <h2>Régression</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(df<span class="sc">$</span>ses_education <span class="sc">~</span> df<span class="sc">$</span>redneck_scale)</span>
-<span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a><span class="fu">summary</span>(model)</span>
-<span id="cb10-4"><a href=""></a></span>
-<span id="cb10-5"><a href=""></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(</span>
-<span id="cb10-6"><a href=""></a>  model,</span>
-<span id="cb10-7"><a href=""></a>  <span class="at">output =</span> <span class="st">"results/tables/regression.md"</span>,</span>
-<span id="cb10-8"><a href=""></a>  <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb10-9"><a href=""></a>  <span class="at">title =</span> <span class="st">"Régression linéaire simple"</span></span>
-<span id="cb10-10"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(df<span class="sc">$</span>ses_education <span class="sc">~</span> df<span class="sc">$</span>redneck_scale)</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a><span class="fu">summary</span>(model)</span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(</span>
+<span id="cb11-6"><a href=""></a>  model,</span>
+<span id="cb11-7"><a href=""></a>  <span class="at">output =</span> <span class="st">"results/tables/regression.md"</span>,</span>
+<span id="cb11-8"><a href=""></a>  <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-9"><a href=""></a>  <span class="at">title =</span> <span class="st">"Régression linéaire simple"</span></span>
+<span id="cb11-10"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="section-1" class="slide level2" data-transition="none">
+<section id="section" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/00_regression.png" class="r-stretch"></section>
-<section id="section-2" class="slide level2" data-transition="none">
+<section id="section-1" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/01_regression.png" class="r-stretch"></section>
-<section id="section-3" class="slide level2" data-transition="none">
+<section id="section-2" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/02_regression.png" class="r-stretch"></section>
-<section id="section-4" class="slide level2" data-transition="none">
+<section id="section-3" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/03_regression.png" class="r-stretch"></section>
-<section id="section-5" class="slide level2" data-transition="none">
+<section id="section-4" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/04_regression.png" class="r-stretch"></section>
-<section id="section-6" class="slide level2" data-transition="none">
+<section id="section-5" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/05_regression.png" class="r-stretch"></section>
-<section id="section-7" class="slide level2" data-transition="none">
+<section id="section-6" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/06_regression.png" class="r-stretch"></section>
-<section id="section-8" class="slide level2" data-transition="none">
+<section id="section-7" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/07_regression.png" class="r-stretch"></section>
-<section id="section-9" class="slide level2" data-transition="none">
+<section id="section-8" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/08_regression.png" class="r-stretch"></section>
-<section id="section-10" class="slide level2" data-transition="none">
+<section id="section-9" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/09_regression.png" class="r-stretch"></section>
-<section id="section-11" class="slide level2" data-transition="none">
+<section id="section-10" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/10_regression.png" class="r-stretch"></section>
-<section id="section-12" class="slide level2" data-transition="none">
+<section id="section-11" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/11_regression.png" class="r-stretch"></section>
-<section id="section-13" class="slide level2" data-transition="none">
+<section id="section-12" class="slide level2" data-transition="none">
 <h2></h2>
 
 <img data-src="img/12_regression.png" class="r-stretch"></section>
@@ -1115,31 +974,15 @@ y &amp;= \beta_0 + \beta_1x + \epsilon \\
 </section>
 <section id="les-composants-de-base" class="slide level2">
 <h2>Les composants de base</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {"theme": "base"}}%%
-graph LR
-    A[Données] --&gt; B[Aesthetics]
-    B --&gt; C[Géométries]
-    C --&gt; D[Facettes]
-    D --&gt; E[Thèmes]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="img/grammaire.svg" class="r-stretch"></section>
 <section id="structure-dun-graphique-ggplot2" class="slide level2">
 <h2>Structure d’un graphique ggplot2</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> df,       <span class="co"># 1. Données</span></span>
-<span id="cb11-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> x,       <span class="co"># 2. Mapping esthétique</span></span>
-<span id="cb11-3"><a href=""></a>           <span class="at">y =</span> y)) <span class="sc">+</span>    </span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>       <span class="co"># 3. Géométrie</span></span>
-<span id="cb11-5"><a href=""></a>  <span class="fu">theme_minimal</span>()      <span class="co"># 4. Thème</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> df,       <span class="co"># 1. Données</span></span>
+<span id="cb12-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> x,       <span class="co"># 2. Mapping esthétique</span></span>
+<span id="cb12-3"><a href=""></a>           <span class="at">y =</span> y)) <span class="sc">+</span>    </span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>       <span class="co"># 3. Géométrie</span></span>
+<span id="cb12-5"><a href=""></a>  <span class="fu">theme_minimal</span>()      <span class="co"># 4. Thème</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="types-de-graphiques-fondamentaux" class="title-slide slide level1 center">
@@ -1148,43 +991,43 @@ graph LR
 </section>
 <section id="le-nuage-de-points" class="slide level2">
 <h2>Le nuage de points</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># Simple</span></span>
-<span id="cb12-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb12-4"><a href=""></a></span>
-<span id="cb12-5"><a href=""></a><span class="co"># Amélioré</span></span>
-<span id="cb12-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu, <span class="at">color =</span> education)) <span class="sc">+</span></span>
-<span id="cb12-7"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb12-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb12-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Revenu selon l'âge et l'éducation"</span>,</span>
-<span id="cb12-10"><a href=""></a>       <span class="at">x =</span> <span class="st">"Âge"</span>,</span>
-<span id="cb12-11"><a href=""></a>       <span class="at">y =</span> <span class="st">"Revenu"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Simple</span></span>
+<span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href=""></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb13-4"><a href=""></a></span>
+<span id="cb13-5"><a href=""></a><span class="co"># Amélioré</span></span>
+<span id="cb13-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu, <span class="at">color =</span> education)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Revenu selon l'âge et l'éducation"</span>,</span>
+<span id="cb13-10"><a href=""></a>       <span class="at">x =</span> <span class="st">"Âge"</span>,</span>
+<span id="cb13-11"><a href=""></a>       <span class="at">y =</span> <span class="st">"Revenu"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="lhistogramme" class="slide level2">
 <h2>L’histogramme</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Simple</span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_histogram</span>()</span>
-<span id="cb13-4"><a href=""></a></span>
-<span id="cb13-5"><a href=""></a><span class="co"># Amélioré</span></span>
-<span id="cb13-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">fill =</span> education)) <span class="sc">+</span></span>
-<span id="cb13-7"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, </span>
-<span id="cb13-8"><a href=""></a>                <span class="at">binwidth =</span> <span class="dv">5</span>,</span>
-<span id="cb13-9"><a href=""></a>                <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb13-10"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb13-11"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># Simple</span></span>
+<span id="cb14-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href=""></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb14-4"><a href=""></a></span>
+<span id="cb14-5"><a href=""></a><span class="co"># Amélioré</span></span>
+<span id="cb14-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">fill =</span> education)) <span class="sc">+</span></span>
+<span id="cb14-7"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, </span>
+<span id="cb14-8"><a href=""></a>                <span class="at">binwidth =</span> <span class="dv">5</span>,</span>
+<span id="cb14-9"><a href=""></a>                <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb14-10"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb14-11"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="le-graphique-en-barres" class="slide level2">
 <h2>Le graphique en barres</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># Simple</span></span>
-<span id="cb14-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb14-4"><a href=""></a></span>
-<span id="cb14-5"><a href=""></a><span class="co"># Amélioré</span></span>
-<span id="cb14-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
-<span id="cb14-7"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb14-8"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb14-9"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># Simple</span></span>
+<span id="cb15-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb15-4"><a href=""></a></span>
+<span id="cb15-5"><a href=""></a><span class="co"># Amélioré</span></span>
+<span id="cb15-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb15-7"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb15-9"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="personnalisation" class="title-slide slide level1 center">
@@ -1193,32 +1036,32 @@ graph LR
 </section>
 <section id="les-couleurs" class="slide level2">
 <h2>Les couleurs</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># Palette manuelle</span></span>
-<span id="cb15-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
-<span id="cb15-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb15-4"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>))</span>
-<span id="cb15-5"><a href=""></a></span>
-<span id="cb15-6"><a href=""></a><span class="co"># Palette RColorBrewer</span></span>
-<span id="cb15-7"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
-<span id="cb15-8"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb15-9"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Palette manuelle</span></span>
+<span id="cb16-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>))</span>
+<span id="cb16-5"><a href=""></a></span>
+<span id="cb16-6"><a href=""></a><span class="co"># Palette RColorBrewer</span></span>
+<span id="cb16-7"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb16-8"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb16-9"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="les-thèmes" class="slide level2">
 <h2>Les thèmes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Thème minimal</span></span>
-<span id="cb16-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb16-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb16-5"><a href=""></a></span>
-<span id="cb16-6"><a href=""></a><span class="co"># Thème personnalisé</span></span>
-<span id="cb16-7"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb16-8"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-9"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb16-10"><a href=""></a>  <span class="fu">theme</span>(</span>
-<span id="cb16-11"><a href=""></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb16-12"><a href=""></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb16-13"><a href=""></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
-<span id="cb16-14"><a href=""></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="co"># Thème minimal</span></span>
+<span id="cb17-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb17-5"><a href=""></a></span>
+<span id="cb17-6"><a href=""></a><span class="co"># Thème personnalisé</span></span>
+<span id="cb17-7"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb17-8"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-9"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-10"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb17-11"><a href=""></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb17-12"><a href=""></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb17-13"><a href=""></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb17-14"><a href=""></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="graphiques-avancés" class="title-slide slide level1 center">
@@ -1227,18 +1070,18 @@ graph LR
 </section>
 <section id="facettes" class="slide level2">
 <h2>Facettes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb17-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>education) <span class="sc">+</span></span>
-<span id="cb17-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>education) <span class="sc">+</span></span>
+<span id="cb18-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="combinaison-de-géométries" class="slide level2">
 <h2>Combinaison de géométries</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb18-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb18-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>education) <span class="sc">+</span></span>
-<span id="cb18-5"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>education) <span class="sc">+</span></span>
+<span id="cb19-5"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="points-clés-à-retenir-1" class="slide level2">
 <h2>Points clés à retenir</h2>

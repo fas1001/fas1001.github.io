@@ -19,16 +19,45 @@ format:
 bibliography: bibliography.bib
 ---
 
-##
+## Retour sur le Quiz 1{.smaller}  
+
+### Questions
+
+- Trop facile?
+- Combien d'heures ça vous a pris?
+- Comprenez vous la structure du code? `1_`, `2_`, `3_`?
+- Comprenez vous la fonction `source()`?
+- Regarder sur GitHub pour voir si votre commit a bien été push
+- Utiliser le terminal de Positron
+- Ouvrir les pdf directement dans Positron
+- Activer la sauvegarde automatique
+- Activer la mini-map pour naviguer dans les fichiers
+
+## Votre gabarit Quarto
+
+```bash
+quarto use template fas1001/gabarit_udem
+```
+
+## Structure du cours
+
+::: {.r-stack}
 
 ![](img/structure_cours.png)
 
+![](img/structure_cours_1.png){.fragment}
+
+:::
+
 # Cours 5
 
-- Retour sur le dernier cours
-- Le prochain cours
-- Mesurer des variables latentes
-- Introduction à la régression linéaire
+- **Le problème** : On veut étudier des choses invisibles (concepts).
+
+- **La solution** : Construire des échelles de mesure
+
+- **La vérification** : Est-ce que mon instrument marche ? Fiabilité et validité
+
+- **L'application** : Maintenant que j'ai mesuré mon concept, comment il interagit avec le monde ? (Visualisation -> Régression).
 
 # Les variables latentes
 
@@ -42,23 +71,7 @@ bibliography: bibliography.bib
 
 ## Exemple : Mesurer l'intelligence
 
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-mindmap
-  root("Intelligence")
-    ("Verbale")
-      ("Vocabulaire")
-      ("Compréhension")
-    ("Mathématique")
-      ("Calcul")
-      ("Logique")
-    ("Spatiale")
-      ("Visualisation")
-      ("Orientation")
-    ("Sociale")
-      ("Empathie")
-      ("Communication")
-```
+![](img/intelligence.svg)
 
 ::: {.notes}
 - L'intelligence est un concept multidimensionnel
@@ -75,6 +88,58 @@ mindmap
 2. **Multidimensionnalité** : Plusieurs aspects à considérer
 3. **Subjectivité** : Interprétation variable selon le contexte
 :::
+
+# Échelle de mesure
+
+## échelle de l'attitude politique {transition="none"}
+
+![](img/politique_1.svg)
+
+## échelle de l'attitude politique {transition="none"}
+
+![](img/politique_2.svg)
+
+## échelle de l'attitude politique {transition="none"}
+
+![](img/politique_3.svg)
+
+## échelle de l'attitude politique {transition="none"}
+
+![](img/politique_4.svg)
+
+## L'échelle d'idéologie de Merkley (2022)
+
+![](img/merkley_scale.svg)
+
+## Les 8 questions de l'étude (Merkley, 2022)
+
+![](img/merkley_questions.svg)
+
+# Évaluation de la qualité
+
+
+## Critères essentiels {transition="none"}
+
+![](img/qualite_1.svg)
+
+## Critères essentiels {transition="none"}
+
+![](img/qualite_2.svg)
+
+## Critères essentiels {transition="none"}
+
+![](img/qualite_3.svg)
+
+
+## Fiabilité : Mesure Statistique
+
+### Analyse factorielle
+
+- Détecte automatiquement ces anomalies
+- Vérifie si toutes les questions mesurent la même compétence
+- Aide à améliorer la qualité des examens
+- Guide la révision des questions problématiques
+
 
 
 # L'examen d'histoire
@@ -93,8 +158,7 @@ notes <- data.frame(
 )
 
 ggplot(notes, aes(x = Note)) +
-  geom_histogram(binwidth = 5, fill = "#3182bd", alpha = 0.7) +
-  geom_density(aes(y = ..count.. * 5), color = "#e6550d", size = 1) +
+  geom_histogram(binwidth = 5, fill = "#3182bd", color = "white", alpha = 0.8) +
   labs(
     title = "Distribution des notes dans une classe",
     x = "Note (%)",
@@ -121,8 +185,9 @@ ggplot(notes, aes(x = Note)) +
 - Les élèves moyens répondront moyennement bien
 - Les élèves en difficulté auront plus de mal
 
-## Distribution typique d'un examen {transition="none"}
+## Distribution typique d'un examen {auto-animate=true}
 
+::: {data-id="dist-plot"}
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -132,20 +197,56 @@ library(ggplot2)
 set.seed(123)
 n_students <- 100
 performance <- rnorm(n_students, mean = 75, sd = 15)
+# S'assurer que les notes restent entre 0 et 100
+performance <- pmax(0, pmin(100, performance))
 
-# Version avec une seule distribution
+# Theme commun
+custom_theme <- theme_minimal(base_size = 16) +
+  theme(
+    plot.title = element_text(face = "bold", size = 20, color = "#2c3e50"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    legend.position = "bottom",
+    legend.title = element_blank()
+  )
+
+# Version avec histogramme
 ggplot(data.frame(Score = performance), aes(x = Score)) +
-  geom_density(fill = "#3182bd", alpha = 0.7) +
+  geom_histogram(binwidth = 5, fill = "#2c3e50", color = "white", alpha = 0.9) +
+  scale_y_continuous(breaks = seq(0, 30, 5)) +
   labs(
     x = "Note (%)",
-    y = "Densité",
+    y = "Nombre d'étudiants",
     title = "Distribution typique d'un examen"
   ) +
-  theme_minimal()
+  custom_theme
 ```
+:::
 
-## Distribution par groupes d'élèves {transition="none"}
+## De l'histogramme à la densité {auto-animate=true}
 
+::: {data-id="dist-plot"}
+```{r}
+#| echo: false
+#| fig-align: center
+
+# Version avec une seule distribution de densité
+ggplot(data.frame(Score = performance), aes(x = Score)) +
+  geom_density(fill = "#2c3e50", alpha = 0.7, color = NA) +
+  scale_y_continuous(labels = NULL) + # Cacher les chiffres confus
+  labs(
+    x = "Note (%)",
+    y = "Fréquence relative",
+    title = "Distribution typique d'un examen"
+  ) +
+  custom_theme +
+  theme(axis.ticks.y = element_blank())
+```
+:::
+
+## Distribution par groupes d'élèves {auto-animate=true}
+
+::: {data-id="dist-plot"}
 ```{r}
 #| echo: false
 #| fig-align: center
@@ -159,20 +260,23 @@ data <- data.frame(
               include.lowest = TRUE)
 )
 
+# Couleurs plus modernes
+# Rouge (Difficulté), Jaune/Or (Moyen), Bleu (Excellent)
+colors <- c("#e74c3c", "#f39c12", "#3498db")
+
 ggplot(data, aes(x = Score, fill = Groupe)) +
-  geom_density(alpha = 0.7) +
-  scale_fill_manual(values = c("#e6550d", "#fd8d3c", "#3182bd")) +
+  geom_density(alpha = 0.7, color = NA) +
+  scale_fill_manual(values = colors) +
+  scale_y_continuous(labels = NULL) +
   labs(
     x = "Note (%)",
-    y = "Densité",
+    y = "Fréquence relative",
     title = "Distribution par niveau"
   ) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom",
-    legend.title = element_blank()
-  )
+  custom_theme +
+  theme(axis.ticks.y = element_blank())
 ```
+:::
 
 ## Question 1 : Causes de la guerre {transition="none"}
 
@@ -182,20 +286,29 @@ ggplot(data, aes(x = Score, fill = Groupe)) +
 #| echo: false
 #| fig-align: center
 
+# Theme commun (copié pour assurer la cohérence)
+custom_theme <- theme_minimal(base_size = 16) +
+  theme(
+    plot.title = element_text(face = "bold", size = 20, color = "#2c3e50"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    legend.position = "bottom",
+    legend.title = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
+colors <- c("#e74c3c", "#f39c12", "#3498db")
+
 # Même distribution pour une bonne question
 ggplot(data, aes(x = Score, fill = Groupe)) +
-  geom_density(alpha = 0.7) +
-  scale_fill_manual(values = c("#e6550d", "#fd8d3c", "#3182bd")) +
+  geom_density(alpha = 0.7, color = NA) +
+  scale_fill_manual(values = colors) +
   labs(
     x = "Note (%)",
-    y = "Densité",
+    y = "Fréquence relative",
     title = "Distribution des notes"
   ) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom",
-    legend.title = element_blank()
-  )
+  custom_theme
 ```
 
 ## Question 2 : Analyse stratégique {transition="none"}
@@ -217,18 +330,14 @@ data2 <- data.frame(
 )
 
 ggplot(data2, aes(x = Score, fill = Groupe)) +
-  geom_density(alpha = 0.7) +
-  scale_fill_manual(values = c("#e6550d", "#fd8d3c", "#3182bd")) +
+  geom_density(alpha = 0.7, color = NA) +
+  scale_fill_manual(values = colors) +
   labs(
     x = "Note (%)",
-    y = "Densité",
+    y = "Fréquence relative",
     title = "Distribution des notes"
   ) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom",
-    legend.title = element_blank()
-  )
+  custom_theme
 ```
 
 ## Question 3 : Impact économique {transition="none"}
@@ -250,19 +359,14 @@ data3 <- data.frame(
 )
 
 ggplot(data3, aes(x = Score, fill = Groupe)) +
-  geom_density(alpha = 0.7) +
-  scale_fill_manual(values = c("#e6550d", "#fd8d3c", "#3182bd")) +
+  geom_density(alpha = 0.7, color = NA) +
+  scale_fill_manual(values = colors) +
   labs(
     x = "Note (%)",
-    y = "Densité",
+    y = "Fréquence relative",
     title = "Distribution des notes"
   ) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom",
-    legend.title = element_blank()
-  )
-
+  custom_theme
 ```
 
 ## Question 4 : Conséquences géopolitiques {transition="none"}
@@ -284,18 +388,14 @@ data4 <- data.frame(
 )
 
 ggplot(data4, aes(x = Score, fill = Groupe)) +
-  geom_density(alpha = 0.7) +
-  scale_fill_manual(values = c("#e6550d", "#fd8d3c", "#3182bd")) +
+  geom_density(alpha = 0.7, color = NA) +
+  scale_fill_manual(values = colors) +
   labs(
     x = "Note (%)",
-    y = "Densité",
+    y = "Fréquence relative",
     title = "Distribution des notes"
   ) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom",
-    legend.title = element_blank()
-  )
+  custom_theme
 ```
 
 ## Question 5 : Cigares de Churchill {transition="none"}
@@ -317,25 +417,20 @@ data_prob <- data.frame(
 )
 
 ggplot(data_prob, aes(x = Score, fill = Groupe)) +
-  geom_density(alpha = 0.7) +
-  scale_fill_manual(values = c("#e6550d", "#fd8d3c", "#3182bd")) +
+  geom_density(alpha = 0.7, color = NA) +
+  scale_fill_manual(values = colors) +
   labs(
     x = "Note (%)",
-    y = "Densité",
+    y = "Fréquence relative",
     title = "Distribution inversée !"
   ) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom",
-    legend.title = element_blank()
-  ) +
+  custom_theme +
   annotate("text", x = 20, y = 0.02, 
            label = "Les meilleurs élèves\néchouent ?!", 
-           color = "#e6550d", size = 4, fontface = "bold")
+           color = "#e74c3c", size = 6, fontface = "bold")
 ```
-## Une question suspecte 🤔
+## Une question suspecte
 
-### 🚨 Problème!
 Cette question mesure-t-elle vraiment la **compétence en histoire**?
 
 Ou mesure-t-elle autre chose?
@@ -343,44 +438,11 @@ Ou mesure-t-elle autre chose?
 - Culture populaire?
 - Connaissance des cigares?
 
-## Ce qui cloche...
+## Ce qui cloche
 
 - Les meilleurs élèves échouent mystérieusement
 - Les élèves en difficulté excellent soudainement
 - La question ne mesure pas la compétence en histoire
-
-## En résumé
-
-::::{.columns}
-
-:::{.column width="50%"}
-
-### Une bonne question d'histoire devrait:
-  - Tester la compréhension historique
-  - Montrer une distribution "normale"
-  - Discriminer selon la compétence
-
-:::
-
-:::{.column width="50%"}
-
-### Une question problématique peut:
-  - Tester des connaissances non pertinentes
-  - Montrer une distribution inversée
-  - Ne pas refléter la compétence visée
-
-:::
-
-::::
-
-
-## Solution : Analyse factorielle
-
-- Détecte automatiquement ces anomalies
-- Vérifie si toutes les questions mesurent la même compétence
-- Aide à améliorer la qualité des examens
-- Guide la révision des questions problématiques
-
 
 ## L'analyse factorielle compare toutes les questions
 
@@ -388,7 +450,7 @@ Ou mesure-t-elle autre chose?
 #| echo: false
 #| fig-align: center
 #| fig-width: 15
-#| fig-height: 6
+#| fig-height: 4.5
 
 # Simuler les données pour toutes les questions
 set.seed(123)
@@ -409,22 +471,29 @@ data <- data.frame(
             each = n_students)
 )
 
+# Theme
+custom_theme <- theme_minimal(base_size = 16) +
+  theme(
+    plot.title = element_text(face = "bold", size = 20, color = "#2c3e50"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    legend.position = "bottom",
+    legend.title = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    strip.text = element_text(size = 14, face = "bold", color = "#2c3e50")
+  )
+
 ggplot(data, aes(x = Score, fill = Type)) +
-  geom_density(alpha = 0.5) +
+  geom_density(alpha = 0.7, color = NA) +
   facet_wrap(~Question, nrow = 1) +
-  scale_fill_manual(values = c("#3182bd", "#e6550d")) +
+  scale_fill_manual(values = c("#3498db", "#e74c3c")) + # Bleu (Bon), Rouge (Mauvais)
   labs(
     title = "Distribution des notes pour chaque question",
     x = "Note (%)",
-    y = "Densité"
+    y = "Fréquence relative"
   ) +
-  theme_minimal() +
-  theme(
-    text = element_text(size = 14),
-    plot.title = element_text(size = 16, face = "bold"),
-    legend.position = "bottom",
-    strip.text = element_text(size = 12, face = "bold")
-  )
+  custom_theme
 ```
 
 ## Comment ça marche?
@@ -455,103 +524,35 @@ ggplot(data, aes(x = Score, fill = Type)) +
 - L'analyse factorielle détecte automatiquement ces patterns
 :::
 
-## Exemple concret : L'attitude politique
+## En résumé
 
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph TD
-    A["Attitude Politique<br/>(Variable Latente)"]
-    
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    
-    class A latent;
-```
+::::{.columns}
 
-## Exemple concret : L'attitude politique
+:::{.column width="50%"}
 
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph TD
-    A["Attitude Politique<br/>(Variable Latente)"] --> B["Opinion sur<br/>l'Immigration"]
-    A --> C["Position sur<br/>l'Économie"]
-    A --> D["Vision de<br/>l'Environnement"]
-    
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    classDef indicator fill:#fff5eb,stroke:#e6550d,stroke-width:2px;
-    
-    class A latent;
-    class B,C,D indicator;
-```
+### Une bonne question d'histoire devrait:
+  - Tester la compréhension historique
+  - Montrer une distribution "normale"
+  - Discriminer selon la compétence
 
-## Exemple concret : L'attitude politique
+:::
 
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph TD
-    A["Attitude Politique<br/>(Variable Latente)"] --> B["Opinion sur<br/>l'Immigration"]
-    A --> C["Position sur<br/>l'Économie"]
-    A --> D["Vision de<br/>l'Environnement"]
-    
-    B --> E["Question 1:<br/>Politique migratoire"]
-    B --> F["Question 2:<br/>Intégration"]
-    
-    C --> G["Question 3:<br/>Impôts"]
-    C --> H["Question 4:<br/>Intervention État"]
-    
-    D --> I["Question 5:<br/>Climat"]
-    D --> J["Question 6:<br/>Régulation"]
-    
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    classDef indicator fill:#fff5eb,stroke:#e6550d,stroke-width:2px;
-    classDef question fill:#f0f0f0,stroke:#636363,stroke-width:1px;
-    
-    class A latent;
-    class B,C,D indicator;
-    class E,F,G,H,I,J question;
-```
+:::{.column width="50%"}
 
-## Exemple concret : L'attitude politique
+### Une question problématique peut:
+  - Tester des connaissances non pertinentes
+  - Montrer une distribution inversée
+  - Ne pas refléter la compétence visée
 
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph TD
-    A["Attitude Politique<br/>Gauche!"] --> B["Opinion sur<br/>l'Immigration"]
-    A --> C["Position sur<br/>l'Économie"]
-    A --> D["Vision de<br/>l'Environnement"]
-    
-    B --> E["Question 1:<br/>Politique migratoire"]
-    B --> F["Question 2:<br/>Intégration"]
-    
-    C --> G["Question 3:<br/>Impôts"]
-    C --> H["Question 4:<br/>Intervention État"]
-    
-    D --> I["Question 5:<br/>Climat"]
-    D --> J["Question 6:<br/>Régulation"]
+:::
 
-    E --> K["En Faveur de plus d'immigrants"]
-    F --> L["En Faveur de l'intégration"]
+::::
 
-    G --> M["En Faveur de l'augmentation"]
-    H --> N["En Faveur de plus d'intervention"]
 
-    I --> O["Enjeu important"]
-    J --> P["En Faveur de plus de régulation"]
-    
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    classDef indicator fill:#fff5eb,stroke:#e6550d,stroke-width:2px;
-    classDef question fill:#f0f0f0,stroke:#636363,stroke-width:1px;
-    
-    class A latent;
-    class B,C,D indicator;
-    class E,F,G,H,I,J,K,L,M,N,O,P question;
-```
-
-## Un exemple concret
-
-### Les Rednecks
+## Concept latent : Rednecks
 
 - Est-ce que l'éducation influence la probabilité d'être un "redneck"?
-- Aucun question ne demande directement si quelqu'un est un "redneck"
+- Aucune question ne demande directement si quelqu'un est un "redneck"
 - Mais on peut inférer ce statut à partir d'autres variables
 - Créer une variable de "redneckitude"
 
@@ -579,65 +580,15 @@ graph TD
 
 :::{.column width="50%"}
 
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}}}%%
-graph LR
-    A["<b>Fréquence d'aller chasser</b><br/>0 - Jamais<br/>0.5 - Des fois<br/>1 - Souvent"] --> B["<b>Redneckitude</b><br/>0 - Pas redneck<br/>0.5 - Moyen redneck<br/>1 - Très redneck"]
-    C["<b>Possède des armes à feu</b><br/>0 - Aucune<br/>0.5 - Un peu<br/>1 - Beaucoup"] --> B
-    D["<b>Conduit un pickup</b><br/>0 - non<br/>1 - oui"] --> B    
-   
-    classDef latent fill:#e6f3ff,stroke:#3182bd,stroke-width:2px;
-    classDef indicator fill:#fff5eb,stroke:#e6550d,stroke-width:2px;
-    
-    class B latent;
-    class A,C,D indicator;
-```
+![](img/redneck_concept.svg){width="100%"}
+
 :::
 
 ::::
 
-# Évaluation de la qualité
+## Analyse factorielle
 
-## Critères essentiels {transition="none"}
-
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}, "flowchart": {"nodeSpacing": 200, "rankSpacing": 150, "diagramPadding": 50, "htmlLabels": true}}}%%
-graph LR
-    A[<div style='width: 200px'>Qualité de<br/>la mesure</div>] --> B[<div style='width: 150px'>Fiabilité</div>]
-    A --> C[<div style='width: 150px'>Validité</div>]
-  
-```
-
-## Critères essentiels {transition="none"}
-
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}, "flowchart": {"nodeSpacing": 200, "rankSpacing": 150, "diagramPadding": 50, "htmlLabels": true}}}%%
-graph LR
-    A[<div style='width: 200px'>Qualité de<br/>la mesure</div>] --> B[<div style='width: 150px'>Fiabilité</div>]
-    A --> C[<div style='width: 150px'>Validité</div>]
-    
-    B --> D[<div style='width: 150px'>Statistique</div>]
-```
-
-## Critères essentiels {transition="none"}
-
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}, "flowchart": {"nodeSpacing": 200, "rankSpacing": 150, "diagramPadding": 50, "htmlLabels": true}}}%%
-graph LR
-    A[<div style='width: 200px'>Qualité de<br/>la mesure</div>] --> B[<div style='width: 150px'>Fiabilité</div>]
-    A --> C[<div style='width: 150px'>Validité</div>]
-    
-    B --> D[<div style='width: 150px'>Statistique</div>]
-    
-    C --> E[<div style='width: 150px'>Théorique</div>]
-```
-
-## La fiabilité
-
-### Comment la mesurer?
-
-
-## Trois mesures statistiques
+### Trois mesures statistiques
 
 1. **Alpha de Cronbach**
 2. **Première valeur propre (Eigenvalue)**
@@ -680,7 +631,7 @@ graph LR
 - Plus la valeur est élevée, plus c'est fiable
 - Indique qu'il y a un "facteur dominant" dans vos questions
 
-# Le Coefficient de Saturation (Factor Loading)
+# Le Coefficient de Saturation\(Factor Loading)
 
 ## Qu'est-ce que c'est?
 - Mesure la **contribution** de chaque question au concept général
@@ -1145,14 +1096,7 @@ modelsummary::modelsummary(
 
 ## Les composants de base
 
-```{mermaid}
-%%{init: {"theme": "base"}}%%
-graph LR
-    A[Données] --> B[Aesthetics]
-    B --> C[Géométries]
-    C --> D[Facettes]
-    D --> E[Thèmes]
-```
+![](img/grammaire.svg)
 
 ## Structure d'un graphique ggplot2
 
