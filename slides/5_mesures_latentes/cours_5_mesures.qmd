@@ -55,7 +55,7 @@ quarto use template fas1001/gabarit_udem
 
 - **La solution** : Construire des échelles de mesure
 
-- **La vérification** : Est-ce que mon instrument marche ? Fiabilité et validité
+- **La vérification** : Est-ce que mon échelle est fiable et valide?
 
 - **L'application** : Maintenant que j'ai mesuré mon concept, comment il interagit avec le monde ? (Visualisation -> Régression).
 
@@ -66,6 +66,9 @@ quarto use template fas1001/gabarit_udem
 ### Qu'est-ce qu'une variable latente?
 
 - Une caractéristique qui ne peut pas être mesurée directement
+  - Idéologie politique
+  - Le support à l'environnement
+  - L'intelligence
 - Doit être inférée à partir d'autres variables observables
 - Concept central en sciences sociales
 
@@ -115,8 +118,50 @@ quarto use template fas1001/gabarit_udem
 
 ![](img/merkley_questions.svg)
 
-# Évaluation de la qualité
+## Concept latent : Rednecks
 
+- Est-ce que l'éducation influence la probabilité d'être un "redneck"?
+- Aucune question ne demande directement si quelqu'un est un "redneck"
+- Mais on peut inférer ce statut à partir d'autres variables
+- Créer une variable de "redneckitude"
+
+## Solution : Les échelles de mesure {.smaller}
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+### Comment procéder?
+
+1. **Identifier les dimensions clés**
+   - Décomposer le concept
+   - Définir les aspects mesurables
+
+2. **Créer des indicateurs**
+   - Questions précises
+   - Observations concrètes
+
+3. **Valider l'échelle**
+   - Fiabilité : Tests statistiques
+   - Validité : Théorique
+
+:::
+
+:::{.column width="50%"}
+
+![](img/redneck_concept.svg){width="100%"}
+
+:::
+
+::::
+
+# Hipster? {transition="none"}
+
+# TikTok brain? {transition="none"}
+
+# Confiance envers le gouvernement? {transition="none"}
+
+# Évaluation de la qualité
 
 ## Critères essentiels {transition="none"}
 
@@ -130,7 +175,6 @@ quarto use template fas1001/gabarit_udem
 
 ![](img/qualite_3.svg)
 
-
 ## Fiabilité : Mesure Statistique
 
 ### Analyse factorielle
@@ -139,8 +183,6 @@ quarto use template fas1001/gabarit_udem
 - Vérifie si toutes les questions mesurent la même compétence
 - Aide à améliorer la qualité des examens
 - Guide la révision des questions problématiques
-
-
 
 # L'examen d'histoire
 
@@ -223,7 +265,7 @@ ggplot(data.frame(Score = performance), aes(x = Score)) +
 ```
 :::
 
-## De l'histogramme à la densité {auto-animate=true}
+## Distribution typique d'un examen {auto-animate=true}
 
 ::: {data-id="dist-plot"}
 ```{r}
@@ -549,43 +591,6 @@ ggplot(data, aes(x = Score, fill = Type)) +
 ::::
 
 
-## Concept latent : Rednecks
-
-- Est-ce que l'éducation influence la probabilité d'être un "redneck"?
-- Aucune question ne demande directement si quelqu'un est un "redneck"
-- Mais on peut inférer ce statut à partir d'autres variables
-- Créer une variable de "redneckitude"
-
-## Solution : Les échelles de mesure {.smaller}
-
-::::{.columns}
-
-:::{.column width="50%"}
-
-### Comment procéder?
-
-1. **Identifier les dimensions clés**
-   - Décomposer le concept
-   - Définir les aspects mesurables
-
-2. **Créer des indicateurs**
-   - Questions précises
-   - Observations concrètes
-
-3. **Valider l'échelle**
-   - Fiabilité : Tests statistiques
-   - Validité : Théorique
-
-:::
-
-:::{.column width="50%"}
-
-![](img/redneck_concept.svg){width="100%"}
-
-:::
-
-::::
-
 ## Analyse factorielle
 
 ### Trois mesures statistiques
@@ -622,9 +627,14 @@ ggplot(data, aes(x = Score, fill = Type)) +
 - Plus elle est élevée, plus vos questions mesurent un concept unique et fort
 
 ## Analogie Simple
-- Imaginez que vous prenez une photo de groupe :
-  - Si tout le monde regarde dans la même direction → Forte première valeur propre
-  - Si chacun regarde dans une direction différente → Faible première valeur propre
+
+5 questions pour mesurer les habitudes de vie saines
+
+- "Je ne mange jamais de sucre raffiné"
+- "Je privilégie les produits biologiques"
+- "Je vais au gym 4 fois par semaine"
+- "Je prends des suppléments de protéines"
+- "Je possède une montre intelligente pour suivre mon cardio"
 
 ## En pratique
 - Valeur > 1 : Acceptable
@@ -639,7 +649,7 @@ ggplot(data, aes(x = Score, fill = Type)) +
 
 ## Exemple Simple
 - Pour un questionnaire sur "l'amour des chats" :
-  - "J'aime caresser les chats" → Fort coefficient (pertinent)
+  - "Les chats sont doux" → Fort coefficient (pertinent)
   - "Je mange des pâtes" → Faible coefficient (non pertinent)
 
 ## En pratique
@@ -667,7 +677,7 @@ ggplot(data, aes(x = Score, fill = Type)) +
 ```r
 # Dans la console:
 install.packages("devtools")
-devtools::install_github("ellipse-science/sondr")
+devtools::install_github("clessnverse/sondr")
 ```
 
 ## Comment faire ?
@@ -720,7 +730,7 @@ saveRDS(df_clean, "data_clean.rds")
 
 :::{.column width="55%"}
 
-### 2. Isoler les variables à évaluer
+### 5. Isoler les variables à évaluer
 
 ```r
 
@@ -740,7 +750,7 @@ df_fa <- df %>%
 
 :::{.column width="45%"}
 
-### 3. Conditions à respecter
+### 6. Conditions à respecter
 
 1. Un dataframe contenant uniquement les variables à évaluer
 2. AUCUNE valeur manquante
@@ -758,7 +768,7 @@ df_fa <- df %>%
 
 :::{.column width="35%"}
 
-### 2. Utiliser la fonction 
+### 7. Utiliser la fonction 
 
 `sondr::topdown_fa()`
 
@@ -783,19 +793,19 @@ sondr::topdown_fa(df_fa)
 
 :::{.column width="40%"}
 
-### Réesayer 
+### 8. Réesayer 
 
 Essaie erreur jusqu'à trouver une combinaison gagnante
 
 ```r
 # Supprimer les variables 
 # non pertinentes
-df_fa <- df_fa %>%
+df_fa_2 <- df_fa %>%
   select(-c(lifestyle_eat_meat_scale, 
             lifestyle_pickup_scale)) 
 
 # Relancer l'analyse
-sondr::topdown_fa(df_fa)
+sondr::topdown_fa(df_fa_2)
 
 ```
 
@@ -849,6 +859,135 @@ saveRDS(df, "data_scale.rds")
 1. Les variables latentes sont omniprésentes en sciences sociales
 2. La mesure nécessite une approche systématique
 3. La validation est cruciale pour la qualité
+:::
+
+# La grammaire des graphiques
+
+## Les composants de base
+
+![](img/grammaire.svg)
+
+## Structure d'un graphique ggplot2
+
+```r
+ggplot(data = df,            # 1. Données
+       aes(x = x, y = y)) +  # 2. Mapping esthétique
+  geom_point() +             # 3. Géométrie
+  theme_minimal()            # 4. Thème
+```
+
+# Types de graphiques fondamentaux
+
+## L'histogramme
+
+```r
+# Simple
+ggplot(data, aes(x = age)) +
+  geom_histogram()
+
+# Amélioré
+ggplot(data, aes(x = age, fill = education)) +
+  geom_histogram(position = "dodge", 
+                binwidth = 5,
+                alpha = 0.7) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set2")
+```
+
+## Le graphique en barres
+
+```r
+# Simple
+ggplot(data, aes(x = education)) +
+  geom_bar()
+
+# Amélioré
+ggplot(data, aes(x = education, fill = gender)) +
+  geom_bar(position = "dodge") +
+  coord_flip() +
+  theme_minimal()
+```
+
+## Le nuage de points
+
+```r
+# Simple
+ggplot(data, aes(x = age, y = revenu)) +
+  geom_point()
+
+# Amélioré
+ggplot(data, aes(x = age, y = revenu, color = education)) +
+  geom_point(alpha = 0.6) +
+  theme_minimal() +
+  labs(title = "Revenu selon l'âge et l'éducation",
+       x = "Âge",
+       y = "Revenu")
+```
+
+
+# Personnalisation
+
+## Les couleurs
+
+```r
+# Palette manuelle
+ggplot(data, aes(x = education, fill = gender)) +
+  geom_bar() +
+  scale_fill_manual(values = c("#E69F00", "#56B4E9"))
+
+# Palette RColorBrewer
+ggplot(data, aes(x = education, fill = gender)) +
+  geom_bar() +
+  scale_fill_brewer(palette = "Set1")
+```
+
+## Les thèmes
+
+```r
+# Thème minimal
+ggplot(data, aes(x = age, y = revenu)) +
+  geom_point() +
+  theme_minimal()
+
+# Thème personnalisé
+ggplot(data, aes(x = age, y = revenu)) +
+  geom_point() +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title = element_text(size = 12),
+    legend.position = "bottom"
+  )
+```
+
+# Graphiques avancés
+
+## Facettes
+
+```r
+ggplot(data, aes(x = age, y = revenu)) +
+  geom_point() +
+  facet_wrap(~education) +
+  theme_minimal()
+```
+
+## Combinaison de géométries
+
+```r
+ggplot(data, aes(x = age, y = revenu)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  facet_wrap(~education) +
+  theme_minimal()
+```
+
+## Points clés à retenir
+
+::: {.incremental}
+1. ggplot2 utilise une grammaire des graphiques cohérente
+2. Construire les graphiques couche par couche
+3. La personnalisation est puissante mais simple
+4. Toujours penser à la lisibilité
 :::
 
 # Regression linéaire
@@ -1091,132 +1230,4 @@ modelsummary::modelsummary(
 3. Visualiser pour mieux comprendre
 :::
 
-
-# La grammaire des graphiques
-
-## Les composants de base
-
-![](img/grammaire.svg)
-
-## Structure d'un graphique ggplot2
-
-```r
-ggplot(data = df,       # 1. Données
-       aes(x = x,       # 2. Mapping esthétique
-           y = y)) +    
-  geom_point() +       # 3. Géométrie
-  theme_minimal()      # 4. Thème
-```
-
-# Types de graphiques fondamentaux
-
-## Le nuage de points
-
-```r
-# Simple
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point()
-
-# Amélioré
-ggplot(data, aes(x = age, y = revenu, color = education)) +
-  geom_point(alpha = 0.6) +
-  theme_minimal() +
-  labs(title = "Revenu selon l'âge et l'éducation",
-       x = "Âge",
-       y = "Revenu")
-```
-
-## L'histogramme
-
-```r
-# Simple
-ggplot(data, aes(x = age)) +
-  geom_histogram()
-
-# Amélioré
-ggplot(data, aes(x = age, fill = education)) +
-  geom_histogram(position = "dodge", 
-                binwidth = 5,
-                alpha = 0.7) +
-  theme_minimal() +
-  scale_fill_brewer(palette = "Set2")
-```
-
-## Le graphique en barres
-
-```r
-# Simple
-ggplot(data, aes(x = education)) +
-  geom_bar()
-
-# Amélioré
-ggplot(data, aes(x = education, fill = gender)) +
-  geom_bar(position = "dodge") +
-  coord_flip() +
-  theme_minimal()
-```
-
-# Personnalisation
-
-## Les couleurs
-
-```r
-# Palette manuelle
-ggplot(data, aes(x = education, fill = gender)) +
-  geom_bar() +
-  scale_fill_manual(values = c("#E69F00", "#56B4E9"))
-
-# Palette RColorBrewer
-ggplot(data, aes(x = education, fill = gender)) +
-  geom_bar() +
-  scale_fill_brewer(palette = "Set1")
-```
-
-## Les thèmes
-
-```r
-# Thème minimal
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point() +
-  theme_minimal()
-
-# Thème personnalisé
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point() +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(size = 16, face = "bold"),
-    axis.title = element_text(size = 12),
-    legend.position = "bottom"
-  )
-```
-
-# Graphiques avancés
-
-## Facettes
-
-```r
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point() +
-  facet_wrap(~education) +
-  theme_minimal()
-```
-
-## Combinaison de géométries
-
-```r
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm") +
-  facet_wrap(~education) +
-  theme_minimal()
-```
-
-## Points clés à retenir
-
-::: {.incremental}
-1. ggplot2 utilise une grammaire des graphiques cohérente
-2. Construire les graphiques couche par couche
-3. La personnalisation est puissante mais simple
-4. Toujours penser à la lisibilité
-:::
+# Conclusion
