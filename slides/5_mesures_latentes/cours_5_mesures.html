@@ -860,16 +860,126 @@ Laurence-Olivier M. Foisy
 <h1>La grammaire des graphiques</h1>
 
 </section>
+<section id="représentation-graphique-des-données" class="slide level2 smaller">
+<h2>Représentation graphique des données</h2>
+<h3 id="principes-généraux-de-la-visualisation">Principes généraux de la visualisation</h3>
+<ul>
+<li><p>Visualiser des données</p></li>
+<li><p>Éviter les distractions inutiles</p></li>
+<li><p>Éviter les graphiques « spaghetti »</p></li>
+<li><p>Évitez les lignes trop complexes qui se chevauchent et s’entremêlent</p></li>
+<li><p>Commencer en noir et blanc et utiliser les couleurs de manière efficace</p></li>
+</ul>
+</section>
+<section id="visualisation-avec-ggplot2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
+<h3 id="initialiser-un-graphique">Initialiser un graphique</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb10-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>df</code> est le dataframe</li>
+<li><code>aes()</code> est la fonction qui permet de spécifier les variables à utiliser</li>
+<li><code>x</code> et <code>y</code> sont les variables à utiliser pour les axes x et y</li>
+<li><code>color</code> est la variable à utiliser pour la couleur</li>
+</ul>
+</section>
+<section id="visualisation-avec-ggplot2-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
+<h3 id="ajouter-un-geom_">Ajouter un geom_()</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb11-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="co"># Le alpha est la transparence</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Il existe plusieurs <code>geom_()</code> pour différents types de graphiques
+<ul>
+<li><code>geom_point()</code> pour un nuage de points</li>
+<li><code>geom_line()</code> pour un graphique linéaire</li>
+<li><code>geom_bar()</code> pour un graphique à barres</li>
+<li><code>geom_histogram()</code> pour un histogramme</li>
+</ul></li>
+</ul>
+</section>
+<section id="visualisation-avec-ggplot2-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
+<h3 id="ajouter-une-échelle-de-couleur">Ajouter une échelle de couleur</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb12-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
+<span id="cb12-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>scale_color_gradient()</code> permet de spécifier les couleurs pour la variable <code>Education</code></li>
+<li><code>low</code> et <code>high</code> sont les couleurs pour les valeurs les plus basses et les plus hautes</li>
+<li><code>name</code> est le nom de la légende</li>
+<li>Vous pouvez utiliser les hexcodes pour les couleurs</li>
+</ul>
+</section>
+<section id="visualisation-avec-ggplot2-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
+<h3 id="ajouter-des-titres-et-des-labels">Ajouter des titres et des labels</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-code-line-numbers="4,5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb13-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb13-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
+<span id="cb13-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
+<span id="cb13-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
+<span id="cb13-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
+<span id="cb13-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
+<span id="cb13-8" class="hljs-ln-code"><a href=""></a>  ) </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="visualisation-avec-ggplot2-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
+<h3 id="ajouter-un-thème">Ajouter un thème</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb14-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb14-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
+<span id="cb14-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
+<span id="cb14-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
+<span id="cb14-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
+<span id="cb14-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
+<span id="cb14-8" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb14-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>theme_minimal()</code> est un thème minimaliste</li>
+<li>Il existe plusieurs thèmes prédéfinis dans ggplot2</li>
+<li>Vous pouvez aussi créer votre propre thème</li>
+</ul>
+</section>
+<section id="visualisation-avec-ggplot2-5" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
+<h3 id="sauvegarder-le-graphique">Sauvegarder le graphique</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb15-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Agriculture, <span class="at">y =</span> Fertility, <span class="at">color =</span> Education)) <span class="sc">+</span></span>
+<span id="cb15-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="co"># Le alpha est la transparence</span></span>
+<span id="cb15-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"Éducation"</span>) <span class="sc">+</span></span>
+<span id="cb15-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-5" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Relation entre l'agriculture et la fertilité en Suisse"</span>,</span>
+<span id="cb15-6" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Pourcentage d'agriculture"</span>,</span>
+<span id="cb15-7" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Fertilité"</span></span>
+<span id="cb15-8" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb15-9" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb15-10" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb15-11" class="hljs-ln-code"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"nom_du_graphique.png"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Vous pouvez spécifier le format du graphique (png, pdf, etc.) ainsi que le chemin pour sauvegarder le graphique</li>
+</ul>
+</section>
+<section id="visualisation-avec-ggplot2-6" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Visualisation avec ggplot2</h2>
+<h3 id="un-histogramme-de-la-variable-fertility">Un histogramme de la variable Fertility</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb16-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Fertility)) <span class="sc">+</span></span>
+<span id="cb16-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb16-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-4" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Distribution de la fertilité en Suisse"</span>,</span>
+<span id="cb16-5" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Fertilité"</span>,</span>
+<span id="cb16-6" class="hljs-ln-code"><a href=""></a>    <span class="at">y =</span> <span class="st">"Nombre de cantons"</span></span>
+<span id="cb16-7" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb16-8" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 <section id="les-composants-de-base" class="slide level2">
 <h2>Les composants de base</h2>
 
 <img data-src="img/grammaire.svg" class="r-stretch"></section>
 <section id="structure-dun-graphique-ggplot2" class="slide level2">
 <h2>Structure d’un graphique ggplot2</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> df,            <span class="co"># 1. Données</span></span>
-<span id="cb10-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span>  <span class="co"># 2. Mapping esthétique</span></span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>             <span class="co"># 3. Géométrie</span></span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">theme_minimal</span>()            <span class="co"># 4. Thème</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> df,            <span class="co"># 1. Données</span></span>
+<span id="cb17-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span>  <span class="co"># 2. Mapping esthétique</span></span>
+<span id="cb17-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>             <span class="co"># 3. Géométrie</span></span>
+<span id="cb17-4"><a href=""></a>  <span class="fu">theme_minimal</span>()            <span class="co"># 4. Thème</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="types-de-graphiques-fondamentaux" class="title-slide slide level1 center">
@@ -878,43 +988,43 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="lhistogramme" class="slide level2">
 <h2>L’histogramme</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># Simple</span></span>
-<span id="cb11-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">geom_histogram</span>()</span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a><span class="co"># Amélioré</span></span>
-<span id="cb11-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">fill =</span> education)) <span class="sc">+</span></span>
-<span id="cb11-7"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, </span>
-<span id="cb11-8"><a href=""></a>                <span class="at">binwidth =</span> <span class="dv">5</span>,</span>
-<span id="cb11-9"><a href=""></a>                <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb11-10"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb11-11"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co"># Simple</span></span>
+<span id="cb18-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb18-4"><a href=""></a></span>
+<span id="cb18-5"><a href=""></a><span class="co"># Amélioré</span></span>
+<span id="cb18-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">fill =</span> education)) <span class="sc">+</span></span>
+<span id="cb18-7"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, </span>
+<span id="cb18-8"><a href=""></a>                <span class="at">binwidth =</span> <span class="dv">5</span>,</span>
+<span id="cb18-9"><a href=""></a>                <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb18-10"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb18-11"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="le-graphique-en-barres" class="slide level2">
 <h2>Le graphique en barres</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># Simple</span></span>
-<span id="cb12-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb12-4"><a href=""></a></span>
-<span id="cb12-5"><a href=""></a><span class="co"># Amélioré</span></span>
-<span id="cb12-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
-<span id="cb12-7"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb12-8"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb12-9"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="co"># Simple</span></span>
+<span id="cb19-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb19-4"><a href=""></a></span>
+<span id="cb19-5"><a href=""></a><span class="co"># Amélioré</span></span>
+<span id="cb19-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb19-7"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb19-9"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="le-nuage-de-points" class="slide level2">
 <h2>Le nuage de points</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Simple</span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb13-4"><a href=""></a></span>
-<span id="cb13-5"><a href=""></a><span class="co"># Amélioré</span></span>
-<span id="cb13-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu, <span class="at">color =</span> education)) <span class="sc">+</span></span>
-<span id="cb13-7"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb13-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb13-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Revenu selon l'âge et l'éducation"</span>,</span>
-<span id="cb13-10"><a href=""></a>       <span class="at">x =</span> <span class="st">"Âge"</span>,</span>
-<span id="cb13-11"><a href=""></a>       <span class="at">y =</span> <span class="st">"Revenu"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># Simple</span></span>
+<span id="cb20-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href=""></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb20-4"><a href=""></a></span>
+<span id="cb20-5"><a href=""></a><span class="co"># Amélioré</span></span>
+<span id="cb20-6"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu, <span class="at">color =</span> education)) <span class="sc">+</span></span>
+<span id="cb20-7"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb20-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb20-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Revenu selon l'âge et l'éducation"</span>,</span>
+<span id="cb20-10"><a href=""></a>       <span class="at">x =</span> <span class="st">"Âge"</span>,</span>
+<span id="cb20-11"><a href=""></a>       <span class="at">y =</span> <span class="st">"Revenu"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="personnalisation" class="title-slide slide level1 center">
@@ -923,32 +1033,32 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="les-couleurs" class="slide level2">
 <h2>Les couleurs</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># Palette manuelle</span></span>
-<span id="cb14-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb14-4"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>))</span>
-<span id="cb14-5"><a href=""></a></span>
-<span id="cb14-6"><a href=""></a><span class="co"># Palette RColorBrewer</span></span>
-<span id="cb14-7"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
-<span id="cb14-8"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb14-9"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># Palette manuelle</span></span>
+<span id="cb21-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>))</span>
+<span id="cb21-5"><a href=""></a></span>
+<span id="cb21-6"><a href=""></a><span class="co"># Palette RColorBrewer</span></span>
+<span id="cb21-7"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb21-8"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb21-9"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="les-thèmes" class="slide level2">
 <h2>Les thèmes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># Thème minimal</span></span>
-<span id="cb15-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb15-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb15-5"><a href=""></a></span>
-<span id="cb15-6"><a href=""></a><span class="co"># Thème personnalisé</span></span>
-<span id="cb15-7"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb15-8"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-9"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb15-10"><a href=""></a>  <span class="fu">theme</span>(</span>
-<span id="cb15-11"><a href=""></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb15-12"><a href=""></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb15-13"><a href=""></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
-<span id="cb15-14"><a href=""></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Thème minimal</span></span>
+<span id="cb22-2"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb22-5"><a href=""></a></span>
+<span id="cb22-6"><a href=""></a><span class="co"># Thème personnalisé</span></span>
+<span id="cb22-7"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb22-8"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-9"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb22-10"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb22-11"><a href=""></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb22-12"><a href=""></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb22-13"><a href=""></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb22-14"><a href=""></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="graphiques-avancés" class="title-slide slide level1 center">
@@ -957,18 +1067,18 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="facettes" class="slide level2">
 <h2>Facettes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>education) <span class="sc">+</span></span>
-<span id="cb16-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>education) <span class="sc">+</span></span>
+<span id="cb23-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="combinaison-de-géométries" class="slide level2">
 <h2>Combinaison de géométries</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb17-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb17-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>education) <span class="sc">+</span></span>
-<span id="cb17-5"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> revenu)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb24-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>education) <span class="sc">+</span></span>
+<span id="cb24-5"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="points-clés-à-retenir" class="slide level2">
 <h2>Points clés à retenir</h2>
@@ -987,7 +1097,7 @@ Laurence-Olivier M. Foisy
 y &amp;= \beta_0 + \beta_1x + \epsilon \\
 \end{aligned}
 \]</span></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(df<span class="sc">$</span>y <span class="sc">~</span> df<span class="sc">$</span>x, <span class="at">data =</span> df) <span class="co"># Une seule ligne de code!</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(df<span class="sc">$</span>y <span class="sc">~</span> df<span class="sc">$</span>x, <span class="at">data =</span> df) <span class="co"># Une seule ligne de code!</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="quest-ce-que-cest-3" class="slide level2">
 <h2>Qu’est-ce que c’est?</h2>
@@ -1037,16 +1147,16 @@ y &amp;= \beta_0 + \beta_1x + \epsilon \\
 </section>
 <section id="régression" class="slide level2">
 <h2>Régression</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(df<span class="sc">$</span>ses_education <span class="sc">~</span> df<span class="sc">$</span>redneck_scale)</span>
-<span id="cb19-2"><a href=""></a></span>
-<span id="cb19-3"><a href=""></a><span class="fu">summary</span>(model)</span>
-<span id="cb19-4"><a href=""></a></span>
-<span id="cb19-5"><a href=""></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(</span>
-<span id="cb19-6"><a href=""></a>  model,</span>
-<span id="cb19-7"><a href=""></a>  <span class="at">output =</span> <span class="st">"results/tables/regression.md"</span>,</span>
-<span id="cb19-8"><a href=""></a>  <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb19-9"><a href=""></a>  <span class="at">title =</span> <span class="st">"Régression linéaire simple"</span></span>
-<span id="cb19-10"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(df<span class="sc">$</span>ses_education <span class="sc">~</span> df<span class="sc">$</span>redneck_scale)</span>
+<span id="cb26-2"><a href=""></a></span>
+<span id="cb26-3"><a href=""></a><span class="fu">summary</span>(model)</span>
+<span id="cb26-4"><a href=""></a></span>
+<span id="cb26-5"><a href=""></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(</span>
+<span id="cb26-6"><a href=""></a>  model,</span>
+<span id="cb26-7"><a href=""></a>  <span class="at">output =</span> <span class="st">"results/tables/regression.md"</span>,</span>
+<span id="cb26-8"><a href=""></a>  <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb26-9"><a href=""></a>  <span class="at">title =</span> <span class="st">"Régression linéaire simple"</span></span>
+<span id="cb26-10"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="section" class="slide level2" data-transition="none">
 <h2></h2>

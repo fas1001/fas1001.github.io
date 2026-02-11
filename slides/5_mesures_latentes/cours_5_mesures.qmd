@@ -863,6 +863,134 @@ saveRDS(df, "data_scale.rds")
 
 # La grammaire des graphiques
 
+## Représentation graphique des données{.smaller}
+
+### Principes généraux de la visualisation
+
+- Visualiser des données 
+
+- Éviter les distractions inutiles
+
+- Éviter les graphiques « spaghetti » 
+
+- Évitez les lignes trop complexes qui se chevauchent et s'entremêlent
+
+- Commencer en noir et blanc et utiliser les couleurs de manière efficace
+
+## Visualisation avec ggplot2{auto-animate=true}
+
+### Initialiser un graphique
+
+```{.r code-line-numbers="1"}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) 
+```
+- `df` est le dataframe
+- `aes()` est la fonction qui permet de spécifier les variables à utiliser
+- `x` et `y` sont les variables à utiliser pour les axes x et y
+- `color` est la variable à utiliser pour la couleur
+
+## Visualisation avec ggplot2{auto-animate=true}
+
+### Ajouter un geom_()
+
+```{.r code-line-numbers="2"}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) # Le alpha est la transparence
+```
+
+- Il existe plusieurs `geom_()` pour différents types de graphiques
+  - `geom_point()` pour un nuage de points
+  - `geom_line()` pour un graphique linéaire
+  - `geom_bar()` pour un graphique à barres
+  - `geom_histogram()` pour un histogramme
+
+## Visualisation avec ggplot2{auto-animate=true}
+
+### Ajouter une échelle de couleur
+
+```{.r code-line-numbers="3"}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) + # Le alpha est la transparence
+  scale_color_gradient(low = "blue", high = "red", name = "Éducation") 
+```
+
+- `scale_color_gradient()` permet de spécifier les couleurs pour la variable `Education`
+- `low` et `high` sont les couleurs pour les valeurs les plus basses et les plus hautes
+- `name` est le nom de la légende
+- Vous pouvez utiliser les hexcodes pour les couleurs
+
+## Visualisation avec ggplot2{auto-animate=true}
+
+### Ajouter des titres et des labels
+
+```{.r code-line-numbers="4,5,6,7,8"}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) + # Le alpha est la transparence
+  scale_color_gradient(low = "blue", high = "red", name = "Éducation") +
+  labs(
+    title = "Relation entre l'agriculture et la fertilité en Suisse",
+    x = "Pourcentage d'agriculture",
+    y = "Fertilité"
+  ) 
+```
+
+## Visualisation avec ggplot2{auto-animate=true}
+
+### Ajouter un thème
+
+```{.r code-line-numbers="9"}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) + # Le alpha est la transparence
+  scale_color_gradient(low = "blue", high = "red", name = "Éducation") +
+  labs(
+    title = "Relation entre l'agriculture et la fertilité en Suisse",
+    x = "Pourcentage d'agriculture",
+    y = "Fertilité"
+  ) +
+  theme_minimal()
+```
+
+- `theme_minimal()` est un thème minimaliste
+- Il existe plusieurs thèmes prédéfinis dans ggplot2
+- Vous pouvez aussi créer votre propre thème
+
+## Visualisation avec ggplot2{auto-animate=true}
+
+### Sauvegarder le graphique
+
+```{.r code-line-numbers="11"}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) + # Le alpha est la transparence
+  scale_color_gradient(low = "blue", high = "red", name = "Éducation") +
+  labs(
+    title = "Relation entre l'agriculture et la fertilité en Suisse",
+    x = "Pourcentage d'agriculture",
+    y = "Fertilité"
+  ) +
+  theme_minimal()
+
+ggsave("nom_du_graphique.png", width = 10, height = 6)
+```
+
+- Vous pouvez spécifier le format du graphique (png, pdf, etc.) ainsi que le chemin pour sauvegarder le graphique
+
+## Visualisation avec ggplot2{auto-animate=true}
+
+### Un histogramme de la variable Fertility
+
+```r
+ggplot(df, aes(x = Fertility)) +
+  geom_histogram(fill = "skyblue", color = "white", bins = 5) +
+  labs(
+    title = "Distribution de la fertilité en Suisse",
+    x = "Fertilité",
+    y = "Nombre de cantons"
+  ) +
+  theme_minimal()
+```
+
+
+
 ## Les composants de base
 
 ![](img/grammaire.svg)
@@ -989,6 +1117,7 @@ ggplot(data, aes(x = age, y = revenu)) +
 3. La personnalisation est puissante mais simple
 4. Toujours penser à la lisibilité
 :::
+
 
 # Regression linéaire
 
