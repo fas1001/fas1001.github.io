@@ -877,19 +877,45 @@ saveRDS(df, "data_scale.rds")
 
 - Commencer en noir et blanc et utiliser les couleurs de manière efficace
 
-## Visualisation avec ggplot2{auto-animate=true}
+## Les composants de base
+
+![](img/grammaire.svg)
+
+
+
+## Visualisation avec ggplot2{auto-animate=true .smaller}
+
+::::{.columns}
 
 ### Initialiser un graphique
 
 ```{.r code-line-numbers="1"}
 ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) 
 ```
+
+:::{.column width="40%"}
+
 - `df` est le dataframe
 - `aes()` est la fonction qui permet de spécifier les variables à utiliser
 - `x` et `y` sont les variables à utiliser pour les axes x et y
 - `color` est la variable à utiliser pour la couleur
 
-## Visualisation avec ggplot2{auto-animate=true}
+:::
+
+:::{.column width="60%"}
+
+```{r}
+df <- swiss
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) 
+```
+
+:::
+
+::::
+
+## Visualisation avec ggplot2{auto-animate=true .smaller}
+
+::::{.columns}
 
 ### Ajouter un geom_()
 
@@ -898,13 +924,28 @@ ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
   geom_point(alpha = 0.8) # Le alpha est la transparence
 ```
 
+:::{.column width="40%"}
+
 - Il existe plusieurs `geom_()` pour différents types de graphiques
   - `geom_point()` pour un nuage de points
   - `geom_line()` pour un graphique linéaire
   - `geom_bar()` pour un graphique à barres
   - `geom_histogram()` pour un histogramme
 
-## Visualisation avec ggplot2{auto-animate=true}
+:::
+
+:::{.column width="60%"}
+
+```{r}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) # Le alpha est la transparence
+```
+
+:::
+
+::::
+
+## Visualisation avec ggplot2{auto-animate=true .smaller}
 
 ### Ajouter une échelle de couleur
 
@@ -914,12 +955,31 @@ ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
   scale_color_gradient(low = "blue", high = "red", name = "Éducation") 
 ```
 
+::::{.columns}
+
+:::{.column width="40%"}
+
 - `scale_color_gradient()` permet de spécifier les couleurs pour la variable `Education`
 - `low` et `high` sont les couleurs pour les valeurs les plus basses et les plus hautes
 - `name` est le nom de la légende
 - Vous pouvez utiliser les hexcodes pour les couleurs
 
-## Visualisation avec ggplot2{auto-animate=true}
+:::
+
+:::{.column width="60%"}
+
+```{r}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) + # Le alpha est la transparence
+  scale_color_gradient(low = "blue", high = "red", name = "Éducation") 
+```
+
+
+:::
+
+::::
+
+## Visualisation avec ggplot2{auto-animate=true .smaller}
 
 ### Ajouter des titres et des labels
 
@@ -934,7 +994,30 @@ ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
   ) 
 ```
 
-## Visualisation avec ggplot2{auto-animate=true}
+::::{.columns}
+
+:::{.column width="40%"}
+
+:::
+
+:::{.column width="60%"}
+
+```{r}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) + # Le alpha est la transparence
+  scale_color_gradient(low = "blue", high = "red", name = "Éducation") +
+  labs(
+    title = "Relation entre l'agriculture et la fertilité en Suisse",
+    x = "Pourcentage d'agriculture",
+    y = "Fertilité"
+  ) 
+```
+
+:::
+
+::::
+
+## Visualisation avec ggplot2{auto-animate=true .smaller}
 
 ### Ajouter un thème
 
@@ -950,9 +1033,34 @@ ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
   theme_minimal()
 ```
 
+
+::::{.columns}
+
+:::{.column width="40%"}
+
 - `theme_minimal()` est un thème minimaliste
 - Il existe plusieurs thèmes prédéfinis dans ggplot2
 - Vous pouvez aussi créer votre propre thème
+
+:::
+
+:::{.column width="60%"}
+
+```{r}
+ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
+  geom_point(alpha = 0.8) + # Le alpha est la transparence
+  scale_color_gradient(low = "blue", high = "red", name = "Éducation") +
+  labs(
+    title = "Relation entre l'agriculture et la fertilité en Suisse",
+    x = "Pourcentage d'agriculture",
+    y = "Fertilité"
+  ) +
+  theme_minimal()
+```
+
+:::
+
+::::
 
 ## Visualisation avec ggplot2{auto-animate=true}
 
@@ -969,7 +1077,7 @@ ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
   ) +
   theme_minimal()
 
-ggsave("nom_du_graphique.png", width = 10, height = 6)
+ggsave("nom_du_graphique.png", width = 16, height = 9)
 ```
 
 - Vous pouvez spécifier le format du graphique (png, pdf, etc.) ainsi que le chemin pour sauvegarder le graphique
@@ -989,132 +1097,35 @@ ggplot(df, aes(x = Fertility)) +
   theme_minimal()
 ```
 
+::::{.columns}
 
+:::{.column width="40%"}
 
-## Les composants de base
+:::
 
-![](img/grammaire.svg)
+:::{.column width="60%"}
 
-## Structure d'un graphique ggplot2
-
-```r
-ggplot(data = df,            # 1. Données
-       aes(x = x, y = y)) +  # 2. Mapping esthétique
-  geom_point() +             # 3. Géométrie
-  theme_minimal()            # 4. Thème
-```
-
-# Types de graphiques fondamentaux
-
-## L'histogramme
-
-```r
-# Simple
-ggplot(data, aes(x = age)) +
-  geom_histogram()
-
-# Amélioré
-ggplot(data, aes(x = age, fill = education)) +
-  geom_histogram(position = "dodge", 
-                binwidth = 5,
-                alpha = 0.7) +
-  theme_minimal() +
-  scale_fill_brewer(palette = "Set2")
-```
-
-## Le graphique en barres
-
-```r
-# Simple
-ggplot(data, aes(x = education)) +
-  geom_bar()
-
-# Amélioré
-ggplot(data, aes(x = education, fill = gender)) +
-  geom_bar(position = "dodge") +
-  coord_flip() +
+```{r}
+ggplot(df, aes(x = Fertility)) +
+  geom_histogram(fill = "skyblue", color = "white", bins = 5) +
+  labs(
+    title = "Distribution de la fertilité en Suisse",
+    x = "Fertilité",
+    y = "Nombre de cantons"
+  ) +
   theme_minimal()
 ```
 
-## Le nuage de points
+:::
 
-```r
-# Simple
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point()
-
-# Amélioré
-ggplot(data, aes(x = age, y = revenu, color = education)) +
-  geom_point(alpha = 0.6) +
-  theme_minimal() +
-  labs(title = "Revenu selon l'âge et l'éducation",
-       x = "Âge",
-       y = "Revenu")
-```
-
-
-# Personnalisation
-
-## Les couleurs
-
-```r
-# Palette manuelle
-ggplot(data, aes(x = education, fill = gender)) +
-  geom_bar() +
-  scale_fill_manual(values = c("#E69F00", "#56B4E9"))
-
-# Palette RColorBrewer
-ggplot(data, aes(x = education, fill = gender)) +
-  geom_bar() +
-  scale_fill_brewer(palette = "Set1")
-```
-
-## Les thèmes
-
-```r
-# Thème minimal
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point() +
-  theme_minimal()
-
-# Thème personnalisé
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point() +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(size = 16, face = "bold"),
-    axis.title = element_text(size = 12),
-    legend.position = "bottom"
-  )
-```
-
-# Graphiques avancés
-
-## Facettes
-
-```r
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point() +
-  facet_wrap(~education) +
-  theme_minimal()
-```
-
-## Combinaison de géométries
-
-```r
-ggplot(data, aes(x = age, y = revenu)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm") +
-  facet_wrap(~education) +
-  theme_minimal()
-```
+::::
 
 ## Points clés à retenir
 
 ::: {.incremental}
 1. ggplot2 utilise une grammaire des graphiques cohérente
 2. Construire les graphiques couche par couche
-3. La personnalisation est puissante mais simple
+3. La personnalisation est simple mais puissante
 4. Toujours penser à la lisibilité
 :::
 
