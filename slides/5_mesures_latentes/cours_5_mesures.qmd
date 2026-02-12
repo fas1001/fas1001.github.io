@@ -175,6 +175,9 @@ quarto use template fas1001/gabarit_udem
 
 ![](img/qualite_3.svg)
 
+
+# Fiabilité
+
 ## Fiabilité : Mesure Statistique
 
 ### Analyse factorielle
@@ -184,9 +187,7 @@ quarto use template fas1001/gabarit_udem
 - Aide à améliorer la qualité des examens
 - Guide la révision des questions problématiques
 
-# L'examen d'histoire
-
-## Dans une classe typique...
+## Examen d'histoire
 
 ```{r}
 #| echo: false
@@ -657,8 +658,6 @@ ggplot(data, aes(x = Score, fill = Type)) +
 - Permet d'identifier les questions à garder ou à supprimer
 - Plus le coefficient est élevé, plus la question est pertinente
 
-# En Résumé
-
 ## Les trois mesures travaillent ensemble
 - **Alpha de Cronbach** : Cohérence globale
 - **Première valeur propre** : Force du concept principal
@@ -1077,7 +1076,7 @@ ggplot(df, aes(x = Agriculture, y = Fertility, color = Education)) +
   ) +
   theme_minimal()
 
-ggsave("nom_du_graphique.png", width = 16, height = 9)
+ggsave("chemin/vers/nom_du_graphique.png", width = 16, height = 9)
 ```
 
 - Vous pouvez spécifier le format du graphique (png, pdf, etc.) ainsi que le chemin pour sauvegarder le graphique
