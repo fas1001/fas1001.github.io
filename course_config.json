@@ -14,7 +14,7 @@
   "exercises": {
     "intro_r": true,
     "cleaning": true,
-    "analyse": false,
+    "analyse": true,
     "textuelle": false,
     "scraping": false,
     "llm": false,
@@ -31,8 +31,8 @@
       "url": "https://classroom.github.com/a/hSChWl6D"
     },
     "tp2": {
-      "status": "pending",
-      "url": ""
+      "status": "active",
+      "url": "https://classroom.github.com/a/dnUufquH"
     },
     "quiz2": {
       "status": "pending",
@@ -44,7 +44,7 @@
     }
   },
   "rencontres": {
-    "link": null
+    "link": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3gafqpwbfqtRoTayW1p6fGuhT6M5d1znZcOEs7vYX5egNGMgtZutpZ3LP5TaroBzE8cl1lqTTV?gv=true"
   },
   "schedule": [
     {
