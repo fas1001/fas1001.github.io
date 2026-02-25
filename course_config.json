@@ -5,7 +5,7 @@
     "cours_3": true,
     "cours_4": true,
     "cours_5": true,
-    "cours_6": false,
+    "cours_6": true,
     "cours_7": false,
     "cours_8": false,
     "cours_9": false,
@@ -15,7 +15,7 @@
     "intro_r": true,
     "cleaning": true,
     "analyse": true,
-    "textuelle": false,
+    "textuelle": true,
     "scraping": false,
     "llm": false,
     "site_web": false
