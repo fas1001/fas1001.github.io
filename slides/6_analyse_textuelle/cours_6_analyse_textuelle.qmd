@@ -124,20 +124,11 @@ Utiliser l'historique GitHub pour voir les changements
 
 ![](img/schema_analyse_textuelle.png)
 
+# Le pipeline de traitement textuel
 
 ##
 
 ![](img/pipeline_nlp.svg){width=100% fig-alt="Pipeline de traitement du langage naturel"}
-
-# Le pipeline de traitement textuel
-
-## Les 5 étapes
-
-1. **Collecte** : Obtenir le texte
-2. **Nettoyage** : Minuscules, ponctuation
-3. **Tokenisation** : Découper en mots
-4. **Filtrage** : Retirer les mots vides
-5. **Analyse** : Sentiment, thèmes, etc.
 
 ## Tokenisation
 
@@ -287,16 +278,16 @@ library(stringr)
 ## Fonctions principales de stringr
 
 ```r
-# Détecter un pattern : retourne TRUE/FALSE si le pattern est présent
+# Détecter un pattern
 str_detect(string, pattern)
 
-# Extraire un pattern : retourne le texte qui correspond au pattern
+# Extraire un pattern
 str_extract(string, pattern)
 
-# Remplacer un pattern : remplace le pattern par un nouveau texte
+# Remplacer un pattern
 str_replace(string, pattern, replacement)
 
-# Séparer selon un pattern : découpe le texte selon le pattern
+# Séparer selon un pattern
 str_split(string, pattern)
 ```
 
@@ -429,11 +420,11 @@ str_extract_all(tweet, "@\\w+")
 # Résultat: [1] "@MonProfR" "@UdeM"
 ```
 
-### Identifier des URLs dans un texte
+### Extraire des pourcentages
 ```r
-texte <- "Visitez https://www.umontreal.ca pour plus d'infos"
-str_extract(texte, "https?://[\\w\\.]+\\.\\w+")
-# Résultat: [1] "https://www.umontreal.ca"
+texte <- "Le taux de participation est de 67.5% et l'appui à 82%"
+str_extract_all(texte, "\\d+\\.?\\d*%")
+# Résultat: [1] "67.5%" "82%"
 ```
 
 ## Comment utiliser les regex en R?
@@ -459,7 +450,62 @@ str_extract(texte, "https?://[\\w\\.]+\\.\\w+")
 
 # Analyse de sentiment
 
-## La ligne rouge {transition="none"}
+## Analyse par dictionnaire
+
+### Le principe
+
+Attribuer un score à chaque mot selon sa connotation émotionnelle
+
+| Mot | Score |
+|-----|-------|
+| excellent | +3 |
+| bon | +1 |
+| mauvais | -1 |
+| horrible | -3 |
+
+Le score du texte = somme ou moyenne des scores
+
+## Qu'est-ce qu'un dictionnaire de sentiment? {.smaller}
+
+### Une liste de mots avec des scores prédéfinis
+
+- Créé manuellement par des experts
+- Chaque mot associé à un score (positif/négatif)
+
+### Avantages
+
+- Rapide et reproductible
+- Pas besoin d'entraînement
+
+## Dictionnaires populaires {.smaller}
+
+| Dictionnaire | Langue | Type de score | Utilisation |
+|--------------|--------|---------------|-------------|
+| **AFINN** | EN | -5 à +5 | Médias sociaux, avis |
+| **Bing** | EN | Pos/Neg | Analyses générales |
+| **NRC** | EN/FR | 8 émotions | Analyse émotionnelle |
+| **Lexicoder** | EN/FR | Binaire | Textes politiques |
+| **VADER** | EN | -1 à +1 | Twitter, slang |
+
+## Le dictionnaire AFINN {.smaller}
+
+### Créé par Finn Årup Nielsen (2011)
+
+- 2,477 mots en anglais
+- Scores de -5 (très négatif) à +5 (très positif)
+- Optimisé pour les textes courts (Twitter, avis)
+- Inclut du vocabulaire informel
+
+### Exemples
+
+| Mot | Score | Mot | Score |
+|-----|-------|-----|-------|
+| love | +3 | hate | -3 |
+| excellent | +3 | terrible | -3 |
+| good | +3 | bad | -3 |
+| disappointed | -2 | recommend | +2 |
+
+## Analyse avec AFINN : La ligne rouge {transition="none"}
 
 
 ::: {.columns}
@@ -480,8 +526,12 @@ str_extract(texte, "https?://[\\w\\.]+\\.\\w+")
 
 ::::
 
+##
 
-## Étape 1: Création du dataframe {transition="none"}
+![](img/pipeline_nlp.svg){width=100% fig-alt="Pipeline de traitement du langage naturel"}
+
+
+## Étape 1: Texte brut {transition="none"}
 
 ```r
 # Créer un data.frame avec notre review
@@ -501,7 +551,7 @@ review <- data.frame(
 
 
 
-## Étape 2: Nettoyage de base {transition="none"}
+## Étape 2: Nettoyage {transition="none"}
 ```r
 # Nettoyage avec stringr
 review_clean <- review
@@ -517,7 +567,7 @@ review_clean$text <- stringr::str_remove_all(review_clean$text, ",")          # 
 :::
 :::
 
-## Étape 2: Nettoyage de base {transition="none"}
+## Étape 2: Nettoyage {transition="none"}
 ```r
 # Nettoyage avec stringr
 review_clean <- review
@@ -615,7 +665,7 @@ r$> head(tokens_clean, 10)
 
 ::::
 
-## Étape 5: Analyse de sentiment (AFINN) {transition="none"}
+## Étape 5: Analyse (AFINN) {transition="none"}
 
 
 ::: {.columns}
@@ -659,7 +709,7 @@ r$> head(arranged_scores, 10)
 
 ::::
 
-## Étape 6: Score total {transition="none"}
+## Étape 5: Analyse (AFINN) {transition="none"}
 
 ```r
 total_sentiment <- dplyr::summarise(
@@ -792,7 +842,7 @@ r$> head(tokens_clean, 10)
 
 ::::{.columns}
 
-:::{.column width="60%"}
+:::{.column width="50%"}
 
 ```r
 # Obtenir le lexique AFINN
@@ -809,7 +859,8 @@ sentiment_scores <- dplyr::inner_join(
 
 :::
 
-:::{.column width="55%"}
+:::{.column width="50%"}
+
 ```
 r$> head(sentiment_scores, 10)
        restaurant id         word value
@@ -824,11 +875,12 @@ r$> head(sentiment_scores, 10)
 9  La ligne rouge  2 disappointed    -2
 10 La ligne rouge  2 unacceptable    -2
 ```
+
 :::
 
 ::::
 
-## Étape 6: Score total {.smaller transition="none"}
+## Étape 5: Analyse de sentiment (AFINN) {transition="none" .smaller}
 
 
 ```r
@@ -844,9 +896,10 @@ sentiment_summary <- sentiment_scores %>%
   ) %>%
   ungroup()
 
-
 ```
+
 ### Voici les résultats
+
 
 ```
 r$> print(sentiment_summary)
@@ -875,254 +928,13 @@ sentiment_summary_with_text <- sentiment_summary %>%
 ```
 r$> sentiment_summary_with_text
 # A tibble: 3 × 8
-     id restaurant     total_sentiment mean_sentiment word_count min_sentiment max_sentiment text                                                   
-  <int> <chr>                    <dbl>          <dbl>      <int>         <dbl>         <dbl> <chr>                                                  
-1     1 La ligne rouge              17           2.43          7             1             3 Super good kebab! [...]
-2     2 La ligne rouge               2           0.5           4            -2             3 Nothing exceptional [...]
-3     3 La ligne rouge               1           0.5           2            -2             3 Food is good and price is ok. [...]
+     id restaurant     total_sentiment mean_sentiment word_count [..] text                                                   
+  <int> <chr>                    <dbl>          <dbl>      <int> [..] <chr>                                                  
+1     1 La ligne rouge              17           2.43          7 [..] Super good kebab! [...]
+2     2 La ligne rouge               2           0.5           4 [..] Nothing exceptional [...]
+3     3 La ligne rouge               1           0.5           2 [..] Food is good and price is ok. [...]
 
 ```
-
-## Lexicoder (LSD) {transition="none"}
-
-- Spécialisé pour textes politiques
-- Gestion avancée des négations
-- Validation académique extensive
-- Plus précis pour l'analyse politique
-
-## Pourquoi LSD pour la science politique? {.smaller transition="none"}
-
-1. **Contexte politique**
-   - Vocabulaire politique spécifique
-   - Expressions complexes
-   - Nuances importantes
-
-2. **Gestion des négations**
-   - "not bad" ≠ "bad"
-   - "no support" vs "support"
-
-3. **Validation scientifique**
-   - Testé sur des textes politiques
-   - Utilisé dans des publications majeures
-   - Benchmark en science politique
-
-## Étape 1 : Préparation des données pour LSD {transition="none"}
-
-```r
-library(quanteda)
-library(pbapply)
-library(dplyr)
-library(tidytext)
-library(stringr)
-
-source("R/lsd_prep_functions.R")
-
-# Charger les exemples de reviews de restaurants
-reviews <- data.frame(
-  restaurant = "La ligne rouge",
-  text = c(
-    "Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!",
-    "Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there",
-    "Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."
-  ),
-  stringsAsFactors = FALSE
-) %>%
-  dplyr::mutate(id = 1:nrow(.))
-```
-
-## Étape 2 : Division en phrases {.smaller transition="none"}
-
-```r
-# Diviser en phrases et créer ID unique
-reviews_sentences <- reviews %>%
-  tidytext::unnest_sentences(text, text) %>%
-  mutate(id_sentence = row_number())
-
-```
-
-## Prétraitement LSD : Fonctionnalités {.smaller transition="none"}
-
-1. **Ordre des fonctions**
-   - L'ordre d'application est important
-   - Chaque fonction a un rôle spécifique
-
-2. **Fonctions spéciales**
-   - LSDprep_contr : Gère les contractions (don't → do not)
-   - LSDprep_negation : Traite les négations
-   - mark_proper_nouns : Identifie les noms propres
-
-3. **Avantages**
-   - Prétraitement standardisé
-   - Meilleure gestion des négations
-   - Plus précis pour l'analyse de sentiment
-
-## Étape 3 : Application des fonctions de préparation {transition="none"}
-
-```r
-# Application séquentielle des fonctions de préparation LSD
-reviews_sentences$text_prepped <- NA
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text, LSDprep_contr)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_dict_punct)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, remove_punctuation_from_acronyms)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, remove_punctuation_from_abbreviations)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_punctspace)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_negation)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, LSDprep_dict)
-reviews_sentences$text_prepped <- pbapply::pbsapply(reviews_sentences$text_prepped, mark_proper_nouns)
-```
-
-## Étape 3 : Application des fonctions de préparation {transition="none"}
-
-#### Avant
-
-```markdown
-nothing exceptional, just edible.
-```
-
-#### Après
-
-```markdown
-(nothing) not exceptional , just edible .
-```
-
-## Étape 4 : Création du corpus et tokenisation {transition="none"}
-
-```r
-# Convertir en dataframe (pour s'assurer du type)
-reviews_sentences <- as.data.frame(reviews_sentences)
-
-# Création du corpus et tokenisation
-corpus_text <- quanteda::tokens(reviews_sentences$text_prepped)
-```
-```
-r$> head(corpus_text)
-Tokens consisting of 6 documents.
-text1 :
-[1] "super" "good"  "kebab" "!"    
-
-text2 :
- [1] "the"        "portions"   "are"        "generous"   ","          "the"       
- [7] "prices"     "are"        "really"     "reasonable" ","          "and"       
-[ ... and 5 more ]
-
-text3 :
- [1] "tasty"      "meat"       ","          "fresh"      "bread"      ","         
- [7] "and"        "everything" "is"         "well"       "seasoned"   "."         
-```
-
-
-## Étape 5 : Application du dictionnaire LSD {transition="none"}
-
-```r
-# Application du dictionnaire LSD pour l'analyse de sentiment
-matrice_sentiment <- quanteda::dfm(
-  quanteda::tokens_lookup(corpus_text, data_dictionary_LSD2015, nested_scope = "dictionary")
-)
-
-```
-
-```
-r$> print(matrice_sentiment)
-Document-feature matrix of: 15 documents, 4 features (76.67% sparse) and 0 docvars.
-       features
-docs    negative positive neg_positive neg_negative
-  text1        0        2            0            0
-  text2        0        3            0            0
-  text3        0        2            0            0
-  text4        0        2            0            1
-  text5        0        0            0            0
-  text6        0        0            1            0
-[ reached max_ndoc ... 9 more documents ]
-```
-
-## Étape 6 : Calcul des scores de sentiment {transition="none"}
-
-```r
-# Conversion de la matrice de fréquence des termes en dataframe
-resultats_sentiment <- quanteda::convert(matrice_sentiment, to = "data.frame")
-
-# Combinaison des résultats de sentiment avec les données originales
-articles_sentiment <- cbind(reviews_sentences, resultats_sentiment)
-
-# Calcul des métriques de sentiment
-articles_sentiment <- articles_sentiment %>%
-  mutate(
-    total_words = str_count(text_prepped, "\\S+"),
-    # Calcul des proportions de termes positifs et négatifs
-    proportion_positive = (positive + neg_negative) / total_words,
-    proportion_negative = (negative + neg_positive) / total_words,
-    tone_index = proportion_positive - proportion_negative
-  )
-```
-
-## Étape 6 : Calcul des scores de sentiment {transition="none"}
-
-| doc_id | positive | negative | neg_pos | neg_neg | tone_index |
-|--------|----------|----------|---------|---------|------------|
-| text1  | 2        | 0        | 0       | 0       | 0.500      |
-| text2  | 3        | 0        | 0       | 0       | 0.176      |
-| text3  | 2        | 0        | 0       | 0       | 0.167      |
-| text4  | 2        | 0        | 0       | 1       | 0.200      |
-| text5  | 0        | 0        | 0       | 0       | 0.000      |
-| text6  | 0        | 0        | 1       | 0       | -0.143     |
-
-## Étape 7 : Agrégation et interprétation des résultats {transition="none"}
-
-```r
-# Agrégation des résultats par review (id)
-sentiment_par_review <- articles_sentiment %>%
-  group_by(id) %>%
-  summarise(
-    text_original = first(reviews$text[id]),     # Texte original complet
-    total_positive = sum(positive),              # Somme des termes positifs
-    total_negative = sum(negative),              # Somme des termes négatifs
-    total_neg_positive = sum(neg_positive),      # Somme des négations de termes positifs
-    total_neg_negative = sum(neg_negative),      # Somme des négations de termes négatifs
-    total_words = sum(total_words),              # Nombre total de mots
-    # Calcul des proportions globales
-    proportion_positive = sum(positive) / sum(total_words),
-    proportion_negative = sum(negative) / sum(total_words),
-    # Indice de ton global normalisé
-    tone_index = (sum(positive) - sum(negative)) / (sum(positive) + sum(negative)),
-    .groups = "drop"
-  ) %>%
-  select(id, text_original, tone_index)
-
-```
-
-## Comparaison des scores de sentiment {transition="none"}
-
-<div style="display: flex; justify-content: space-around; margin-top: 20px;">
-<div>
-<h3>Scores par review</h3>
-<table style="border-collapse: collapse; width: 100%;">
-<tr style="border-bottom: 2px solid #ddd; background-color: #f5f5f5;">
-  <th style="padding: 8px; text-align: left;">Review</th>
-  <th style="padding: 8px; text-align: center;">Positif</th>
-  <th style="padding: 8px; text-align: center;">Négatif</th>
-  <th style="padding: 8px; text-align: center;">Score final</th>
-</tr>
-<tr style="border-bottom: 1px solid #ddd;">
-  <td style="padding: 8px;">Review #1</td>
-  <td style="padding: 8px; text-align: center; color: green;">9</td>
-  <td style="padding: 8px; text-align: center; color: red;">0</td>
-  <td style="padding: 8px; text-align: center; font-weight: bold; color: green;">+1.0</td>
-</tr>
-<tr style="border-bottom: 1px solid #ddd;">
-  <td style="padding: 8px;">Review #2</td>
-  <td style="padding: 8px; text-align: center; color: green;">2</td>
-  <td style="padding: 8px; text-align: center; color: red;">3</td>
-  <td style="padding: 8px; text-align: center; font-weight: bold; color: red;">-0.2</td>
-</tr>
-<tr style="border-bottom: 1px solid #ddd;">
-  <td style="padding: 8px;">Review #3</td>
-  <td style="padding: 8px; text-align: center; color: green;">2</td>
-  <td style="padding: 8px; text-align: center; color: red;">2</td>
-  <td style="padding: 8px; text-align: center; font-weight: bold; color: gray;">0.0</td>
-</tr>
-</table>
-</div>
-</div>
 
 ## Conseils pratiques 
 
@@ -1146,14 +958,22 @@ sentiment_par_review <- articles_sentiment %>%
 | Lexicoder | Binaire + thèmes | Validé académiquement | Discours politiques | Science politique |
 | VADER | -1 à +1 | Gère emojis/web | Médias sociaux | Communications |
 
-## Limites de l'analyse de sentiment
+## Limites de l'analyse de sentiment {.smaller}
+
+::::{.columns}
+
+:::{.column width="50%"}
 
 ### Problèmes linguistiques
 
 - Ironie : "Super, encore un retard..."
-- Expressions idiomatiques : "C'est pas piqué des vers"
+- Expressions idiomatiques : "J'ai mon voyage"
 - Contexte culturel : "Sick" = malade ou cool?
-- Négations complexes
+- Négations complexes : "Not bad at all, pas pire pantoute"
+
+:::
+
+:::{.column width="50%"}
 
 ### Limites techniques
 
@@ -1162,11 +982,15 @@ sentiment_par_review <- articles_sentiment %>%
 - Agrégation qui cache les nuances
 - Évolution du langage
 
+:::
+
+
+::::
+
 ## Quand ne PAS utiliser
 
 - Textes très courts (< 5 mots)
 - Vocabulaire très spécialisé
-- Analyses juridiques précises
 - Forte présence d'ironie/sarcasme
 
 ## Bonnes pratiques
@@ -1176,21 +1000,6 @@ sentiment_par_review <- articles_sentiment %>%
 3. Analyser par segments
 4. Documenter vos choix
 5. Reconnaître les limites
-
-## Erreurs courantes {.smaller}
-
-### Prétraitement
-
-- Oublier de nettoyer le texte
-- Retirer les négations (not, no, never)
-- Mauvaise langue de dictionnaire
-
-### Interprétation
-
-- Sur-interpréter les scores
-- Comparer des dictionnaires différents
-- Ignorer le contexte
-- Ne pas valider manuellement
 
 ## LDA : Allocation de Dirichlet Latente {transition="none"}
 
