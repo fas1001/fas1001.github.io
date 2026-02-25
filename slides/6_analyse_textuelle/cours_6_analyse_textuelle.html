@@ -187,6 +187,10 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="dark">
+  <script src="cours_6_analyse_textuelle_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="cours_6_analyse_textuelle_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="cours_6_analyse_textuelle_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -324,6 +328,47 @@ Laurence-Olivier M. Foisy
 
 <img data-src="img/pipeline_nlp.svg" style="width:100.0%" alt="Pipeline de traitement du langage naturel" class="r-stretch"></section></section>
 <section>
+<section id="le-pipeline-de-traitement-textuel" class="title-slide slide level1 center">
+<h1>Le pipeline de traitement textuel</h1>
+
+</section>
+<section id="les-5-étapes" class="slide level2">
+<h2>Les 5 étapes</h2>
+<ol type="1">
+<li><strong>Collecte</strong> : Obtenir le texte</li>
+<li><strong>Nettoyage</strong> : Minuscules, ponctuation</li>
+<li><strong>Tokenisation</strong> : Découper en mots</li>
+<li><strong>Filtrage</strong> : Retirer les mots vides</li>
+<li><strong>Analyse</strong> : Sentiment, thèmes, etc.</li>
+</ol>
+</section>
+<section id="tokenisation" class="slide level2">
+<h2>Tokenisation</h2>
+<h3 id="découper-le-texte-en-mots">Découper le texte en mots</h3>
+<pre><code>"J'aime analyser du texte"
+      ↓
+["J'", "aime", "analyser", "du", "texte"]</code></pre>
+</section>
+<section id="stopwords-mots-vides" class="slide level2">
+<h2>Stopwords (mots vides)</h2>
+<h3 id="quoi-retirer">Quoi retirer?</h3>
+<p><strong>Français</strong> : le, la, de, et, un, dans, est…</p>
+<p><strong>Anglais</strong> : the, a, an, in, on, at, is…</p>
+</section>
+<section id="avant-et-après" class="slide level2">
+<h2>Avant et après</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="avant">Avant</h3>
+<pre><code>le chat est sur le tapis</code></pre>
+<p>6 mots</p>
+</div><div class="column" style="width:50%;">
+<h3 id="après">Après</h3>
+<pre><code>chat tapis</code></pre>
+<p>2 mots significatifs</p>
+</div></div>
+</section></section>
+<section>
 <section id="introduction-aux-expressions-régulières" class="title-slide slide level1 center">
 <h1>Introduction aux expressions régulières</h1>
 
@@ -339,10 +384,10 @@ Laurence-Olivier M. Foisy
 <section id="un-exemple-concret" class="slide level2">
 <h2>Un exemple concret</h2>
 <p>Imaginons que vous ayez ce texte:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>Contact: Marie (514-555-1234) </span>
-<span id="cb4-2"><a href=""></a>Courriel: marie@udem.ca</span>
-<span id="cb4-3"><a href=""></a>Contact: Pierre (438-555-5678)</span>
-<span id="cb4-4"><a href=""></a>Courriel: pierre@udem.ca</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>Contact: Marie (514-555-1234) </span>
+<span id="cb7-2"><a href=""></a>Courriel: marie@udem.ca</span>
+<span id="cb7-3"><a href=""></a>Contact: Pierre (438-555-5678)</span>
+<span id="cb7-4"><a href=""></a>Courriel: pierre@udem.ca</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Comment trouver automatiquement tous les numéros de téléphone?</p>
 </section>
 <section id="la-solution-manuelle" class="slide level2">
@@ -356,8 +401,8 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="la-solution-avec-regex" class="slide level2">
 <h2>La solution avec regex</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Un pattern qui trouve les numéros de téléphone</span></span>
-<span id="cb5-2"><a href=""></a><span class="st">"</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{4}"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Un pattern qui trouve les numéros de téléphone</span></span>
+<span id="cb8-2"><a href=""></a><span class="st">"</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{4}"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="décomposons-le-pattern" class="slide level2">
 <h2>Décomposons le pattern</h2>
@@ -371,10 +416,10 @@ Laurence-Olivier M. Foisy
 <section id="un-deuxième-exemple-les-courriels" class="slide level2">
 <h2>Un deuxième exemple : Les courriels</h2>
 <p>Reprenons le même texte:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>Contact: Marie (514-555-1234)</span>
-<span id="cb6-2"><a href=""></a>Courriel: marie@udem.ca</span>
-<span id="cb6-3"><a href=""></a>Contact: Pierre (438-555-5678)</span>
-<span id="cb6-4"><a href=""></a>Courriel: pierre@udem.ca</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>Contact: Marie (514-555-1234)</span>
+<span id="cb9-2"><a href=""></a>Courriel: marie@udem.ca</span>
+<span id="cb9-3"><a href=""></a>Contact: Pierre (438-555-5678)</span>
+<span id="cb9-4"><a href=""></a>Courriel: pierre@udem.ca</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Comment trouver automatiquement toutes les adresses courriel?</p>
 </section>
 <section id="la-solution-manuelle-1" class="slide level2">
@@ -388,8 +433,8 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="la-solution-avec-regex-1" class="slide level2">
 <h2>La solution avec regex</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Un pattern qui trouve les adresses courriel</span></span>
-<span id="cb7-2"><a href=""></a><span class="st">"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+</span><span class="sc">\\</span><span class="st">.[a-zA-Z]{2,}"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Un pattern qui trouve les adresses courriel</span></span>
+<span id="cb10-2"><a href=""></a><span class="st">"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+</span><span class="sc">\\</span><span class="st">.[a-zA-Z]{2,}"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="décomposons-le-pattern-1" class="slide level2">
 <h2>Décomposons le pattern</h2>
@@ -414,11 +459,11 @@ Laurence-Olivier M. Foisy
 <section id="utilisation-dans-r" class="slide level2">
 <h2>Utilisation dans R</h2>
 <h3 id="le-package-stringr">Le package stringr</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Installation si nécessaire</span></span>
-<span id="cb8-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="co"># Chargement</span></span>
-<span id="cb8-5"><a href=""></a><span class="fu">library</span>(stringr)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># Installation si nécessaire</span></span>
+<span id="cb11-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span>
+<span id="cb11-3"><a href=""></a></span>
+<span id="cb11-4"><a href=""></a><span class="co"># Chargement</span></span>
+<span id="cb11-5"><a href=""></a><span class="fu">library</span>(stringr)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Fait partie du tidyverse</li>
 <li>Fonctions simples et cohérentes</li>
@@ -427,82 +472,106 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="fonctions-principales-de-stringr" class="slide level2">
 <h2>Fonctions principales de stringr</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="co"># Détecter un pattern</span></span>
-<span id="cb9-2"><a href=""></a><span class="fu">str_detect</span>(string, pattern)</span>
-<span id="cb9-3"><a href=""></a></span>
-<span id="cb9-4"><a href=""></a><span class="co"># Extraire un pattern</span></span>
-<span id="cb9-5"><a href=""></a><span class="fu">str_extract</span>(string, pattern)</span>
-<span id="cb9-6"><a href=""></a></span>
-<span id="cb9-7"><a href=""></a><span class="co"># Remplacer un pattern</span></span>
-<span id="cb9-8"><a href=""></a><span class="fu">str_replace</span>(string, pattern, replacement)</span>
-<span id="cb9-9"><a href=""></a></span>
-<span id="cb9-10"><a href=""></a><span class="co"># Séparer selon un pattern</span></span>
-<span id="cb9-11"><a href=""></a><span class="fu">str_split</span>(string, pattern)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># Détecter un pattern : retourne TRUE/FALSE si le pattern est présent</span></span>
+<span id="cb12-2"><a href=""></a><span class="fu">str_detect</span>(string, pattern)</span>
+<span id="cb12-3"><a href=""></a></span>
+<span id="cb12-4"><a href=""></a><span class="co"># Extraire un pattern : retourne le texte qui correspond au pattern</span></span>
+<span id="cb12-5"><a href=""></a><span class="fu">str_extract</span>(string, pattern)</span>
+<span id="cb12-6"><a href=""></a></span>
+<span id="cb12-7"><a href=""></a><span class="co"># Remplacer un pattern : remplace le pattern par un nouveau texte</span></span>
+<span id="cb12-8"><a href=""></a><span class="fu">str_replace</span>(string, pattern, replacement)</span>
+<span id="cb12-9"><a href=""></a></span>
+<span id="cb12-10"><a href=""></a><span class="co"># Séparer selon un pattern : découpe le texte selon le pattern</span></span>
+<span id="cb12-11"><a href=""></a><span class="fu">str_split</span>(string, pattern)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="exemple-pratique" class="slide level2">
 <h2>Exemple pratique</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(stringr)</span>
-<span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a><span class="co"># Notre texte</span></span>
-<span id="cb10-4"><a href=""></a>text <span class="ot">&lt;-</span> <span class="st">"Contact: Marie (514-555-1234), Pierre (438-555-5678)"</span></span>
-<span id="cb10-5"><a href=""></a></span>
-<span id="cb10-6"><a href=""></a><span class="co"># Trouver tous les numéros</span></span>
-<span id="cb10-7"><a href=""></a>numeros <span class="ot">&lt;-</span> <span class="fu">str_extract_all</span>(text, <span class="st">"</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{4}"</span>)</span>
-<span id="cb10-8"><a href=""></a></span>
-<span id="cb10-9"><a href=""></a><span class="co"># Résultat</span></span>
-<span id="cb10-10"><a href=""></a><span class="fu">print</span>(numeros)</span>
-<span id="cb10-11"><a href=""></a><span class="co"># [[1]]</span></span>
-<span id="cb10-12"><a href=""></a><span class="co"># [1] "514-555-1234" "438-555-5678"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(stringr)</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a><span class="co"># Notre texte</span></span>
+<span id="cb13-4"><a href=""></a>text <span class="ot">&lt;-</span> <span class="st">"Contact: Marie (514-555-1234), Pierre (438-555-5678)"</span></span>
+<span id="cb13-5"><a href=""></a></span>
+<span id="cb13-6"><a href=""></a><span class="co"># Trouver tous les numéros</span></span>
+<span id="cb13-7"><a href=""></a>numeros <span class="ot">&lt;-</span> <span class="fu">str_extract_all</span>(text, <span class="st">"</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{3}-</span><span class="sc">\\</span><span class="st">d{4}"</span>)</span>
+<span id="cb13-8"><a href=""></a></span>
+<span id="cb13-9"><a href=""></a><span class="co"># Résultat</span></span>
+<span id="cb13-10"><a href=""></a><span class="fu">print</span>(numeros)</span>
+<span id="cb13-11"><a href=""></a><span class="co"># [[1]]</span></span>
+<span id="cb13-12"><a href=""></a><span class="co"># [1] "514-555-1234" "438-555-5678"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="les-briques-de-base-des-regex" class="slide level2 smaller">
 <h2>Les briques de base des regex</h2>
-<h3 id="rechercher-des-chiffres-avec-d">Rechercher des chiffres avec <code>\d</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"Je suis né en 1990 et j'ai 33 ans"</span></span>
-<span id="cb11-2"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span>
-<span id="cb11-3"><a href=""></a><span class="co"># Résultat: [1] "1990" "33"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<h3 id="rechercher-des-lettres-avec-a-z-et-a-z">Rechercher des lettres avec <code>[A-Z]</code> et <code>[a-z]</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"QUÉBEC est une ville du Canada"</span></span>
-<span id="cb12-2"><a href=""></a><span class="co"># Trouver les mots en majuscules</span></span>
-<span id="cb12-3"><a href=""></a><span class="fu">str_extract</span>(texte, <span class="st">"[A-Z]+"</span>)</span>
-<span id="cb12-4"><a href=""></a><span class="co"># Résultat: "QUÉBEC"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<h3 id="rechercher-des-espaces-avec-s">Rechercher des espaces avec <code>\s</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"mot     clé"</span></span>
-<span id="cb13-2"><a href=""></a><span class="co"># Remplacer les espaces multiples par un seul espace</span></span>
-<span id="cb13-3"><a href=""></a><span class="fu">str_replace_all</span>(texte, <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>, <span class="st">" "</span>)</span>
-<span id="cb13-4"><a href=""></a><span class="co"># Résultat: "mot clé"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="d-chiffres"><code>\d</code> : Chiffres</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"Je suis né en 1990 et j'ai 33 ans"</span></span>
+<span id="cb14-2"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span>
+<span id="cb14-3"><a href=""></a><span class="co"># Résultat: [1] "1990" "33"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="a-z-lettres-majuscules"><code>[A-Z]</code> : Lettres majuscules</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"QUÉBEC est une ville du Canada"</span></span>
+<span id="cb15-2"><a href=""></a><span class="fu">str_extract</span>(texte, <span class="st">"[A-Z]+"</span>)</span>
+<span id="cb15-3"><a href=""></a><span class="co"># Résultat: "QUÉBEC"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="s-espaces"><code>\s</code> : Espaces</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"mot     clé"</span></span>
+<span id="cb16-2"><a href=""></a><span class="fu">str_replace_all</span>(texte, <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>, <span class="st">" "</span>)</span>
+<span id="cb16-3"><a href=""></a><span class="co"># Résultat: "mot clé"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="caractères-spéciaux" class="slide level2 smaller">
+<h2>Caractères spéciaux</h2>
+<h3 id="w-mot-lettres-chiffres-_"><code>\w</code> : Mot (lettres + chiffres + _)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"user_123 a posté!"</span></span>
+<span id="cb17-2"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"</span><span class="sc">\\</span><span class="st">w+"</span>)</span>
+<span id="cb17-3"><a href=""></a><span class="co"># Résultat: [1] "user_123" "a" "posté"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="nimporte-quel-caractère"><code>.</code> : N’importe quel caractère</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"chat, chut, chit"</span></span>
+<span id="cb18-2"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"ch.t"</span>)</span>
+<span id="cb18-3"><a href=""></a><span class="co"># Résultat: [1] "chat" "chut" "chit"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="cas-dusage-pour-lanalyse-textuelle" class="slide level2 smaller">
+<h2>Cas d’usage pour l’analyse textuelle</h2>
+<h3 id="retirer-les-urls-dun-texte">Retirer les URLs d’un texte</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"Visitez https://www.umontreal.ca ou http://fas1001.com pour plus d'infos"</span></span>
+<span id="cb19-2"><a href=""></a>texte_propre <span class="ot">&lt;-</span> <span class="fu">str_remove_all</span>(texte, <span class="st">"https?://[</span><span class="sc">\\</span><span class="st">w</span><span class="sc">\\</span><span class="st">./]+"</span>)</span>
+<span id="cb19-3"><a href=""></a><span class="co"># Résultat: "Visitez  ou  pour plus d'infos"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="extraire-les-hashtags">Extraire les hashtags</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>tweet <span class="ot">&lt;-</span> <span class="st">"Super soirée! Merci @JeanDupont #Montreal #UdeM"</span></span>
+<span id="cb20-2"><a href=""></a>hashtags <span class="ot">&lt;-</span> <span class="fu">str_extract_all</span>(tweet, <span class="st">"#</span><span class="sc">\\</span><span class="st">w+"</span>)</span>
+<span id="cb20-3"><a href=""></a><span class="co"># Résultat: [1] "#Montreal" "#UdeM"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="normaliser-les-dates">Normaliser les dates</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"Rendez-vous le 2025-01-15 ou le 15/01/2025"</span></span>
+<span id="cb21-2"><a href=""></a>dates <span class="ot">&lt;-</span> <span class="fu">str_extract_all</span>(texte, <span class="st">"</span><span class="sc">\\</span><span class="st">d{4}-</span><span class="sc">\\</span><span class="st">d{2}-</span><span class="sc">\\</span><span class="st">d{2}|</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}"</span>)</span>
+<span id="cb21-3"><a href=""></a><span class="co"># Résultat: [1] "2025-01-15" "15/01/2025"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="les-quantificateurs-combien-de-fois" class="slide level2 smaller">
 <h2>Les quantificateurs : Combien de fois?</h2>
 <h3 id="le-un-ou-plusieurs">Le <code>+</code> : “un ou plusieurs”</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># Trouver les nombres (un ou plusieurs chiffres)</span></span>
-<span id="cb14-2"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"J'ai 1 chat et 22 poissons"</span></span>
-<span id="cb14-3"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span>
-<span id="cb14-4"><a href=""></a><span class="co"># Résultat: [1] "1" "22"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Trouver les nombres (un ou plusieurs chiffres)</span></span>
+<span id="cb22-2"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"J'ai 1 chat et 22 poissons"</span></span>
+<span id="cb22-3"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span>
+<span id="cb22-4"><a href=""></a><span class="co"># Résultat: [1] "1" "22"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="le-zéro-ou-plusieurs">Le <code>*</code> : “zéro ou plusieurs”</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># Trouver les mots avec ou sans 's' à la fin</span></span>
-<span id="cb15-2"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"chat chats chien chiens"</span></span>
-<span id="cb15-3"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"chat[s]*"</span>)</span>
-<span id="cb15-4"><a href=""></a><span class="co"># Résultat: [1] "chat" "chats"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="co"># Trouver les mots avec ou sans 's' à la fin</span></span>
+<span id="cb23-2"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"chat chats chien chiens"</span></span>
+<span id="cb23-3"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"chat[s]*"</span>)</span>
+<span id="cb23-4"><a href=""></a><span class="co"># Résultat: [1] "chat" "chats"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="le-optionnel-zéro-ou-un">Le <code>?</code> : “optionnel (zéro ou un)”</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Trouver 'behaviour' ou 'behavior'</span></span>
-<span id="cb16-2"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"behaviour and behavior"</span></span>
-<span id="cb16-3"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"behaviou?r"</span>)</span>
-<span id="cb16-4"><a href=""></a><span class="co"># Résultat: [1] "behaviour" "behavior"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Trouver 'behaviour' ou 'behavior'</span></span>
+<span id="cb24-2"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"behaviour and behavior"</span></span>
+<span id="cb24-3"><a href=""></a><span class="fu">str_extract_all</span>(texte, <span class="st">"behaviou?r"</span>)</span>
+<span id="cb24-4"><a href=""></a><span class="co"># Résultat: [1] "behaviour" "behavior"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="exemples-pratiques-pour-les-sciences-sociales" class="slide level2 smaller">
 <h2>Exemples pratiques pour les sciences sociales</h2>
 <h3 id="extraire-des-codes-postaux-canadiens">Extraire des codes postaux canadiens</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>adresse <span class="ot">&lt;-</span> <span class="st">"Mon adresse est H2X 1Y6"</span></span>
-<span id="cb17-2"><a href=""></a><span class="fu">str_extract</span>(adresse, <span class="st">"[A-Z]</span><span class="sc">\\</span><span class="st">d[A-Z]</span><span class="sc">\\</span><span class="st">s?</span><span class="sc">\\</span><span class="st">d[A-Z]</span><span class="sc">\\</span><span class="st">d"</span>)</span>
-<span id="cb17-3"><a href=""></a><span class="co"># Résultat: "H2X 1Y6"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>adresse <span class="ot">&lt;-</span> <span class="st">"Mon adresse est H2X 1Y6"</span></span>
+<span id="cb25-2"><a href=""></a><span class="fu">str_extract</span>(adresse, <span class="st">"[A-Z]</span><span class="sc">\\</span><span class="st">d[A-Z]</span><span class="sc">\\</span><span class="st">s?</span><span class="sc">\\</span><span class="st">d[A-Z]</span><span class="sc">\\</span><span class="st">d"</span>)</span>
+<span id="cb25-3"><a href=""></a><span class="co"># Résultat: "H2X 1Y6"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="extraire-des-identifiants-twitter">Extraire des identifiants Twitter</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>tweet <span class="ot">&lt;-</span> <span class="st">"Suivez-moi @MonProfR et @UdeM"</span></span>
-<span id="cb18-2"><a href=""></a><span class="fu">str_extract_all</span>(tweet, <span class="st">"@</span><span class="sc">\\</span><span class="st">w+"</span>)</span>
-<span id="cb18-3"><a href=""></a><span class="co"># Résultat: [1] "@MonProfR" "@UdeM"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>tweet <span class="ot">&lt;-</span> <span class="st">"Suivez-moi @MonProfR et @UdeM"</span></span>
+<span id="cb26-2"><a href=""></a><span class="fu">str_extract_all</span>(tweet, <span class="st">"@</span><span class="sc">\\</span><span class="st">w+"</span>)</span>
+<span id="cb26-3"><a href=""></a><span class="co"># Résultat: [1] "@MonProfR" "@UdeM"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="identifier-des-urls-dans-un-texte">Identifier des URLs dans un texte</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"Visitez https://www.umontreal.ca pour plus d'infos"</span></span>
-<span id="cb19-2"><a href=""></a><span class="fu">str_extract</span>(texte, <span class="st">"https?://[</span><span class="sc">\\</span><span class="st">w</span><span class="sc">\\</span><span class="st">.]+</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">w+"</span>)</span>
-<span id="cb19-3"><a href=""></a><span class="co"># Résultat: [1] "https://www.umontreal.ca"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>texte <span class="ot">&lt;-</span> <span class="st">"Visitez https://www.umontreal.ca pour plus d'infos"</span></span>
+<span id="cb27-2"><a href=""></a><span class="fu">str_extract</span>(texte, <span class="st">"https?://[</span><span class="sc">\\</span><span class="st">w</span><span class="sc">\\</span><span class="st">.]+</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">w+"</span>)</span>
+<span id="cb27-3"><a href=""></a><span class="co"># Résultat: [1] "https://www.umontreal.ca"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="comment-utiliser-les-regex-en-r" class="slide level2">
 <h2>Comment utiliser les regex en R?</h2>
@@ -540,12 +609,12 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="étape-1-création-du-dataframe" class="slide level2" data-transition="none">
 <h2>Étape 1: Création du dataframe</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># Créer un data.frame avec notre review</span></span>
-<span id="cb20-2"><a href=""></a>review <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb20-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
-<span id="cb20-4"><a href=""></a>  <span class="at">text =</span> <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
-<span id="cb20-5"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb20-6"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># Créer un data.frame avec notre review</span></span>
+<span id="cb28-2"><a href=""></a>review <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb28-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb28-4"><a href=""></a>  <span class="at">text =</span> <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb28-5"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb28-6"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="donne-un-dataframe-comme-ceci">Donne un dataframe comme ceci</h3>
 <table class="caption-top">
 <thead>
@@ -564,12 +633,12 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="étape-2-nettoyage-de-base" class="slide level2" data-transition="none">
 <h2>Étape 2: Nettoyage de base</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># Nettoyage avec stringr</span></span>
-<span id="cb21-2"><a href=""></a>review_clean <span class="ot">&lt;-</span> review</span>
-<span id="cb21-3"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(review_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
-<span id="cb21-4"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
-<span id="cb21-5"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
-<span id="cb21-6"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="co"># Nettoyage avec stringr</span></span>
+<span id="cb29-2"><a href=""></a>review_clean <span class="ot">&lt;-</span> review</span>
+<span id="cb29-3"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(review_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
+<span id="cb29-4"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
+<span id="cb29-5"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
+<span id="cb29-6"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="columns">
 <div class="column" style="width:100%;">
 <blockquote>
@@ -579,12 +648,12 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="étape-2-nettoyage-de-base-1" class="slide level2" data-transition="none">
 <h2>Étape 2: Nettoyage de base</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Nettoyage avec stringr</span></span>
-<span id="cb22-2"><a href=""></a>review_clean <span class="ot">&lt;-</span> review</span>
-<span id="cb22-3"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(review_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
-<span id="cb22-4"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
-<span id="cb22-5"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
-<span id="cb22-6"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="co"># Nettoyage avec stringr</span></span>
+<span id="cb30-2"><a href=""></a>review_clean <span class="ot">&lt;-</span> review</span>
+<span id="cb30-3"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(review_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
+<span id="cb30-4"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
+<span id="cb30-5"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
+<span id="cb30-6"><a href=""></a>review_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(review_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="columns">
 <div class="column" style="width:100%;">
 <blockquote>
@@ -596,11 +665,11 @@ Laurence-Olivier M. Foisy
 <h2>Étape 3: Tokenisation</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
-<span id="cb23-2"><a href=""></a>  review_clean,</span>
-<span id="cb23-3"><a href=""></a>  <span class="at">output =</span> word,</span>
-<span id="cb23-4"><a href=""></a>  <span class="at">input =</span> text</span>
-<span id="cb23-5"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
+<span id="cb31-2"><a href=""></a>  review_clean,</span>
+<span id="cb31-3"><a href=""></a>  <span class="at">output =</span> word,</span>
+<span id="cb31-4"><a href=""></a>  <span class="at">input =</span> text</span>
+<span id="cb31-5"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:40%;">
 <pre><code>r$&gt; head(tokens, 10)
        restaurant     word
@@ -620,15 +689,15 @@ Laurence-Olivier M. Foisy
 <h2>Étape 4: Retrait des mots vides</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
-<span id="cb25-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
-<span id="cb25-3"><a href=""></a></span>
-<span id="cb25-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
-<span id="cb25-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
-<span id="cb25-6"><a href=""></a>  tokens, </span>
-<span id="cb25-7"><a href=""></a>  stop_words,</span>
-<span id="cb25-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb25-9"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
+<span id="cb33-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
+<span id="cb33-3"><a href=""></a></span>
+<span id="cb33-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
+<span id="cb33-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
+<span id="cb33-6"><a href=""></a>  tokens, </span>
+<span id="cb33-7"><a href=""></a>  stop_words,</span>
+<span id="cb33-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb33-9"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:40%;">
 <pre><code>r$&gt; head(tokens_clean, 10)
        restaurant       word
@@ -648,20 +717,20 @@ Laurence-Olivier M. Foisy
 <h2>Étape 5: Analyse de sentiment (AFINN)</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
-<span id="cb27-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
-<span id="cb27-3"><a href=""></a></span>
-<span id="cb27-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
-<span id="cb27-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
-<span id="cb27-6"><a href=""></a>  tokens_clean,</span>
-<span id="cb27-7"><a href=""></a>  afinn,</span>
-<span id="cb27-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb27-9"><a href=""></a>)</span>
-<span id="cb27-10"><a href=""></a></span>
-<span id="cb27-11"><a href=""></a><span class="co"># Voir les scores</span></span>
-<span id="cb27-12"><a href=""></a>arranged_scores <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
-<span id="cb27-13"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(word, value) <span class="sc">%&gt;%</span></span>
-<span id="cb27-14"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(value))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
+<span id="cb35-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
+<span id="cb35-3"><a href=""></a></span>
+<span id="cb35-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
+<span id="cb35-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
+<span id="cb35-6"><a href=""></a>  tokens_clean,</span>
+<span id="cb35-7"><a href=""></a>  afinn,</span>
+<span id="cb35-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb35-9"><a href=""></a>)</span>
+<span id="cb35-10"><a href=""></a></span>
+<span id="cb35-11"><a href=""></a><span class="co"># Voir les scores</span></span>
+<span id="cb35-12"><a href=""></a>arranged_scores <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
+<span id="cb35-13"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(word, value) <span class="sc">%&gt;%</span></span>
+<span id="cb35-14"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(value))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:30%;">
 <pre><code>r$&gt; head(arranged_scores, 10)
        word value
@@ -676,12 +745,12 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="étape-6-score-total" class="slide level2" data-transition="none">
 <h2>Étape 6: Score total</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>total_sentiment <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
-<span id="cb29-2"><a href=""></a>  sentiment_scores,</span>
-<span id="cb29-3"><a href=""></a>  <span class="at">n_words =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
-<span id="cb29-4"><a href=""></a>  <span class="at">total_score =</span> <span class="fu">sum</span>(value),</span>
-<span id="cb29-5"><a href=""></a>  <span class="at">avg_score =</span> <span class="fu">mean</span>(value)</span>
-<span id="cb29-6"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>total_sentiment <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb37-2"><a href=""></a>  sentiment_scores,</span>
+<span id="cb37-3"><a href=""></a>  <span class="at">n_words =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb37-4"><a href=""></a>  <span class="at">total_score =</span> <span class="fu">sum</span>(value),</span>
+<span id="cb37-5"><a href=""></a>  <span class="at">avg_score =</span> <span class="fu">mean</span>(value)</span>
+<span id="cb37-6"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>r$&gt; total_sentiment
   n_words total_score avg_score
 1       7          17  2.428571</code></pre>
@@ -694,35 +763,35 @@ Laurence-Olivier M. Foisy
 <blockquote>
 <p>Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash.</p>
 </blockquote>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="co"># Créer un data.frame avec plusieurs reviews</span></span>
-<span id="cb31-2"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb31-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
-<span id="cb31-4"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
-<span id="cb31-5"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
-<span id="cb31-6"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
-<span id="cb31-7"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
-<span id="cb31-8"><a href=""></a>  ),</span>
-<span id="cb31-9"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb31-10"><a href=""></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb31-11"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="co"># Créer un data.frame avec plusieurs reviews</span></span>
+<span id="cb39-2"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb39-3"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb39-4"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
+<span id="cb39-5"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb39-6"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
+<span id="cb39-7"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
+<span id="cb39-8"><a href=""></a>  ),</span>
+<span id="cb39-9"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb39-10"><a href=""></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-11"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="nettoyage-des-multiples-textes" class="slide level2" data-transition="none">
 <h2>Nettoyage des multiples textes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>reviews_clean <span class="ot">&lt;-</span> reviews</span>
-<span id="cb32-2"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(reviews_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
-<span id="cb32-3"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
-<span id="cb32-4"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
-<span id="cb32-5"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>reviews_clean <span class="ot">&lt;-</span> reviews</span>
+<span id="cb40-2"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(reviews_clean<span class="sc">$</span>text)                 <span class="co"># Minuscules</span></span>
+<span id="cb40-3"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"!"</span>)          <span class="co"># Exclamations</span></span>
+<span id="cb40-4"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)        <span class="co"># Points</span></span>
+<span id="cb40-5"><a href=""></a>reviews_clean<span class="sc">$</span>text <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(reviews_clean<span class="sc">$</span>text, <span class="st">","</span>)          <span class="co"># Virgules</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="étape-3-tokenisation-1" class="slide level2" data-transition="none">
 <h2>Étape 3: Tokenisation</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
-<span id="cb33-2"><a href=""></a>  reviews_clean,</span>
-<span id="cb33-3"><a href=""></a>  <span class="at">output =</span> word,</span>
-<span id="cb33-4"><a href=""></a>  <span class="at">input =</span> text</span>
-<span id="cb33-5"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>tokens <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(</span>
+<span id="cb41-2"><a href=""></a>  reviews_clean,</span>
+<span id="cb41-3"><a href=""></a>  <span class="at">output =</span> word,</span>
+<span id="cb41-4"><a href=""></a>  <span class="at">input =</span> text</span>
+<span id="cb41-5"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:40%;">
 <pre><code>r$&gt; head(tokens, 10)
        restaurant id     word
@@ -742,15 +811,15 @@ Laurence-Olivier M. Foisy
 <h2>Étape 4: Retrait des mots vides</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
-<span id="cb35-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
-<span id="cb35-3"><a href=""></a></span>
-<span id="cb35-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
-<span id="cb35-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
-<span id="cb35-6"><a href=""></a>  tokens, </span>
-<span id="cb35-7"><a href=""></a>  stop_words,</span>
-<span id="cb35-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb35-9"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="co"># Obtenir les stop words</span></span>
+<span id="cb43-2"><a href=""></a>stop_words <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_stopwords</span>(<span class="at">language =</span> <span class="st">"en"</span>)</span>
+<span id="cb43-3"><a href=""></a></span>
+<span id="cb43-4"><a href=""></a><span class="co"># Retirer les stop words avec dplyr anti_join</span></span>
+<span id="cb43-5"><a href=""></a>tokens_clean <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">anti_join</span>(</span>
+<span id="cb43-6"><a href=""></a>  tokens, </span>
+<span id="cb43-7"><a href=""></a>  stop_words,</span>
+<span id="cb43-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb43-9"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:40%;">
 <pre><code>r$&gt; head(tokens_clean, 10)
        restaurant id       word
@@ -770,15 +839,15 @@ Laurence-Olivier M. Foisy
 <h2>Étape 5: Analyse de sentiment (AFINN)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
-<span id="cb37-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
-<span id="cb37-3"><a href=""></a></span>
-<span id="cb37-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
-<span id="cb37-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
-<span id="cb37-6"><a href=""></a>  tokens_clean,</span>
-<span id="cb37-7"><a href=""></a>  afinn,</span>
-<span id="cb37-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
-<span id="cb37-9"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="co"># Obtenir le lexique AFINN</span></span>
+<span id="cb45-2"><a href=""></a>afinn <span class="ot">&lt;-</span> tidytext<span class="sc">::</span><span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
+<span id="cb45-3"><a href=""></a></span>
+<span id="cb45-4"><a href=""></a><span class="co"># Joindre avec nos tokens</span></span>
+<span id="cb45-5"><a href=""></a>sentiment_scores <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(</span>
+<span id="cb45-6"><a href=""></a>  tokens_clean,</span>
+<span id="cb45-7"><a href=""></a>  afinn,</span>
+<span id="cb45-8"><a href=""></a>  <span class="at">by =</span> <span class="st">"word"</span></span>
+<span id="cb45-9"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:55%;">
 <pre><code>r$&gt; head(sentiment_scores, 10)
        restaurant id         word value
@@ -796,18 +865,18 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="étape-6-score-total-1" class="slide level2 smaller" data-transition="none">
 <h2>Étape 6: Score total</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="co"># Calculate summary statistics per review</span></span>
-<span id="cb39-2"><a href=""></a>sentiment_summary <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
-<span id="cb39-3"><a href=""></a>  <span class="fu">group_by</span>(id, restaurant) <span class="sc">%&gt;%</span></span>
-<span id="cb39-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb39-5"><a href=""></a>    <span class="at">total_sentiment =</span> <span class="fu">sum</span>(value),            <span class="co"># Sum of all sentiment scores</span></span>
-<span id="cb39-6"><a href=""></a>    <span class="at">mean_sentiment =</span> <span class="fu">mean</span>(value),            <span class="co"># Average sentiment</span></span>
-<span id="cb39-7"><a href=""></a>    <span class="at">word_count =</span> <span class="fu">n</span>(),                        <span class="co"># Number of sentiment words</span></span>
-<span id="cb39-8"><a href=""></a>    <span class="at">min_sentiment =</span> <span class="fu">min</span>(value),              <span class="co"># Most negative word</span></span>
-<span id="cb39-9"><a href=""></a>    <span class="at">max_sentiment =</span> <span class="fu">max</span>(value)               <span class="co"># Most positive word</span></span>
-<span id="cb39-10"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb39-11"><a href=""></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb39-12"><a href=""></a></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="co"># Calculate summary statistics per review</span></span>
+<span id="cb47-2"><a href=""></a>sentiment_summary <span class="ot">&lt;-</span> sentiment_scores <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href=""></a>  <span class="fu">group_by</span>(id, restaurant) <span class="sc">%&gt;%</span></span>
+<span id="cb47-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb47-5"><a href=""></a>    <span class="at">total_sentiment =</span> <span class="fu">sum</span>(value),            <span class="co"># Sum of all sentiment scores</span></span>
+<span id="cb47-6"><a href=""></a>    <span class="at">mean_sentiment =</span> <span class="fu">mean</span>(value),            <span class="co"># Average sentiment</span></span>
+<span id="cb47-7"><a href=""></a>    <span class="at">word_count =</span> <span class="fu">n</span>(),                        <span class="co"># Number of sentiment words</span></span>
+<span id="cb47-8"><a href=""></a>    <span class="at">min_sentiment =</span> <span class="fu">min</span>(value),              <span class="co"># Most negative word</span></span>
+<span id="cb47-9"><a href=""></a>    <span class="at">max_sentiment =</span> <span class="fu">max</span>(value)               <span class="co"># Most positive word</span></span>
+<span id="cb47-10"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb47-11"><a href=""></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb47-12"><a href=""></a></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="voici-les-résultats">Voici les résultats</h3>
 <pre><code>r$&gt; print(sentiment_summary)
 # A tibble: 3 × 7
@@ -819,13 +888,13 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="réassembler-les-données" class="slide level2 smaller" data-transition="none">
 <h2>Réassembler les données</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="co"># First, let's create a dataframe with just id and text</span></span>
-<span id="cb41-2"><a href=""></a>original_texts <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
-<span id="cb41-3"><a href=""></a>  <span class="fu">select</span>(id, text)</span>
-<span id="cb41-4"><a href=""></a></span>
-<span id="cb41-5"><a href=""></a><span class="co"># Then merge it with your sentiment summary</span></span>
-<span id="cb41-6"><a href=""></a>sentiment_summary_with_text <span class="ot">&lt;-</span> sentiment_summary <span class="sc">%&gt;%</span></span>
-<span id="cb41-7"><a href=""></a>  <span class="fu">left_join</span>(original_texts, <span class="at">by =</span> <span class="st">"id"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="co"># First, let's create a dataframe with just id and text</span></span>
+<span id="cb49-2"><a href=""></a>original_texts <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href=""></a>  <span class="fu">select</span>(id, text)</span>
+<span id="cb49-4"><a href=""></a></span>
+<span id="cb49-5"><a href=""></a><span class="co"># Then merge it with your sentiment summary</span></span>
+<span id="cb49-6"><a href=""></a>sentiment_summary_with_text <span class="ot">&lt;-</span> sentiment_summary <span class="sc">%&gt;%</span></span>
+<span id="cb49-7"><a href=""></a>  <span class="fu">left_join</span>(original_texts, <span class="at">by =</span> <span class="st">"id"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="en-réunissant-le-text-original-avec-les-analyses">En réunissant le text original avec les analyses:</h3>
 <pre><code>r$&gt; sentiment_summary_with_text
 # A tibble: 3 × 8
@@ -869,32 +938,32 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="étape-1-préparation-des-données-pour-lsd" class="slide level2" data-transition="none">
 <h2>Étape 1 : Préparation des données pour LSD</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">library</span>(quanteda)</span>
-<span id="cb43-2"><a href=""></a><span class="fu">library</span>(pbapply)</span>
-<span id="cb43-3"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb43-4"><a href=""></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb43-5"><a href=""></a><span class="fu">library</span>(stringr)</span>
-<span id="cb43-6"><a href=""></a></span>
-<span id="cb43-7"><a href=""></a><span class="fu">source</span>(<span class="st">"R/lsd_prep_functions.R"</span>)</span>
-<span id="cb43-8"><a href=""></a></span>
-<span id="cb43-9"><a href=""></a><span class="co"># Charger les exemples de reviews de restaurants</span></span>
-<span id="cb43-10"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb43-11"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
-<span id="cb43-12"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
-<span id="cb43-13"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
-<span id="cb43-14"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
-<span id="cb43-15"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
-<span id="cb43-16"><a href=""></a>  ),</span>
-<span id="cb43-17"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb43-18"><a href=""></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb43-19"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb51-2"><a href=""></a><span class="fu">library</span>(pbapply)</span>
+<span id="cb51-3"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb51-4"><a href=""></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb51-5"><a href=""></a><span class="fu">library</span>(stringr)</span>
+<span id="cb51-6"><a href=""></a></span>
+<span id="cb51-7"><a href=""></a><span class="fu">source</span>(<span class="st">"R/lsd_prep_functions.R"</span>)</span>
+<span id="cb51-8"><a href=""></a></span>
+<span id="cb51-9"><a href=""></a><span class="co"># Charger les exemples de reviews de restaurants</span></span>
+<span id="cb51-10"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb51-11"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb51-12"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
+<span id="cb51-13"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb51-14"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
+<span id="cb51-15"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
+<span id="cb51-16"><a href=""></a>  ),</span>
+<span id="cb51-17"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb51-18"><a href=""></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-19"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="étape-2-division-en-phrases" class="slide level2 smaller" data-transition="none">
 <h2>Étape 2 : Division en phrases</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="co"># Diviser en phrases et créer ID unique</span></span>
-<span id="cb44-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
-<span id="cb44-3"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_sentences</span>(text, text) <span class="sc">%&gt;%</span></span>
-<span id="cb44-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">id_sentence =</span> <span class="fu">row_number</span>())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="co"># Diviser en phrases et créer ID unique</span></span>
+<span id="cb52-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_sentences</span>(text, text) <span class="sc">%&gt;%</span></span>
+<span id="cb52-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">id_sentence =</span> <span class="fu">row_number</span>())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="prétraitement-lsd-fonctionnalités" class="slide level2 smaller" data-transition="none">
 <h2>Prétraitement LSD : Fonctionnalités</h2>
@@ -920,31 +989,31 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="étape-3-application-des-fonctions-de-préparation" class="slide level2" data-transition="none">
 <h2>Étape 3 : Application des fonctions de préparation</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="co"># Application séquentielle des fonctions de préparation LSD</span></span>
-<span id="cb45-2"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb45-3"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text, LSDprep_contr)</span>
-<span id="cb45-4"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict_punct)</span>
-<span id="cb45-5"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_acronyms)</span>
-<span id="cb45-6"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_abbreviations)</span>
-<span id="cb45-7"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_punctspace)</span>
-<span id="cb45-8"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_negation)</span>
-<span id="cb45-9"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict)</span>
-<span id="cb45-10"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, mark_proper_nouns)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="co"># Application séquentielle des fonctions de préparation LSD</span></span>
+<span id="cb53-2"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb53-3"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text, LSDprep_contr)</span>
+<span id="cb53-4"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict_punct)</span>
+<span id="cb53-5"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_acronyms)</span>
+<span id="cb53-6"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, remove_punctuation_from_abbreviations)</span>
+<span id="cb53-7"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_punctspace)</span>
+<span id="cb53-8"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_negation)</span>
+<span id="cb53-9"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, LSDprep_dict)</span>
+<span id="cb53-10"><a href=""></a>reviews_sentences<span class="sc">$</span>text_prepped <span class="ot">&lt;-</span> pbapply<span class="sc">::</span><span class="fu">pbsapply</span>(reviews_sentences<span class="sc">$</span>text_prepped, mark_proper_nouns)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="étape-3-application-des-fonctions-de-préparation-1" class="slide level2" data-transition="none">
 <h2>Étape 3 : Application des fonctions de préparation</h2>
-<h4 id="avant">Avant</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href=""></a>nothing exceptional, just edible.</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<h4 id="après">Après</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href=""></a>(nothing) not exceptional , just edible .</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<h4 id="avant-1">Avant</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb54-1"><a href=""></a>nothing exceptional, just edible.</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<h4 id="après-1">Après</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb55-1"><a href=""></a>(nothing) not exceptional , just edible .</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="étape-4-création-du-corpus-et-tokenisation" class="slide level2" data-transition="none">
 <h2>Étape 4 : Création du corpus et tokenisation</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="co"># Convertir en dataframe (pour s'assurer du type)</span></span>
-<span id="cb48-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(reviews_sentences)</span>
-<span id="cb48-3"><a href=""></a></span>
-<span id="cb48-4"><a href=""></a><span class="co"># Création du corpus et tokenisation</span></span>
-<span id="cb48-5"><a href=""></a>corpus_text <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">tokens</span>(reviews_sentences<span class="sc">$</span>text_prepped)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="co"># Convertir en dataframe (pour s'assurer du type)</span></span>
+<span id="cb56-2"><a href=""></a>reviews_sentences <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(reviews_sentences)</span>
+<span id="cb56-3"><a href=""></a></span>
+<span id="cb56-4"><a href=""></a><span class="co"># Création du corpus et tokenisation</span></span>
+<span id="cb56-5"><a href=""></a>corpus_text <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">tokens</span>(reviews_sentences<span class="sc">$</span>text_prepped)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>r$&gt; head(corpus_text)
 Tokens consisting of 6 documents.
 text1 :
@@ -961,10 +1030,10 @@ text3 :
 </section>
 <section id="étape-5-application-du-dictionnaire-lsd" class="slide level2" data-transition="none">
 <h2>Étape 5 : Application du dictionnaire LSD</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="co"># Application du dictionnaire LSD pour l'analyse de sentiment</span></span>
-<span id="cb50-2"><a href=""></a>matrice_sentiment <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">dfm</span>(</span>
-<span id="cb50-3"><a href=""></a>  quanteda<span class="sc">::</span><span class="fu">tokens_lookup</span>(corpus_text, data_dictionary_LSD2015, <span class="at">nested_scope =</span> <span class="st">"dictionary"</span>)</span>
-<span id="cb50-4"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Application du dictionnaire LSD pour l'analyse de sentiment</span></span>
+<span id="cb58-2"><a href=""></a>matrice_sentiment <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">dfm</span>(</span>
+<span id="cb58-3"><a href=""></a>  quanteda<span class="sc">::</span><span class="fu">tokens_lookup</span>(corpus_text, data_dictionary_LSD2015, <span class="at">nested_scope =</span> <span class="st">"dictionary"</span>)</span>
+<span id="cb58-4"><a href=""></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>r$&gt; print(matrice_sentiment)
 Document-feature matrix of: 15 documents, 4 features (76.67% sparse) and 0 docvars.
        features
@@ -979,21 +1048,21 @@ docs    negative positive neg_positive neg_negative
 </section>
 <section id="étape-6-calcul-des-scores-de-sentiment" class="slide level2" data-transition="none">
 <h2>Étape 6 : Calcul des scores de sentiment</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="co"># Conversion de la matrice de fréquence des termes en dataframe</span></span>
-<span id="cb52-2"><a href=""></a>resultats_sentiment <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">convert</span>(matrice_sentiment, <span class="at">to =</span> <span class="st">"data.frame"</span>)</span>
-<span id="cb52-3"><a href=""></a></span>
-<span id="cb52-4"><a href=""></a><span class="co"># Combinaison des résultats de sentiment avec les données originales</span></span>
-<span id="cb52-5"><a href=""></a>articles_sentiment <span class="ot">&lt;-</span> <span class="fu">cbind</span>(reviews_sentences, resultats_sentiment)</span>
-<span id="cb52-6"><a href=""></a></span>
-<span id="cb52-7"><a href=""></a><span class="co"># Calcul des métriques de sentiment</span></span>
-<span id="cb52-8"><a href=""></a>articles_sentiment <span class="ot">&lt;-</span> articles_sentiment <span class="sc">%&gt;%</span></span>
-<span id="cb52-9"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb52-10"><a href=""></a>    <span class="at">total_words =</span> <span class="fu">str_count</span>(text_prepped, <span class="st">"</span><span class="sc">\\</span><span class="st">S+"</span>),</span>
-<span id="cb52-11"><a href=""></a>    <span class="co"># Calcul des proportions de termes positifs et négatifs</span></span>
-<span id="cb52-12"><a href=""></a>    <span class="at">proportion_positive =</span> (positive <span class="sc">+</span> neg_negative) <span class="sc">/</span> total_words,</span>
-<span id="cb52-13"><a href=""></a>    <span class="at">proportion_negative =</span> (negative <span class="sc">+</span> neg_positive) <span class="sc">/</span> total_words,</span>
-<span id="cb52-14"><a href=""></a>    <span class="at">tone_index =</span> proportion_positive <span class="sc">-</span> proportion_negative</span>
-<span id="cb52-15"><a href=""></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="co"># Conversion de la matrice de fréquence des termes en dataframe</span></span>
+<span id="cb60-2"><a href=""></a>resultats_sentiment <span class="ot">&lt;-</span> quanteda<span class="sc">::</span><span class="fu">convert</span>(matrice_sentiment, <span class="at">to =</span> <span class="st">"data.frame"</span>)</span>
+<span id="cb60-3"><a href=""></a></span>
+<span id="cb60-4"><a href=""></a><span class="co"># Combinaison des résultats de sentiment avec les données originales</span></span>
+<span id="cb60-5"><a href=""></a>articles_sentiment <span class="ot">&lt;-</span> <span class="fu">cbind</span>(reviews_sentences, resultats_sentiment)</span>
+<span id="cb60-6"><a href=""></a></span>
+<span id="cb60-7"><a href=""></a><span class="co"># Calcul des métriques de sentiment</span></span>
+<span id="cb60-8"><a href=""></a>articles_sentiment <span class="ot">&lt;-</span> articles_sentiment <span class="sc">%&gt;%</span></span>
+<span id="cb60-9"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb60-10"><a href=""></a>    <span class="at">total_words =</span> <span class="fu">str_count</span>(text_prepped, <span class="st">"</span><span class="sc">\\</span><span class="st">S+"</span>),</span>
+<span id="cb60-11"><a href=""></a>    <span class="co"># Calcul des proportions de termes positifs et négatifs</span></span>
+<span id="cb60-12"><a href=""></a>    <span class="at">proportion_positive =</span> (positive <span class="sc">+</span> neg_negative) <span class="sc">/</span> total_words,</span>
+<span id="cb60-13"><a href=""></a>    <span class="at">proportion_negative =</span> (negative <span class="sc">+</span> neg_positive) <span class="sc">/</span> total_words,</span>
+<span id="cb60-14"><a href=""></a>    <span class="at">tone_index =</span> proportion_positive <span class="sc">-</span> proportion_negative</span>
+<span id="cb60-15"><a href=""></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="étape-6-calcul-des-scores-de-sentiment-1" class="slide level2" data-transition="none">
 <h2>Étape 6 : Calcul des scores de sentiment</h2>
@@ -1062,24 +1131,24 @@ docs    negative positive neg_positive neg_negative
 </section>
 <section id="étape-7-agrégation-et-interprétation-des-résultats" class="slide level2" data-transition="none">
 <h2>Étape 7 : Agrégation et interprétation des résultats</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="co"># Agrégation des résultats par review (id)</span></span>
-<span id="cb53-2"><a href=""></a>sentiment_par_review <span class="ot">&lt;-</span> articles_sentiment <span class="sc">%&gt;%</span></span>
-<span id="cb53-3"><a href=""></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span></span>
-<span id="cb53-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb53-5"><a href=""></a>    <span class="at">text_original =</span> <span class="fu">first</span>(reviews<span class="sc">$</span>text[id]),     <span class="co"># Texte original complet</span></span>
-<span id="cb53-6"><a href=""></a>    <span class="at">total_positive =</span> <span class="fu">sum</span>(positive),              <span class="co"># Somme des termes positifs</span></span>
-<span id="cb53-7"><a href=""></a>    <span class="at">total_negative =</span> <span class="fu">sum</span>(negative),              <span class="co"># Somme des termes négatifs</span></span>
-<span id="cb53-8"><a href=""></a>    <span class="at">total_neg_positive =</span> <span class="fu">sum</span>(neg_positive),      <span class="co"># Somme des négations de termes positifs</span></span>
-<span id="cb53-9"><a href=""></a>    <span class="at">total_neg_negative =</span> <span class="fu">sum</span>(neg_negative),      <span class="co"># Somme des négations de termes négatifs</span></span>
-<span id="cb53-10"><a href=""></a>    <span class="at">total_words =</span> <span class="fu">sum</span>(total_words),              <span class="co"># Nombre total de mots</span></span>
-<span id="cb53-11"><a href=""></a>    <span class="co"># Calcul des proportions globales</span></span>
-<span id="cb53-12"><a href=""></a>    <span class="at">proportion_positive =</span> <span class="fu">sum</span>(positive) <span class="sc">/</span> <span class="fu">sum</span>(total_words),</span>
-<span id="cb53-13"><a href=""></a>    <span class="at">proportion_negative =</span> <span class="fu">sum</span>(negative) <span class="sc">/</span> <span class="fu">sum</span>(total_words),</span>
-<span id="cb53-14"><a href=""></a>    <span class="co"># Indice de ton global normalisé</span></span>
-<span id="cb53-15"><a href=""></a>    <span class="at">tone_index =</span> (<span class="fu">sum</span>(positive) <span class="sc">-</span> <span class="fu">sum</span>(negative)) <span class="sc">/</span> (<span class="fu">sum</span>(positive) <span class="sc">+</span> <span class="fu">sum</span>(negative)),</span>
-<span id="cb53-16"><a href=""></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb53-17"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb53-18"><a href=""></a>  <span class="fu">select</span>(id, text_original, tone_index)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="co"># Agrégation des résultats par review (id)</span></span>
+<span id="cb61-2"><a href=""></a>sentiment_par_review <span class="ot">&lt;-</span> articles_sentiment <span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href=""></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span></span>
+<span id="cb61-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb61-5"><a href=""></a>    <span class="at">text_original =</span> <span class="fu">first</span>(reviews<span class="sc">$</span>text[id]),     <span class="co"># Texte original complet</span></span>
+<span id="cb61-6"><a href=""></a>    <span class="at">total_positive =</span> <span class="fu">sum</span>(positive),              <span class="co"># Somme des termes positifs</span></span>
+<span id="cb61-7"><a href=""></a>    <span class="at">total_negative =</span> <span class="fu">sum</span>(negative),              <span class="co"># Somme des termes négatifs</span></span>
+<span id="cb61-8"><a href=""></a>    <span class="at">total_neg_positive =</span> <span class="fu">sum</span>(neg_positive),      <span class="co"># Somme des négations de termes positifs</span></span>
+<span id="cb61-9"><a href=""></a>    <span class="at">total_neg_negative =</span> <span class="fu">sum</span>(neg_negative),      <span class="co"># Somme des négations de termes négatifs</span></span>
+<span id="cb61-10"><a href=""></a>    <span class="at">total_words =</span> <span class="fu">sum</span>(total_words),              <span class="co"># Nombre total de mots</span></span>
+<span id="cb61-11"><a href=""></a>    <span class="co"># Calcul des proportions globales</span></span>
+<span id="cb61-12"><a href=""></a>    <span class="at">proportion_positive =</span> <span class="fu">sum</span>(positive) <span class="sc">/</span> <span class="fu">sum</span>(total_words),</span>
+<span id="cb61-13"><a href=""></a>    <span class="at">proportion_negative =</span> <span class="fu">sum</span>(negative) <span class="sc">/</span> <span class="fu">sum</span>(total_words),</span>
+<span id="cb61-14"><a href=""></a>    <span class="co"># Indice de ton global normalisé</span></span>
+<span id="cb61-15"><a href=""></a>    <span class="at">tone_index =</span> (<span class="fu">sum</span>(positive) <span class="sc">-</span> <span class="fu">sum</span>(negative)) <span class="sc">/</span> (<span class="fu">sum</span>(positive) <span class="sc">+</span> <span class="fu">sum</span>(negative)),</span>
+<span id="cb61-16"><a href=""></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb61-17"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb61-18"><a href=""></a>  <span class="fu">select</span>(id, text_original, tone_index)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="comparaison-des-scores-de-sentiment" class="slide level2" data-transition="none">
 <h2>Comparaison des scores de sentiment</h2>
@@ -1224,6 +1293,58 @@ Review #3
 </tbody>
 </table>
 </section>
+<section id="limites-de-lanalyse-de-sentiment" class="slide level2">
+<h2>Limites de l’analyse de sentiment</h2>
+<h3 id="problèmes-linguistiques">Problèmes linguistiques</h3>
+<ul>
+<li>Ironie : “Super, encore un retard…”</li>
+<li>Expressions idiomatiques : “C’est pas piqué des vers”</li>
+<li>Contexte culturel : “Sick” = malade ou cool?</li>
+<li>Négations complexes</li>
+</ul>
+<h3 id="limites-techniques">Limites techniques</h3>
+<ul>
+<li>Dépendance au dictionnaire</li>
+<li>Mots ambigus</li>
+<li>Agrégation qui cache les nuances</li>
+<li>Évolution du langage</li>
+</ul>
+</section>
+<section id="quand-ne-pas-utiliser" class="slide level2">
+<h2>Quand ne PAS utiliser</h2>
+<ul>
+<li>Textes très courts (&lt; 5 mots)</li>
+<li>Vocabulaire très spécialisé</li>
+<li>Analyses juridiques précises</li>
+<li>Forte présence d’ironie/sarcasme</li>
+</ul>
+</section>
+<section id="bonnes-pratiques" class="slide level2">
+<h2>Bonnes pratiques</h2>
+<ol type="1">
+<li>Valider manuellement un échantillon</li>
+<li>Utiliser plusieurs dictionnaires</li>
+<li>Analyser par segments</li>
+<li>Documenter vos choix</li>
+<li>Reconnaître les limites</li>
+</ol>
+</section>
+<section id="erreurs-courantes" class="slide level2 smaller">
+<h2>Erreurs courantes</h2>
+<h3 id="prétraitement">Prétraitement</h3>
+<ul>
+<li>Oublier de nettoyer le texte</li>
+<li>Retirer les négations (not, no, never)</li>
+<li>Mauvaise langue de dictionnaire</li>
+</ul>
+<h3 id="interprétation">Interprétation</h3>
+<ul>
+<li>Sur-interpréter les scores</li>
+<li>Comparer des dictionnaires différents</li>
+<li>Ignorer le contexte</li>
+<li>Ne pas valider manuellement</li>
+</ul>
+</section>
 <section id="lda-allocation-de-dirichlet-latente" class="slide level2" data-transition="none">
 <h2>LDA : Allocation de Dirichlet Latente</h2>
 <div class="columns">
@@ -1287,203 +1408,139 @@ Review #3
 <li><strong>Combinaison possible avec l’analyse de sentiment</strong></li>
 </ol>
 </section>
-<section id="limites-à-connaître" class="slide level2" data-transition="none">
+<section id="limites-à-connaître" class="slide level2">
 <h2>Limites à connaître</h2>
-<h3 id="défis-du-lda">Défis du LDA</h3>
 <ul>
-<li>Nombre de sujets à définir à l’avance</li>
+<li>Nombre de sujets (k) à définir à l’avance</li>
 <li>Les sujets nécessitent une interprétation humaine</li>
 <li>Besoin d’un volume suffisant de données</li>
 </ul>
 </section>
-<section id="modélisation-de-sujets-topic-modeling" class="slide level2" data-transition="none">
-<h2>Modélisation de sujets (Topic Modeling)</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="co"># Chargement des bibliothèques</span></span>
-<span id="cb54-2"><a href=""></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb54-3"><a href=""></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb54-4"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb54-5"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb54-6"><a href=""></a><span class="fu">library</span>(topicmodels)</span>
-<span id="cb54-7"><a href=""></a></span>
-<span id="cb54-8"><a href=""></a><span class="co"># Charger les exemples de reviews de restaurants</span></span>
-<span id="cb54-9"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb54-10"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
-<span id="cb54-11"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
-<span id="cb54-12"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
-<span id="cb54-13"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
-<span id="cb54-14"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
-<span id="cb54-15"><a href=""></a>  ),</span>
-<span id="cb54-16"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb54-17"><a href=""></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb54-18"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="le-processus-lda-en-4-étapes" class="slide level2">
+<h2>Le processus LDA en 4 étapes</h2>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[Textes bruts] --&gt; B[Tokenisation + nettoyage]
+    B --&gt; C[Matrice document-terme]
+    C --&gt; D[Modèle LDA]
+    D --&gt; E[Topics découverts]
+
+    style A fill:#e8f4f8
+    style B fill:#b8dce8
+    style C fill:#88c4d8
+    style D fill:#58acc8
+    style E fill:#2894b8
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
-<section id="préparation-des-données-pour-le-topic-modeling" class="slide level2" data-transition="none">
-<h2>Préparation des données pour le topic modeling</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="co"># Tokenisation et nettoyage</span></span>
-<span id="cb55-2"><a href=""></a>reviews_tokens <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
-<span id="cb55-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="fu">paste0</span>(<span class="st">"doc_"</span>, id)) <span class="sc">%&gt;%</span></span>
-<span id="cb55-4"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
-<span id="cb55-5"><a href=""></a>  <span class="fu">anti_join</span>(stop_words) <span class="co"># Supprimer les mots vides</span></span>
-<span id="cb55-6"><a href=""></a></span>
-<span id="cb55-7"><a href=""></a><span class="co"># Voir les premiers tokens</span></span>
-<span id="cb55-8"><a href=""></a><span class="fu">head</span>(reviews_tokens, <span class="dv">10</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="exemple-complet-de-lda" class="slide level2 smaller">
+<h2>Exemple complet de LDA</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb62-2"><a href=""></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb62-3"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb62-4"><a href=""></a></span>
+<span id="cb62-5"><a href=""></a><span class="co"># 1. Charger les données</span></span>
+<span id="cb62-6"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb62-7"><a href=""></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb62-8"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(<span class="st">"Super good kebab! The portions are generous..."</span>,</span>
+<span id="cb62-9"><a href=""></a>           <span class="st">"Nothing exceptional, just edible. I was disappointed..."</span>,</span>
+<span id="cb62-10"><a href=""></a>           <span class="st">"Food is good but staff attitude is rude..."</span>)</span>
+<span id="cb62-11"><a href=""></a>)</span>
+<span id="cb62-12"><a href=""></a></span>
+<span id="cb62-13"><a href=""></a><span class="co"># 2. Tokeniser et nettoyer</span></span>
+<span id="cb62-14"><a href=""></a>reviews_tokens <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb62-15"><a href=""></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb62-16"><a href=""></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb62-17"><a href=""></a>  <span class="fu">count</span>(id, word)</span>
+<span id="cb62-18"><a href=""></a></span>
+<span id="cb62-19"><a href=""></a><span class="co"># 3. Créer la matrice document-terme</span></span>
+<span id="cb62-20"><a href=""></a>reviews_dtm <span class="ot">&lt;-</span> reviews_tokens <span class="sc">%&gt;%</span></span>
+<span id="cb62-21"><a href=""></a>  <span class="fu">cast_dtm</span>(id, word, n)</span>
+<span id="cb62-22"><a href=""></a></span>
+<span id="cb62-23"><a href=""></a><span class="co"># 4. Appliquer LDA avec k topics</span></span>
+<span id="cb62-24"><a href=""></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(reviews_dtm, <span class="at">k =</span> <span class="dv">2</span>)</span>
+<span id="cb62-25"><a href=""></a></span>
+<span id="cb62-26"><a href=""></a><span class="co"># 5. Extraire les mots principaux par topic</span></span>
+<span id="cb62-27"><a href=""></a>top_terms <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb62-28"><a href=""></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb62-29"><a href=""></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="création-de-la-matrice-document-terme" class="slide level2" data-transition="none">
-<h2>Création de la matrice document-terme</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="co"># Créer la matrice document-terme (DTM)</span></span>
-<span id="cb56-2"><a href=""></a>reviews_dtm <span class="ot">&lt;-</span> reviews_tokens <span class="sc">%&gt;%</span></span>
-<span id="cb56-3"><a href=""></a>  <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span></span>
-<span id="cb56-4"><a href=""></a>  <span class="fu">cast_dtm</span>(doc_id, word, n)</span>
-<span id="cb56-5"><a href=""></a></span>
-<span id="cb56-6"><a href=""></a><span class="co"># Afficher un aperçu de la matrice</span></span>
-<span id="cb56-7"><a href=""></a>reviews_dtm</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<pre><code>&lt;&lt;DocumentTermMatrix (documents: 3, terms: 71)&gt;&gt;
-Non-/sparse entries: 77/136
-Sparsity           : 64%
-Maximal term length: 11
-Weighting          : term frequency (tf)
-Sample             :
-      Terms
-Docs   food good price quality
-  doc_1    0    2     0       1
-  doc_2    1    1     0       0
-  doc_3    1    1     1       0</code></pre>
+<section id="résultats-avec-k2-topics" class="slide level2 smaller">
+<h2>Résultats avec k=2 topics</h2>
+<h3 id="topic-1">Topic 1</h3>
+<p>good, portions, generous, quality, meat, bread, seasoned, excellent, recommend</p>
+<h3 id="topic-2">Topic 2</h3>
+<p>food, disappointed, exceptional, staff, attitude, rude, hygiene, cash</p>
 </section>
-<section id="application-du-modèle-lda" class="slide level2" data-transition="none">
-<h2>Application du modèle LDA</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Exécuter le modèle LDA</span></span>
-<span id="cb58-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Pour la reproductibilité</span></span>
-<span id="cb58-3"><a href=""></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(reviews_dtm, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">123</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb58-4"><a href=""></a></span>
-<span id="cb58-5"><a href=""></a><span class="co"># Examiner la distribution des sujets pour chaque document</span></span>
-<span id="cb58-6"><a href=""></a>topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"gamma"</span>)</span>
-<span id="cb58-7"><a href=""></a>topics_wide <span class="ot">&lt;-</span> topics <span class="sc">%&gt;%</span></span>
-<span id="cb58-8"><a href=""></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> topic, <span class="at">values_from =</span> gamma)</span>
-<span id="cb58-9"><a href=""></a></span>
-<span id="cb58-10"><a href=""></a><span class="fu">print</span>(topics_wide)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<pre><code># A tibble: 3 × 3
-  document   `1`   `2`
-  &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
-1 doc_1    0.692 0.308
-2 doc_2    0.333 0.667
-3 doc_3    0.391 0.609</code></pre>
+<section id="résultats-avec-k3-topics" class="slide level2 smaller">
+<h2>Résultats avec k=3 topics</h2>
+<h3 id="topic-1-qualité-de-la-nourriture">Topic 1: Qualité de la nourriture</h3>
+<p>good, kebab, meat, bread, quality, tasty, fresh, seasoned</p>
+<h3 id="topic-2-service-et-expérience">Topic 2: Service et expérience</h3>
+<p>staff, attitude, rude, disappointed, exceptional, lady, client</p>
+<h3 id="topic-3-prix-et-paiement">Topic 3: Prix et paiement</h3>
+<p>prices, reasonable, cash, bank, meal, generous, portions</p>
 </section>
-<section id="extraction-des-termes-principaux-pour-chaque-sujet" class="slide level2" data-transition="none">
-<h2>Extraction des termes principaux pour chaque sujet</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="co"># Extraire les termes principaux de chaque sujet</span></span>
-<span id="cb60-2"><a href=""></a>top_terms <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb60-3"><a href=""></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a href=""></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb60-5"><a href=""></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
-<span id="cb60-6"><a href=""></a></span>
-<span id="cb60-7"><a href=""></a><span class="co"># Afficher les termes principaux pour chaque sujet</span></span>
-<span id="cb60-8"><a href=""></a><span class="fu">print</span>(top_terms)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column" style="width:50%;">
-<pre><code>r$&gt; print(top_terms)
-# A tibble: 20 × 3
-# Groups:   topic [2]
-   topic term           beta
-   &lt;int&gt; &lt;chr&gt;         &lt;dbl&gt;
- 1     1 portions     0.0384
- 2     1 hygiene      0.0381
- 3     1 takes        0.0374
- 4     1 seasoned     0.0366
- 5     1 recommend    0.0364
- 6     1 lady         0.0352
- 7     1 disappointed 0.0334
- 8     1 client       0.0333
- 9     1 super        0.0328
-10     1 address      0.0321
-11     2 cash         0.113 
-12     2 food         0.0600
-13     2 bank         0.0390
-14     2 meal         0.0389
-15     2 feedback     0.0377
-16     2 bread        0.0374
-17     2 meat         0.0371
-18     2 kebab        0.0350
-19     2 prices       0.0317
-20     2 generous     0.0305</code></pre>
-</div></div>
+<section id="résultats-avec-k5-topics" class="slide level2 smaller">
+<h2>Résultats avec k=5 topics</h2>
+<h3 id="topics-découverts">Topics découverts</h3>
+<ol type="1">
+<li><strong>Qualité culinaire</strong>: kebab, meat, bread, fresh, tasty</li>
+<li><strong>Portions et générosité</strong>: portions, generous, quality</li>
+<li><strong>Prix</strong>: prices, reasonable, bank, meal</li>
+<li><strong>Service client</strong>: staff, attitude, lady, client</li>
+<li><strong>Problèmes</strong>: disappointed, rude, cash, hygiene, flies</li>
+</ol>
 </section>
-<section id="interprétation-des-résultats" class="slide level2 smaller" data-transition="none">
-<h2>Interprétation des résultats</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="sujet-services-et-expérience">Sujet : Services et expérience</h3>
+<section id="interprétation-des-topics-par-llm" class="slide level2">
+<h2>Interprétation des topics par LLM</h2>
+<h3 id="le-défi">Le défi</h3>
+<p>Les topics sont des listes de mots. Il faut les nommer.</p>
+<h3 id="solution-moderne">Solution moderne</h3>
+<p>Utiliser un LLM pour interpréter automatiquement:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>prompt <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Ces mots représentent un thème:"</span>,</span>
+<span id="cb63-2"><a href=""></a>                <span class="fu">paste</span>(top_words, <span class="at">collapse=</span><span class="st">", "</span>),</span>
+<span id="cb63-3"><a href=""></a>                <span class="st">"Donnez un nom à ce thème en 2-3 mots:"</span>)</span>
+<span id="cb63-4"><a href=""></a></span>
+<span id="cb63-5"><a href=""></a>theme_name <span class="ot">&lt;-</span> <span class="fu">ask_llm</span>(prompt)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="exemple-dinterprétation-llm" class="slide level2 smaller">
+<h2>Exemple d’interprétation LLM</h2>
+<h3 id="input">Input</h3>
+<p><strong>Topic 1</strong>: good, portions, generous, quality, meat, bread, seasoned, excellent, recommend</p>
+<p><strong>Topic 2</strong>: staff, attitude, rude, disappointed, exceptional, lady, client, service</p>
+<h3 id="output-du-llm">Output du LLM</h3>
+<p><strong>Topic 1</strong>: “Qualité de la nourriture et générosité”</p>
+<p><strong>Topic 2</strong>: “Service client et expérience”</p>
+</section>
+<section id="comment-choisir-k" class="slide level2 smaller">
+<h2>Comment choisir k?</h2>
+<h3 id="approches-courantes">Approches courantes</h3>
+<ol type="1">
+<li><strong>Intuition du domaine</strong>: Combien de thèmes attendez-vous?</li>
+<li><strong>Essais multiples</strong>: Tester k=2, 3, 5, 10 et comparer</li>
+<li><strong>Métriques statistiques</strong>: Perplexité, cohérence</li>
+<li><strong>Interprétabilité</strong>: Les topics sont-ils cohérents?</li>
+</ol>
+<h3 id="règle-pratique">Règle pratique</h3>
+<p>Commencer petit (k=2-5) et augmenter progressivement</p>
+</section>
+<section id="cas-dusage-en-sciences-sociales" class="slide level2">
+<h2>Cas d’usage en sciences sociales</h2>
 <ul>
-<li>portions (0.0384)</li>
-<li>hygiene (0.0381)</li>
-<li>takes (0.0374)</li>
-<li>seasoned (0.0366)</li>
-<li>recommend (0.0364)</li>
-<li>lady (0.0352)</li>
-<li>disappointed (0.0334)</li>
-<li>client (0.0333)</li>
-<li>super (0.0328)</li>
-<li>address (0.0321)</li>
+<li>Analyser des milliers de discours parlementaires</li>
+<li>Identifier les thèmes dans des campagnes électorales</li>
+<li>Suivre l’évolution de débats publics dans le temps</li>
+<li>Découvrir des patterns dans des questions ouvertes de sondages</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<h3 id="sujet-nourriture-et-prix">Sujet : Nourriture et prix</h3>
-<ul>
-<li>cash (0.1130)</li>
-<li>food (0.0600)</li>
-<li>bank (0.0390)</li>
-<li>meal (0.0389)</li>
-<li>feedback (0.0377)</li>
-<li>bread (0.0374)</li>
-<li>meat (0.0371)</li>
-<li>kebab (0.0350)</li>
-<li>prices (0.0317)</li>
-<li>generous (0.0305)</li>
-</ul>
-</div></div>
-</section>
-<section id="classification-des-reviews-par-sujet" class="slide level2" data-transition="none">
-<h2>Classification des reviews par sujet</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="co"># Afficher la distribution des sujets pour chaque review</span></span>
-<span id="cb62-2"><a href=""></a>document_topics <span class="ot">&lt;-</span> <span class="fu">augment</span>(lda_model, <span class="at">data =</span> reviews_dtm)</span>
-<span id="cb62-3"><a href=""></a></span>
-<span id="cb62-4"><a href=""></a><span class="co"># Mettre en forme pour faciliter la lecture</span></span>
-<span id="cb62-5"><a href=""></a>review_classifications <span class="ot">&lt;-</span> document_topics <span class="sc">%&gt;%</span></span>
-<span id="cb62-6"><a href=""></a>  <span class="fu">select</span>(document, .topic) <span class="sc">%&gt;%</span></span>
-<span id="cb62-7"><a href=""></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb62-8"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb62-9"><a href=""></a>    <span class="at">review_id =</span> <span class="fu">as.integer</span>(<span class="fu">gsub</span>(<span class="st">"doc_"</span>, <span class="st">""</span>, document)),</span>
-<span id="cb62-10"><a href=""></a>    <span class="at">review_text =</span> reviews<span class="sc">$</span>text[review_id],</span>
-<span id="cb62-11"><a href=""></a>    <span class="at">primary_topic =</span> <span class="fu">ifelse</span>(.topic <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Nourriture"</span>, <span class="st">"Service/Expérience"</span>)</span>
-<span id="cb62-12"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb62-13"><a href=""></a>  <span class="fu">select</span>(document, review_text, primary_topic) <span class="sc">%&gt;%</span></span>
-<span id="cb62-14"><a href=""></a>  <span class="fu">arrange</span>(document)</span>
-<span id="cb62-15"><a href=""></a></span>
-<span id="cb62-16"><a href=""></a><span class="co"># Afficher la classification des reviews</span></span>
-<span id="cb62-17"><a href=""></a><span class="fu">head</span>(review_classifications, <span class="dv">3</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="classification-des-reviews-par-sujet-1" class="slide level2 smaller" data-transition="none">
-<h2>Classification des reviews par sujet</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<h3 id="sujet-nourriture">Sujet : Nourriture</h3>
-<div style="background-color: #f0f8ff; padding: 10px; border-left: 4px solid #4682b4;">
-<p><strong>Review 1</strong><br>
-“Super good kebab! The portions are generous, the prices are really reasonable…”<br>
-<strong>Mots-clés:</strong> kebab, meat, bread, portions</p>
-</div>
-</div><div class="column" style="width:55%;">
-<h3 id="sujet-serviceexpérience">Sujet : Service/Expérience</h3>
-<div style="background-color: #fff0f5; padding: 10px; border-left: 4px solid #db7093; margin-bottom: 10px;">
-<p><strong>Review 2</strong><br>
-“Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed…”<br>
-<strong>Mots-clés:</strong> disappointed, cash only, exceptional</p>
-</div>
-<div style="background-color: #fff0f5; padding: 10px; border-left: 4px solid #db7093;">
-<p><strong>Review 3</strong><br>
-“Food is good and price is ok. The only issu is the attitude of the staff…”<br>
-<strong>Mots-clés:</strong> staff, attitude, hygiene</p>
-</div>
-</div></div>
 
 </section></section>
     </div>

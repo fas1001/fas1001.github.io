@@ -129,6 +129,60 @@ Utiliser l'historique GitHub pour voir les changements
 
 ![](img/pipeline_nlp.svg){width=100% fig-alt="Pipeline de traitement du langage naturel"}
 
+# Le pipeline de traitement textuel
+
+## Les 5 étapes
+
+1. **Collecte** : Obtenir le texte
+2. **Nettoyage** : Minuscules, ponctuation
+3. **Tokenisation** : Découper en mots
+4. **Filtrage** : Retirer les mots vides
+5. **Analyse** : Sentiment, thèmes, etc.
+
+## Tokenisation
+
+### Découper le texte en mots
+
+```
+"J'aime analyser du texte"
+      ↓
+["J'", "aime", "analyser", "du", "texte"]
+```
+
+## Stopwords (mots vides)
+
+### Quoi retirer?
+
+**Français** : le, la, de, et, un, dans, est...
+
+**Anglais** : the, a, an, in, on, at, is...
+
+## Avant et après
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+### Avant
+```
+le chat est sur le tapis
+```
+6 mots
+
+:::
+
+:::{.column width="50%"}
+
+### Après
+```
+chat tapis
+```
+2 mots significatifs
+
+:::
+
+::::
+
 # Introduction aux expressions régulières
 
 ## Qu'est-ce qu'on essaie de faire?
@@ -233,16 +287,16 @@ library(stringr)
 ## Fonctions principales de stringr
 
 ```r
-# Détecter un pattern
+# Détecter un pattern : retourne TRUE/FALSE si le pattern est présent
 str_detect(string, pattern)
 
-# Extraire un pattern
+# Extraire un pattern : retourne le texte qui correspond au pattern
 str_extract(string, pattern)
 
-# Remplacer un pattern
+# Remplacer un pattern : remplace le pattern par un nouveau texte
 str_replace(string, pattern, replacement)
 
-# Séparer selon un pattern
+# Séparer selon un pattern : découpe le texte selon le pattern
 str_split(string, pattern)
 ```
 
@@ -265,27 +319,72 @@ print(numeros)
 
 ## Les briques de base des regex{.smaller}
 
-### Rechercher des chiffres avec `\d`
+### `\d` : Chiffres
+
 ```r
 texte <- "Je suis né en 1990 et j'ai 33 ans"
 str_extract_all(texte, "\\d+")
 # Résultat: [1] "1990" "33"
 ```
 
-### Rechercher des lettres avec `[A-Z]` et `[a-z]`
+### `[A-Z]` : Lettres majuscules
+
 ```r
 texte <- "QUÉBEC est une ville du Canada"
-# Trouver les mots en majuscules
 str_extract(texte, "[A-Z]+")
 # Résultat: "QUÉBEC"
 ```
 
-### Rechercher des espaces avec `\s`
+### `\s` : Espaces
+
 ```r
 texte <- "mot     clé"
-# Remplacer les espaces multiples par un seul espace
 str_replace_all(texte, "\\s+", " ")
 # Résultat: "mot clé"
+```
+
+## Caractères spéciaux {.smaller}
+
+### `\w` : Mot (lettres + chiffres + _)
+
+```r
+texte <- "user_123 a posté!"
+str_extract_all(texte, "\\w+")
+# Résultat: [1] "user_123" "a" "posté"
+```
+
+### `.` : N'importe quel caractère
+
+```r
+texte <- "chat, chut, chit"
+str_extract_all(texte, "ch.t")
+# Résultat: [1] "chat" "chut" "chit"
+```
+
+## Cas d'usage pour l'analyse textuelle {.smaller}
+
+### Retirer les URLs d'un texte
+
+```r
+texte <- "Visitez https://www.umontreal.ca ou http://fas1001.com pour plus d'infos"
+texte_propre <- str_remove_all(texte, "https?://[\\w\\./]+")
+# Résultat: "Visitez  ou  pour plus d'infos"
+```
+
+### Extraire les hashtags
+
+```r
+tweet <- "Super soirée! Merci @JeanDupont #Montreal #UdeM"
+hashtags <- str_extract_all(tweet, "#\\w+")
+# Résultat: [1] "#Montreal" "#UdeM"
+```
+
+### Normaliser les dates
+
+```r
+texte <- "Rendez-vous le 2025-01-15 ou le 15/01/2025"
+dates <- str_extract_all(texte, "\\d{4}-\\d{2}-\\d{2}|\\d{2}/\\d{2}/\\d{4}")
+# Résultat: [1] "2025-01-15" "15/01/2025"
 ```
 
 ## Les quantificateurs : Combien de fois?{.smaller}
@@ -1045,7 +1144,53 @@ sentiment_par_review <- articles_sentiment %>%
 | BING | Pos/Neg | Simple, précis | Analyses générales | Sciences sociales |
 | NRC | 8 émotions | Riche en contexte | Analyse émotionnelle | Psychologie |
 | Lexicoder | Binaire + thèmes | Validé académiquement | Discours politiques | Science politique |
-| VADER | -1 à +1 | Gère emojis/web | Médias sociaux | Communications |## Exemple comparatif
+| VADER | -1 à +1 | Gère emojis/web | Médias sociaux | Communications |
+
+## Limites de l'analyse de sentiment
+
+### Problèmes linguistiques
+
+- Ironie : "Super, encore un retard..."
+- Expressions idiomatiques : "C'est pas piqué des vers"
+- Contexte culturel : "Sick" = malade ou cool?
+- Négations complexes
+
+### Limites techniques
+
+- Dépendance au dictionnaire
+- Mots ambigus
+- Agrégation qui cache les nuances
+- Évolution du langage
+
+## Quand ne PAS utiliser
+
+- Textes très courts (< 5 mots)
+- Vocabulaire très spécialisé
+- Analyses juridiques précises
+- Forte présence d'ironie/sarcasme
+
+## Bonnes pratiques
+
+1. Valider manuellement un échantillon
+2. Utiliser plusieurs dictionnaires
+3. Analyser par segments
+4. Documenter vos choix
+5. Reconnaître les limites
+
+## Erreurs courantes {.smaller}
+
+### Prétraitement
+
+- Oublier de nettoyer le texte
+- Retirer les négations (not, no, never)
+- Mauvaise langue de dictionnaire
+
+### Interprétation
+
+- Sur-interpréter les scores
+- Comparer des dictionnaires différents
+- Ignorer le contexte
+- Ne pas valider manuellement
 
 ## LDA : Allocation de Dirichlet Latente {transition="none"}
 
@@ -1099,237 +1244,134 @@ sentiment_par_review <- articles_sentiment %>%
 3. **Suivi de l'évolution des discours** dans le temps
 4. **Combinaison possible avec l'analyse de sentiment**
 
-## Limites à connaître {transition="none"}
+## Limites à connaître
 
-### Défis du LDA
-- Nombre de sujets à définir à l'avance
+- Nombre de sujets (k) à définir à l'avance
 - Les sujets nécessitent une interprétation humaine
 - Besoin d'un volume suffisant de données
 
-## Modélisation de sujets (Topic Modeling) {transition="none"}
+## Le processus LDA en 4 étapes
+
+```{mermaid}
+flowchart LR
+    A[Textes bruts] --> B[Tokenisation + nettoyage]
+    B --> C[Matrice document-terme]
+    C --> D[Modèle LDA]
+    D --> E[Topics découverts]
+
+    style A fill:#e8f4f8
+    style B fill:#b8dce8
+    style C fill:#88c4d8
+    style D fill:#58acc8
+    style E fill:#2894b8
+```
+
+## Exemple complet de LDA {.smaller}
 
 ```r
-# Chargement des bibliothèques
 library(tidytext)
-library(tidyr)
-library(dplyr)
-library(ggplot2)
 library(topicmodels)
+library(dplyr)
 
-# Charger les exemples de reviews de restaurants
+# 1. Charger les données
 reviews <- data.frame(
-  restaurant = "La ligne rouge",
-  text = c(
-    "Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!",
-    "Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there",
-    "Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."
-  ),
-  stringsAsFactors = FALSE
-) %>%
-  dplyr::mutate(id = 1:nrow(.))
-```
+  id = 1:3,
+  text = c("Super good kebab! The portions are generous...",
+           "Nothing exceptional, just edible. I was disappointed...",
+           "Food is good but staff attitude is rude...")
+)
 
-## Préparation des données pour le topic modeling {transition="none"}
-
-```r
-# Tokenisation et nettoyage
+# 2. Tokeniser et nettoyer
 reviews_tokens <- reviews %>%
-  mutate(doc_id = paste0("doc_", id)) %>%
-  tidytext::unnest_tokens(word, text) %>%
-  anti_join(stop_words) # Supprimer les mots vides
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words) %>%
+  count(id, word)
 
-# Voir les premiers tokens
-head(reviews_tokens, 10)
-```
-
-## Création de la matrice document-terme {transition="none"}
-
-```r
-# Créer la matrice document-terme (DTM)
+# 3. Créer la matrice document-terme
 reviews_dtm <- reviews_tokens %>%
-  count(doc_id, word) %>%
-  cast_dtm(doc_id, word, n)
+  cast_dtm(id, word, n)
 
-# Afficher un aperçu de la matrice
-reviews_dtm
-```
+# 4. Appliquer LDA avec k topics
+lda_model <- LDA(reviews_dtm, k = 2)
 
-```
-<<DocumentTermMatrix (documents: 3, terms: 71)>>
-Non-/sparse entries: 77/136
-Sparsity           : 64%
-Maximal term length: 11
-Weighting          : term frequency (tf)
-Sample             :
-      Terms
-Docs   food good price quality
-  doc_1    0    2     0       1
-  doc_2    1    1     0       0
-  doc_3    1    1     1       0
-```
-
-## Application du modèle LDA {transition="none"}
-
-```r
-# Exécuter le modèle LDA
-set.seed(123) # Pour la reproductibilité
-lda_model <- LDA(reviews_dtm, k = 2, control = list(seed = 123, verbose = TRUE))
-
-# Examiner la distribution des sujets pour chaque document
-topics <- tidy(lda_model, matrix = "gamma")
-topics_wide <- topics %>%
-  pivot_wider(names_from = topic, values_from = gamma)
-
-print(topics_wide)
-```
-
-```
-# A tibble: 3 × 3
-  document   `1`   `2`
-  <chr>    <dbl> <dbl>
-1 doc_1    0.692 0.308
-2 doc_2    0.333 0.667
-3 doc_3    0.391 0.609
-```
-
-## Extraction des termes principaux pour chaque sujet {transition="none"}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-```r
-# Extraire les termes principaux de chaque sujet
+# 5. Extraire les mots principaux par topic
 top_terms <- tidy(lda_model, matrix = "beta") %>%
   group_by(topic) %>%
-  slice_max(beta, n = 10) %>%
-  arrange(topic, -beta)
-
-# Afficher les termes principaux pour chaque sujet
-print(top_terms)
+  slice_max(beta, n = 10)
 ```
 
-:::
+## Résultats avec k=2 topics {.smaller}
 
-::: {.column width="50%"}
+### Topic 1
+good, portions, generous, quality, meat, bread, seasoned, excellent, recommend
 
-```
-r$> print(top_terms)
-# A tibble: 20 × 3
-# Groups:   topic [2]
-   topic term           beta
-   <int> <chr>         <dbl>
- 1     1 portions     0.0384
- 2     1 hygiene      0.0381
- 3     1 takes        0.0374
- 4     1 seasoned     0.0366
- 5     1 recommend    0.0364
- 6     1 lady         0.0352
- 7     1 disappointed 0.0334
- 8     1 client       0.0333
- 9     1 super        0.0328
-10     1 address      0.0321
-11     2 cash         0.113 
-12     2 food         0.0600
-13     2 bank         0.0390
-14     2 meal         0.0389
-15     2 feedback     0.0377
-16     2 bread        0.0374
-17     2 meat         0.0371
-18     2 kebab        0.0350
-19     2 prices       0.0317
-20     2 generous     0.0305
-```
+### Topic 2
+food, disappointed, exceptional, staff, attitude, rude, hygiene, cash
 
-:::
+## Résultats avec k=3 topics {.smaller}
 
-::::
+### Topic 1: Qualité de la nourriture
+good, kebab, meat, bread, quality, tasty, fresh, seasoned
 
-## Interprétation des résultats {.smaller transition="none"}
+### Topic 2: Service et expérience
+staff, attitude, rude, disappointed, exceptional, lady, client
 
-:::: {.columns}
-::: {.column width="50%"}
-### Sujet : Services et expérience
+### Topic 3: Prix et paiement
+prices, reasonable, cash, bank, meal, generous, portions
 
-- portions (0.0384)
-- hygiene (0.0381)
-- takes (0.0374)
-- seasoned (0.0366)
-- recommend (0.0364)
-- lady (0.0352)
-- disappointed (0.0334)
-- client (0.0333)
-- super (0.0328)
-- address (0.0321)
+## Résultats avec k=5 topics {.smaller}
 
-:::
+### Topics découverts
 
-::: {.column width="50%"}
-### Sujet : Nourriture et prix
+1. **Qualité culinaire**: kebab, meat, bread, fresh, tasty
+2. **Portions et générosité**: portions, generous, quality
+3. **Prix**: prices, reasonable, bank, meal
+4. **Service client**: staff, attitude, lady, client
+5. **Problèmes**: disappointed, rude, cash, hygiene, flies
 
-- cash (0.1130)
-- food (0.0600)
-- bank (0.0390)
-- meal (0.0389)
-- feedback (0.0377)
-- bread (0.0374)
-- meat (0.0371)
-- kebab (0.0350)
-- prices (0.0317)
-- generous (0.0305)
+## Interprétation des topics par LLM
 
-:::
-::::
+### Le défi
+Les topics sont des listes de mots. Il faut les nommer.
 
-## Classification des reviews par sujet {transition="none"}
+### Solution moderne
+Utiliser un LLM pour interpréter automatiquement:
 
 ```r
-# Afficher la distribution des sujets pour chaque review
-document_topics <- augment(lda_model, data = reviews_dtm)
+prompt <- paste("Ces mots représentent un thème:",
+                paste(top_words, collapse=", "),
+                "Donnez un nom à ce thème en 2-3 mots:")
 
-# Mettre en forme pour faciliter la lecture
-review_classifications <- document_topics %>%
-  select(document, .topic) %>%
-  distinct() %>%
-  mutate(
-    review_id = as.integer(gsub("doc_", "", document)),
-    review_text = reviews$text[review_id],
-    primary_topic = ifelse(.topic == 1, "Nourriture", "Service/Expérience")
-  ) %>%
-  select(document, review_text, primary_topic) %>%
-  arrange(document)
-
-# Afficher la classification des reviews
-head(review_classifications, 3)
-
+theme_name <- ask_llm(prompt)
 ```
 
-## Classification des reviews par sujet {.smaller transition="none"}
+## Exemple d'interprétation LLM {.smaller}
 
-:::: {.columns}
-::: {.column width="45%"}
-### Sujet : Nourriture
+### Input
+**Topic 1**: good, portions, generous, quality, meat, bread, seasoned, excellent, recommend
 
-::: {style="background-color: #f0f8ff; padding: 10px; border-left: 4px solid #4682b4;"}
-**Review 1**  
-"Super good kebab! The portions are generous, the prices are really reasonable..."  
-**Mots-clés:** kebab, meat, bread, portions
-:::
-:::
+**Topic 2**: staff, attitude, rude, disappointed, exceptional, lady, client, service
 
-::: {.column width="55%"}
-### Sujet : Service/Expérience
+### Output du LLM
+**Topic 1**: "Qualité de la nourriture et générosité"
 
-::: {style="background-color: #fff0f5; padding: 10px; border-left: 4px solid #db7093; margin-bottom: 10px;"}
-**Review 2**  
-"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed..."  
-**Mots-clés:** disappointed, cash only, exceptional
-:::
+**Topic 2**: "Service client et expérience"
 
-::: {style="background-color: #fff0f5; padding: 10px; border-left: 4px solid #db7093;"}
-**Review 3**  
-"Food is good and price is ok. The only issu is the attitude of the staff..."  
-**Mots-clés:** staff, attitude, hygiene
-:::
-:::
-::::
+## Comment choisir k? {.smaller}
+
+### Approches courantes
+
+1. **Intuition du domaine**: Combien de thèmes attendez-vous?
+2. **Essais multiples**: Tester k=2, 3, 5, 10 et comparer
+3. **Métriques statistiques**: Perplexité, cohérence
+4. **Interprétabilité**: Les topics sont-ils cohérents?
+
+### Règle pratique
+Commencer petit (k=2-5) et augmenter progressivement
+
+## Cas d'usage en sciences sociales
+
+- Analyser des milliers de discours parlementaires
+- Identifier les thèmes dans des campagnes électorales
+- Suivre l'évolution de débats publics dans le temps
+- Découvrir des patterns dans des questions ouvertes de sondages
