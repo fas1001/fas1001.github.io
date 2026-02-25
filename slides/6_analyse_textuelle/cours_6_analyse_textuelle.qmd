@@ -171,6 +171,42 @@ Comment trouver automatiquement tous les numéros de téléphone?
 - `-` : un tiret
 - Donc `\d{3}-\d{3}-\d{4}` trouve: "514-555-1234"
 
+## Un deuxième exemple : Les courriels
+
+Reprenons le même texte:
+
+```text
+Contact: Marie (514-555-1234)
+Courriel: marie@udem.ca
+Contact: Pierre (438-555-5678)
+Courriel: pierre@udem.ca
+```
+
+Comment trouver automatiquement toutes les adresses courriel?
+
+## La solution "manuelle"
+
+1. Chercher des lettres
+2. Suivies d'un symbole @
+3. Suivies du nom de domaine
+4. Terminant par .ca, .com, etc.
+
+## La solution avec regex
+
+```r
+# Un pattern qui trouve les adresses courriel
+"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+```
+
+## Décomposons le pattern
+
+- `[a-zA-Z0-9._%+-]+` : lettres, chiffres et caractères spéciaux (avant @)
+- `@` : le symbole @
+- `[a-zA-Z0-9.-]+` : lettres, chiffres, points et tirets (nom de domaine)
+- `\\.` : un point (échappé avec \\)
+- `[a-zA-Z]{2,}` : au moins 2 lettres (.ca, .com, .info, etc.)
+- Donc ce pattern trouve: "marie@udem.ca" et "jean.dupont@umontreal.ca"
+
 ## Pourquoi c'est utile?
 
 - Automatise la recherche de patterns
