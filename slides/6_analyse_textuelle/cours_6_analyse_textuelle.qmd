@@ -19,96 +19,13 @@ format:
 bibliography: bibliography.bib
 ---
 
-# Retour sur le Quiz 1 {.smaller}
+# Retour sur le Quiz1 {.smaller}
 
-- Chemins d'accès relatifs et (../..)
-- Les factors
-- Alpha de Cronbach à 0.6?
-- Utilisation de ChatGPT
-- Éviter de mettre raw dans clean
+- Utiliser GitHub pour sauvegarder vos fichiers
+- Comment retourner sur GitHub pour voir l'ancienne version de votre TP1
+- Faire table() avant et après
 - Éviter de mettre les citations en texte
 - Ne laissez pas de code inutile
-- Comment retourner sur GitHub pour voir l'ancienne version de votre TP1
-
-## Utiliser .. dans les chemins d'accès {.smaller}
-
-Dans le quarto, le chemin vers le graph était: 
-
-`![](../../results/graphs/evolution_graph.png)`
-
-```
-quiz_1/ <---------------------------------------- R Part de ici
-├── data/
-│   └── raw
-│       ├── ces2021.csv
-│       └── CES-E-1993_F1_subset.csv
-├── docs
-│   ├── codebooks/
-│   └── quiz_1
-│       ├── img
-│       │   └── UdeM_CoA.png
-│       ├── quiz_1.pdf
-│       ├── quiz_1.qmd <------------------------- Quarto part de ici 
-│       └── references.bib
-├── R
-│   ├── 1_cleaning_1993.R
-│   ├── 2_cleaning_2021.R
-│   ├── 3_merging.R
-│   └── 4_graph.R
-├── README.md
-└── results
-    └── graphs
-        └── evolution_graph.png
-```
-
-## Les factors
-
-```r
-table(df_raw_1993$CPSIGEN, useNA = "ifany") 
-df_clean_1993$ses_female <- NA
-df_clean_1993$ses_female[df_raw_1993$CPSIGEN != 1] <- 0
-df_clean_1993$ses_female[df_raw_1993$CPSIGEN == 5] <- 1 
-df_clean_1993$ses_female <- as.factor(df_clean_1993$ses_female)
-table(df_clean_1993$ses_female, useNA = "ifany") 
-```
-Si on fait `class(df_clean$ses_female)`
-```r
-r$> class(df_clean_1993$ses_female)
-[1] "factor"
-```
-
-## Quand utiliser les factors?
-
-```r
-table(df_raw$country, useNA = "ifany")
-df_clean$country[df_raw$country == 1] <- "CA"
-df_clean$country[df_raw$country == 2] <- "UK"
-df_clean$country[df_raw$country == 3] <- "FR"
-df_clean$country <- as.factor(df_clean$country)
-table(df_clean$country, useNA = "ifany")
-
-m <- lm(variable ~ country, data = df_clean)
-```
-
-## Évitez de mettre raw dans clean {.smaller}
-
-```r
-table(df_raw_1993$CPSIGEN)
-df_clean_1993 <- df_raw_1993 %>%
-  mutate(ses_female = case_when(
-    CPSIGEN == 5 ~ 1,
-    CPSIGEN == 1 ~ 0,
-    TRUE ~ NA_real_ ))
-table(df_clean_1993$ses_female, useNA = "ifany")
-```
-La variable est polluée
-```r
-r$> names(df_clean_1993)
-[1] "CPSIGEN"          "CPSA3"           
-[3] "CPSG1"            "CPSO11"          
-[5] "CPSA2"            "ses_female"      
-[7] "vote_probability"
-```
 
 ## Utiliser les citations en markdown {.smaller}
 
@@ -138,33 +55,8 @@ Utiliser l'historique GitHub pour voir les changements
 
 ## TP2 - Travail de mi-session {.smaller}
 
-:::: {.columns}
-
-::: {.column width="45%"}
-
-1. À remettre le 12 mars 2025 avant minuit
-2. 20% de la note finale
-3. Préparation de l'environnement de travail
-4. Création de l'arborescence
-5. Préparation des données
-
-:::
-::: {.column width="10%"}
-
-:::
-
-::: {.column width="45%"}
-
-6. Une visualisation
-7. Un document quarto
-8. Une question de recherche
-9. Courte revue de littérature
-10. Source et structure des données
-11. Planification méthodologique
-
-:::
-
-:::::
+- À remettre le 11 mars 2025 avant minuit
+- 20% de la note finale
 
 ## {transition="none"}
 
@@ -179,17 +71,23 @@ Utiliser l'historique GitHub pour voir les changements
 1. Introduction
 2. Question de recherche
 3. Revue de littérature 
-4. Hypothèses
-5. Méthodologie
+4. Hypothèses dérivées de la littérature
+5. Données et méthodologies
 6. Résultats
 7. Discussion
 8. Conclusion
 
 # Introduction à l'analyse textuelle
 
-##
+## Structure du cours
+
+::: {.r-stack}
 
 ![](img/structure_cours.png)
+
+![](img/structure_cours_1.png){.fragment}
+
+:::
 
 ## Pourquoi analyser du texte?
 
@@ -227,16 +125,9 @@ Utiliser l'historique GitHub pour voir les changements
 ![](img/schema_analyse_textuelle.png)
 
 
-## De texte à données
+##
 
-```{mermaid}
-%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#f4f4f4", "textColor": "#333", "lineColor": "#666"}, "flowchart": {"nodeSpacing": 200, "rankSpacing": 150, "diagramPadding": 50, "htmlLabels": true}}}%%
-graph LR
-    A[Texte brut] --> B[Nettoyage]
-    B --> C[Tokenisation]
-    C --> D[Analyse]
-    D --> E[Visualisation]
-```
+![](img/pipeline_nlp.svg){width=100% fig-alt="Pipeline de traitement du langage naturel"}
 
 # Introduction aux expressions régulières
 
@@ -1487,5 +1378,3 @@ head(review_classifications, 3)
 :::
 :::
 ::::
-
-
