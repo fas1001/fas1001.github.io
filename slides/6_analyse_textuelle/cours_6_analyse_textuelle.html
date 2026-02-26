@@ -187,10 +187,6 @@
       margin-right: 0; 
     }
   </style>
-  <meta name="mermaid-theme" content="dark">
-  <script src="cours_6_analyse_textuelle_files/libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="cours_6_analyse_textuelle_files/libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="cours_6_analyse_textuelle_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -1222,67 +1218,143 @@ Laurence-Olivier M. Foisy
 </section>
 <section id="le-processus-lda-en-4-étapes" class="slide level2">
 <h2>Le processus LDA en 4 étapes</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A[Textes bruts] --&gt; B[Tokenisation + nettoyage]
-    B --&gt; C[Matrice document-terme]
-    C --&gt; D[Modèle LDA]
-    D --&gt; E[Topics découverts]
 
-    style A fill:#e8f4f8
-    style B fill:#b8dce8
-    style C fill:#88c4d8
-    style D fill:#58acc8
-    style E fill:#2894b8
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<img data-src="img/lda_process.svg" class="r-stretch"></section>
+<section id="modélisation-de-sujets-topic-modeling" class="slide level2" data-transition="none">
+<h2>Modélisation de sujets (Topic Modeling)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="co"># Chargement des bibliothèques</span></span>
+<span id="cb51-2"><a href=""></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb51-3"><a href=""></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb51-4"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb51-5"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb51-6"><a href=""></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb51-7"><a href=""></a></span>
+<span id="cb51-8"><a href=""></a><span class="co"># Charger les exemples de reviews de restaurants</span></span>
+<span id="cb51-9"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb51-10"><a href=""></a>  <span class="at">restaurant =</span> <span class="st">"La ligne rouge"</span>,</span>
+<span id="cb51-11"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(</span>
+<span id="cb51-12"><a href=""></a>    <span class="st">"Super good kebab! The portions are generous, the prices are really reasonable, and the quality is there. Tasty meat, fresh bread, and everything is well seasoned. An excellent address for a meal that is good without breaking the bank. I recommend!"</span>,</span>
+<span id="cb51-13"><a href=""></a>    <span class="st">"Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed. Not to mention cash only which for me is unacceptable. Too many good restaurants in the neighborhood, I won't go back there"</span>,</span>
+<span id="cb51-14"><a href=""></a>    <span class="st">"Food is good and price is ok. The only issu is the attitude of the staff. The lady at he cash register and the guy that takes the orders seriously lack client service skills. Both are very rude. Hygiene is another issue, there are flies all over the place. In addition to all this, they only take cash."</span></span>
+<span id="cb51-15"><a href=""></a>  ),</span>
+<span id="cb51-16"><a href=""></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb51-17"><a href=""></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-18"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(.))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="exemple-complet-de-lda" class="slide level2 smaller">
-<h2>Exemple complet de LDA</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb51-2"><a href=""></a><span class="fu">library</span>(topicmodels)</span>
-<span id="cb51-3"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb51-4"><a href=""></a></span>
-<span id="cb51-5"><a href=""></a><span class="co"># 1. Charger les données</span></span>
-<span id="cb51-6"><a href=""></a>reviews <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb51-7"><a href=""></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
-<span id="cb51-8"><a href=""></a>  <span class="at">text =</span> <span class="fu">c</span>(<span class="st">"Super good kebab! The portions are generous..."</span>,</span>
-<span id="cb51-9"><a href=""></a>           <span class="st">"Nothing exceptional, just edible. I was disappointed..."</span>,</span>
-<span id="cb51-10"><a href=""></a>           <span class="st">"Food is good but staff attitude is rude..."</span>)</span>
-<span id="cb51-11"><a href=""></a>)</span>
-<span id="cb51-12"><a href=""></a></span>
-<span id="cb51-13"><a href=""></a><span class="co"># 2. Tokeniser et nettoyer</span></span>
-<span id="cb51-14"><a href=""></a>reviews_tokens <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
-<span id="cb51-15"><a href=""></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
-<span id="cb51-16"><a href=""></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
-<span id="cb51-17"><a href=""></a>  <span class="fu">count</span>(id, word)</span>
-<span id="cb51-18"><a href=""></a></span>
-<span id="cb51-19"><a href=""></a><span class="co"># 3. Créer la matrice document-terme</span></span>
-<span id="cb51-20"><a href=""></a>reviews_dtm <span class="ot">&lt;-</span> reviews_tokens <span class="sc">%&gt;%</span></span>
-<span id="cb51-21"><a href=""></a>  <span class="fu">cast_dtm</span>(id, word, n)</span>
-<span id="cb51-22"><a href=""></a></span>
-<span id="cb51-23"><a href=""></a><span class="co"># 4. Appliquer LDA avec k topics</span></span>
-<span id="cb51-24"><a href=""></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(reviews_dtm, <span class="at">k =</span> <span class="dv">2</span>)</span>
-<span id="cb51-25"><a href=""></a></span>
-<span id="cb51-26"><a href=""></a><span class="co"># 5. Extraire les mots principaux par topic</span></span>
-<span id="cb51-27"><a href=""></a>top_terms <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb51-28"><a href=""></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
-<span id="cb51-29"><a href=""></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="création-de-la-matrice-document-terme" class="slide level2" data-transition="none">
+<h2>Création de la matrice document-terme</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>reviews_dtm <span class="ot">&lt;-</span> reviews <span class="sc">%&gt;%</span></span>
+<span id="cb52-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="fu">paste0</span>(<span class="st">"doc_"</span>, id)) <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href=""></a>  tidytext<span class="sc">::</span><span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb52-4"><a href=""></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span> <span class="co"># Supprimer les mots vides</span></span>
+<span id="cb52-5"><a href=""></a>  <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span></span>
+<span id="cb52-6"><a href=""></a>  <span class="fu">cast_dtm</span>(doc_id, word, n)</span>
+<span id="cb52-7"><a href=""></a></span>
+<span id="cb52-8"><a href=""></a><span class="co"># Afficher un aperçu de la matrice</span></span>
+<span id="cb52-9"><a href=""></a>reviews_dtm</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>&lt;&lt;DocumentTermMatrix (documents: 3, terms: 71)&gt;&gt;
+Non-/sparse entries: 77/136
+Sparsity           : 64%
+Maximal term length: 11
+Weighting          : term frequency (tf)
+Sample             :
+      Terms
+Docs   food good price quality
+  doc_1    0    2     0       1
+  doc_2    1    1     0       0
+  doc_3    1    1     1       0</code></pre>
 </section>
-<section id="résultats-avec-k2-topics" class="slide level2 smaller">
-<h2>Résultats avec k=2 topics</h2>
-<h3 id="topic-1">Topic 1</h3>
-<p>good, portions, generous, quality, meat, bread, seasoned, excellent, recommend</p>
-<h3 id="topic-2">Topic 2</h3>
-<p>food, disappointed, exceptional, staff, attitude, rude, hygiene, cash</p>
+<section id="application-du-modèle-lda" class="slide level2" data-transition="none">
+<h2>Application du modèle LDA</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="co"># Exécuter le modèle LDA</span></span>
+<span id="cb54-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Pour la reproductibilité</span></span>
+<span id="cb54-3"><a href=""></a>lda_model <span class="ot">&lt;-</span> <span class="fu">LDA</span>(reviews_dtm, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">123</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb54-4"><a href=""></a></span>
+<span id="cb54-5"><a href=""></a><span class="co"># Examiner la distribution des sujets pour chaque document</span></span>
+<span id="cb54-6"><a href=""></a>topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"gamma"</span>)</span>
+<span id="cb54-7"><a href=""></a>topics_wide <span class="ot">&lt;-</span> topics <span class="sc">%&gt;%</span></span>
+<span id="cb54-8"><a href=""></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> topic, <span class="at">values_from =</span> gamma)</span>
+<span id="cb54-9"><a href=""></a></span>
+<span id="cb54-10"><a href=""></a><span class="fu">print</span>(topics_wide)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code># A tibble: 3 × 3
+  document   `1`   `2`
+  &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+1 doc_1    0.692 0.308
+2 doc_2    0.333 0.667
+3 doc_3    0.391 0.609</code></pre>
+</section>
+<section id="extraction-des-termes-principaux-pour-chaque-sujet" class="slide level2" data-transition="none">
+<h2>Extraction des termes principaux pour chaque sujet</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="co"># Extraire les termes principaux de chaque sujet</span></span>
+<span id="cb56-2"><a href=""></a>top_terms <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lda_model, <span class="at">matrix =</span> <span class="st">"beta"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href=""></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href=""></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-5"><a href=""></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
+<span id="cb56-6"><a href=""></a></span>
+<span id="cb56-7"><a href=""></a><span class="co"># Afficher les termes principaux pour chaque sujet</span></span>
+<span id="cb56-8"><a href=""></a><span class="fu">print</span>(top_terms)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<pre><code>r$&gt; print(top_terms)
+# A tibble: 20 × 3
+# Groups:   topic [2]
+   topic term           beta
+   &lt;int&gt; &lt;chr&gt;         &lt;dbl&gt;
+ 1     1 portions     0.0384
+ 2     1 hygiene      0.0381
+ 3     1 takes        0.0374
+ 4     1 seasoned     0.0366
+ 5     1 recommend    0.0364
+ 6     1 lady         0.0352
+ 7     1 disappointed 0.0334
+ 8     1 client       0.0333
+ 9     1 super        0.0328
+10     1 address      0.0321
+11     2 cash         0.113 
+12     2 food         0.0600
+13     2 bank         0.0390
+14     2 meal         0.0389
+15     2 feedback     0.0377
+16     2 bread        0.0374
+17     2 meat         0.0371
+18     2 kebab        0.0350
+19     2 prices       0.0317
+20     2 generous     0.0305</code></pre>
+</div></div>
+</section>
+<section id="interprétation-des-résultats" class="slide level2 smaller" data-transition="none">
+<h2>Interprétation des résultats</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="sujet-services-et-expérience">Sujet : Services et expérience</h3>
+<ul>
+<li>portions (0.0384)</li>
+<li>hygiene (0.0381)</li>
+<li>takes (0.0374)</li>
+<li>seasoned (0.0366)</li>
+<li>recommend (0.0364)</li>
+<li>lady (0.0352)</li>
+<li>disappointed (0.0334)</li>
+<li>client (0.0333)</li>
+<li>super (0.0328)</li>
+<li>address (0.0321)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="sujet-nourriture-et-prix">Sujet : Nourriture et prix</h3>
+<ul>
+<li>cash (0.1130)</li>
+<li>food (0.0600)</li>
+<li>bank (0.0390)</li>
+<li>meal (0.0389)</li>
+<li>feedback (0.0377)</li>
+<li>bread (0.0374)</li>
+<li>meat (0.0371)</li>
+<li>kebab (0.0350)</li>
+<li>prices (0.0317)</li>
+<li>generous (0.0305)</li>
+</ul>
+</div></div>
 </section>
 <section id="résultats-avec-k3-topics" class="slide level2 smaller">
 <h2>Résultats avec k=3 topics</h2>
@@ -1304,27 +1376,6 @@ Laurence-Olivier M. Foisy
 <li><strong>Problèmes</strong>: disappointed, rude, cash, hygiene, flies</li>
 </ol>
 </section>
-<section id="interprétation-des-topics-par-llm" class="slide level2">
-<h2>Interprétation des topics par LLM</h2>
-<h3 id="le-défi">Le défi</h3>
-<p>Les topics sont des listes de mots. Il faut les nommer.</p>
-<h3 id="solution-moderne">Solution moderne</h3>
-<p>Utiliser un LLM pour interpréter automatiquement:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>prompt <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Ces mots représentent un thème:"</span>,</span>
-<span id="cb52-2"><a href=""></a>                <span class="fu">paste</span>(top_words, <span class="at">collapse=</span><span class="st">", "</span>),</span>
-<span id="cb52-3"><a href=""></a>                <span class="st">"Donnez un nom à ce thème en 2-3 mots:"</span>)</span>
-<span id="cb52-4"><a href=""></a></span>
-<span id="cb52-5"><a href=""></a>theme_name <span class="ot">&lt;-</span> <span class="fu">ask_llm</span>(prompt)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="exemple-dinterprétation-llm" class="slide level2 smaller">
-<h2>Exemple d’interprétation LLM</h2>
-<h3 id="input">Input</h3>
-<p><strong>Topic 1</strong>: good, portions, generous, quality, meat, bread, seasoned, excellent, recommend</p>
-<p><strong>Topic 2</strong>: staff, attitude, rude, disappointed, exceptional, lady, client, service</p>
-<h3 id="output-du-llm">Output du LLM</h3>
-<p><strong>Topic 1</strong>: “Qualité de la nourriture et générosité”</p>
-<p><strong>Topic 2</strong>: “Service client et expérience”</p>
-</section>
 <section id="comment-choisir-k" class="slide level2 smaller">
 <h2>Comment choisir k?</h2>
 <h3 id="approches-courantes">Approches courantes</h3>
@@ -1345,6 +1396,50 @@ Laurence-Olivier M. Foisy
 <li>Suivre l’évolution de débats publics dans le temps</li>
 <li>Découvrir des patterns dans des questions ouvertes de sondages</li>
 </ul>
+</section>
+<section id="classification-des-reviews-par-sujet" class="slide level2" data-transition="none">
+<h2>Classification des reviews par sujet</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Afficher la distribution des sujets pour chaque review</span></span>
+<span id="cb58-2"><a href=""></a>document_topics <span class="ot">&lt;-</span> <span class="fu">augment</span>(lda_model, <span class="at">data =</span> reviews_dtm)</span>
+<span id="cb58-3"><a href=""></a></span>
+<span id="cb58-4"><a href=""></a><span class="co"># Mettre en forme pour faciliter la lecture</span></span>
+<span id="cb58-5"><a href=""></a>review_classifications <span class="ot">&lt;-</span> document_topics <span class="sc">%&gt;%</span></span>
+<span id="cb58-6"><a href=""></a>  <span class="fu">select</span>(document, .topic) <span class="sc">%&gt;%</span></span>
+<span id="cb58-7"><a href=""></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb58-8"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb58-9"><a href=""></a>    <span class="at">review_id =</span> <span class="fu">as.integer</span>(<span class="fu">gsub</span>(<span class="st">"doc_"</span>, <span class="st">""</span>, document)),</span>
+<span id="cb58-10"><a href=""></a>    <span class="at">review_text =</span> reviews<span class="sc">$</span>text[review_id],</span>
+<span id="cb58-11"><a href=""></a>    <span class="at">primary_topic =</span> <span class="fu">ifelse</span>(.topic <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Nourriture"</span>, <span class="st">"Service/Expérience"</span>)</span>
+<span id="cb58-12"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb58-13"><a href=""></a>  <span class="fu">select</span>(document, review_text, primary_topic) <span class="sc">%&gt;%</span></span>
+<span id="cb58-14"><a href=""></a>  <span class="fu">arrange</span>(document)</span>
+<span id="cb58-15"><a href=""></a></span>
+<span id="cb58-16"><a href=""></a><span class="co"># Afficher la classification des reviews</span></span>
+<span id="cb58-17"><a href=""></a><span class="fu">head</span>(review_classifications, <span class="dv">3</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="classification-des-reviews-par-sujet-1" class="slide level2 smaller" data-transition="none">
+<h2>Classification des reviews par sujet</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="sujet-nourriture">Sujet : Nourriture</h3>
+<div style="background-color: #f0f8ff; padding: 10px; border-left: 4px solid #4682b4;">
+<p><strong>Review 1</strong><br>
+“Super good kebab! The portions are generous, the prices are really reasonable…”<br>
+<strong>Mots-clés:</strong> kebab, meat, bread, portions</p>
+</div>
+</div><div class="column" style="width:55%;">
+<h3 id="sujet-serviceexpérience">Sujet : Service/Expérience</h3>
+<div style="background-color: #fff0f5; padding: 10px; border-left: 4px solid #db7093; margin-bottom: 10px;">
+<p><strong>Review 2</strong><br>
+“Nothing exceptional, just edible. I had good feedback about the food and I was very, very disappointed…”<br>
+<strong>Mots-clés:</strong> disappointed, cash only, exceptional</p>
+</div>
+<div style="background-color: #fff0f5; padding: 10px; border-left: 4px solid #db7093;">
+<p><strong>Review 3</strong><br>
+“Food is good and price is ok. The only issu is the attitude of the staff…”<br>
+<strong>Mots-clés:</strong> staff, attitude, hygiene</p>
+</div>
+</div></div>
 
 </section></section>
     </div>
