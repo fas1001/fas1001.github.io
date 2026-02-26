@@ -1012,7 +1012,7 @@ r$> sentiment_summary_with_text
 :::
 
 ::: {.column width="40%"}
-![](https://www.cs.columbia.edu/~blei/blei-hi-res.jpg)
+![](https://blavatnikawards.org/media/filer_public_thumbnails/filer_public/c8/38/c83808f8-a015-4192-8e86-07ed09796d2f/2013_david_blei-250w.jpg__445x564_q85.jpg)
 :::
 ::::
 
