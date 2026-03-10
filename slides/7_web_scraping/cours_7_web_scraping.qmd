@@ -276,7 +276,7 @@ flowchart LR
 
 ##
 
-![](img/agreg.gif)
+![](img/daily_gif_fr.gif)
 
 ## Révolution numérique
 
