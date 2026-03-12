@@ -16,7 +16,7 @@
     "cleaning": true,
     "analyse": true,
     "textuelle": true,
-    "scraping": false,
+    "scraping": true,
     "llm": false,
     "site_web": false
   },

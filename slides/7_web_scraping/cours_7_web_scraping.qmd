@@ -21,15 +21,21 @@ format:
     embed-resources: true
 ---
 
-# Retour sur le TP2 - Travail de Mi-Session
+# Retour sur le TP2 - Travail de mi-session
 
-- Difficile?
-- GitHub LFS? 
-- Questions?
+- Difficile ?
+- Problèmes de codebook ?
+- Questions ?
 
-## 
+## Structure du cours
+
+::: {.r-stack}
 
 ![](img/structure_cours.png)
+
+![](img/structure_cours_1.png){.fragment}
+
+:::
 
 ## Plan du cours {.smaller}
 
@@ -39,7 +45,7 @@ format:
 
 # Internet
 
-## Qu'est-ce qu'Internet? {.smaller}
+## Qu'est-ce qu'Internet ? {.smaller}
 
 :::: {.columns}
 ::: {.column width="60%"}
@@ -48,8 +54,8 @@ format:
 
 - **Interconnexion globale** de réseaux informatiques
 - **Échange de données** via des protocoles standardisés
-- Inventé dans les années 1960s (ARPANET)
-- Devenu public dans les années 1990s
+- Inventé dans les années 1960 (ARPANET)
+- Devenu public dans les années 1990
 
 ### Ce n'est pas le Web
 
@@ -66,7 +72,7 @@ format:
 ## Architecture client-serveur {.smaller}
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="40%"}
 
 **Principe fondamental**
 
@@ -82,7 +88,7 @@ format:
 
 ::: {.column width="50%"}
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Client-server-model.svg/1200px-Client-server-model.svg.png){width="100%"}
+![](img/client_server.png){width="100%"}
 
 :::
 ::::
@@ -104,7 +110,7 @@ format:
 
 ::: {.column width="40%"}
 ![](img/internet_map.jpg){width="100%"}
-<p style="font-size: 0.6em; text-align: center;">Carte physique de l'internet</p>
+<p style="font-size: 0.6em; text-align: center;">Carte physique de l'Internet</p>
 :::
 ::::
 
@@ -173,7 +179,7 @@ Tracing the path to umontreal.ca (132.204.8.144) on TCP port 80 (http), 30 hops 
 
 ## Infrastructure physique
 
-### Essayez ceci!
+### Essayez ceci !
 Tapez dans votre navigateur: **http://142.250.217.110**  
 
 :::: {.columns}
@@ -188,12 +194,7 @@ Tapez dans votre navigateur: **http://142.250.217.110**
 
 ::: {.column width="50%"}
 
-```{mermaid}
-flowchart LR
-    A[Ordinateur] -->|1. Où est google.com?| B[DNS]
-    B -->|2. IP: 142.250.217.110| A
-    A -->|3. Connexion| C[Google]
-```
+![](img/dns_resolution.svg){width="100%"}
 
 :::
 ::::
@@ -202,9 +203,9 @@ flowchart LR
 
 :::: {.columns}
 
-::: {.column width="50%}
+::: {.column width="50%"}
 
-### Où sont stockées vos données?
+### Où sont stockées vos données ?
 - Messages Messenger
 - Photos Instagram
 - Documents Google Drive
@@ -248,7 +249,7 @@ flowchart LR
 
 # Web scraping
 
-## C'est quoi le web scraping?
+## C'est quoi le web scraping ?
 
 **Moissonnage / Aspiration / Grattage** de données sur le Web
 
@@ -280,28 +281,28 @@ flowchart LR
 
 ## Révolution numérique
 
-1. Accès exhaustif à d'immense corpus de documents
-médias, accords internationaux, discours et procédures parlementaires, rapports annuels
-d'entreprises, jurisprudences, etc.
+1. Accès exhaustif à d'immenses corpus de documents :
+   médias, accords internationaux, discours et procédures parlementaires, rapports annuels
+   d'entreprises, jurisprudence, etc.
 
-2. La trace digitale des réseaux sociaux permet l'étude de nombreux phénomènes sociaux
+2. La trace numérique des réseaux sociaux permet l'étude de nombreux phénomènes sociaux
 
 ## Étude de cas : Premiers ministres du Canada {.smaller}
 
 ::: {.callout-important}
-### Question de recherche 
-**Est-ce que se faire élire jeune est un avantage pour rester premier ministre longtemps?**
+### Question de recherche
+**Est-ce que se faire élire jeune est un avantage pour rester premier ministre longtemps ?**
 
 :::
 
-Pour répondre, nous devons recueillir:
+Pour répondre, nous devons recueillir :
 
 - Dates de naissance des premiers ministres
 - Leur âge à l'entrée en fonction
 - Leur durée au pouvoir
 - Analyser la corrélation entre ces variables
 
-## À quel âge Justin Trudeau est entré au pouvoir? {.smaller}
+## À quel âge Justin Trudeau est entré au pouvoir ? {.smaller}
 
 :::: {.columns}
 ::: {.column width="60%"}
@@ -326,7 +327,7 @@ Pour répondre, nous devons recueillir:
 ::: {.callout-warning}
 ### Répéter pour CHAQUE premier ministre...
 
-- **Justin Trudeau**: 1. Rechercher, 2. Sélectionner, 3. Extraire, 4. Calculer, 5. Noter
+- **Mark Carney**: 1. Rechercher, 2. Sélectionner, 3. Extraire, 4. Calculer, 5. Noter
 - **Stephen Harper**: 1. Rechercher, 2. Sélectionner, 3. Extraire, 4. Calculer, 5. Noter
 - **Paul Martin**: 1. Rechercher, 2. Sélectionner, 3. Extraire, 4. Calculer, 5. Noter
 - **Jean Chrétien**: 1. Rechercher, 2. Sélectionner, 3. Extraire, 4. Calculer, 5. Noter
@@ -391,7 +392,7 @@ Trouver les données voulues
 ### Comprendre la structure des pages web
 
 - CTRL + U permet de voir le code source
-- Click droit -> Inspecter <- permet de voir les éléments
+- Clic droit -> Inspecter <- permet de voir les éléments
 - Onglet "Réseau" pour observer les requêtes API
 
 ## 2. Aspirer
@@ -414,9 +415,9 @@ page <- xml2::read_html(url)
 elem <- rvest::html_table(page, "table.dx-datagrid-table")
 ```
 
-### Ça ne fonctionne pas? Pourquoi?
+### Ça ne fonctionne pas ? Pourquoi ?
 
-➡️  Retour sur le site web!
+➡️  Retour sur le site web !
 
 ## 2. Aspirer
 
@@ -424,7 +425,7 @@ elem <- rvest::html_table(page, "table.dx-datagrid-table")
 
 Permet de voir que le tableau n'est pas visible dans la page
 
-### Network tab
+### Onglet Réseau
 
 ![](img/network_api.png)
 
@@ -435,7 +436,7 @@ Permet de voir que le tableau n'est pas visible dans la page
 ## 2. Aspirer
 
 ::: {.callout-tip}
-Dans notre cas, nous avons découvert une API du Parlement du Canada!
+Dans notre cas, nous avons découvert une API du Parlement du Canada !
 :::
 
 ```r
@@ -444,10 +445,10 @@ api_url <- "https://lop.parl.ca/ParlinfoWebAPI/Person/SearchAndRefine?&refiners=
 ```
 
 ::: {.callout-note}
-Les API sont souvent masquées mais peuvent être découvertes en inspectant les requêtes réseau!
+Les API sont souvent masquées, mais peuvent être découvertes en inspectant les requêtes réseau !
 :::
 
-## 2. Aspirer - Anatomie d'un URL {.smaller}
+## 2. Aspirer - Anatomie d'une URL {.smaller}
 
 ::: {.callout-note appearance="minimal"}
 `https://www.parlement.ca/premiers-ministres?periode=1950-2020&lang=fr`
@@ -645,12 +646,12 @@ F-statistic: 0.2845 on 1 and 21 DF,  p-value: 0.5994
 ```
 
 ::: {.callout-important}
-Est-ce que les plus jeunes premiers ministres ont tendance à rester plus longtemps en poste? NON!
+Est-ce que les plus jeunes premiers ministres ont tendance à rester plus longtemps en poste ? NON !
 :::
 
 # Exemples concrets
 
-## Agrégateur de sondages électorales
+## Agrégateur de sondages électoraux
 
 ### Les trois approches principales du Web Scraping {.smaller}
 
@@ -658,20 +659,20 @@ Est-ce que les plus jeunes premiers ministres ont tendance à rester plus longte
 2. Téléchargement direct de fichiers (CSV, Excel)
 3. Connexion aux API REST (`httr`, `jsonlite`)
 
-## Notre Projet : Agrégateur de Sondages Électoraux {.smaller}
+## Notre projet : Agrégateur de sondages électoraux {.smaller}
 
-### Trois sources de données électorales canadiennes:
+### Trois sources de données électorales canadiennes :
 
-1. **338Canada**: Tables HTML avec projections électorales
-2. **Poliwave**: Téléchargement direct de fichiers Excel
-3. **The Signal**: API REST (endpoints JSON)
+1. **338Canada** : tables HTML avec projections électorales
+2. **Poliwave** : téléchargement direct de fichiers Excel
+3. **The Signal** : API REST (endpoints JSON)
 
-### Structure du pipeline de données:
+### Structure du pipeline de données :
 - Extraction → Stockage brut → Transformation → Visualisation
 
 ## Agrégateur de Sondages Électoraux - Objectif {.smaller}
 
-Pour chaque méthode de scraping, nous verrons:
+Pour chaque méthode de scraping, nous verrons :
 
 1. Les packages et fonctions clés
 2. Le code étape par étape 
@@ -795,10 +796,10 @@ saveRDS(clean_data, "data/lake/can338/338_canada_projection.rds")
 ### Le site Poliwave
 - Publie des projections électorales pour le Canada
 - Fournit un fichier Excel avec les données par circonscription
-- URL directe: https://www.poliwave.com/Canada/Federal/Data/CAtable.xlsx
+- URL directe : https://www.poliwave.com/Canada/Federal/Data/CAtable.xlsx
 
 ### Notre approche
-Simplissime: Télécharger directement le fichier Excel et le sauvegarder!
+C'est très simple : télécharger directement le fichier Excel et le sauvegarder !
 
 ## Poliwave {.smaller}
 
@@ -861,7 +862,7 @@ saveRDS(
 
 # 3. API REST avec httr & jsonlite {background-color="#17202A" .center}
 
-## API REST - Les Packages {.smaller}
+## API REST - Les packages {.smaller}
 
 | Package | Fonction | Description |
 |---------|----------|-------------|
@@ -880,7 +881,7 @@ saveRDS(
 1. Définir l'URL de l'API
 2. Effectuer une requête GET à l'endpoint
 3. Parser la réponse JSON en dataframe
-5. Sauvegarder les résultats
+4. Sauvegarder les résultats
 
 
 ## The Signal {.smaller}
@@ -971,14 +972,14 @@ saveRDS(riding_data, "data/lake/signal_riding_projections.rds")
 
 ## Quand utiliser quelle approche? {.smaller}
 
-### On fait avec ce qu'on a!
+### On fait avec ce qu'on a !
 
-## Robots.txt - Qu'est-ce que c'est? {.smaller}
+## Robots.txt - Qu'est-ce que c'est ? {.smaller}
 
 :::: {.columns}
 ::: {.column width="65%"}
 - Fichier texte placé à la racine d'un site web
-- Indique aux robots d'indexation et scrapers quelles parties du site:
+- Indique aux robots d'indexation et scrapers quelles parties du site :
   - **Peuvent** être visitées et indexées
   - **Ne doivent pas** être visitées
 - Standard de facto depuis 1994
@@ -999,10 +1000,8 @@ Allow: /
 ::::
 
 > Un guide pour les robots, mais pas une barrière de sécurité
-```
 
-```
-## Pourquoi respecter robots.txt? {.smaller}
+## Pourquoi respecter robots.txt ? {.smaller}
 
 ::: {.callout-important}
 ### Éthique du web scraping
@@ -1026,13 +1025,10 @@ Allow: /
 - Contacter le propriétaire du site
 :::
 ::::
-```
-
-```
 ## Vérifier robots.txt en R {.smaller}
 
 ::: {.callout-note}
-### La règle générale: toujours vérifier avant de scraper!
+### La règle générale : toujours vérifier avant de scraper !
 :::
 
 ```r
@@ -1137,9 +1133,7 @@ Sitemap: https://lop.parl.ca/rss/public/en/sitemapxml
 ::::
 
 > Toujours associer la vérification de robots.txt à d'autres bonnes pratiques de scraping (délais, user-agent explicite, etc.)
-```
 
-```
 ## Bonnes pratiques au-delà de robots.txt {.smaller}
 
 :::: {.columns}
@@ -1172,18 +1166,18 @@ Le package `polite` intègre la vérification de robots.txt et d'autres bonnes p
 
 ## Pour aller plus loin {.smaller}
 
-- `RSelenium`: Pour sites dynamiques (JavaScript)
+- `RSelenium` : pour les sites dynamiques (JavaScript)
 
 ## Trucs et astuces {.smaller}
 
 1. Utiliser les outils de développement de votre navigateur
-2. Soyez conscient des implications éthiques (robots.txt & Sys.sleep(1))
+2. Soyez conscients des implications éthiques (robots.txt & Sys.sleep(1))
 3. Les tables HTML peuvent être importées directement dans R
 4. Utiliser les regex
 5. Peaufiner vos compétences en CSS
 6. Utiliser les API officielles si possible
-7. Des sites peuvent être visités avec la wayback machine
-8. Révélez les API cachées dans les sites webs
-9. Utiliser Selenium : Pour les utilisateurs avancés
+7. Des sites peuvent être visités avec la Wayback Machine
+8. Repérez les API cachées dans les sites web
+9. Utiliser Selenium : pour les utilisateurs avancés
 
-# À la semaine prochaine!
+# À la semaine prochaine !
