@@ -21,7 +21,7 @@ format:
     embed-resources: true
 ---
 
-# Retour sur le TP2 - Travail de mi-session
+# Retour sur le TP2 
 
 - Difficile ?
 - Problèmes de codebook ?
@@ -176,6 +176,14 @@ Tracing the path to umontreal.ca (132.204.8.144) on TCP port 80 (http), 30 hops 
     Destination finale: serveur de cache accélérant la livraison du site
 :::
 ::::
+
+## 
+
+![](img/dorsale_bell.png)
+
+## 
+
+![](img/risq.png)
 
 ## Infrastructure physique
 
@@ -387,6 +395,41 @@ Trouver les données voulues
 
 ![](img/4_search.png)
 
+
+## 2. Aspirer - Anatomie d'une URL {.smaller}
+
+::: {.callout-note appearance="minimal"}
+`https://www.parlement.ca/premiers-ministres?periode=1950-2020&lang=fr`
+:::
+
+:::: {.columns}
+::: {.column width="20%"}
+**Protocole**
+`https://`
+*Communication sécurisée*
+:::
+
+::: {.column width="30%"}
+**Hôte**
+`www.parlement.ca`
+*Nom d'hôte complet (sous-domaine + domaine)*
+:::
+
+::: {.column width="25%"}
+**Chemin**
+`/premiers-ministres`
+*Ressource spécifique*
+:::
+
+::: {.column width="25%"}
+**Paramètres**
+`?periode=1950-2020&lang=fr`
+*Filtres et options*
+:::
+::::
+
+> Comprendre ces composants permet d'identifier quelles parties de l'URL modifier pour accéder aux données souhaitées lors du web scraping
+
 ## 1. Naviguer
 
 ### Comprendre la structure des pages web
@@ -440,57 +483,68 @@ Dans notre cas, nous avons découvert une API du Parlement du Canada !
 :::
 
 ```r
-# Exemple de notre URL d'API pour les premiers ministres
-api_url <- "https://lop.parl.ca/ParlinfoWebAPI/Person/SearchAndRefine?&refiners=5-1,&projectionId=5&callback=jQuery3600941572194102592_1741730322226&_=1741730322227"
+api_url <- "https://lop.parl.ca/parlinfoWebAPI/Person/GetPrimeMinisters"
+
+response <- httr::GET(api_url)
+content <- httr::content(response, "text", encoding = "UTF-8")
 ```
 
 ::: {.callout-note}
 Les API sont souvent masquées, mais peuvent être découvertes en inspectant les requêtes réseau !
 :::
 
-## 2. Aspirer - Anatomie d'une URL {.smaller}
+## 2. Aspirer
 
-::: {.callout-note appearance="minimal"}
-`https://www.parlement.ca/premiers-ministres?periode=1950-2020&lang=fr`
+::: {.callout-warning}
+### Petit rappel méthodologique
+Un script de scraping peut cesser de fonctionner même si:
+
+- `robots.txt` autorise toujours l'accès
+- l'URL existe encore
+- la structure générale du site semble identique
+
+Pourquoi? Parce que les serveurs changent aussi leurs mécanismes anti-bot.
 :::
-
-:::: {.columns}
-::: {.column width="20%"}
-**Protocole**
-`https://`
-*Communication sécurisée*
-:::
-
-::: {.column width="30%"}
-**Domaine**
-`www.parlement.ca`
-*Localisation du site*
-:::
-
-::: {.column width="25%"}
-**Chemin**
-`/premiers-ministres`
-*Ressource spécifique*
-:::
-
-::: {.column width="25%"}
-**Paramètres**
-`?periode=1950-2020&lang=fr`
-*Filtres et options*
-:::
-::::
-
-> Comprendre ces composants permet d'identifier quelles parties de l'URL modifier pour accéder aux données souhaitées lors du web scraping
 
 ## 2. Aspirer
 
-### Utilisation de httr pour les requêtes API
+```r
+api_url <- "https://lop.parl.ca/parlinfoWebAPI/Person/GetPrimeMinisters"
+
+response <- httr::GET(api_url)
+content <- httr::content(response, "text", encoding = "UTF-8")
+```
+
+::: {.callout-important}
+
+Vous voyez? L'an dernier, ca passait. Aujourd'hui, non.
+
+Ce n'est pas `robots.txt` qui nous bloque ici.
+
+Le probleme, c'est qu'une requete trop "nue" ressemble maintenant davantage a un robot qu'a un navigateur.
+:::
+
+## 2. Aspirer
 
 ```r
-# Envoi de la requête HTTP à l'API
-response <- httr::GET(api_url)
+# On modifie donc notre approche.
+# On garde le meme site, mais on envoie plus d'information au serveur
+# pour que notre requete ressemble a celle d'un navigateur ordinaire.
+api_url <- "https://lop.parl.ca/parlinfoWebAPI/Person/GetPrimeMinisters"
 
-# Extraction du contenu textuel de la réponse
+response <- httr::GET(
+  api_url,
+  httr::add_headers(
+    "Accept" = "application/json, text/javascript, */*; q=0.01",
+    "Referer" = "https://lop.parl.ca/sites/ParlInfo/default/en_CA/People/primeMinisters",
+    "X-Requested-With" = "XMLHttpRequest"
+  ),
+  httr::user_agent(
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+  )
+)
+
+httr::stop_for_status(response)
 content <- httr::content(response, "text", encoding = "UTF-8")
 ```
 
@@ -502,11 +556,11 @@ Pour le HTML : `library(rvest)` et `library(xml2)`
 
 Pour le JSON (notre cas) :
 ```r
-# Nettoyage de la réponse pour extraire uniquement la partie JSON
-json_data <- stringr::str_extract(content, "\\[\\{.+\\}\\]")
+# Maintenant, la reponse valide est du JSON direct.
+jsonlite::validate(content)
 
 # Conversion du JSON en objet R
-pm_data <- jsonlite::fromJSON(json_data)
+pm_data <- jsonlite::fromJSON(content)
 ```
 
 ## 3. Extraire {.smaller}
@@ -553,7 +607,6 @@ df_pm <- data.frame(
   yob = pm_data$DateOfBirth,                  # Date de naissance
   Party = pm_data$PartyEn,                    # Parti politique
   occupation = pm_data$ProfessionsEn,         # Profession
-  province = pm_data$ProvinceOfBirthEn,       # Province de naissance
   stringsAsFactors = FALSE
 )
 ```
@@ -1040,7 +1093,7 @@ library(robotstxt)
 paths_allowed("https://lop.parl.ca/sites/ParlInfo/default/en_CA/People/primeMinisters")
 #> [1] TRUE
 
-paths_allowed("https://lop.parl.ca/ParlinfoWebAPI/Person/SearchAndRefine?&refiners=5-1,&projectionId=5&callback=jQuery360032980273762339296_1741814357460&_=1741814357461")
+paths_allowed("https://lop.parl.ca/parlinfoWebAPI/Person/GetPrimeMinisters")
 #> [1] TRUE
 
 # Examiner le fichier robots.txt complet
@@ -1048,6 +1101,8 @@ robotstxt::get_robotstxt("https://lop.parl.ca")
 ```
 
 > Le package `robotstxt` facilite la vérification avant le web scraping
+
+> Important: `robots.txt` dit si l'accès est permis, pas si une requête minimale sera acceptée techniquement par le serveur.
 
 ## robots.txt
 
