@@ -7,7 +7,7 @@
     "cours_5": true,
     "cours_6": true,
     "cours_7": true,
-    "cours_8": false,
+    "cours_8": true,
     "cours_9": false,
     "resume": false
   },
@@ -17,7 +17,7 @@
     "analyse": true,
     "textuelle": true,
     "scraping": true,
-    "llm": false,
+    "llm": true,
     "site_web": false
   },
   "evaluations": {
