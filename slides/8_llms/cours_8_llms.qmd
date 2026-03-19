@@ -202,21 +202,6 @@ Avons nous des bases de données où les annotations humaines sont disponibles?
 
 ![](img/h4_barplot.png)
 
-## Biais dans LLaMA {.smaller}
-
-| Catégorie | LLaMA | GPT3 | OPT |
-|-----------|-------|------|-----|
-| Gender | 70.6 | 62.6 | 65.7 |
-| Religion | 79.0 | 73.3 | 68.6 |
-| Race/Color | 57.0 | 64.7 | 68.6 |
-| Sexual orientation | 81.0 | 76.2 | 78.6 |
-| Age | 70.1 | 64.4 | 67.8 |
-| Nationality | 64.2 | 61.6 | 62.9 |
-| Disability | 66.7 | 76.7 | 76.7 |
-| Physical appearance | 77.8 | 74.6 | 76.2 |
-| Socioeconomic status | 71.5 | 73.8 | 76.2 |
-| Average | 66.6 | 67.2 | 69.5 |
-
 # Utilisation pratique des LLM {background-color="#40666e"}
 
 ## Accès par API {.smaller}
@@ -348,46 +333,73 @@ Pour débuter, les étudiants rencontrent souvent d'abord <strong>OpenAI</strong
 
 </div>
 
-## Hugging Face = GitHub des modèles {.smaller}
-
-<!-- MODERNISATION ECOSYSTEME: slide Hugging Face -->
-
-<div style="margin-top: 0.7em;">
-<div style="text-align: center; font-size: 0.92em; color: #355c66; margin-bottom: 1rem;">
-On y trouve des milliers de modèles, jeux de données et démos pour des tâches très variées.
-</div>
-
-<div style="display: flex; justify-content: center; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem;">
-<span style="background: linear-gradient(135deg, #fff6d8 0%, #f3e1a5 100%); color: #5b4a17; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(120,100,30,0.12);">chat</span>
-<span style="background: linear-gradient(135deg, #dceef1 0%, #b9dce2 100%); color: #24444b; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(40,80,90,0.12);">classification</span>
-<span style="background: linear-gradient(135deg, #dfe9d8 0%, #c6dbb9 100%); color: #2f4a2a; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(50,90,50,0.12);">audio</span>
-<span style="background: linear-gradient(135deg, #f3e0d8 0%, #e7c2b2 100%); color: #5a392f; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(100,70,60,0.12);">vision</span>
-<span style="background: linear-gradient(135deg, #e4e0f2 0%, #ccc4e8 100%); color: #45386a; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(70,60,110,0.12);">embeddings</span>
-</div>
-
-<div style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 1rem; align-items: stretch;">
-<div style="background: linear-gradient(180deg, rgba(64,102,110,0.08) 0%, rgba(64,102,110,0.03) 100%); border: 1px solid rgba(64,102,110,0.18); border-radius: 20px; padding: 1rem;">
-<div style="font-size: 0.9em; font-weight: 800; color: #28444b; margin-bottom: 0.45rem;">Pourquoi c'est important</div>
-<div style="font-size: 0.78em; color: #355c66; line-height: 1.35;">
-Hugging Face montre que l'écosystème de l'IA dépasse largement quelques grands fournisseurs d'API. C'est aussi un point d'entrée vers la science ouverte: cartes de modèles, licences, jeux de données et limites documentées.
-</div>
-</div>
-
-<div style="background: #fbfcfc; border: 1px solid #d6e2e5; border-radius: 20px; padding: 1rem; box-shadow: 0 8px 20px rgba(64,102,110,0.08);">
-<div style="font-size: 0.9em; font-weight: 800; color: #28444b; margin-bottom: 0.45rem;">Pour vos projets</div>
-<div style="font-size: 0.78em; color: #355c66; line-height: 1.35;">
-- trouver un modèle adapté à une tâche précise<br>
-- comparer licences, tailles et performances<br>
-- repérer des modèles locaux ou spécialisés<br>
-- explorer bien plus que le simple "chat"
-</div>
-</div>
-</div>
-</div>
-
 ## Les principaux modèles 
 
 ![](img/lmarena.png)
+
+## packages r pour llm {.smaller}
+
+### aucun package
+
+```r
+library(httr2)
+library(jsonlite)
+
+api_key <- Sys.getenv("OPENAI_API_KEY")
+
+res <- request("https://api.openai.com/v1/responses") |>
+  req_headers(
+    Authorization = paste("Bearer", api_key),
+    `Content-Type` = "application/json"
+  ) |>
+  req_body_json(list(
+    model = "gpt-4o-mini",
+    input = "What is the capital of France?"
+  )) |>
+  req_perform()
+
+out <- resp_body_json(res)
+
+cat(out$output[[1]]$content[[1]]$text, "\n")
+
+```
+
+## packages r pour llm {.smaller}
+
+### openai
+
+```r
+library(openai)
+
+response <- create_chat_completion(
+  model = "gpt-4o-mini",
+  messages = list(
+    list(role = "user", content = "what is the capital of france?")
+  )
+)
+
+print(response$choices$message.content)
+
+```
+
+## Packages R pour LLM {.smaller}
+
+### ellmer
+
+```r
+library(ellmer)
+
+openrouter <- chat_openai(
+  system_prompt = "Your role is to answer simple questions",
+  model = "openai/gpt-4o-mini",
+  echo = "none"
+)
+
+response <- openrouter$chat("What is the capital of France?")
+
+print(response)
+
+```
 
 ## Aller se chercher une clé d'API sur OpenRouter
 
@@ -411,23 +423,74 @@ GEMINI_API_KEY=<your_key_here>
 OPENROUTER_API_KEY=<your_key_here>
 ```
 
-## Packages R pour LLM {.smaller}
+## Principe de base: poser une question sur une colonne texte {.smaller}
 
-### ellmer
+<!-- MODERNISATION R WORKFLOW: slide 1 -->
 
+| ID | restaurant | text | review |
+|---:|------------|------|--------|
+| 1 | La ligne rouge | Very good! |  |
+| 2 | La ligne rouge | Ok, but not extraordinary. |  |
+| 3 | La ligne rouge | The service was good but the food was cold. |  |
+
+- On part d'un `data.frame`
+- Le texte à analyser est dans la colonne `text`
+- On crée une nouvelle colonne `review` pour stocker la réponse du LLM
+
+## Une ligne à la fois {.smaller}
+
+<!-- MODERNISATION R WORKFLOW: slide 2 -->
+
+::: {.columns}
+::: {.column width="55%"}
+![](img/llm_row_workflow.svg){width="60%"}
+:::
+
+::: {.column width="45%"}
+| ID | text | review |
+|---:|------|--------|
+| 1 | Very good! | **5** |
+| 2 | Ok, but not extraordinary. |  |
+| 3 | The service was good but the food was cold. |  |
+
+- On lit `text[1]`
+- On envoie la requête au modèle
+- On écrit la réponse dans `review[1]`
+:::
+:::
+
+## Puis on répète pour chaque ligne {.smaller}
+
+<!-- MODERNISATION R WORKFLOW: slide 3 -->
+
+::: {.columns}
+::: {.column width="52%"}
 ```r
-library(ellmer)
+df$review <- NA
 
-openrouter <- chat_openrouter(
-  system_prompt = "Your role is to answer simple questions",
-  model = "nvidia/nemotron-3-super-120b-a12b:free",
-  echo = "none"
-)
+for (i in 1:nrow(df)) {
+  prompt <- paste(
+    "Give a rating from 1 to 5 for this review:",
+    df$text[i]
+  )
 
-response <- openrouter$chat("What is the capital of France?")
-
-print(response)
+  response <- openrouter$chat(prompt)
+  df$review[i] <- response
+}
 ```
+:::
+
+::: {.column width="48%"}
+| ID | text | review |
+|---:|------|--------|
+| 1 | Very good! | 5 |
+| 2 | Ok, but not extraordinary. | 3 |
+| 3 | The service was good but the food was cold. | 2 |
+
+### Idée clé
+Chaque ligne devient une petite question, et chaque réponse revient dans la bonne case du tableau.
+:::
+:::
 
 ## Les loops: automatiser les tâches répétitives {.smaller}
 
@@ -694,74 +757,6 @@ for (i in 1:nrow(df)) {
 [1] 2
 ```
 
-## Aucune différence entre ces trois boucles! 
-
-:::: {.columns}
-
-::: {.column width="65%"}
-
-### Boucle 1
-
-```r
-for (i in 1:nrow(df)) {
-  print(df$text[i])
-}
-```
-
-### Boucle 2
-
-```r
-for (i in 1:3) {
-  print(df$text[i])
-}
-```
-
-### Boucle 3
-
-```r
-for (i in seq_along(df$text)) {
-  print(df$id[i])
-}
-```
-:::
-
-::: {.column width="35%"}
-
-### Résultat
-```txt
-[1] 1
-[1] 2
-[1] 3
-```
-
-### Résultat
-```txt
-[1] 1
-[1] 2
-[1] 3
-```
-
-### Résultat
-```txt
-[1] 1
-[1] 2
-[1] 3
-```
-
-:::
-::::
-
-## Automatisation avec les boucles {.smaller}
-
-### Qu'est-ce qu'on veut compléter?
-
-1. Joindre le prompt et le texte du review 1
-2. Envoyer le prompt à un LLM
-3. Récupérer le résultat
-4. stocker le résultat dans une colonne du dataframe
-5. S'assurer que le résultat est bien formatté
-6. Répéter pour chaque review
-
 ## Automatisation avec les boucles {.smaller}
 
 ```r
@@ -842,6 +837,16 @@ prompt <- paste0(
 ## Génération d'un rapport automatisé
 
 ![](img/report.png)
+
+## Classification de textes avec LLM {.smaller}
+
+### Avantages vs méthodes classiques
+
+- Pas besoin d'entraînement spécifique
+- Adaptabilité à différentes taxonomies
+- Compréhension nuancée du contexte
+- Multi-classification en une passe
+- Explications qualitatives possibles
 
 ## Automatisation avec les boucles {.smaller}
 
@@ -936,34 +941,50 @@ Texte: [extrait]
 
 ![](img/ollama.png)
 
-## Prompt{.smaller}
+## Hugging Face = GitHub des modèles {.smaller}
 
-`[1] "In this survey question, respondents had to name their most important issue. Please read the answer and determine to which of the following 12 categories it belongs: 'Law and Crime', 'Culture and Nationalism', 'Public Lands and Agriculture', 'Governments and Governance', 'Immigration', 'Rights, Liberties, Minorities, and Discrimination', 'Health and Social Services', 'Economy and Employment', 'Education', 'Environment and Energy', 'International Affairs and Defense', 'Technology'. Use your judgement and only output a single issue category. The answer your need to categorize is: pension reform."`
+<!-- MODERNISATION ECOSYSTEME: slide Hugging Face -->
 
+<div style="margin-top: 0.7em;">
+<div style="text-align: center; font-size: 0.92em; color: #355c66; margin-bottom: 1rem;">
+On y trouve des milliers de modèles, jeux de données et démos pour des tâches très variées.
+</div>
 
-## Distribution des enjeux {background-color="#181414"}
+<div style="display: flex; justify-content: center; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem;">
+<span style="background: linear-gradient(135deg, #fff6d8 0%, #f3e1a5 100%); color: #5b4a17; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(120,100,30,0.12);">chat</span>
+<span style="background: linear-gradient(135deg, #dceef1 0%, #b9dce2 100%); color: #24444b; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(40,80,90,0.12);">classification</span>
+<span style="background: linear-gradient(135deg, #dfe9d8 0%, #c6dbb9 100%); color: #2f4a2a; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(50,90,50,0.12);">audio</span>
+<span style="background: linear-gradient(135deg, #f3e0d8 0%, #e7c2b2 100%); color: #5a392f; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(100,70,60,0.12);">vision</span>
+<span style="background: linear-gradient(135deg, #e4e0f2 0%, #ccc4e8 100%); color: #45386a; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(70,60,110,0.12);">embeddings</span>
+</div>
 
-![](img/issue_distribution.png)
+<div style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 1rem; align-items: stretch;">
+<div style="background: linear-gradient(180deg, rgba(64,102,110,0.08) 0%, rgba(64,102,110,0.03) 100%); border: 1px solid rgba(64,102,110,0.18); border-radius: 20px; padding: 1rem;">
+<div style="font-size: 0.9em; font-weight: 800; color: #28444b; margin-bottom: 0.45rem;">Pourquoi c'est important</div>
+<div style="font-size: 0.78em; color: #355c66; line-height: 1.35;">
+Hugging Face montre que l'écosystème de l'IA dépasse largement quelques grands fournisseurs d'API. C'est aussi un point d'entrée vers la science ouverte: cartes de modèles, licences, jeux de données et limites documentées.
+</div>
+</div>
 
-## Classification de textes avec LLM {.smaller}
-
-### Avantages vs méthodes classiques
-
-- Pas besoin d'entraînement spécifique
-- Adaptabilité à différentes taxonomies
-- Compréhension nuancée du contexte
-- Multi-classification en une passe
-- Explications qualitatives possibles
+<div style="background: #fbfcfc; border: 1px solid #d6e2e5; border-radius: 20px; padding: 1rem; box-shadow: 0 8px 20px rgba(64,102,110,0.08);">
+<div style="font-size: 0.9em; font-weight: 800; color: #28444b; margin-bottom: 0.45rem;">Pour vos projets</div>
+<div style="font-size: 0.78em; color: #355c66; line-height: 1.35;">
+- trouver un modèle adapté à une tâche précise<br>
+- comparer licences, tailles et performances<br>
+- repérer des modèles locaux ou spécialisés<br>
+- explorer bien plus que le simple "chat"
+</div>
+</div>
+</div>
+</div>
 
 # Évaluation des performances des LLM {background-color="#40666e"}
 
-## Accuracy {background-color="#181414"}
-
-### L'exemple de la détection de maladie grave
+## Accuracy
 
 <center>
 
-![](img/accuracy.png){width="75%"}
+![](img/accuracy_misleading.svg){width="75%"}
 
 </center>
 
@@ -1139,40 +1160,6 @@ graph TD
 :::
 :::
 
-## Un aperçu de la prochaine étape {.smaller}
+# Prochain cours : IA agentique
 
-<!-- MODERNISATION AGENTS: slide teaser -->
-
-::: {.columns}
-::: {.column width="50%"}
-### LLM classique
-- répond à une requête
-- produit du texte, du code ou un résumé
-- attend la prochaine instruction
-
-### IA agentique
-- planifie plusieurs étapes
-- utilise des outils
-- agit dans un environnement sous supervision humaine
-:::
-
-::: {.column width="50%"}
-```bash
-$ opencode "trouve où l'API est appelée,
-explique le code et propose une correction"
-
-> lit les fichiers pertinents
-> cherche les fonctions liées
-> explique le bug
-> propose un patch
-> suggère un test
-```
-
-### Idée clé
-Un agent ne fait pas que répondre: il peut aussi chercher, lire, planifier et agir.
-:::
-:::
-
-
-
-# À la semaine prochaine! {background-color="#40666e" .center}
+À dans deux semaines!
