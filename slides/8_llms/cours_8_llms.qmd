@@ -23,34 +23,21 @@ format:
 
 # Introduction {background-color="#40666e"}
 
-## TP3 Introduction
-- Présentation des attentes et objectifs du TP3
-- Qu'est-ce que je regarde quand je corrige
-- Assurez-vous de remettre à temps. Aucune extension n'est possible (30 avril).
-- Points de participation
-
 ## Évaluation du cours
 - Important dans une carrière
 - Points à améliorer pour la suite
 
-## 
+## Structure du cours
+
+::: {.r-stack}
 
 ![](img/structure_cours.png)
 
+![](img/structure_cours_1.png){.fragment}
+
+:::
+
 # Les grands modèles linguistiques (Large Language Models ou LLM) {background-color="#40666e"}
-
-## 
-
-![](https://pbs.twimg.com/media/Fuw9fv9akAA_h0q.jpg:large)
-
-## Évolution des LLM
-
-### Tendances majeures
-- ↑ Taille des modèles
-- ↑ Quantité de données d'entraînement
-- ↑ Puissance de calcul requise
-- ↓ Coûts d'utilisation
-- ↑ Accessibilité pour les chercheurs
 
 ## Qu'est-ce qu'un LLM? {.smaller}
 
@@ -74,6 +61,19 @@ graph TD
 ```
 :::
 :::
+
+## 
+
+![](https://pbs.twimg.com/media/Fuw9fv9akAA_h0q.jpg:large)
+
+## Évolution des LLM
+
+### Tendances majeures
+- ↑ Taille des modèles
+- ↑ Quantité de données d'entraînement
+- ↑ Puissance de calcul requise
+- ↓ Coûts d'utilisation
+- ↑ Accessibilité pour les chercheurs
 
 ## Ingrédient #1: Les données {.smaller}
 
@@ -280,32 +280,81 @@ Avons nous des bases de données où les annotations humaines sont disponibles?
 :::
 :::
 
+
+
 ## Principaux fournisseurs d'API {.smaller}
 
-| Fournisseur | Points forts | Coût | Limitations |
-|-------------|--------------|------|-------------|
-| Claude (Anthropic) | Le meilleur en qualité globale | Coûteux | Prix élevé |
-| GPT (OpenAI) | Bien équilibré sur tous les aspects | Modéré | N'est plus au sommet en termes de performance |
-| Gemini (Google) | Excellent modèle gratuit | Gratuit | Taux de requêtes limité sur le niveau gratuit |
-| Deepseek | Extrêmement performant | Très abordable | Lent et achalandé |
-| Groq | Rapide avec modèles open source | Niveau gratuit | Limité à 30 RPM et 6000 TPM |
+<!-- MODERNISATION MARCHE: slide fournisseurs API -->
 
+<div style="margin-top: 0.5em; display: grid; grid-template-columns: 1.15fr 0.95fr; gap: 1.15rem; align-items: start;">
 
-## LLM Model Pricing Comparison {.smaller}
+<div>
+<div style="font-size: 0.95em; color: #355c66; font-weight: 700; margin-bottom: 0.55rem;">Les grandes portes d'entrée</div>
 
-| Model | Context Length | Input (per 1K tokens) | Output (per 1K tokens) | Total Cost (100K tokens) |
-|-------|---------------|----------------------|------------------------|--------------------------|
-| Claude 3.7 Sonnet | 200K | $0.003 | $0.015 | $1.80 |
-| GPT-4o | 128K | $0.005 | $0.015 | $2.00 |
-| o3-mini | 128K | $0.001 | $0.004 | $0.50 |
-| Gemini 2.0 Flash | 1M | Free | Free | Free |
-| Gemini 1.5 Pro | 1M/2M | $0.0012 | $0.005 | $0.62 |
-| DeepSeek-R1 | 64K | $0.00055 | $0.00219 | $0.27 |
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem;">
+<div style="background: linear-gradient(135deg, #f5fbfc 0%, #d8ecf0 100%); border: 1px solid #b8d5db; border-radius: 18px; padding: 0.9rem; box-shadow: 0 8px 18px rgba(64,102,110,0.10);">
+<div style="font-size: 1.1em; font-weight: 800; color: #23424a;">OpenAI</div>
+<div style="font-size: 0.72em; color: #355c66;">écosystème mature</div>
+</div>
+<div style="background: linear-gradient(135deg, #fcfaf5 0%, #efe7d8 100%); border: 1px solid #d9ccb4; border-radius: 18px; padding: 0.9rem; box-shadow: 0 8px 18px rgba(80,70,40,0.10);">
+<div style="font-size: 1.1em; font-weight: 800; color: #4e4330;">Anthropic</div>
+<div style="font-size: 0.72em; color: #726347;">Claude</div>
+</div>
+<div style="background: linear-gradient(135deg, #f5faf6 0%, #dbeedd 100%); border: 1px solid #bdd6c0; border-radius: 18px; padding: 0.9rem; box-shadow: 0 8px 18px rgba(50,90,60,0.10);">
+<div style="font-size: 1.1em; font-weight: 800; color: #2a4a33;">Google</div>
+<div style="font-size: 0.72em; color: #47644e;">Gemini</div>
+</div>
+<div style="background: linear-gradient(135deg, #fbf7f5 0%, #f1ddd7 100%); border: 1px solid #dfc0b8; border-radius: 18px; padding: 0.9rem; box-shadow: 0 8px 18px rgba(100,70,60,0.10);">
+<div style="font-size: 1.1em; font-weight: 800; color: #5a3a32;">OpenRouter</div>
+<div style="font-size: 0.72em; color: #7b564c;">agrégateur de modèles</div>
+</div>
+</div>
 
+<div style="margin-top: 0.8rem; background: rgba(64,102,110,0.06); border-left: 5px solid #40666e; border-radius: 12px; padding: 0.7rem 0.9rem; font-size: 0.8em; color: #28444b;">
+Pour débuter, les étudiants rencontrent souvent d'abord <strong>OpenAI</strong>, <strong>Anthropic</strong>, <strong>Google</strong> ou <strong>OpenRouter</strong>.
+</div>
+</div>
 
-## Aller se chercher une clé d'API sur Groq
+<div>
+<div style="font-size: 0.95em; color: #355c66; font-weight: 700; margin-bottom: 0.55rem;">...mais le marché est beaucoup plus large</div>
 
-[groq.com](https://console.groq.com/playground)
+<div style="display: flex; flex-wrap: wrap; gap: 0.45rem; line-height: 1.1;">
+<span style="background:#40666e; color:white; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Mistral</span>
+<span style="background:#6f8f95; color:white; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Cohere</span>
+<span style="background:#89a7ac; color:white; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">DeepSeek</span>
+<span style="background:#9f8c74; color:white; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">xAI</span>
+<span style="background:#557b83; color:white; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Together</span>
+<span style="background:#718f74; color:white; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Fireworks</span>
+<span style="background:#9ba89d; color:#203036; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Replicate</span>
+<span style="background:#d9e6e9; color:#28444b; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">OpenRouter</span>
+<span style="background:#e8ded2; color:#4b4034; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Perplexity</span>
+<span style="background:#dfe7d8; color:#35503c; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Hugging Face</span>
+<span style="background:#d9e2ec; color:#314452; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">AI21</span>
+<span style="background:#eee6db; color:#5b4e40; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">SambaNova</span>
+<span style="background:#e7ecef; color:#38555d; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">NVIDIA</span>
+<span style="background:#dde7e3; color:#35514a; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">AWS Bedrock</span>
+<span style="background:#ece2d8; color:#624f3f; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Azure AI</span>
+<span style="background:#dde5ef; color:#324759; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Vertex AI</span>
+<span style="background:#e7efec; color:#36564e; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">Anyscale</span>
+<span style="background:#f0ece8; color:#5e544a; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">vLLM hosts</span>
+<span style="background:#edf2f4; color:#324b54; padding:0.4rem 0.7rem; border-radius:999px; font-size:0.75em;">et bien d'autres...</span>
+</div>
+
+<div style="margin-top: 0.9rem; padding: 0.8rem 0.9rem; border-radius: 16px; background: linear-gradient(180deg, rgba(64,102,110,0.08) 0%, rgba(64,102,110,0.02) 100%); border: 1px solid rgba(64,102,110,0.18);">
+<div style="font-size: 0.88em; font-weight: 700; color: #28444b; margin-bottom: 0.25rem;">Idée clé</div>
+<div style="font-size: 0.78em; color: #355c66;">Le plus important n'est pas de mémoriser tous les noms, mais de savoir <strong>où regarder</strong> : modèle, prix, contexte, vitesse, confidentialité, limites de requêtes.</div>
+</div>
+</div>
+
+</div>
+
+## Les principaux modèles 
+
+![](img/lmarena.png)
+
+## Aller se chercher une clé d'API sur OpenRouter
+
+[openrouter.ai](https://openrouter.ai/settings/key)
 
 ## Clés d'API
 
@@ -322,7 +371,7 @@ Redémarrez R et vérifiez que vos clés sont bien chargées:
 OPENAI_API_KEY=<your_key_here>
 ANTHROPIC_API_KEY=<your_key_here>
 GEMINI_API_KEY=<your_key_here>
-GROQ_API_KEY=<your_key_here>
+OPENROUTER_API_KEY=<your_key_here>
 ```
 
 ## Packages R pour LLM {.smaller}
@@ -332,13 +381,13 @@ GROQ_API_KEY=<your_key_here>
 ```r
 library(ellmer)
 
-groq <- ellmer::chat_groq(
+openrouter <- chat_openrouter(
   system_prompt = "Your role is to answer simple questions",
-  model = "llama-3.3-70b-versatile",
+  model = "nvidia/nemotron-3-super-120b-a12b:free",
   echo = "none"
 )
 
-response <- groq$chat("What is the capital of France?")
+response <- openrouter$chat("What is the capital of France?")
 
 print(response)
 ```
@@ -362,14 +411,14 @@ library(ellmer)
 
 countries <- c("North Korea", "Tuvalu", "Guinea-Bissau")
 
-groq <- ellmer::chat_groq(
+openrouter <- ellmer::chat_openrouter(
   system_prompt = "Your role is to answer users' questions",
-  model = "llama-3.3-70b-versatile",
+  model = "nvidia/nemotron-3-super-120b-a12b:free",
   echo = "none"
 )
 
 for (i in 1:length(countries)) {
-  response <- groq$chat(paste("What is the capital of", countries[i], "?"))
+  response <- openrouter$chat(paste("What is the capital of", countries[i], "?"))
   print(response)
   Sys.sleep(2)
 }
@@ -463,9 +512,9 @@ system_prompt <- "Your role is to analyze the sentiment of restaurant reviews an
 ### Initialiser le LLM avec ellmer
 
 ```r
-groq <- ellmer::chat_groq(
+openrouter <- ellmer::chat_openrouter(
   system_prompt = system_prompt,
-  model = "llama-3.3-70b-versatile"
+  model = "nvidia/nemotron-3-super-120b-a12b:free"
 )
 ```
 
@@ -690,7 +739,7 @@ for (i in 1:nrow(df)) {
   "Review: ", df$text[i]
   ) 
 
-  response <- groq$chat(prompt)
+  response <- openrouter$chat(prompt)
 
   df$sentiment[i] <- response
   Sys.sleep(2)
@@ -753,57 +802,6 @@ prompt <- paste0(
   "Review: ", donnees$review_text[i]  # Ajout du texte de l'avis à analyser
 )
 ```
-
-## Comment parser?
-
-```r
-response_parsed <- tryCatch({
-  jsonlite::fromJSON(response)
-}, error = function(e) {
-  # En cas d'erreur de parsing, afficher un avertissement
-  warning("Erreur de parsing JSON pour l'avis ", i, ": ", e$message)
-  return(NULL)
-})
-```
-
-### TryCatch({})
-
-Permet de déterminer quoi faire quand le programme plante et de continuer malgré les erreurs
-
-## Extraire et nettoyer les données
-
-```r
-
-if (!is.null(response_parsed)) {
-  # Stockage des valeurs simples
-  donnees$language[i] <- response_parsed$language
-  donnees$sentiment[i] <- response_parsed$sentiment
-  
-  # Transformation des listes en chaînes de caractères pour stockage
-  # (avec gestion des cas où l'information est absente)
-  donnees$topics[i] <- if(length(response_parsed$topics) > 0) {
-    paste(response_parsed$topics, collapse = ", ")
-  } else {
-    NA
-  }
-  donnees$recommendations[i] <- if(length(response_parsed$recommendations) > 0) {
-    paste(response_parsed$recommendations, collapse = ", ")
-  } else {
-    NA
-  }
-  donnees$strengths[i] <- if(length(response_parsed$strengths) > 0) {
-    paste(response_parsed$strengths, collapse = ", ")
-  } else {
-    NA
-  }
-  donnees$weaknesses[i] <- if(length(response_parsed$weaknesses) > 0) {
-    paste(response_parsed$weaknesses, collapse = ", ")
-  } else {
-    NA
-  }
-}
-```
-
 ## Génération d'un rapport automatisé
 
 ![](img/report.png)
@@ -823,53 +821,73 @@ if (!is.null(response_parsed)) {
 
 ## Conception de prompts efficaces {.smaller}
 
-> Prompting in English yields improved performance across many cross‐lingual tasks. For example, Jiang et al. (2019) report increased accuracy in knowledge extraction when using English prompts versus diversified manual prompts. Lin et al. (2021) observe that, for natural language understanding and machine translation across 30 languages, English prompts outperform multilingual configurations and even surpass baselines such as GPT‐3. Similarly, Muennighoff et al. (2023), Nie et al. (2024), Tu et al. (2022), and Zhang et al. (2023) report notable gains measured by accuracy, F1 scores, and BLEU when models are prompted in English.
+<!-- MODERNISATION PROMPTS: slide principes -->
+
+::: {.columns}
+::: {.column width="52%"}
+### 4 règles simples
+- Dire clairement la tâche
+- Définir le format de sortie
+- Donner le bon contexte
+- Montrer un exemple si nécessaire
+
+### Astuce pratique
+- Pour plusieurs tâches techniques, un prompt en anglais fonctionne souvent mieux
+:::
+
+::: {.column width="48%"}
+::: {.callout-tip appearance="simple"}
+### Formule utile
+**Rôle** -> **Tâche** -> **Contraintes** -> **Format de sortie**
+:::
+
+### À éviter
+- Prompts vagues
+- Plusieurs tâches à la fois
+- Format de réponse implicite
+- Consignes contradictoires
+:::
+:::
 
 ## Conception de prompts efficaces {.smaller}
 
 ::: {.columns}
 ::: {.column width="50%"}
-### Principes fondamentaux
-- Clarté et spécificité
-- Instructions étape par étape
-- Exemples illustratifs (few-shot learning)
-- Format de sortie explicite
-- Contextualisation appropriée
+### Avant
 
-### Techniques avancées
-- Chain-of-thought (réflexion étape par étape)
-- Role prompting (assignation de rôles)
-- Self-consistency (générer plusieurs réponses)
+```txt
+Analyse ce texte et dis-moi ce que tu en penses.
+```
+
+### Pourquoi c'est faible
+- tâche floue
+- aucun format demandé
+- pas de critère d'analyse
 :::
 
 ::: {.column width="50%"}
 
-### Structure d'un prompt efficace
+### Après
 
 ```txt
-# Role and Context
-You are an expert social data analyst with 
-advanced training in qualitative research.
+You are a social science research assistant.
 
-# Task and Objective
-Analyze the following interview excerpt and 
-identify the main sociological themes present.
+Analyse l'extrait d'entrevue suivant.
+Identifie 3 thèmes sociologiques principaux.
 
-# Required Output Format
-Present your findings as a list of 3-5 themes, 
-each with a brief explanation and a relevant 
-supporting quote.
+Réponds dans un tableau avec 3 colonnes:
+theme | explication | citation
 
-# Data or Content to Analyze
-INTERVIEW:
-[interview text]
+Concentre-toi sur les dynamiques sociales,
+pas psychologiques.
 
-# Additional Instructions
-Focus on sociological aspects rather than 
-psychological ones. Identify patterns related 
-to social structures, group dynamics, and 
-cultural factors.
+Texte: [extrait]
 ```
+
+### Pourquoi c'est mieux
+- tâche précise
+- angle analytique clair
+- sortie directement exploitable
 :::
 :::
 
@@ -880,50 +898,6 @@ cultural factors.
 ## LLMs Open-Source {.smaller}
 
 ![](img/ollama.png)
-
-## CLELLM{auto-animate="true"}
-
-```{.r code-line-numbers="1,2"}
-# Use devtools to install the clellm package from github
-devtools::install_github("clessn/clellm")
-```
-
-## CLELLM{auto-animate=true}
-
-```{.r code-line-numbers="4,5"}
-# Use devtools to install the clellm package from github
-devtools::install_github("clessn/clellm")
-
-#Use the install_ollama() function to install ollama, only on linux
-clellm::install_ollama()
-```
-## CLELLM{auto-animate=true}
-
-```{.r code-line-numbers="7,8"}
-# Use devtools to install the clellm package from github
-devtools::install_github("clessn/clellm")
-
-#Use the install_ollama() function to install ollama, only on linux
-clellm::install_ollama()
-
-# Use the ollama_install_model() function to install models
-clellm::ollama_install_model("model_name")
-```
-## CLELLM{auto-animate=true}
-
-```{.r code-line-numbers="10,11"}
-# Use devtools to install the clellm package from github
-devtools::install_github("clessn/clellm")
-
-#Use the install_ollama() function to install ollama, only on linux
-clellm::install_ollama()
-
-# Use the ollama_install_model() function to install models
-clellm::ollama_install_model("model_name")
-
-# Use the ollama_prompt() function to prompt any model you want
-prompt <- clellm::ollama_prompt("prompt", model = "model_name")
-```
 
 ## Prompt{.smaller}
 
@@ -1096,27 +1070,6 @@ graph TD
 
 - **F1 Score:** 
   2 × (83.3% × 90.9%) / (83.3% + 90.9%) = 87%
-:::
-:::
-
-## Évaluer les analyses non binaires {.smaller}
-
-::: {.columns}
-::: {.column width="60%"}
-### Corrélation entre codage humain et LLM
-
-![](img/h1_scatterplot.png){width="100%"}
-
-:::
-
-::: {.column width="40%"}
-### Interprétation simple
-
-**Coefficient de corrélation (r):**
-- Plus le r est proche de 1, meilleure est la prédiction
-
-**Régression linéaire:**
-- p < 0.001 (statistiquement significatif)
 :::
 :::
 
