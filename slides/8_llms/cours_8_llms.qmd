@@ -348,6 +348,43 @@ Pour débuter, les étudiants rencontrent souvent d'abord <strong>OpenAI</strong
 
 </div>
 
+## Hugging Face = GitHub des modèles {.smaller}
+
+<!-- MODERNISATION ECOSYSTEME: slide Hugging Face -->
+
+<div style="margin-top: 0.7em;">
+<div style="text-align: center; font-size: 0.92em; color: #355c66; margin-bottom: 1rem;">
+On y trouve des milliers de modèles, jeux de données et démos pour des tâches très variées.
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem;">
+<span style="background: linear-gradient(135deg, #fff6d8 0%, #f3e1a5 100%); color: #5b4a17; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(120,100,30,0.12);">chat</span>
+<span style="background: linear-gradient(135deg, #dceef1 0%, #b9dce2 100%); color: #24444b; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(40,80,90,0.12);">classification</span>
+<span style="background: linear-gradient(135deg, #dfe9d8 0%, #c6dbb9 100%); color: #2f4a2a; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(50,90,50,0.12);">audio</span>
+<span style="background: linear-gradient(135deg, #f3e0d8 0%, #e7c2b2 100%); color: #5a392f; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(100,70,60,0.12);">vision</span>
+<span style="background: linear-gradient(135deg, #e4e0f2 0%, #ccc4e8 100%); color: #45386a; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.88em; box-shadow: 0 8px 20px rgba(70,60,110,0.12);">embeddings</span>
+</div>
+
+<div style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 1rem; align-items: stretch;">
+<div style="background: linear-gradient(180deg, rgba(64,102,110,0.08) 0%, rgba(64,102,110,0.03) 100%); border: 1px solid rgba(64,102,110,0.18); border-radius: 20px; padding: 1rem;">
+<div style="font-size: 0.9em; font-weight: 800; color: #28444b; margin-bottom: 0.45rem;">Pourquoi c'est important</div>
+<div style="font-size: 0.78em; color: #355c66; line-height: 1.35;">
+Hugging Face montre que l'écosystème de l'IA dépasse largement quelques grands fournisseurs d'API. C'est aussi un point d'entrée vers la science ouverte: cartes de modèles, licences, jeux de données et limites documentées.
+</div>
+</div>
+
+<div style="background: #fbfcfc; border: 1px solid #d6e2e5; border-radius: 20px; padding: 1rem; box-shadow: 0 8px 20px rgba(64,102,110,0.08);">
+<div style="font-size: 0.9em; font-weight: 800; color: #28444b; margin-bottom: 0.45rem;">Pour vos projets</div>
+<div style="font-size: 0.78em; color: #355c66; line-height: 1.35;">
+- trouver un modèle adapté à une tâche précise<br>
+- comparer licences, tailles et performances<br>
+- repérer des modèles locaux ou spécialisés<br>
+- explorer bien plus que le simple "chat"
+</div>
+</div>
+</div>
+</div>
+
 ## Les principaux modèles 
 
 ![](img/lmarena.png)
@@ -1101,5 +1138,41 @@ graph TD
 - Compétences requises pour l'utilisation
 :::
 :::
+
+## Un aperçu de la prochaine étape {.smaller}
+
+<!-- MODERNISATION AGENTS: slide teaser -->
+
+::: {.columns}
+::: {.column width="50%"}
+### LLM classique
+- répond à une requête
+- produit du texte, du code ou un résumé
+- attend la prochaine instruction
+
+### IA agentique
+- planifie plusieurs étapes
+- utilise des outils
+- agit dans un environnement sous supervision humaine
+:::
+
+::: {.column width="50%"}
+```bash
+$ opencode "trouve où l'API est appelée,
+explique le code et propose une correction"
+
+> lit les fichiers pertinents
+> cherche les fonctions liées
+> explique le bug
+> propose un patch
+> suggère un test
+```
+
+### Idée clé
+Un agent ne fait pas que répondre: il peut aussi chercher, lire, planifier et agir.
+:::
+:::
+
+
 
 # À la semaine prochaine! {background-color="#40666e" .center}
