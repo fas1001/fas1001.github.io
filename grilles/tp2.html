@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <title>Grille TP2 - FAS1001</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <style>
+        body { background-color: #f4f7f6; color: #333; }
+        #main { padding: 2em; max-width: 1000px; margin: 0 auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px; margin-top: 2em; margin-bottom: 2em; }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5em; margin-bottom: 1em; }
+        .section-header { background: #ecf0f1; padding: 10px; font-weight: bold; margin-top: 20px; border-left: 5px solid #3498db; }
+        .criterion-row { display: flex; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid #eee; gap: 15px; }
+        .criterion-info { flex: 2; }
+        .criterion-name { font-weight: 600; display: block; }
+        .criterion-desc { font-size: 0.85em; color: #7f8c8d; }
+        .criterion-pts { flex: 0 0 100px; }
+        .criterion-comment { flex: 3; }
+        input[type="number"] { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; resize: vertical; min-height: 40px; font-family: inherit; font-size: 0.9em; }
+        .total-container { margin-top: 30px; padding: 20px; background: #2c3e50; color: #fff; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .total-label { font-size: 1.5em; font-weight: bold; }
+        .total-value { font-size: 2em; color: #2ecc71; }
+        .actions { margin-top: 20px; display: flex; gap: 10px; }
+        .button.primary { background-color: #3498db; border-color: #3498db; color: #fff; }
+        .button.primary:hover { background-color: #2980b9; }
+        .copy-status { margin-left: 10px; color: #27ae60; font-weight: bold; opacity: 0; transition: opacity 0.3s; }
+        .copy-status.visible { opacity: 1; }
+        @media (max-width: 768px) {
+            .criterion-row { flex-direction: column; }
+            .criterion-pts, .criterion-comment { width: 100%; }
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <div id="main">
+        <header>
+            <h2>Grille de correction : TP2</h2>
+            <p>Remplissez la grille pour générer le feedback Markdown.</p>
+        </header>
+
+        <div id="app">
+            <div class="field">
+                <label for="student-name">Étudiant(e) / Groupe</label>
+                <input type="text" id="student-name" placeholder="Nom de l'étudiant ou du groupe" />
+            </div>
+
+            <!-- Contenu du rapport -->
+            <div class="section-header">Contenu du rapport (8 pts)</div>
+            
+            <div class="criterion-row" data-section="Rapport" data-max="1.5">
+                <div class="criterion-info">
+                    <span class="criterion-name">Introduction et question</span>
+                    <span class="criterion-desc">Question claire, contexte, hypothèse (1.5 pts)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1.5" value="1.5" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Rapport" data-max="2">
+                <div class="criterion-info">
+                    <span class="criterion-name">Revue de littérature</span>
+                    <span class="criterion-desc">4 sources académiques, synthèse cohérente (2 pts)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="2" value="2" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Rapport" data-max="1">
+                <div class="criterion-info">
+                    <span class="criterion-name">Justification des variables</span>
+                    <span class="criterion-desc">Explication de comment la question CES mesure le concept (1 pt)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Rapport" data-max="1">
+                <div class="criterion-info">
+                    <span class="criterion-name">Interprétation des graphiques</span>
+                    <span class="criterion-desc">Analyse détaillée et précise des patterns (1 pt)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Rapport" data-max="1">
+                <div class="criterion-info">
+                    <span class="criterion-name">Discussion</span>
+                    <span class="criterion-desc">Lien avec littérature, limites (1 pt)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Rapport" data-max="1.5">
+                <div class="criterion-info">
+                    <span class="criterion-name">Mesure alternative</span>
+                    <span class="criterion-desc">Proposition concrète et réaliste (150-200 mots) (1.5 pts)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1.5" value="1.5" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <!-- Volet technique -->
+            <div class="section-header">Volet technique (12 pts)</div>
+
+            <div class="criterion-row" data-section="Technique" data-max="2">
+                <div class="criterion-info">
+                    <span class="criterion-name">Structure du projet</span>
+                    <span class="criterion-desc">Dossiers corrects, organisation logique (2 pts)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="2" value="2" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Technique" data-max="3">
+                <div class="criterion-info">
+                    <span class="criterion-name">Scripts R: Nettoyage</span>
+                    <span class="criterion-desc">Nettoyage et recodage corrects 0-1 (3 pts)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="3" value="3" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Technique" data-max="1">
+                <div class="criterion-info">
+                    <span class="criterion-name">Scripts R: Chemins</span>
+                    <span class="criterion-desc">Chemins relatifs fonctionnels (1 pt)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Technique" data-max="1">
+                <div class="criterion-info">
+                    <span class="criterion-name">Scripts R: Documentation</span>
+                    <span class="criterion-desc">Documentation claire du nettoyage (1 pt)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Technique" data-max="3">
+                <div class="criterion-info">
+                    <span class="criterion-name">Graphiques</span>
+                    <span class="criterion-desc">Axes titrés, échelle 0-1, esthétique (3 pts)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="3" value="3" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Technique" data-max="1">
+                <div class="criterion-info">
+                    <span class="criterion-name">Quarto</span>
+                    <span class="criterion-desc">Métadonnées, compile PDF, gabarit (1 pt)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="criterion-row" data-section="Technique" data-max="1">
+                <div class="criterion-info">
+                    <span class="criterion-name">Citations et bibliographie</span>
+                    <span class="criterion-desc">Citations correctes, bib générée (1 pt)</span>
+                </div>
+                <div class="criterion-pts">
+                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
+                </div>
+                <div class="criterion-comment">
+                    <textarea placeholder="Commentaire..."></textarea>
+                </div>
+            </div>
+
+            <div class="field" style="margin-top: 20px;">
+                <label for="general-comment">Commentaires généraux</label>
+                <textarea id="general-comment" rows="4" placeholder="Points forts, points à améliorer..."></textarea>
+            </div>
+
+            <div class="total-container">
+                <div class="total-label">Total :</div>
+                <div class="total-value"><span id="total-score">20</span> / 20</div>
+            </div>
+
+            <div class="actions">
+                <button class="button primary" onclick="copyMarkdown()">Copier le Markdown</button>
+                <button class="button" onclick="resetForm()">Réinitialiser</button>
+                <span id="copy-status" class="copy-status">Copié !</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function resetForm() {
+            if (confirm('Voulez-vous vraiment réinitialiser la grille ? Toutes les notes et tous les commentaires seront effacés.')) {
+                localStorage.removeItem('tp2_grille_data');
+                location.reload();
+            }
+        }
+
+        // Load data from localStorage on startup
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedData = localStorage.getItem('tp2_grille_data');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                document.getElementById('student-name').value = data.student || '';
+                document.getElementById('general-comment').value = data.generalComment || '';
+                
+                const scores = data.scores || [];
+                const comments = data.comments || [];
+                
+                document.querySelectorAll('.score-input').forEach((input, index) => {
+                    if (scores[index] !== undefined) input.value = scores[index];
+                });
+                
+                document.querySelectorAll('.criterion-row textarea').forEach((textarea, index) => {
+                    if (comments[index] !== undefined) textarea.value = comments[index];
+                });
+                
+                calculateTotal();
+            }
+        });
+
+        function saveData() {
+            const data = {
+                student: document.getElementById('student-name').value,
+                generalComment: document.getElementById('general-comment').value,
+                scores: Array.from(document.querySelectorAll('.score-input')).map(i => i.value),
+                comments: Array.from(document.querySelectorAll('.criterion-row textarea')).map(t => t.value)
+            };
+            localStorage.setItem('tp2_grille_data', JSON.stringify(data));
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            document.querySelectorAll('.score-input').forEach(input => {
+                total += parseFloat(input.value) || 0;
+            });
+            document.getElementById('total-score').innerText = total.toFixed(2).replace('.00', '');
+            saveData();
+        }
+
+        document.querySelectorAll('.score-input, #student-name, #general-comment').forEach(input => {
+            input.addEventListener('input', calculateTotal);
+        });
+        
+        document.querySelectorAll('.criterion-row textarea').forEach(textarea => {
+            textarea.addEventListener('input', saveData);
+        });
+
+        function copyMarkdown() {
+            const student = document.getElementById('student-name').value || 'Étudiant';
+            const total = document.getElementById('total-score').innerText;
+            const generalComment = document.getElementById('general-comment').value;
+
+            let md = `## Grille de correction - TP2\n\n`;
+            md += `**Étudiant(e) / Groupe :** ${student}\n\n`;
+            md += `| Critère | Note | Commentaire |\n`;
+            md += `|:---|:---:|:---|\n`;
+
+            let currentSection = "";
+            document.querySelectorAll('.criterion-row').forEach(row => {
+                const section = row.getAttribute('data-section');
+                const name = row.querySelector('.criterion-name').innerText;
+                const max = row.getAttribute('data-max');
+                const score = row.querySelector('.score-input').value;
+                const comment = row.querySelector('textarea').value.replace(/\n/g, '<br>');
+
+                if (section !== currentSection) {
+                    const sectionLabel = section === "Rapport" ? "CONTENU DU RAPPORT" : "VOLET TECHNIQUE";
+                    md += `| **${sectionLabel}** | | |\n`;
+                    currentSection = section;
+                }
+                md += `| ${name} | ${score} / ${max} | ${comment} |\n`;
+            });
+
+
+            md += `| **TOTAL** | **${total} / 20** | |\n\n`;
+            
+            if (generalComment) {
+                md += `**Commentaires généraux :**\n${generalComment}\n`;
+            }
+
+            navigator.clipboard.writeText(md).then(() => {
+                const status = document.getElementById('copy-status');
+                status.classList.add('visible');
+                setTimeout(() => status.classList.remove('visible'), 2000);
+            });
+        }
+    </script>
+</body>
+</html>
