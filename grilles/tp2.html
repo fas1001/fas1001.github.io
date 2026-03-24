@@ -1,233 +1,300 @@
 <!DOCTYPE HTML>
-<html lang="fr">
+<html lang="fr" style="overflow: hidden; height: 100%;">
 <head>
     <title>Grille TP2 - FAS1001</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <style>
-        body { background-color: #f4f7f6; color: #333; }
-        #main { padding: 2em; max-width: 1000px; margin: 0 auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px; margin-top: 2em; margin-bottom: 2em; }
-        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5em; margin-bottom: 1em; }
-        .section-header { background: #ecf0f1; padding: 10px; font-weight: bold; margin-top: 20px; border-left: 5px solid #3498db; }
-        .criterion-row { display: flex; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid #eee; gap: 15px; }
-        .criterion-info { flex: 2; }
-        .criterion-name { font-weight: 600; display: block; }
-        .criterion-desc { font-size: 0.85em; color: #7f8c8d; }
-        .criterion-pts { flex: 0 0 100px; }
-        .criterion-comment { flex: 3; }
-        input[type="number"] { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
-        textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; resize: vertical; min-height: 40px; font-family: inherit; font-size: 0.9em; }
-        .total-container { margin-top: 30px; padding: 20px; background: #2c3e50; color: #fff; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .total-label { font-size: 1.5em; font-weight: bold; }
-        .total-value { font-size: 2em; color: #2ecc71; }
-        .actions { margin-top: 20px; display: flex; gap: 10px; }
-        .button.primary { background-color: #3498db; border-color: #3498db; color: #fff; }
-        .button.primary:hover { background-color: #2980b9; }
-        .copy-status { margin-left: 10px; color: #27ae60; font-weight: bold; opacity: 0; transition: opacity 0.3s; }
-        .copy-status.visible { opacity: 1; }
-        @media (max-width: 768px) {
-            .criterion-row { flex-direction: column; }
-            .criterion-pts, .criterion-comment { width: 100%; }
+        /* Override Prologue and enforce no-scroll layout */
+        html, body { height: 100vh; overflow: hidden; background-color: #f4f7f6 !important; margin: 0; padding: 0; zoom: 1 !important; }
+        
+        #main { 
+            height: 96vh; 
+            max-width: 1200px; 
+            margin: 2vh auto; 
+            background: #fff; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.1); 
+            border-radius: 8px; 
+            display: flex; 
+            flex-direction: column;
+            padding: 1.2rem !important;
+            box-sizing: border-box;
         }
+
+        header { margin-bottom: 0.5rem; flex-shrink: 0; }
+        h2 { font-size: 1.3rem !important; margin: 0 !important; color: #2c3e50; line-height: 1.2; }
+        p { margin: 0; font-size: 0.8rem; color: #7f8c8d; }
+
+        .app-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1.5rem; 
+            flex: 1; 
+            min-height: 0; /* Critical for inner scrolling prevention */
+            margin-top: 0.5rem;
+        }
+
+        .section-column { display: flex; flex-direction: column; min-height: 0; }
+
+        .section-header { 
+            background: #ecf0f1; 
+            padding: 4px 10px; 
+            font-weight: bold; 
+            border-left: 5px solid #3498db; 
+            font-size: 0.8rem;
+            margin-bottom: 0.4rem;
+            flex-shrink: 0;
+            color: #2c3e50;
+        }
+
+        .criterion-row { 
+            display: flex; 
+            align-items: center; 
+            padding: 3px 0; 
+            border-bottom: 1px solid #eee; 
+            gap: 10px; 
+            flex-shrink: 0;
+        }
+        
+        .criterion-info { flex: 1; }
+        .criterion-name { font-weight: 600; font-size: 0.75rem; display: block; color: #34495e; line-height: 1.2; }
+        .criterion-desc { font-size: 0.65rem; color: #7f8c8d; display: block; }
+        
+        .criterion-pts { width: 55px; flex-shrink: 0; }
+        input[type="number"] { 
+            width: 100%; 
+            padding: 2px 4px; 
+            font-size: 0.8rem; 
+            text-align: center; 
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            height: 28px;
+        }
+
+        .footer-area { 
+            margin-top: 0.8rem; 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 1.5rem;
+            flex-shrink: 0;
+            align-items: stretch;
+        }
+
+        .comment-box { display: flex; flex-direction: column; }
+        textarea#general-comment { 
+            flex: 1;
+            min-height: 60px;
+            font-size: 0.8rem; 
+            padding: 8px; 
+            resize: none; 
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .total-box {
+            background: #2c3e50;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .total-label { font-size: 0.75rem; font-weight: bold; display: block; opacity: 0.8; }
+        .total-value { font-size: 1.6rem; font-weight: bold; color: #2ecc71; line-height: 1; margin: 4px 0; }
+
+        .actions { 
+            margin-top: 5px; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            flex-shrink: 0;
+        }
+        
+        .button { 
+            padding: 0 10px !important; 
+            font-size: 0.75rem !important; 
+            height: 28px !important; 
+            line-height: 28px !important; 
+            border-radius: 4px !important;
+        }
+        .button.primary { background-color: #3498db !important; }
+        
+        .copy-status { font-size: 0.7rem; color: #2ecc71; font-weight: bold; opacity: 0; transition: opacity 0.3s; }
+        .copy-status.visible { opacity: 1; }
+
+        label { font-size: 0.75rem; font-weight: 600; margin-bottom: 3px; display: block; color: #2c3e50; }
     </style>
 </head>
-<body class="is-preload">
+<body>
 
     <div id="main">
         <header>
-            <h2>Grille de correction : TP2</h2>
-            <p>Remplissez les notes pour générer le feedback Markdown.</p>
+            <h2>Grille TP2 - FAS1001</h2>
+            <p>Saisie directe • <kbd>Tab</kbd> pour naviguer • Sauvegarde auto</p>
         </header>
 
-        <div id="app">
-            <!-- Contenu du rapport -->
-            <div class="section-header">Contenu du rapport (8 pts)</div>
-            
-            <div class="criterion-row" data-section="Rapport" data-max="1.5">
-                <div class="criterion-info">
-                    <span class="criterion-name">Introduction et question</span>
-                    <span class="criterion-desc">Question claire, contexte, hypothèse (1.5 pts)</span>
+        <div class="app-grid">
+            <!-- Colonne 1: Rapport -->
+            <div class="section-column">
+                <div class="section-header">CONTENU DU RAPPORT (8 pts)</div>
+                
+                <div class="criterion-row" data-section="Rapport" data-max="1.5">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Introduction et question</span>
+                        <span class="criterion-desc">Question, contexte, hypothèse (1.5)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1.5" value="1.5" class="score-input" /></div>
                 </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1.5" value="1.5" class="score-input" />
+
+                <div class="criterion-row" data-section="Rapport" data-max="2">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Revue de littérature</span>
+                        <span class="criterion-desc">4 sources académiques (2.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="2" value="2" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Rapport" data-max="1">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Justification des variables</span>
+                        <span class="criterion-desc">Lien question CES / concept (1.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1" value="1" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Rapport" data-max="1">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Interprétation graphiques</span>
+                        <span class="criterion-desc">Analyse des patterns (1.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1" value="1" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Rapport" data-max="1">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Discussion</span>
+                        <span class="criterion-desc">Littérature, limites (1.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1" value="1" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Rapport" data-max="1.5">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Mesure alternative</span>
+                        <span class="criterion-desc">Proposition concrète (1.5)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1.5" value="1.5" class="score-input" /></div>
                 </div>
             </div>
 
-            <div class="criterion-row" data-section="Rapport" data-max="2">
-                <div class="criterion-info">
-                    <span class="criterion-name">Revue de littérature</span>
-                    <span class="criterion-desc">4 sources académiques, synthèse cohérente (2 pts)</span>
+            <!-- Colonne 2: Technique -->
+            <div class="section-column">
+                <div class="section-header">VOLET TECHNIQUE (12 pts)</div>
+
+                <div class="criterion-row" data-section="Technique" data-max="2">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Structure du projet</span>
+                        <span class="criterion-desc">Dossiers et organisation (2.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="2" value="2" class="score-input" /></div>
                 </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="2" value="2" class="score-input" />
+
+                <div class="criterion-row" data-section="Technique" data-max="3">
+                    <div class="criterion-info">
+                        <span class="criterion-name">R: Nettoyage et recodage</span>
+                        <span class="criterion-desc">Échelle 0-1 correcte (3.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="3" value="3" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Technique" data-max="1">
+                    <div class="criterion-info">
+                        <span class="criterion-name">R: Chemins relatifs</span>
+                        <span class="criterion-desc">Scripts portables (1.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1" value="1" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Technique" data-max="1">
+                    <div class="criterion-info">
+                        <span class="criterion-name">R: Documentation</span>
+                        <span class="criterion-desc">Clarté du code (1.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1" value="1" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Technique" data-max="3">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Graphiques</span>
+                        <span class="criterion-desc">Axes, échelle 0-1, esthétique (3.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="3" value="3" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Technique" data-max="1">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Quarto et PDF</span>
+                        <span class="criterion-desc">Compile et gabarit (1.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1" value="1" class="score-input" /></div>
+                </div>
+
+                <div class="criterion-row" data-section="Technique" data-max="1">
+                    <div class="criterion-info">
+                        <span class="criterion-name">Citations et bibliographie</span>
+                        <span class="criterion-desc">Format automatisé (1.0)</span>
+                    </div>
+                    <div class="criterion-pts"><input type="number" step="0.25" min="0" max="1" value="1" class="score-input" /></div>
                 </div>
             </div>
+        </div>
 
-            <div class="criterion-row" data-section="Rapport" data-max="1">
-                <div class="criterion-info">
-                    <span class="criterion-name">Justification des variables</span>
-                    <span class="criterion-desc">Explication de comment la question CES mesure le concept (1 pt)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Rapport" data-max="1">
-                <div class="criterion-info">
-                    <span class="criterion-name">Interprétation des graphiques</span>
-                    <span class="criterion-desc">Analyse détaillée et précise des patterns (1 pt)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Rapport" data-max="1">
-                <div class="criterion-info">
-                    <span class="criterion-name">Discussion</span>
-                    <span class="criterion-desc">Lien avec littérature, limites (1 pt)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Rapport" data-max="1.5">
-                <div class="criterion-info">
-                    <span class="criterion-name">Mesure alternative</span>
-                    <span class="criterion-desc">Proposition concrète et réaliste (150-200 mots) (1.5 pts)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1.5" value="1.5" class="score-input" />
-                </div>
-            </div>
-
-            <!-- Volet technique -->
-            <div class="section-header">Volet technique (12 pts)</div>
-
-            <div class="criterion-row" data-section="Technique" data-max="2">
-                <div class="criterion-info">
-                    <span class="criterion-name">Structure du projet</span>
-                    <span class="criterion-desc">Dossiers corrects, organisation logique (2 pts)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="2" value="2" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Technique" data-max="3">
-                <div class="criterion-info">
-                    <span class="criterion-name">Scripts R: Nettoyage</span>
-                    <span class="criterion-desc">Nettoyage et recodage corrects 0-1 (3 pts)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="3" value="3" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Technique" data-max="1">
-                <div class="criterion-info">
-                    <span class="criterion-name">Scripts R: Chemins</span>
-                    <span class="criterion-desc">Chemins relatifs fonctionnels (1 pt)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Technique" data-max="1">
-                <div class="criterion-info">
-                    <span class="criterion-name">Scripts R: Documentation</span>
-                    <span class="criterion-desc">Documentation claire du nettoyage (1 pt)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Technique" data-max="3">
-                <div class="criterion-info">
-                    <span class="criterion-name">Graphiques</span>
-                    <span class="criterion-desc">Axes titrés, échelle 0-1, esthétique (3 pts)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="3" value="3" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Technique" data-max="1">
-                <div class="criterion-info">
-                    <span class="criterion-name">Quarto</span>
-                    <span class="criterion-desc">Métadonnées, compile PDF, gabarit (1 pt)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-            </div>
-
-            <div class="criterion-row" data-section="Technique" data-max="1">
-                <div class="criterion-info">
-                    <span class="criterion-name">Citations et bibliographie</span>
-                    <span class="criterion-desc">Citations correctes, bib générée (1 pt)</span>
-                </div>
-                <div class="criterion-pts">
-                    <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-            </div>
-
-            <div class="field" style="margin-top: 20px;">
+        <div class="footer-area">
+            <div class="comment-box">
                 <label for="general-comment">Commentaires généraux</label>
-                <textarea id="general-comment" rows="6" placeholder="Points forts, points à améliorer..."></textarea>
+                <textarea id="general-comment" placeholder="Points forts, à améliorer..."></textarea>
             </div>
-
-            <div class="total-container">
-                <div class="total-label">Total :</div>
-                <div class="total-value"><span id="total-score">20</span> / 20</div>
-            </div>
-
-            <div class="actions">
-                <button class="button primary" onclick="copyMarkdown()">Copier le Markdown</button>
-                <button class="button" onclick="resetForm()">Réinitialiser</button>
-                <span id="copy-status" class="copy-status">Copié !</span>
+            <div class="total-box">
+                <span class="total-label">NOTE FINALE</span>
+                <span class="total-value"><span id="total-score">20</span>/20</span>
+                <div class="actions">
+                    <button class="button primary" onclick="copyMarkdown()">Copier</button>
+                    <button class="button" onclick="resetForm()">Reset</button>
+                    <span id="copy-status" class="copy-status">Copié!</span>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         function resetForm() {
-            if (confirm('Voulez-vous vraiment réinitialiser la grille ? Toutes les notes seront effacées.')) {
+            if (confirm('Réinitialiser la grille ?')) {
                 localStorage.removeItem('tp2_grille_data');
                 location.reload();
             }
         }
 
-        // Load data from localStorage on startup
         window.addEventListener('DOMContentLoaded', () => {
             const savedData = localStorage.getItem('tp2_grille_data');
             if (savedData) {
                 const data = JSON.parse(savedData);
                 document.getElementById('general-comment').value = data.generalComment || '';
-
                 const scores = data.scores || [];
                 document.querySelectorAll('.score-input').forEach((input, index) => {
                     if (scores[index] !== undefined) input.value = scores[index];
                 });
-
                 calculateTotal();
             }
-            
-            // Focus the first input automatically
-            const firstInput = document.querySelector('.score-input');
-            if (firstInput) firstInput.focus();
+            document.querySelector('.score-input').focus();
         });
 
-        // Select content on focus for faster editing
         document.addEventListener('focusin', (e) => {
-            if (e.target.classList.contains('score-input')) {
-                e.target.select();
-            }
+            if (e.target.classList.contains('score-input')) e.target.select();
         });
 
         function saveData() {
@@ -256,8 +323,7 @@
             const generalComment = document.getElementById('general-comment').value;
 
             let md = `## Grille de correction - TP2\n\n`;
-            md += `| Critère | Note |\n`;
-            md += `|:---|:---:|\n`;
+            md += `| Critère | Note |\n|:---|:---:|\n`;
 
             let currentSection = "";
             document.querySelectorAll('.criterion-row').forEach(row => {
@@ -267,18 +333,15 @@
                 const score = row.querySelector('.score-input').value;
 
                 if (section !== currentSection) {
-                    const sectionLabel = section === "Rapport" ? "CONTENU DU RAPPORT" : "VOLET TECHNIQUE";
-                    md += `| **${sectionLabel}** | |\n`;
+                    const label = section === "Rapport" ? "CONTENU DU RAPPORT" : "VOLET TECHNIQUE";
+                    md += `| **${label}** | |\n`;
                     currentSection = section;
                 }
                 md += `| ${name} | ${score} / ${max} |\n`;
             });
 
             md += `| **TOTAL** | **${total} / 20** |\n\n`;
-
-            if (generalComment) {
-                md += `**Commentaires généraux :**\n${generalComment}\n`;
-            }
+            if (generalComment) md += `**Commentaires généraux :**\n${generalComment}\n`;
 
             navigator.clipboard.writeText(md).then(() => {
                 const status = document.getElementById('copy-status');
@@ -287,6 +350,5 @@
             });
         }
     </script>
-
 </body>
 </html>
