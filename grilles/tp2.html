@@ -37,15 +37,10 @@
     <div id="main">
         <header>
             <h2>Grille de correction : TP2</h2>
-            <p>Remplissez la grille pour générer le feedback Markdown.</p>
+            <p>Remplissez les notes pour générer le feedback Markdown.</p>
         </header>
 
         <div id="app">
-            <div class="field">
-                <label for="student-name">Étudiant(e) / Groupe</label>
-                <input type="text" id="student-name" placeholder="Nom de l'étudiant ou du groupe" />
-            </div>
-
             <!-- Contenu du rapport -->
             <div class="section-header">Contenu du rapport (8 pts)</div>
             
@@ -57,9 +52,6 @@
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1.5" value="1.5" class="score-input" />
                 </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
-                </div>
             </div>
 
             <div class="criterion-row" data-section="Rapport" data-max="2">
@@ -69,9 +61,6 @@
                 </div>
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="2" value="2" class="score-input" />
-                </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
                 </div>
             </div>
 
@@ -83,9 +72,6 @@
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
                 </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
-                </div>
             </div>
 
             <div class="criterion-row" data-section="Rapport" data-max="1">
@@ -95,9 +81,6 @@
                 </div>
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
                 </div>
             </div>
 
@@ -109,9 +92,6 @@
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
                 </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
-                </div>
             </div>
 
             <div class="criterion-row" data-section="Rapport" data-max="1.5">
@@ -121,9 +101,6 @@
                 </div>
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1.5" value="1.5" class="score-input" />
-                </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
                 </div>
             </div>
 
@@ -138,9 +115,6 @@
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="2" value="2" class="score-input" />
                 </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
-                </div>
             </div>
 
             <div class="criterion-row" data-section="Technique" data-max="3">
@@ -150,9 +124,6 @@
                 </div>
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="3" value="3" class="score-input" />
-                </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
                 </div>
             </div>
 
@@ -164,9 +135,6 @@
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
                 </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
-                </div>
             </div>
 
             <div class="criterion-row" data-section="Technique" data-max="1">
@@ -176,9 +144,6 @@
                 </div>
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
                 </div>
             </div>
 
@@ -190,9 +155,6 @@
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="3" value="3" class="score-input" />
                 </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
-                </div>
             </div>
 
             <div class="criterion-row" data-section="Technique" data-max="1">
@@ -202,9 +164,6 @@
                 </div>
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
-                </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
                 </div>
             </div>
 
@@ -216,14 +175,11 @@
                 <div class="criterion-pts">
                     <input type="number" step="0.25" min="0" max="1" value="1" class="score-input" />
                 </div>
-                <div class="criterion-comment">
-                    <textarea placeholder="Commentaire..."></textarea>
-                </div>
             </div>
 
             <div class="field" style="margin-top: 20px;">
                 <label for="general-comment">Commentaires généraux</label>
-                <textarea id="general-comment" rows="4" placeholder="Points forts, points à améliorer..."></textarea>
+                <textarea id="general-comment" rows="6" placeholder="Points forts, points à améliorer..."></textarea>
             </div>
 
             <div class="total-container">
@@ -241,7 +197,7 @@
 
     <script>
         function resetForm() {
-            if (confirm('Voulez-vous vraiment réinitialiser la grille ? Toutes les notes et tous les commentaires seront effacés.')) {
+            if (confirm('Voulez-vous vraiment réinitialiser la grille ? Toutes les notes seront effacées.')) {
                 localStorage.removeItem('tp2_grille_data');
                 location.reload();
             }
@@ -252,30 +208,32 @@
             const savedData = localStorage.getItem('tp2_grille_data');
             if (savedData) {
                 const data = JSON.parse(savedData);
-                document.getElementById('student-name').value = data.student || '';
                 document.getElementById('general-comment').value = data.generalComment || '';
-                
+
                 const scores = data.scores || [];
-                const comments = data.comments || [];
-                
                 document.querySelectorAll('.score-input').forEach((input, index) => {
                     if (scores[index] !== undefined) input.value = scores[index];
                 });
-                
-                document.querySelectorAll('.criterion-row textarea').forEach((textarea, index) => {
-                    if (comments[index] !== undefined) textarea.value = comments[index];
-                });
-                
+
                 calculateTotal();
+            }
+            
+            // Focus the first input automatically
+            const firstInput = document.querySelector('.score-input');
+            if (firstInput) firstInput.focus();
+        });
+
+        // Select content on focus for faster editing
+        document.addEventListener('focusin', (e) => {
+            if (e.target.classList.contains('score-input')) {
+                e.target.select();
             }
         });
 
         function saveData() {
             const data = {
-                student: document.getElementById('student-name').value,
                 generalComment: document.getElementById('general-comment').value,
-                scores: Array.from(document.querySelectorAll('.score-input')).map(i => i.value),
-                comments: Array.from(document.querySelectorAll('.criterion-row textarea')).map(t => t.value)
+                scores: Array.from(document.querySelectorAll('.score-input')).map(i => i.value)
             };
             localStorage.setItem('tp2_grille_data', JSON.stringify(data));
         }
@@ -289,23 +247,17 @@
             saveData();
         }
 
-        document.querySelectorAll('.score-input, #student-name, #general-comment').forEach(input => {
+        document.querySelectorAll('.score-input, #general-comment').forEach(input => {
             input.addEventListener('input', calculateTotal);
-        });
-        
-        document.querySelectorAll('.criterion-row textarea').forEach(textarea => {
-            textarea.addEventListener('input', saveData);
         });
 
         function copyMarkdown() {
-            const student = document.getElementById('student-name').value || 'Étudiant';
             const total = document.getElementById('total-score').innerText;
             const generalComment = document.getElementById('general-comment').value;
 
             let md = `## Grille de correction - TP2\n\n`;
-            md += `**Étudiant(e) / Groupe :** ${student}\n\n`;
-            md += `| Critère | Note | Commentaire |\n`;
-            md += `|:---|:---:|:---|\n`;
+            md += `| Critère | Note |\n`;
+            md += `|:---|:---:|\n`;
 
             let currentSection = "";
             document.querySelectorAll('.criterion-row').forEach(row => {
@@ -313,19 +265,17 @@
                 const name = row.querySelector('.criterion-name').innerText;
                 const max = row.getAttribute('data-max');
                 const score = row.querySelector('.score-input').value;
-                const comment = row.querySelector('textarea').value.replace(/\n/g, '<br>');
 
                 if (section !== currentSection) {
                     const sectionLabel = section === "Rapport" ? "CONTENU DU RAPPORT" : "VOLET TECHNIQUE";
-                    md += `| **${sectionLabel}** | | |\n`;
+                    md += `| **${sectionLabel}** | |\n`;
                     currentSection = section;
                 }
-                md += `| ${name} | ${score} / ${max} | ${comment} |\n`;
+                md += `| ${name} | ${score} / ${max} |\n`;
             });
 
+            md += `| **TOTAL** | **${total} / 20** |\n\n`;
 
-            md += `| **TOTAL** | **${total} / 20** | |\n\n`;
-            
             if (generalComment) {
                 md += `**Commentaires généraux :**\n${generalComment}\n`;
             }
@@ -337,5 +287,6 @@
             });
         }
     </script>
+
 </body>
 </html>
