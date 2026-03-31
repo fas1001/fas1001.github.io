@@ -8,7 +8,7 @@
     "cours_6": true,
     "cours_7": true,
     "cours_8": true,
-    "cours_9": false,
+    "cours_9": true,
     "resume": false
   },
   "exercises": {
@@ -18,7 +18,7 @@
     "textuelle": true,
     "scraping": true,
     "llm": true,
-    "site_web": false
+    "site_web": true
   },
   "evaluations": {
     "_comment": "Status options: 'pending' (À venir - Blue), 'active' (En cours - Green), 'completed' (Terminé - Grey). You can also use an object: { \"status\": \"active\", \"url\": \"https://...\" }",
@@ -213,8 +213,8 @@
     {
       "week": 13,
       "date": "2026-04-02",
-      "title": "Analyse d'images et audio",
-      "description": "Vision par ordinateur et reconnaissance vocale.",
+      "title": "IA agentique",
+      "description": "Utiliser les agents IA pour effectuer des actions",
       "type": "lecture",
       "slide": {
         "image": "images/cours_9.png",
