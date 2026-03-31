@@ -140,3 +140,5 @@ L'IA Agentique est une façon de faire accomplir des actions  un LLM
 # 
 
 ![](img/openclaw.png)
+
+# Qu'est-ce qu'on fait avec des agents ?
