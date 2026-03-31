@@ -43,6 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function applyConfig(config) {
+    // Handle slide links for the static Diapositives grid
+    if (config.slide_links) {
+        for (const [id, url] of Object.entries(config.slide_links)) {
+            if (id === '_comment') continue;
+
+            const element = document.getElementById(`slide-${id}`);
+            const link = element ? element.querySelector('a') : null;
+
+            if (link && url) {
+                link.href = url;
+            }
+        }
+    }
+
     // Handle Slides
     if (config.slides) {
         for (const [id, isAvailable] of Object.entries(config.slides)) {

@@ -11,6 +11,19 @@
     "cours_9": true,
     "resume": false
   },
+  "slide_links": {
+    "_comment": "Links used by the static Diapositives grid in index.html.",
+    "cours_1": "slides/1_introduction/cours_1_intro.html",
+    "cours_2": "slides/2_introduction_r/index.html",
+    "cours_3": "slides/3_introduction_git_github/git_github.html",
+    "cours_4": "slides/4_sondages/cours_4_sondages.html",
+    "cours_5": "slides/5_mesures_latentes/cours_5_mesures.html",
+    "cours_6": "slides/6_analyse_textuelle/cours_6_analyse_textuelle.html",
+    "cours_7": "slides/7_web_scraping/cours_7_web_scraping.html",
+    "cours_8": "slides/8_llms/cours_8_llms.html",
+    "cours_9": "slides/9_llms_agentique/cours_9_llm_agentique.html",
+    "resume": "slides/10_resume/resume_semestre.html"
+  },
   "exercises": {
     "intro_r": true,
     "cleaning": true,
