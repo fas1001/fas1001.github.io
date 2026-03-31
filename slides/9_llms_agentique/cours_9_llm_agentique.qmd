@@ -142,3 +142,13 @@ L'IA Agentique est une façon de faire accomplir des actions  un LLM
 ![](img/openclaw.png)
 
 # Qu'est-ce qu'on fait avec des agents ?
+
+## La collecte de données automatisée 
+
+Montrez une image d'un agent naviguant sur le web. Un agent peut, par exemple, utiliser le terminal pour lancer un script de web scraping ciblé, extraire des articles de presse, et les ranger dans l'arborescence de fichiers que vous avez enseignée.
+
+## Le nettoyage de données (Tidy Data) 
+
+Rappelez-leur que le nettoyage prend 80% du temps d'analyse. Un agent (comme Claude Code ou Cursor) peut lire un fichier CSV mal formaté, comprendre les règles de Tidy Data, et écrire le code R ou Python pour le nettoyer de manière autonome.
+
+## La simulation sociale
