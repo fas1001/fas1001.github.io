@@ -254,7 +254,7 @@ Notre travail
 | TP1 - Introduction              | 10%     | 28 janvier 2026 avant minuit |
 | Quiz 1                          | 15%     | 5 février 2026               |
 | TP2 - Travail de mi-session     | 20%     | 11 mars 2026 avant minuit    |
-| Quiz 2                          | 15%     | 16 avril 2026                |
+| Quiz 2                          | 15%     | 9 avril 2026                 |
 | TP3 - Travail de session        | 30%     | 30 avril 2026 avant minuit   |
 | Participation en classe         | 10%     | 8 janvier au 30 avril        |
 | Total                           | 100%    | 8 janvier au 30 avril        |

@@ -223,7 +223,7 @@
     },
     {
       "week": 14,
-      "date": "2026-04-09",
+      "date": "2026-04-16",
       "title": "Conclusion",
       "description": "Revue des concepts clés et applications futures des mégadonnées.",
       "type": "lecture",
@@ -234,7 +234,7 @@
     },
     {
       "week": 15,
-      "date": "2026-04-16",
+      "date": "2026-04-09",
       "title": "Quiz 2",
       "description": "Évaluation finale en classe (3 heures).",
       "type": "important-eval",
