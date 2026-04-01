@@ -19,15 +19,25 @@ format:
     embed-resources: true
 ---
 
-# Introduction {background-color="#40666e"}
+## Structure du cours
+
+![](img/structure_cours.png)
 
 ## Structure du cours
 
-::: {.r-stack}
-![](img/structure_cours.png)
+![](img/structure_cours_1.png)
 
-![](img/structure_cours_1.png){.fragment}
-:::
+## Structure du cours
+
+![](img/structure_cours_2.png)
+
+## TP 3
+
+![](img/tp3.png){.absolute top=250 right=150}
+
+## {background-image="img/llm_text.png"}
+
+# IA agentique
 
 ## C'est quoi un agent ?
 
@@ -141,14 +151,30 @@ L'IA Agentique est une façon de faire accomplir des actions  un LLM
 
 ![](img/openclaw.png)
 
-# Qu'est-ce qu'on fait avec des agents ?
+## 
 
-## La collecte de données automatisée 
+![](img/openclaw_github.png)
 
-Montrez une image d'un agent naviguant sur le web. Un agent peut, par exemple, utiliser le terminal pour lancer un script de web scraping ciblé, extraire des articles de presse, et les ranger dans l'arborescence de fichiers que vous avez enseignée.
+##
 
-## Le nettoyage de données (Tidy Data) 
+![](img/clawhub.png)
 
-Rappelez-leur que le nettoyage prend 80% du temps d'analyse. Un agent (comme Claude Code ou Cursor) peut lire un fichier CSV mal formaté, comprendre les règles de Tidy Data, et écrire le code R ou Python pour le nettoyer de manière autonome.
+##
 
-## La simulation sociale
+![](img/clawhub_skill.png)
+
+## 
+
+![](img/moltbook.png)
+
+## Qu'est-ce qu'on fait avec des agents ?
+
+- La collecte de données automatisée 
+
+- Le nettoyage de données (Tidy Data) 
+
+- La simulation de données sociales ?
+
+- Avez vous des idées ?
+
+# Installer OpenClaw ?
