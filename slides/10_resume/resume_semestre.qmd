@@ -7,7 +7,7 @@ lang: fr
 from: markdown+emoji
 format:
   revealjs:
-    mermaid: 
+    mermaid:
       theme: dark
     theme: simple
     logo: https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Universite_de_Montreal_logo.svg/1920px-Universite_de_Montreal_logo.svg.png
@@ -18,44 +18,33 @@ format:
     code-overflow: wrap
 ---
 
-# Introduction aux mégadonnées en sciences sociales {background-color="#40666e"}
+# Résumé de la session {background-color="#40666e"}
 
 ## Structure du cours
 
+::: {.r-stack}
+
 ![](img/structure_cours.png)
+
+![](img/structure_cours_1.png){.fragment}
+
+![](img/structure_cours_2.png){.fragment}
+
+:::
 
 ## Le parcours du semestre {.smaller}
 
-1. **Introduction aux mégadonnées** : Concepts fondamentaux des big data
-2. **Introduction à R** : Programmation et analyse de données
-3. **Git, GitHub et Quarto** : Contrôle de version et documents reproductibles
-4. **Sondages** : Collecte et analyse de données d'enquêtes
-5. **Mesures latentes** : Variables non observables et analyses factorielles
-6. **Analyse textuelle** : Traitement et analyse de textes
-7. **Web scraping** : Extraction automatisée de données web
-8. **Grands modèles linguistiques** : Utilisation de l'IA pour analyser des données
-9. **Analyse d'images** : Traitement et interprétation d'images pour la recherche
+1. **Introduction aux mégadonnées** : voir des traces numériques comme données de recherche
+2. **Introduction à R** : objets, fonctions, graphiques et statistiques de base
+3. **Terminal, Git, GitHub et Quarto** : travailler proprement et de façon reproductible
+4. **Tidy data et sondages** : structurer, nettoyer, représenter et pondérer
+5. **Mesures latentes** : construire de bons indicateurs pour des concepts abstraits
+6. **Analyse textuelle** : pipeline, regex, dictionnaires et classification
+7. **Web scraping** : naviguer, aspirer, extraire et nettoyer des données web
+8. **LLM** : comprendre, utiliser et automatiser des tâches avec des API
+9. **IA agentique** : faire agir un LLM avec des outils et des sources connectées
 
-# Concepts fondamentaux {background-color="#40666e"}
-
-## Qu'est-ce que des mégadonnées ?
-
-### Les "V" des mégadonnées
-
-- **Volume** : Quantité massive de données
-- **Vélocité** : Rapidité de génération et traitement
-- **Variété** : Diversité des formats et sources 
-
-## Les mégadonnées en sciences sociales {.smaller}
-
-- **Avant** : Données créées spécifiquement pour répondre à une question de recherche
-- **Maintenant** : Utilisation de données existantes pour répondre à des questions de recherche
-
-::: {.callout-note}
-L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
-:::
-
-## Principe fondamental : la reconversion {.smaller}
+## Le fil conducteur du cours {.smaller}
 
 :::: {.columns}
 
@@ -64,103 +53,144 @@ L'un n'est pas mieux que l'autre. Ils répondent à des besoins différents.
 :::
 
 ::: {.column width="50%"}
-Notre travail consiste à transformer des données collectées pour d'autres fins en matériel de recherche pertinent pour les sciences sociales.
+
+Notre travail cette session a été de transformer des données produites pour d'autres fins en matériel de recherche exploitable.
+
+- observer les données disponibles
+- les structurer
+- les nettoyer
+- les analyser
+- interpréter prudemment les résultats
+
 :::
 
 ::::
 
-# Outils et méthodes {background-color="#40666e"}
-
-## R et RStudio {.smaller}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-- Essayez Positron
-- VSCode 
-- VIM
-- Cursor
+::: {.callout-note}
+Les mégadonnées ne remplacent pas les méthodes classiques. Elles élargissent la boîte à outils.
 :::
 
-::: {.column width="40%"}
-![](img/r.png)
-![](img/rstudio.png)
-:::
+# Fondations {background-color="#40666e"}
 
-::::
-
-## Git et GitHub {.smaller}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-![](img/git_github.png)
-:::
-
-::: {.column width="50%"}
-- Système de contrôle de version
-- Suivi des modifications du code
-- Historique complet du projet
-- Branches pour développer en parallèle
-:::
-
-::::
-
-## Quarto pour documents reproductibles {.smaller}
-
-- Documents combinant texte, code, et résultats
-- Format Markdown simplifié pour la rédaction
-- Intégration de code R
-- Génération de documents variés (HTML, PDF, Word...)
-- Facilite la reproductibilité de la recherche
-
-```markdown
-# Titre
-## Sous-titre
-
-Texte avec **emphase** et *italique*.
-```
-
-```r
-library(ggplot2)
-
-# Code R intégré
-ggplot(data, aes(x, y)) + 
-  geom_point()
-```
-
-# Méthodes d'analyse {background-color="#40666e"}
-
-## Sondages et analyse d'enquêtes {.smaller}
+## La boîte à outils {.smaller}
 
 :::: {.columns}
 
 ::: {.column width="50%"}
 
-- Conception de questionnaires
-- Échantillonnage et représentativité 
-- Pondération des données
-- Nettoyage et préparation
-- Analyses statistiques descriptives et inférentielles
-- Visualisation des résultats
+**Produire et analyser**
+
+- `R`
+- Positron
+- packages du tidyverse
+- visualisation et modèles simples
+
+**Travailler proprement**
+
+- terminal
+- Git
+- GitHub
+- Quarto
 
 :::
 
 ::: {.column width="50%"}
+
+![](img/r.png){width="35%"}
+
+![](img/git_github.png){width="90%"}
+
+:::
+
+::::
+
+## De la question à l'analyse {.smaller}
+
+1. Formuler une question de recherche claire
+2. Identifier une source de données plausible
+3. Comprendre la structure des données
+4. Mettre les données dans un format exploitable
+5. Appliquer la bonne méthode d'analyse
+6. Vérifier les limites, les biais et la validité
+7. Communiquer les résultats dans un document reproductible
+
+## Tidy data et cleaning {.smaller}
+
+::: {.columns}
+::: {.column width="52%"}
+
+- Une variable par colonne
+- Une observation par ligne
+- Une unité d'analyse par tableau
+- Standardiser le nettoyage rend l'analyse plus simple
+- Un mauvais format crée des erreurs avant même la statistique
+
+:::
+
+::: {.column width="48%"}
+
+::: {.callout-important appearance="simple"}
+Le nettoyage n'est pas une corvée séparée de la recherche.
+
+C'est une partie de la recherche.
+:::
+
+:::
+:::
+
+# Données structurées {background-color="#40666e"}
+
+## Sondages {.smaller}
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+- demander plutôt qu'observer
+- formuler les questions avec soin
+- penser à l'échantillonnage et à la non-réponse
+- vérifier la représentativité
+- pondérer lorsque l'échantillon s'écarte de la population
+
+:::
+
+::: {.column width="45%"}
 ![](img/weighting-diagram.png)
 :::
 
 ::::
 
+::: {.callout-tip appearance="simple"}
+Un gros échantillon ne corrige pas un mauvais échantillon.
+:::
+
 ## Mesures latentes {.smaller}
 
-- Variables non directement observables (attitudes, traits, opinions)
-- Échelles multiples pour mesurer des concepts complexes
-- Analyse factorielle pour identifier des structures sous-jacentes
-- Création de variables composites
-- Évaluation de la fiabilité et validité des mesures
+:::: {.columns}
 
-![](img/redneck_scale.png){width="50%"}
+::: {.column width="55%"}
+
+- plusieurs concepts importants ne sont pas directement observables
+- il faut construire une échelle à partir de plusieurs indicateurs
+- une bonne mesure doit être fiable et valide
+- l'analyse factorielle aide à voir si les items tiennent ensemble
+
+:::
+
+::: {.column width="45%"}
+![](img/redneck_scale.png){width="95%"}
+:::
+
+::::
+
+## Ce qu'on a appris sur la mesure {.smaller}
+
+- une question isolée suffit rarement pour un concept complexe
+- la formulation d'un item peut changer le résultat
+- les poids, les échelles et le cleaning sont des choix méthodologiques
+- une belle variable finale repose sur une chaîne de décisions en amont
+
+# Données non structurées {background-color="#40666e"}
 
 ## Analyse textuelle {.smaller}
 
@@ -168,10 +198,12 @@ ggplot(data, aes(x, y)) +
 
 ::: {.column width="50%"}
 
-- Prétraitement du texte (tokenisation, stemming...)
-- Analyse de sentiments
-- Modélisation de sujets (topic modeling)
-- Classification de textes
+- tokenisation
+- stopwords
+- regex
+- dictionnaires
+- analyse de sentiment
+- classification et résumé
 
 :::
 
@@ -181,58 +213,150 @@ ggplot(data, aes(x, y)) +
 
 ::::
 
+::: {.callout-note}
+Le texte semble désordonné, mais il suit souvent une structure qu'on peut exploiter avec les bonnes étapes.
+:::
+
 ## Web scraping {.smaller}
-
-- Extraction automatisée de données du web
-- APIs pour accéder aux données structurées
-- HTML parsing pour extraire des informations de sites web
-- Considérations éthiques et légales
-- Automatisation de la collecte
-- Gestion et organisation des données extraites
-
-![](img/network_api.png){width="50%"}
-
-## Grands modèles linguistiques (LLM) {.smaller}
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="55%"}
 
-- IA entraînée sur d'énormes volumes de texte
-- Capacités de génération et compréhension du texte
-- Applications en sciences sociales:
-  - Classification de textes
-  - Analyse de sentiment
-  - Codage qualitatif assisté
+- comprendre la différence entre web et internet
+- lire une URL
+- distinguer HTML, JSON et APIs
+- observer le code source et l'onglet réseau
+- extraire, nettoyer puis organiser les données
+- respecter les limites techniques, légales et éthiques
 
 :::
 
-::: {.column width="50%"}
-
-- Enjeux éthiques:
-  - Biais algorithmiques
-  - Confidentialité des données
-  - Fiabilité des résultats
-  - Besoin de validation humaine
-
+::: {.column width="45%"}
+![](img/network_api.png)
 :::
 
 ::::
 
-![](img/training.png){width="50%"}
+## Le pipeline commun {.smaller}
 
-## Analyse d'images {.smaller}
+1. Naviguer
+2. Aspirer
+3. Extraire
+4. Nettoyer
+5. Visualiser
+6. Interpréter
 
-- Traitement d'images à grande échelle
-- Reconnaissance d'objets et classification
-- Analyse de représentations médiatiques
-- Computer vision et réseaux de neurones
-- Applications en sciences sociales:
-  - Analyse de couverture médiatique
-  - Étude des représentations sociales
-  - Mesure de la diversité et de l'inclusion
-  
-![](img/images/CNN.jpg){width="50%"}
+::: {.callout-important appearance="simple"}
+Avant d'automatiser, il faut comprendre ce qu'on automatise.
+:::
+
+# IA et automatisation {background-color="#40666e"}
+
+## Ce que sont les LLM {.smaller}
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+- des modèles entraînés sur d'énormes volumes de texte
+- utiles pour générer, transformer, classifier et résumer
+- capables de produire des sorties très convaincantes
+
+**Mais**
+
+- biais des données
+- erreurs factuelles
+- opacité partielle du raisonnement
+- besoin de validation humaine
+
+:::
+
+::: {.column width="45%"}
+![](img/training.png)
+:::
+
+::::
+
+## Utiliser les LLM en recherche {.smaller}
+
+1. Accéder aux modèles par API
+2. Écrire un prompt clair
+3. Faire travailler le modèle ligne par ligne sur un tableau
+4. Automatiser avec des boucles
+5. Sauvegarder progressivement les résultats
+6. Vérifier les réponses critiques
+
+::: {.callout-tip appearance="simple"}
+Une bonne formule de prompt: **rôle -> tâche -> contraintes -> format de sortie**
+:::
+
+## IA agentique {.smaller}
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+Un LLM seul produit du texte.
+
+Un agent combine:
+
+- un objectif
+- de l'autonomie
+- des outils
+- des actions observables
+
+:::
+
+::: {.column width="55%"}
+![](img/claude_code_pont_local_cloud_fr.svg)
+:::
+
+::::
+
+## MCP {.smaller}
+
+:::: {.columns}
+
+::: {.column width="48%"}
+
+- connecter des outils et des services au modèle
+- aller chercher de l'information dans GitHub, Notion, Drive ou le terminal
+- passer de la simple conversation à l'exécution de tâches
+- ouvrir la porte à des workflows de recherche plus intégrés
+
+:::
+
+::: {.column width="52%"}
+![](img/api_vs_mcp_flow.svg){width="100%"}
+:::
+
+::::
+
+## Le TP3 comme synthèse {.smaller}
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+Le travail final vous demande de combiner plusieurs apprentissages du cours:
+
+- formuler une question
+- trouver ou produire une base de données
+- nettoyer et structurer
+- analyser avec R
+- documenter proprement le processus
+- mobiliser les LLM ou les agents de façon critique si pertinent
+
+:::
+
+::: {.column width="45%"}
+![](img/tp3.png){width="90%"}
+:::
+
+::::
+
+# Conclusion {background-color="#40666e"}
 
 ## Compétences acquises {.smaller}
 
@@ -241,11 +365,11 @@ ggplot(data, aes(x, y)) +
 
 **Compétences techniques**
 
-- Programmation en R
-- Utilisation de Git/GitHub
-- Création de documents reproductibles
-- Manipulation et visualisation de données
-- Extraction et analyse de données diverses
+- programmer en R
+- nettoyer et restructurer des données
+- faire des graphiques et des analyses de base
+- utiliser GitHub et Quarto
+- collecter des données via web scraping ou API
 
 :::
 
@@ -253,30 +377,25 @@ ggplot(data, aes(x, y)) +
 
 **Compétences analytiques**
 
-- Conception de recherche quantitative
-- Interprétation des résultats
-- Évaluation de la qualité des données
-- Application de méthodes adaptées aux questions de recherche
+- traduire une question en stratégie empirique
+- évaluer la qualité d'une mesure
+- reconnaître les biais et les limites d'un jeu de données
+- choisir une méthode adaptée au matériau disponible
+- utiliser l'IA comme aide, pas comme autorité
 
 :::
 :::
 
-## L'avenir des mégadonnées en sciences sociales {.smaller}
+## L'idée à retenir {.smaller}
 
-- Démocratisation des outils d'analyse
-- Intégration croissante de l'IA dans la recherche
-- Recherche plus collaborative et interdisciplinaire
-- Nouvelles sources de données (IoT, réalité virtuelle, etc.)
+Les outils vus cette session servent à une même chose:
 
-# Conclusion {background-color="#40666e"}
+- transformer des traces numériques en données
+- transformer des données en analyse
+- transformer une analyse en argument de recherche défendable
 
-## Les mégadonnées comme outil complémentaire {.smaller}
-
-Les mégadonnées ne remplacent pas les méthodes traditionnelles, mais offrent:
-
-- De nouvelles sources d'information
-- Des méthodes complémentaires aux approches existantes
-- La possibilité d'étudier des phénomènes à grande échelle
-- Des perspectives inédites sur les phénomènes sociaux
+::: {.callout-important appearance="simple"}
+La technique compte, mais le jugement méthodologique compte encore plus.
+:::
 
 # Merci {.biggest}
