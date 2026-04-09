@@ -26,7 +26,7 @@ format:
 
 ![](img/structure_cours.png)
 
-![](img/structure_cours_2.png){.fragment}
+![](img/structure_cours_1.png){.fragment}
 
 :::
 
