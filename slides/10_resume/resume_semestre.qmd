@@ -142,7 +142,6 @@ Notre travail cette session a été de transformer des données produites pour d
 
 ::: {.column width="50%"}
 
-- tokenisation
 - stopwords
 - regex
 - dictionnaires
@@ -157,10 +156,6 @@ Notre travail cette session a été de transformer des données produites pour d
 
 ::::
 
-::: {.callout-note}
-Le texte semble désordonné, mais il suit souvent une structure qu'on peut exploiter avec les bonnes étapes.
-:::
-
 ## Web scraping {.smaller}
 
 :::: {.columns}
@@ -172,8 +167,6 @@ Le texte semble désordonné, mais il suit souvent une structure qu'on peut expl
 - distinguer HTML, JSON et APIs
 - observer le code source et l'onglet réseau
 - extraire, nettoyer puis organiser les données
-- respecter les limites techniques, légales et éthiques
-
 :::
 
 ::: {.column width="45%"}
@@ -192,14 +185,11 @@ Le texte semble désordonné, mais il suit souvent une structure qu'on peut expl
 
 - des modèles entraînés sur d'énormes volumes de texte
 - utiles pour générer, transformer, classifier et résumer
-- capables de produire des sorties très convaincantes
 
 **Mais**
 
 - biais des données
-- erreurs factuelles
 - opacité partielle du raisonnement
-- besoin de validation humaine
 
 :::
 
@@ -283,9 +273,8 @@ Un agent combine:
 
 - traduire une question en stratégie empirique
 - évaluer la qualité d'une mesure
-- reconnaître les biais et les limites d'un jeu de données
-- choisir une méthode adaptée au matériau disponible
-- utiliser l'IA comme aide, pas comme autorité
+- choisir une méthode adaptée au données disponible
+- utiliser l'IA comme outil
 
 :::
 :::
