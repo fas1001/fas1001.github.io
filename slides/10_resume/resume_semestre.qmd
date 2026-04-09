@@ -26,8 +26,6 @@ format:
 
 ![](img/structure_cours.png)
 
-![](img/structure_cours_1.png){.fragment}
-
 ![](img/structure_cours_2.png){.fragment}
 
 :::
@@ -60,15 +58,11 @@ Notre travail cette session a été de transformer des données produites pour d
 - les structurer
 - les nettoyer
 - les analyser
-- interpréter prudemment les résultats
+- interpréter les résultats
 
 :::
 
 ::::
-
-::: {.callout-note}
-Les mégadonnées ne remplacent pas les méthodes classiques. Elles élargissent la boîte à outils.
-:::
 
 # Fondations {background-color="#40666e"}
 
@@ -104,65 +98,22 @@ Les mégadonnées ne remplacent pas les méthodes classiques. Elles élargissent
 
 ::::
 
-## De la question à l'analyse {.smaller}
-
-1. Formuler une question de recherche claire
-2. Identifier une source de données plausible
-3. Comprendre la structure des données
-4. Mettre les données dans un format exploitable
-5. Appliquer la bonne méthode d'analyse
-6. Vérifier les limites, les biais et la validité
-7. Communiquer les résultats dans un document reproductible
-
 ## Tidy data et cleaning {.smaller}
-
-::: {.columns}
-::: {.column width="52%"}
 
 - Une variable par colonne
 - Une observation par ligne
 - Une unité d'analyse par tableau
 - Standardiser le nettoyage rend l'analyse plus simple
-- Un mauvais format crée des erreurs avant même la statistique
-
-:::
-
-::: {.column width="48%"}
-
-::: {.callout-important appearance="simple"}
-Le nettoyage n'est pas une corvée séparée de la recherche.
-
-C'est une partie de la recherche.
-:::
-
-:::
-:::
 
 # Données structurées {background-color="#40666e"}
 
 ## Sondages {.smaller}
-
-:::: {.columns}
-
-::: {.column width="55%"}
 
 - demander plutôt qu'observer
 - formuler les questions avec soin
 - penser à l'échantillonnage et à la non-réponse
 - vérifier la représentativité
 - pondérer lorsque l'échantillon s'écarte de la population
-
-:::
-
-::: {.column width="45%"}
-![](img/weighting-diagram.png)
-:::
-
-::::
-
-::: {.callout-tip appearance="simple"}
-Un gros échantillon ne corrige pas un mauvais échantillon.
-:::
 
 ## Mesures latentes {.smaller}
 
@@ -182,13 +133,6 @@ Un gros échantillon ne corrige pas un mauvais échantillon.
 :::
 
 ::::
-
-## Ce qu'on a appris sur la mesure {.smaller}
-
-- une question isolée suffit rarement pour un concept complexe
-- la formulation d'un item peut changer le résultat
-- les poids, les échelles et le cleaning sont des choix méthodologiques
-- une belle variable finale repose sur une chaîne de décisions en amont
 
 # Données non structurées {background-color="#40666e"}
 
@@ -238,19 +182,6 @@ Le texte semble désordonné, mais il suit souvent une structure qu'on peut expl
 
 ::::
 
-## Le pipeline commun {.smaller}
-
-1. Naviguer
-2. Aspirer
-3. Extraire
-4. Nettoyer
-5. Visualiser
-6. Interpréter
-
-::: {.callout-important appearance="simple"}
-Avant d'automatiser, il faut comprendre ce qu'on automatise.
-:::
-
 # IA et automatisation {background-color="#40666e"}
 
 ## Ce que sont les LLM {.smaller}
@@ -286,10 +217,6 @@ Avant d'automatiser, il faut comprendre ce qu'on automatise.
 4. Automatiser avec des boucles
 5. Sauvegarder progressivement les résultats
 6. Vérifier les réponses critiques
-
-::: {.callout-tip appearance="simple"}
-Une bonne formule de prompt: **rôle -> tâche -> contraintes -> format de sortie**
-:::
 
 ## IA agentique {.smaller}
 
@@ -333,29 +260,6 @@ Un agent combine:
 
 ::::
 
-## Le TP3 comme synthèse {.smaller}
-
-:::: {.columns}
-
-::: {.column width="55%"}
-
-Le travail final vous demande de combiner plusieurs apprentissages du cours:
-
-- formuler une question
-- trouver ou produire une base de données
-- nettoyer et structurer
-- analyser avec R
-- documenter proprement le processus
-- mobiliser les LLM ou les agents de façon critique si pertinent
-
-:::
-
-::: {.column width="45%"}
-![](img/tp3.png){width="90%"}
-:::
-
-::::
-
 # Conclusion {background-color="#40666e"}
 
 ## Compétences acquises {.smaller}
@@ -393,9 +297,5 @@ Les outils vus cette session servent à une même chose:
 - transformer des traces numériques en données
 - transformer des données en analyse
 - transformer une analyse en argument de recherche défendable
-
-::: {.callout-important appearance="simple"}
-La technique compte, mais le jugement méthodologique compte encore plus.
-:::
 
 # Merci {.biggest}
