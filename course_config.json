@@ -9,7 +9,7 @@
     "cours_7": true,
     "cours_8": true,
     "cours_9": true,
-    "resume": false
+    "resume": true
   },
   "slide_links": {
     "_comment": "Links used by the static Diapositives grid in index.html.",
