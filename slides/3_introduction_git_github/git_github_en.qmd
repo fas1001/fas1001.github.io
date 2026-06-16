@@ -1,0 +1,599 @@
+---
+title: "Introduction to Git, GitHub, and Quarto"
+subtitle: "Introduction to Big Data in Social Sciences"
+author: Laurence-Olivier M. Foisy
+institute: Université de Montréal
+lang: en
+from: markdown+emoji
+format:
+  revealjs:
+    mermaid: 
+      theme: dark
+    theme: simple
+    logo: https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Universite_de_Montreal_logo.svg/1920px-Universite_de_Montreal_logo.svg.png
+    footer: "[FAS1001](https://fas1001.com)"
+    transition: slide
+    transition-speed: fast
+    code-fold: false
+    code-overflow: wrap
+---
+
+## Questions about the last class?
+
+- Have you practiced?
+- Have you tried the DataCamps? 
+- The path?
+- Positron?
+
+## Course Structure
+
+![](img/structure_cours_en.png)
+
+## Tools to get there {.smaller}
+
+::: {.r-stack}
+
+![](img/outils_numeriques_2025.jpg)
+
+
+![](img/outils_numeriques_2025_qmd.jpg){.fragment}
+
+![](img/term.png){.absolute .fragment width="35%" top=-30 left=800}
+
+:::
+
+## To see today
+
+### The remaining tools we will use this semester:
+
+- Terminal
+- Git
+- GitHub
+- Quarto
+
+# Terminal
+
+## About the terminal {.smaller}
+
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
+- Not code but commands
+- Also called shell or command line
+- A file explorer
+- At any time, you are in a specific location, in a directory or a folder
+
+## Terminal
+
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
+::::{.columns}
+
+:::{.column width=50%}
+
+### macOS
+
+- Terminal
+
+![](https://upload.wikimedia.org/wikipedia/commons/b/b3/Terminalicon2.png){width=50%}
+
+:::
+
+:::{.column width=50%}
+
+### Windows
+
+- PowerShell
+
+![](img/powershell.png)
+
+:::
+
+::::
+
+## Why use the terminal?
+
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
+- Increased understanding of the computer and your file structure
+- Many tools are only available in the terminal
+- Getting familiar with the R console
+- Giving precise instructions that a mouse does not allow
+- Git is centered around the terminal
+
+- Best reason: Because it's fun!
+
+## List of useful commands {.center .smaller}
+
+- `ls` - Lists files and folders in the current directory
+- `cd folder` and `cd ..` - Changes directory
+- `mkdir` - Creates a new folder
+- `rm` - Deletes a file
+- `cp` - Copies a file
+- `mv` - Moves or renames a file 
+- `cat` - Displays the content of a file
+- `git` - Version control system
+
+## ⚠️ WARNING: Danger Zone ⚠️
+
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
+### The terminal is powerful, but unforgiving.
+
+::: {.callout-important}
+
+## No "Ctrl + Z" for deletion
+Unlike your file explorer, when you delete a file with `rm`, **it does not go to the trash.** It disappears. Forever.
+
+:::
+
+<br>
+
+**The forbidden command (never type this):**
+
+```bash
+rm -rf /
+```
+
+## DataCamp
+
+![](img/term.png){.absolute top=-30 right=-150 width="10%"}
+
+### [Introduction to Shell](https://learn.datacamp.com/courses/introduction-to-shell)
+
+![](img/datacamp_shell.png)
+
+# Git
+
+
+## Git {.smaller}
+
+![](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png){.absolute top=-30 right=-150 width="10%"}
+
+::::{.columns}
+
+:::{.column width=50%}
+
+- Created by Linus Torvalds in 2005
+- Version control
+- Allows tracking the evolution of a project
+- Useful for anything that is text, including articles and presentations
+- Saves all changes made since the creation of the project (.git)
+- Reproducibility and transparency
+
+:::
+
+:::{.column width=50%}
+
+![](img/meme_versions.jpg)
+
+:::
+
+::::
+
+## Important
+
+![](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png){.absolute top=-30 right=-150 width="10%"}
+
+- Download and install Git from [git-scm.com](https://git-scm.com)
+
+- Configure Git before starting to use it
+
+- In the terminal:
+
+```bash
+git config --global user.name "username"
+git config --global user.email your@email.com
+git config --global credential.helper store
+```
+<!--`-->
+
+# GitHub
+
+## Git {.smaller transition="none"}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+![](img/git.png)
+
+## GitHub {.smaller transition="none"}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+![](img/git_github.png)
+
+
+## GitHub
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+- GitHub = Git + Internet
+
+- Collaborative development platform
+- Hosts Git projects
+- Acquired by Microsoft for 7.5 billion dollars
+- Storage place for many open source projects
+
+## Open Source Projects on GitHub
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+::::{.columns}
+
+:::{.column}
+- [Linux](https://github.com/torvalds/linux)
+- [Bitcoin](https://github.com/bitcoin/bitcoin)
+- [Model Summary](https://github.com/vincentarelbundock/modelsummary)
+- [RStudio](https://github.com/rstudio)
+- [Zotero](https://github.com/zotero/zotero)
+:::
+:::{.column}
+- [Overleaf](https://github.com/overleaf/overleaf)
+- [ggplot2](https://github.com/tidyverse/ggplot2)
+- [Advanced-R](https://github.com/hadley/adv-r)
+- [Python](https://github.com/python)
+
+:::
+::::
+
+## Set Up Your Access {.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+- Create a GitHub account:
+- Generate a classic personal access token:
+    - Log in to GitHub and go to your Settings.
+    - In the Developer Settings section, click on Personal Access Tokens, then on Tokens (classic).
+    - Create a new token by clicking on Generate new token (classic).
+    - Choose unlimited duration and grant all scopes/permissions.
+    - Copy the generated token, as you will not be able to see it again after leaving the page.
+    
+- When Git asks for a username and password, enter:
+    - Username: your GitHub username.
+    - Password: paste the token you generated.
+
+## How to use it? {.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+1. Clone an existing project onto your computer.
+  - This project is now a folder on your computer. You can modify, delete, move it, etc.
+
+
+```bash
+git clone https://link/to/repo.git
+```
+
+2. Modify the project, add files, etc.
+
+```bash
+git pull 
+git add your_file_1 your_file_2
+git commit -m "Commit message"
+git push
+```
+
+## Organize your directory and place your data {.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+```bash
+/your_project
+├── data
+│   ├── processed
+│   │   └── data_clean.csv
+│   └── raw
+│       └── data_raw.csv
+├── docs
+│   └── article
+│       ├── articles.qmd
+│       └── references.bib
+├── R
+│   ├── 1_analysis.R
+│   └── 2_graph.R
+├── README.md
+└── results
+    └── graphs
+        └── 1_bar_graph.png        
+```
+
+## .gitignore {.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+- Text file that specifies files and folders to ignore
+- Files and folders specified in the .gitignore will not be tracked by Git
+- Example of a .gitignore file content:
+  - `*.csv` - Ignore all .csv files
+  - `data/` - Ignore the data folder
+  - `.Rproj` - Ignore all .Rproj files
+  - `.Renviron` - Ignore the .Renviron file
+
+## README.md Files {.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+- Main file to introduce and document a project
+- Must include a clear description of the project, how to install and use it
+- Often written in Markdown (.md)
+- Contains instructions for contributing and information on dependencies and licenses
+
+- Example structure:
+
+  - Project title
+  - Description
+  - How to install
+  - How to use
+  - How to contribute
+
+## Branches {.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+- In our context, a branch is a chapter, a section, or an element of your project
+
+![](img/branch.webp)
+
+## Contributing? Pull Requests (PR) {.smaller}
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+- Pull requests allow other users to propose changes to your project
+- Collaborative process:
+  - A contributor creates a branch with their changes
+  - A PR is opened to submit these changes
+  - The project owner can comment, request changes, or accept the PR
+
+- Important for:
+
+  - Tracking changes
+  - Discussion around changes
+  - Validation before integration
+
+## [DataCamp](https://app.datacamp.com/learn/skill-tracks/github-foundations)
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){.absolute top=-30 right=-150 width="10%"}
+
+![](img/datacamp_github.png)
+
+# Quarto
+
+## Markup Languages {.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 left=1100 width="10%"}
+
+::::{.columns}
+
+:::{.column width=60%}
+
+- Allow structuring a document with tags
+- Separate content from formatting
+- Common examples:
+  - HTML for the web
+  - LaTeX for scientific documents
+  - Markdown for simplicity
+
+:::
+
+:::{.column width=40%}
+
+![](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg){width=50%}
+
+:::
+
+::::
+
+## History of Markup Languages
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+![](img/timeline_markup.png)
+
+
+## Markup Languages {.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+::::{.columns}
+
+:::{.column width=60%}
+
+![](https://www.latex-project.org/about/logos/latex-project-logo_288x288.svg){.absolute width=40% top=100 left=10}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/3840px-Markdown-mark.svg.png){.absolute width=30% top=450 left=110}
+![](https://quarto.org/quarto.png){.absolute width=30% top=280 left=400}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Typst.svg/3840px-Typst.svg.png){.absolute width=40% top=400 left=700}
+
+:::
+
+:::{.column width=40%}
+### Which one to choose?
+
+They are all good!
+:::
+
+::::
+
+## Why Quarto? {.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+- Very easy to use
+- Included with RStudio
+- Possibility to include LaTeX if necessary
+- Templates are easy to create and use
+
+```zsh
+quarto use template fas1001/gabarit_udem_science_po
+```
+
+![](https://r4ds.hadley.nz/images/quarto-flow.png)
+
+## Why complicate things? {.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+::::{.columns}
+
+:::{.column width=80%}
+
+- Open source - Adapted to our needs
+- Automation - Reproducibility
+- Compatibility - Windows, macOS, Linux
+- Versatility (HTML, PDF, Word, etc.)
+- A different philosophical approach than word processing software like `Word`
+
+:::
+
+:::{.column width=20%}
+
+![](img/word_logo.png){width="300%"}
+
+:::
+
+::::
+
+## Learning Curve
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+![](https://inzaneresearch.com/wp-content/uploads/2018/06/sfhtj.jpg?w=840)
+
+## Quarto
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+- Enhanced Markdown
+- Ability to use multiple programming languages like `Julia` or `Python`
+- Ability to use multiple `IDEs` like `RStudio` or `VS Code`
+- `Quarto` allows making beautiful presentations, books, research reports, theses, websites
+
+## How to use Markdown {.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+::::{.columns}
+
+:::{.column width=50%}
+
+```markdown
+
+### Level 3 Title
+
+#### Level 4 Title
+
+**Bold text**
+_Italic text_
+
+@citation in the text
+At the end of a sentence [@citation].
+
+> Blockquote
+
+Normal text, writing, blablabla.
+```
+
+:::
+
+:::{.column width=50%}
+
+### Level 3 Title
+
+#### Level 4 Title
+
+**Bold text**
+
+_Italic text_
+
+Author (year) in the text
+
+At the end of a sentence (Author, year).
+
+> Blockquote
+
+Normal text, writing, blablabla.
+
+:::
+
+::::
+
+## How to use Markdown {.smaller}
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+::::{.columns}
+
+:::{.column width=50%}
+
+```markdown
+- Bullet list
+- Bullet list 
+  1. Numbered sub-list
+  2. Numbered sub-list
+      1. Numbered sub-sub-list
+        - Bullet sub-sub-sub-list
+
+![](https://mdg.imgix.net/assets/images/tux.png?auto=format&fit=clip&q=40&w=100)
+![](img/terminal.png)
+
+```
+
+:::
+
+:::{.column width=50%}
+
+- Bullet list
+- Bullet list 
+  1. Numbered sub-list
+  2. Numbered sub-list
+      1. Numbered sub-sub-list
+        - Bullet sub-sub-sub-list
+
+![](https://mdg.imgix.net/assets/images/tux.png?auto=format&fit=clip&q=40&w=100)
+![](img/powershell.png)
+
+:::
+
+::::
+
+## .bib Files
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+```bib
+@book{salganik2019bit,
+  title={Bit by bit: Social research in the digital age},
+  author={Salganik, Matthew J},
+  year={2019},
+  publisher={Princeton University Press}
+}
+```
+
+
+## YAML Header
+
+![](https://quarto-dev.github.io/quarto-r/logo.png){.absolute top=-30 right=-150 width="10%"}
+
+```yaml
+---
+author: "Laurence-Olivier"
+title: "The YAML"
+subtitle: "What is it?"
+date: today
+format:
+  pdf:
+    documentclass: article
+    geometry: 
+      - margin=2.5cm
+    fontsize: 12pt
+    mainfont: "TeX Gyre Termes"
+    header-includes: |
+      \usepackage[english]{babel}
+bibliography: references.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl
+---
+```
+
+# Assignment 1
+
+[Available on the course website](https://fas1001.com)
+
+# Conclusion

@@ -1,0 +1,180 @@
+---
+title: "Agentic AI"
+subtitle: "Introduction to Big Data in Social Sciences"
+author: Laurence-Olivier M. Foisy
+institute: Université de Montréal
+lang: en
+from: markdown+emoji
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    logo: img/udem.png
+    footer: "[FAS1001](https://fas1001.com)"
+    transition: none
+    transition-speed: fast
+    code-fold: false
+    code-overflow: wrap
+    highlight-style: github
+    embed-resources: true
+---
+
+## Course Structure
+
+![](img/structure_cours_en.png)
+
+## Course Structure
+
+![](img/structure_cours_1.png)
+
+## Course Structure
+
+![](img/structure_cours_2.png)
+
+## Assignment 3
+
+![](img/tp3.png){.absolute top=250 right=150}
+
+## {background-image="img/llm_text.png"}
+
+# Agentic AI
+
+## What is an Agent?
+
+::: {.r-stack}
+
+![](img/007.png){.absolute top=320 right=800 .fragment}
+
+
+![](img/smith.png){.absolute top=350 right=-100 .fragment}
+
+![](img/47.png){.absolute top=-100 right=-200 style="transform: rotate(-180deg);" width="40%" .fragment}
+
+:::
+
+## What is an Agent?
+
+::: {.r-stack}
+
+![](img/remax.png){.absolute top=200 right=-100 .fragment}
+
+![](img/voyage.png){.absolute top=250 right=600 .fragment width="70%"}
+
+:::
+
+## What is an Agent?
+
+An agent is an autonomous entity mandated to act in the world to produce an effect on behalf of an objective or a principal.
+
+- **Delegation**
+
+- **Autonomy**
+
+- **Effectiveness** 
+
+## So?
+
+Agentic AI is a way to have a LLM perform actions.
+
+
+### How? 
+
+LLMs only generate text?
+
+## So?
+
+Agentic AI is a way to have a LLM perform actions.
+
+### How?
+
+![](img/Gnu-bash-logo.svg)
+
+## LLM - Text Generation
+
+![](img/llm_isole_texte_seulement_en.svg)
+
+## LLM - Taking Actions
+
+![](img/claude_code_pont_local_cloud_en.svg)
+
+## Tools
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+### Terminal
+
+- Claude Code
+- Codex
+- Gemini-cli
+- OpenCode
+- Crush
+
+:::
+
+:::{.column width="50%"}
+
+### IDE/UI
+
+- Cursor
+- GitHub Copilot
+- Claude Desktop / Cowork
+- Etc. 
+
+:::
+
+::::
+
+# MCP
+
+::: {.r-stack}
+
+![](img/consensus.png){.absolute top=320 right=800 .fragment}
+
+![](img/notion.png){.absolute top=350 right=400 .fragment}
+
+![](img/drive.png){.absolute top=200 right=300 .fragment}
+
+![](img/brave.png){.absolute top=-100 right=200 .fragment}
+
+![](img/github.png){.absolute top=100 right=600}
+
+:::
+
+## What is an MCP? {background="black"}
+
+![](img/api_vs_mcp_flow.svg){.absolute top=200 right=100 width="110%"}
+
+
+# 
+
+![](img/openclaw.png)
+
+## 
+
+![](img/openclaw_github.png)
+
+##
+
+![](img/clawhub.png)
+
+##
+
+![](img/clawhub_skill.png)
+
+## 
+
+![](img/moltbook.png)
+
+## What Can We Do with Agents?
+
+- Automated data collection 
+
+- Data cleaning (Tidy Data) 
+
+- Simulation of social data?
+
+- Do you have any ideas?
+
+# Installing OpenClaw?
